@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-	devise_for :users, :controllers => { registrations: 'users/registrations' }
+	devise_for :users, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions' }
 
 	root 'home#index'
+
+	get 'dashboard' => 'home#dashboard', as: 'dashboard'
 
 end
