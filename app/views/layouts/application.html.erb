@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Langd</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <head>
+    <title>Rudy</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 
-  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/simplex/bootstrap.min.css" rel="stylesheet" integrity="sha256-rgHoMgF45/9e2kvxfvR0KarwQNw5CRqgxbrthGpeUuc= sha512-CGGV53FSdrXrjyGCNk04p+xuna3CbE33n773A0EEmqtcN8W3NaFsR0vSQcbll5dpSS90d3i2Zh3jFX/j46hzJA==" crossorigin="anonymous">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/simplex/bootstrap.min.css" rel="stylesheet" integrity="sha256-rgHoMgF45/9e2kvxfvR0KarwQNw5CRqgxbrthGpeUuc= sha512-CGGV53FSdrXrjyGCNk04p+xuna3CbE33n773A0EEmqtcN8W3NaFsR0vSQcbll5dpSS90d3i2Zh3jFX/j46hzJA==" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
-</head>
-<body>
-
-  <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="row">
-        <div class="navbar-header">
-          <a href="../" class="navbar-brand">LangD</a>
-        </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav navbar-right">
-            <% unless user_signed_in? %>
-              <li><%= link_to "Sign up", new_user_registration_path %></li>
-              <li><%= link_to "Sign in", new_user_session_path %></li>
-            <% else %>
-              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-            <% end %>
-          </ul>
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  </head>
+  <body>
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="row">
+          <div class="navbar-header col-md-3">
+            <a href="../" class="navbar-brand">LangD</a>
+          </div>
+          <div class="navbar-collapse collapse" id="navbar-main">
+            <ul class="nav navbar-nav col-md-6">
+              <% if user_signed_in? and current_user.is_admin %>
+                <li><%= link_to "Admin", admin_path %></li>
+              <% end %>
+              <li><%= link_to "Dashboard", dashboard_path %></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <% unless user_signed_in? %>
+                <li><%= link_to "Sign up", new_user_registration_path %></li>
+                <li><%= link_to "Sign in", new_user_session_path %></li>
+              <% else %>
+                <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+              <% end %>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <br><br><br>
-
-  <%= yield %>
-
-</body>
+    <br><br><br>
+    <%= yield %>
+  </body>
 </html>

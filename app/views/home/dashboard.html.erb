@@ -19,12 +19,16 @@
         </ul>
       </div>
 
-      <ul class="list-group">
-        <li class="list-group-item">
-          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-          Apply for being a teacher
-        </li>
-      </ul>
+      <% unless current_user.is_teacher or not current_user.teacher_info.nil? %>
+        <ul class="list-group">
+          <%= link_to apply_for_teacher_path do %>
+            <li class="list-group-item">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              Apply for being a teacher
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
 
       <div class="panel panel-default">
         <div class="panel-body">

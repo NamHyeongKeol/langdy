@@ -9,5 +9,6 @@ class AddCustomFieldToUsers < ActiveRecord::Migration
 		change_column_null :users, :native_lang, false
 
 		add_column :users, :is_teacher, :boolean, default: false
+		add_column :users, :is_admin, :boolean, default: false
 	end
 end

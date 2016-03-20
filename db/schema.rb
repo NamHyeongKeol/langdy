@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160319113558) do
+ActiveRecord::Schema.define(version: 20160320091914) do
+
+  create_table "teacher_infos", force: :cascade do |t|
+    t.integer  "user_id"
+    t.boolean  "is_approved", default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -30,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160319113558) do
     t.string   "lang_to_learn",                          null: false
     t.string   "native_lang",                            null: false
     t.boolean  "is_teacher",             default: false
+    t.boolean  "is_admin",               default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
