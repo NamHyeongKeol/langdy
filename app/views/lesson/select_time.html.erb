@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10">
+      <h3> Schedule Lesson </h3>
+    </div>
+
+    <div class="col-md-2">
+      <a href="/book_lesson" class="btn btn-success col-md-12">Book trial lesson</a>
+    </div>
+
+    <div class="col-md-6">
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3> Teacher Info </h3>
+          <hr>
+          <img src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png" class="profile-pic col-md-4"/>
+          <div class="col-md-8" style="text-align:center;">
+
+            <h2><%= @teacher.name %></h2>
+            <h5>Location : <% @teacher.teacher_info.location %></h5>
+            <div class="btn-group" role="group">
+              <a class="btn btn-default">
+                Rating
+                <br>
+                5.0
+              </a>
+              <a class="btn btn-primary">
+                Students
+                <br>
+                132
+              </a>
+              <a class="btn btn-success">
+                Lessons
+                <br>
+                512
+              </a>
+            </div>
+          </div>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <h3>Introduction</h3>
+            <hr>
+            <%= @teacher.teacher_info.introduction %>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3> Select time </h3>
+          <!--
+            <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th class="col-md-2">#</th>
+                <th class="col-md-2">Mon</th>
+                <th class="col-md-2">Tue</th>
+                <th class="col-md-2">Wed</th>
+                <th class="col-md-2">Thu</th>
+                <th class="col-md-2">Fri</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% 10.upto(22).each do |h| %>
+                <tr>
+                  <th><%= h %>:00 - <%= h+1 %>:00</th>
+                  <td class="checked"></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+          -->
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

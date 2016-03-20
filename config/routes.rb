@@ -26,4 +26,7 @@ Rails.application.routes.draw do
 	get 'permit_purchase/:id' => 'cash#permit_purchase', as: 'permit_purchase'
 
 	post 'feedback' => 'home#feedback', as: 'feedback'
+
+	get 'book_lesson/:id' => 'lesson#select_time', as: 'select_time'
+	post 'book_lesson' => 'lesson#book', as: 'book_path'
 end
