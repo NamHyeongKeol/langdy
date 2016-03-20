@@ -1,0 +1,53 @@
+<br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <div class="col-md-offset-2 col-md-10">
+      <h3> Application form </h3>
+      <hr>
+      </div>
+      <%= form_for :teacher_info, url: submit_teacher_application_path do |f| %>
+
+        <div class="col-md-2" align="center">
+          <%= f.label :location, "Location", class: "control-label" %>
+        </div>
+        <div class="col-md-10">
+          <%= f.text_field :location, :autocomplete => :off, class: "col-md-12 form-control" %>
+        </div>
+        <div class="col-md-12" style="height: 10px"></div>
+
+        <div class="col-md-2" align="center">
+          <%= f.label :major, "Major", class: "control-label" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :major, :autocomplete => :off, class: "col-md-12 form-control" %>
+        </div>
+        <div class="col-md-2" align="center">
+          <%= f.label :school_grad, "University graduated", class: "control-label" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :school_grad, :autocomplete => :off, class: "col-md-12 form-control" %>
+        </div>
+        <div class="col-md-12" style="height: 10px"></div>
+
+        <div class="col-md-2" align="center">
+          <%= f.label :introduction, "Introduction", class: "control-label" %>
+        </div>
+        <div class="col-md-10">
+          <%= f.text_area :introduction, :autocomplete => :off, :placeholder => "Explain yourself...", class: "col-md-12 form-control", rows: "15" %>
+        </div>
+        <div class="col-md-12" style="height: 10px"></div>
+
+        <div class="col-md-12" style="height: 20px"></div>
+
+        <div class="col-md-2"></div>
+        <div class="col-md-10">
+          <%= f.submit "Submit!", class: "col-md-3 btn btn-primary" %>
+        </div>
+
+      <% end %>
+    </div>
+
+
+  </div>
+</div>

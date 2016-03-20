@@ -22,7 +22,11 @@
           <tbody>
             <% @teacher_request.each do |request| %>
               <tr>
-                <td><%= request.user.name %></td>
+                <td>
+                  <%= link_to teacher_path(request.user) do %>
+                    <%= request.user.name %>
+                  <% end %>
+                </td>
                 <td>
                   <%= link_to teacher_certify_path(request.id), {:class => "btn btn-default"} do %>
                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>

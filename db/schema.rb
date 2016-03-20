@@ -15,9 +15,13 @@ ActiveRecord::Schema.define(version: 20160320091914) do
 
   create_table "teacher_infos", force: :cascade do |t|
     t.integer  "user_id"
-    t.boolean  "is_approved", default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string   "major"
+    t.string   "school_grad"
+    t.text     "introduction"
+    t.string   "location"
+    t.boolean  "is_approved",  default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "users", force: :cascade do |t|

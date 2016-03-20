@@ -1,0 +1,157 @@
+<div class="container">
+  <div class="row">
+
+    <!-- Left column -->
+    <div class="col-md-9">
+
+      <!-- Basic Info -->
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="col-md-3">
+            <img src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png" class="profile-pic col-md-12"/>
+          </div>
+          <div class="col-md-9">
+            <h2><%= @teacher.name %></h2>
+            <h5>Location : <%= @teacher.teacher_info.location %></h5>
+            <br>
+            <div class="btn-group" role="group">
+              <a class="btn btn-default">
+                Rating
+                <br>
+                5.0
+              </a>
+              <a class="btn btn-primary">
+                Students
+                <br>
+                132
+              </a>
+              <a class="btn btn-success">
+                Lessons
+                <br>
+                512
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Basic Info -->
+
+      <!-- Self intro -->
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>Introduction</h3>
+          <hr>
+          <%= @teacher.teacher_info.introduction %>
+        </div>
+      </div>
+      <!-- Self intro -->
+
+      <!-- Certificate intro -->
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>Education</h3>
+          <hr>
+          Studied <%= @teacher.teacher_info.major %> in <%= @teacher.teacher_info.school_grad %>
+          <h3>Certificates</h3>
+          <hr>
+        </div>
+      </div>
+      <!-- Certificate intro -->
+
+      <!-- Comments -->
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>Comments</h3>
+          <hr>
+          <div class="media">
+            <div class="media-left col-md-2">
+              <a href="#">
+                <img src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png" class="media-object profile-pic col-md-12"/>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">Jack Dawson</h4>
+              This man has super amazing teaching skills.
+            </div>
+          </div>
+          <div class="media">
+            <div class="media-left col-md-2">
+              <a href="#">
+                <img src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png" class="media-object profile-pic col-md-12"/>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">Jack Dawson</h4>
+              This man has super amazing teaching skills.
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Comments -->
+
+      <!-- Schedule -->
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3> Schedule </h3>
+          <hr>
+          <table class="table table-striped table-hover ">
+            <thead>
+              <tr>
+                <th class="col-md-2">#</th>
+                <th class="col-md-2">Mon</th>
+                <th class="col-md-2">Tue</th>
+                <th class="col-md-2">Wed</th>
+                <th class="col-md-2">Thu</th>
+                <th class="col-md-2">Fri</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% 10.upto(22).each do |h| %>
+                <tr>
+                  <th><%= h %>:00 - <%= h+1 %>:00</th>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- Schedule -->
+
+    </div>
+    <!-- Left column -->
+
+    <!-- Right column -->
+    <div class="col-md-3">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4> If you want to start lessons </h4>
+          <hr>
+          <h4>
+            900 Chips for 1 hour
+          </h4>
+          <a href="#" class="btn btn-success col-md-12">Book trial lesson</a>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4>
+            Contact
+          </h4>
+          <hr>
+          <h4>
+            900 Chips for 1 hour
+          </h4>
+          <a href="#" class="btn btn-default col-md-12">Send a Message</a>
+        </div>
+      </div>
+    </div>
+    <!-- Right column -->
+
+  </div>
+</div>
