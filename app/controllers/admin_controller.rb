@@ -13,4 +13,8 @@ class AdminController < ApplicationController
 		@transaction_requests = CashTransaction.all
 	end
 
+	def feedback
+		@feedbacks = Feedback.all
+	end
+
 end

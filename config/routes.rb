@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 	get 'admin' => 'admin#index', as: 'admin'
 	get 'admin/teacher' => 'admin#teacher', as: 'admin_teacher'
 	get 'admin/cash' => 'admin#cash', as: 'admin_cash'
+	get 'admin/feedback' => 'admin#feedback', as: 'admin_feedback'
 
 	get 'apply_for_teacher' => 'teachers#apply', as: 'apply_for_teacher'
 	post 'teachers/apply' => 'teachers#submit_teacher_application', as: 'submit_teacher_application'
@@ -23,4 +24,6 @@ Rails.application.routes.draw do
 	get 'purchase' => 'cash#index', as: 'purchase'
 	post 'submit_purchase' => 'cash#submit_purchase', as: 'submit_purchase'
 	get 'permit_purchase/:id' => 'cash#permit_purchase', as: 'permit_purchase'
+
+	post 'feedback' => 'home#feedback', as: 'feedback'
 end

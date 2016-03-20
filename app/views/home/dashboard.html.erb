@@ -43,9 +43,12 @@
         <div class="panel-body">
           <div class="col-md-12">
             <h5>
-              Earn $10 in Rudy credits for every friend that you invite.
+              Leave your feedback for improve this platform. We will repay your kindness.
             </h5>
-            <a href="#" class="btn btn-default col-md-12">Invite Friends</a>
+            <%= form_for :feedback, url: feedback_path do |f| %>
+              <%= f.text_field :text, :autocomplete => :off, class: "col-md-12 form-control" %>
+              <%= f.submit "Leave feedback!", class: "btn btn-default col-md-12" %>
+            <% end %>
           </div>
         </div>
       </div>

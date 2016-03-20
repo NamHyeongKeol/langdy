@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
 
 	has_many :comments, :class_name => "TeacherComment", :foreign_key => "commentee_id"
 	has_many :left_comments, :class_name => "TeacherComment", :foreign_key => "commentor_id"
+
+	has_many :feedbacks
 end
