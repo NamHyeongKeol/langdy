@@ -20,8 +20,10 @@
         </div>
         <ul class="list-group">
           <li class="list-group-item">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            Edit Profile
+            <%= link_to edit_user_registration_path do %>
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              Edit Profile
+            <% end %>
           </li>
         </ul>
       </div>
