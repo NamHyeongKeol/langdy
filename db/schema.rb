@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320103710) do
+ActiveRecord::Schema.define(version: 20160320110852) do
+
+  create_table "cash_transactions", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.integer  "amount"
+    t.boolean  "is_permitted", default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
   create_table "teacher_comments", force: :cascade do |t|
     t.integer  "commentor_id"
@@ -50,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160320103710) do
     t.string   "native_lang",                            null: false
     t.boolean  "is_teacher",             default: false
     t.boolean  "is_admin",               default: false
+    t.integer  "cash",                   default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

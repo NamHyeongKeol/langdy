@@ -8,7 +8,10 @@
           <img src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png" class="profile-pic col-md-offset-2 col-md-8"/>
           <div class="col-md-12" style="text-align:center;">
             <h3><%= current_user.name %></h3>
-            <a href="#" class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> 180p</a>
+            <a href="/purchase" class="btn btn-sm btn-primary">
+              <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+              <%= current_user.cash %>p
+            </a>
           </div>
         </div>
         <ul class="list-group">

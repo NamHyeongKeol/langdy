@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+        <a href="/admin/teacher" class="list-group-item ">
+          Teachers
+        </a>
+        <a href="/admin/cash" class="list-group-item active">
+          Cash
+        </a>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <!-- Teacher requests -->
+      <div class="col-md-12">
+        <h2> Transaction Request </h2>
+        <table class="table table-striped table-hover ">
+          <thead>
+            <tr>
+              <th class="col-md-3">Name</th>
+              <th class="col-md-3">Amount</th>
+              <th class="col-md-3">Date</th>
+              <th class="col-md-3">Approve</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @transaction_requests.each do |request| %>
+              <tr>
+                <td><%= request.receiver.name %></td>
+                <td><%= request.amount %></td>
+                <td><%= request.created_at %></td>
+                <td>
+                  <% if request.is_permitted %>
+                    Permitted
+                  <% else %>
+                    <%= link_to permit_purchase_path(request.id), {:class => "btn btn-default"} do %>
+                      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    <% end %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <!-- Teacher requests -->
+
+    </div>
+
+  </div>
+</div>
+
