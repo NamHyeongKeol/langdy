@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160320110852) do
     t.boolean  "is_teacher",             default: false
     t.boolean  "is_admin",               default: false
     t.integer  "cash",                   default: 0
+    t.string   "profile_pic"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -5,7 +5,11 @@
     <div class="col-md-3">
       <div class="panel panel-default">
         <div class="panel-body">
-          <img src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png" class="profile-pic col-md-offset-2 col-md-8"/>
+          <% if current_user.profile_pic.url.nil? %>
+            <img src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png" class="profile-pic col-md-offset-2 col-md-8"/>
+          <% else %>
+            <img src=<%= current_user.profile_pic.url %> class="profile-pic col-md-offset-2 col-md-8"/>
+          <% end %>
           <div class="col-md-12" style="text-align:center;">
             <h3><%= current_user.name %></h3>
             <a href="/purchase" class="btn btn-sm btn-primary">

@@ -12,5 +12,7 @@ class AddCustomFieldToUsers < ActiveRecord::Migration
 		add_column :users, :is_admin,			:boolean, default: false
 
 		add_column :users, :cash,				:integer, default: 0
+
+		add_column :users, :profile_pic,		:string
 	end
 end
