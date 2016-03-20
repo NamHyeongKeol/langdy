@@ -62,6 +62,23 @@ class TeachersController < ApplicationController
 		end
 	end
 
+	def add_comment
+		c = TeacherComment.new
+		c.commentee = User.find(params[:id])
+		c.commentor = current_user
+		c.text = params[:new_comment][:text]
+		c.save
+
+		redirect_to :back
+	end
+
+	def destroy_comment
+		c = TeacherComment.find(params[:id])
+		c.destroy
+
+		redirect_to :back
+	end
+
 	private
 		def teacher_application_params
 			params.require(:teacher_info).permit(:location, :major, :school_grad, :introduction)

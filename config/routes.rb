@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 	post 'teachers/filter_teachers'
 
 	get 'teacher/:id' => 'teachers#show', as: 'teacher'
+	post 'teacher/add_comment/:id' => 'teachers#add_comment', as: 'teacher_comments'
+	delete 'teacher/destroy_comment/:id' => 'teachers#destroy_comment', as: 'destroy_teacher_comment'
 end
