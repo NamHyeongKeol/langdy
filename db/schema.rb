@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320171036) do
+ActiveRecord::Schema.define(version: 20160328041952) do
 
   create_table "cash_transactions", force: :cascade do |t|
     t.integer  "sender_id"
@@ -21,16 +21,6 @@ ActiveRecord::Schema.define(version: 20160320171036) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
-
-  create_table "conversations", force: :cascade do |t|
-    t.integer  "sender_id"
-    t.integer  "recipient_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  add_index "conversations", ["recipient_id"], name: "index_conversations_on_recipient_id"
-  add_index "conversations", ["sender_id"], name: "index_conversations_on_sender_id"
 
   create_table "feedbacks", force: :cascade do |t|
     t.integer  "user_id"
@@ -48,17 +38,6 @@ ActiveRecord::Schema.define(version: 20160320171036) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "messages", force: :cascade do |t|
-    t.text     "body"
-    t.integer  "conversation_id"
-    t.integer  "user_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
-
   create_table "teacher_comments", force: :cascade do |t|
     t.integer  "commentor_id"
     t.integer  "commentee_id"
@@ -73,9 +52,9 @@ ActiveRecord::Schema.define(version: 20160320171036) do
     t.string   "school_grad"
     t.text     "introduction"
     t.string   "location"
-    t.boolean  "is_approved",  default: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "is_approved",  default: true
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -94,7 +73,7 @@ ActiveRecord::Schema.define(version: 20160320171036) do
     t.string   "name",                                   null: false
     t.string   "lang_to_learn",                          null: false
     t.string   "native_lang",                            null: false
-    t.boolean  "is_teacher",             default: false
+    t.boolean  "is_teacher",             default: true
     t.boolean  "is_admin",               default: false
     t.integer  "cash",                   default: 0
     t.string   "profile_pic"
