@@ -176,11 +176,12 @@
               900 Chips for 1 hour
             </h4>
             
+            <!-- Section - Select Time -->
             <div class="input-group">
               <button type="button" class="btn btn-primary col-md-12" data-toggle="modal" data-target="#selectTimeModal">
                 강의 시간 선택
               </button>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="강의 시간을 선택해 주세요" disabled>
+              <input type="text" id="selectTimeInput" class="form-control" placeholder="강의 시간을 선택해 주세요" disabled>
               
               <!-- Modal For select time-->
               <div class="modal fade" id="selectTimeModal" tabindex="-1" role="dialog" aria-labelledby="selectTimeLabel" aria-hidden="true">
@@ -197,26 +198,64 @@
                         <script type="text/javascript">
                           var dp = new DayPilot.Calendar("dp");
                           dp.viewType = "Week";
+                          dp.events.list = [
+                                        {
+                                          "id":"5",
+                                          "text":"Calendar Event 5",
+                                          "start":"2016-03-28T10:30:00",
+                                          "end":"2016-03-28T16:30:00"
+                                        },
+                                        {
+                                          "id":"6",
+                                          "text":"Calendar Event 6",
+                                          "start":"2014-02-24T09:00:00",
+                                          "end":"2014-02-24T14:30:00"
+                                        },
+                                        {
+                                          "id":"7",
+                                          "text":"Calendar Event 7",
+                                          "start":"2014-02-27T12:00:00",
+                                          "end":"2014-02-27T16:00:00"
+                                        }];
+                          dp.eventMoveHandling = "Disabled";
                           dp.init();
+                          
+                          eventStatic = null;
+                          dp.onTimeRangeSelected = function (args) {
+                            name = "name";
+                            var e = new DayPilot.Event({
+                                start: args.start,
+                                end: args.end,
+                                id: DayPilot.guid(),
+                                resource: args.resource,
+                                text: name
+                            });
+                            
+                            eventStatic = e;
+                            // dp.events.add(e);
+                            
+                            // $('#selectTimeModal').modal("hide");
+                          };
                         </script>
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="passSelectTime(eventStatic)">완료</button>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             
+            <!-- Section - Curriculum -->
             <div class="input-group">
               <button type="button" class="btn btn-primary col-md-12" data-toggle="modal" data-target="#curriculumModal">
                 커리큘럼 선택
               </button>
               <input type="text" id="disabledTextInput" class="form-control" placeholder="커리큘럼을 선택해 주세요" disabled>
               
-              <!-- Modal For select time-->
+              <!-- Modal For Curriculum -->
               <div class="modal fade" id="curriculumModal" tabindex="-1" role="dialog" aria-labelledby="curriculumLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -235,10 +274,70 @@
                 </div>
               </div>
             </div>
-
-            <%= link_to "강의 신청", select_time_path(@teacher), class: "btn btn-success col-md-12" %>
             
-            <%= link_to "무료 매칭 신청", select_time_path(@teacher), class: "btn btn-success col-md-12" %>
+            <!-- Section - Confirm Lecture -->
+            <div class="input-group">
+              <button type="button" class="btn btn-success col-md-12" data-toggle="modal" data-target="#applyModal">
+                강의 신청
+              </button>
+              
+              <!-- Modal For Apply Lecture -->
+              <div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="applyLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="applyLabel">강의 신청</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="well">
+                        <p><b>선생님 : <%= @teacher.name %></b></p>
+                        <p><b>강의료 : 900 코인</b></p>
+                        <p><b>강의 시간 : <span class="selectTimeInput"></span></b></p>
+                        <p><b>커리큘럼 :</b></p>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">예</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">아니오</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Section - Confirm Free Lecture -->
+            <div class="input-group">
+              <button type="button" class="btn btn-success col-md-12" data-toggle="modal" data-target="#applyModal">
+                무료 매칭 신청
+              </button>
+              
+              <!-- Modal For Apply Free Lecture -->
+              <div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="applyLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="applyLabel">무료 매칭 신청</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="well">
+                        <p><b>선생님 : <%= @teacher.name %></b></p>
+                        <p><b>강의료 : 900 코인</b></p>
+                        <p><b>강의 시간 : <span class="selectTimeInput"></span></b></p>
+                        <p><b>커리큘럼 :</b></p>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary">예</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">아니오</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!--<%= link_to "무료 매칭 신청", select_time_path(@teacher), class: "btn btn-success col-md-12" %>-->
           </div>
         </form>
       </div>

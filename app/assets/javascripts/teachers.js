@@ -12,3 +12,9 @@ $(document).ready(function() {
     });
 
 });
+
+function passSelectTime(e) {
+  // set input's value
+  $('#selectTimeInput').val(e.data.start.value + ' - ' + e.data.end.value);
+  $('.selectTimeInput').text(e.data.start.value + ' - ' + e.data.end.value);
+}

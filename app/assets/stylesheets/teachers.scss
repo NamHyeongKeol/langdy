@@ -9,5 +9,21 @@
 	
 	.input-group {
     margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  #dp { // Scheduler
+  }
+}
+
+#applyModal {
+  .modal-footer {
+    text-align: center;
+  }
+}
+
+#applyFreeModal {
+  .modal-footer {
+    text-align: center;
   }
 }
