@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320171036) do
+ActiveRecord::Schema.define(version: 20160331065916) do
 
   create_table "cash_transactions", force: :cascade do |t|
     t.integer  "sender_id"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20160320171036) do
     t.boolean  "is_admin",               default: false
     t.integer  "cash",                   default: 0
     t.string   "profile_pic"
+    t.string   "gender"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
