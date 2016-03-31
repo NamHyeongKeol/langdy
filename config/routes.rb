@@ -29,4 +29,7 @@ Rails.application.routes.draw do
 
 	get 'book_lesson/:id' => 'lesson#select_time', as: 'select_time'
 	post 'book_lesson' => 'lesson#book', as: 'book_path'
+	
+	# Lesson
+	post 'get_lessons' => 'lesson#getLessons', as: 'get_lessons'
 end

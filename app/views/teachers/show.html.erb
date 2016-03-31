@@ -193,50 +193,9 @@
                     </div>
                     <div class="modal-body">
                       <!-- Event Calendar by DayPilot -->
+                        
                       <div id="dp">
-                        <script src="/assets/daypilot-all.min.js" type="text/javascript"></script>
-                        <script type="text/javascript">
-                          var dp = new DayPilot.Calendar("dp");
-                          dp.viewType = "Week";
-                          dp.events.list = [
-                                        {
-                                          "id":"5",
-                                          "text":"Calendar Event 5",
-                                          "start":"2016-03-28T10:30:00",
-                                          "end":"2016-03-28T16:30:00"
-                                        },
-                                        {
-                                          "id":"6",
-                                          "text":"Calendar Event 6",
-                                          "start":"2014-02-24T09:00:00",
-                                          "end":"2014-02-24T14:30:00"
-                                        },
-                                        {
-                                          "id":"7",
-                                          "text":"Calendar Event 7",
-                                          "start":"2014-02-27T12:00:00",
-                                          "end":"2014-02-27T16:00:00"
-                                        }];
-                          dp.eventMoveHandling = "Disabled";
-                          dp.init();
-                          
-                          eventStatic = null;
-                          dp.onTimeRangeSelected = function (args) {
-                            name = "name";
-                            var e = new DayPilot.Event({
-                                start: args.start,
-                                end: args.end,
-                                id: DayPilot.guid(),
-                                resource: args.resource,
-                                text: name
-                            });
-                            
-                            eventStatic = e;
-                            // dp.events.add(e);
-                            
-                            // $('#selectTimeModal').modal("hide");
-                          };
-                        </script>
+                        
                       </div>
                     </div>
                     <div class="modal-footer">
@@ -359,3 +318,64 @@
 
   </div>
 </div>
+
+<script src="/assets/daypilot-all.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var dp = new DayPilot.Calendar("dp");
+  dp.viewType = "Week";
+  dp.events.list = [
+                {
+                  "id":"5",
+                  "text":"Calendar Event 5",
+                  "start":"2016-03-28T10:30:00",
+                  "end":"2016-03-28T16:30:00"
+                },
+                {
+                  "id":"6",
+                  "text":"Calendar Event 6",
+                  "start":"2014-02-24T09:00:00",
+                  "end":"2014-02-24T14:30:00"
+                },
+                {
+                  "id":"7",
+                  "text":"Calendar Event 7",
+                  "start":"2014-02-27T12:00:00",
+                  "end":"2014-02-27T16:00:00"
+                }];
+  dp.eventMoveHandling = "Disabled";
+  dp.init();
+  
+  loadEvents();
+  
+  eventStatic = null; // 이벤트 전역 변수
+  // 셀렉트 이벤트 바인딩
+  dp.onTimeRangeSelected = function (args) {
+    name = "name";
+    var e = new DayPilot.Event({
+        start: args.start,
+        end: args.end,
+        id: DayPilot.guid(),
+        resource: args.resource,
+        text: name
+    });
+    
+    eventStatic = e;
+    // dp.events.add(e);
+    
+    // $('#selectTimeModal').modal("hide");
+  };
+  
+  function loadEvents() {
+    $.post("/get_lessons",   // in ASP.NET MVC, use "backend/events"
+    {
+        user_id: <%= @teacher.id %>,
+        start: "'" + dp.visibleStart().toString().replace("T", " [").concat("]'"),
+        end: "'" + dp.visibleEnd().toString().replace("T", " [").concat("]'")
+    }, 
+    function(data, status, xhr) {
+        console.log(data);
+        dp.events.list = data;
+        dp.update();
+    });
+  }
+</script>
