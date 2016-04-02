@@ -18,7 +18,8 @@ class LessonController < ApplicationController
 	end
 	
 	def getLessons
-		lessons = Lesson.where("teacher_id = #{params[:user_id]} AND start_at >= #{params[:start]} AND end_at <= #{params[:end]}").all
+		# 우선 선생님, 학생 모두의 레슨을 받아옴 (수정 가능성 있음)
+		lessons = Lesson.where("teacher_id = #{params[:user_id]} OR student_id = #{params[:user_id]} AND start_at >= #{params[:start]} AND end_at <= #{params[:end]}").all
 		
 		lessons_array = []
 		lessons.each do |item|

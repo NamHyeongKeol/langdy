@@ -18,3 +18,10 @@ function passSelectTime(e) {
   $('#selectTimeInput').val(e.data.start.value + ' - ' + e.data.end.value);
   $('.selectTimeInput').text(e.data.start.value + ' - ' + e.data.end.value);
 }
+
+function passSelectCourse() {
+  var selectedNode = $('#tree').treeview('getSelected');
+  $('#courseId').val(selectedNode[0].id); // hidden input의 data id 설정
+  $('#courseSubject').val(selectedNode[0].text);
+  $('.courseSubject').text(selectedNode[0].text);
+}

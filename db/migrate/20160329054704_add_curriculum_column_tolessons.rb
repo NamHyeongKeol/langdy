@@ -1,4 +1,4 @@
-class AddCurriculumColumTolessons < ActiveRecord::Migration
+class AddCurriculumColumnTolessons < ActiveRecord::Migration
   def change
   	add_column :lessons, :is_free,	:boolean
   end

@@ -193,14 +193,11 @@
                     </div>
                     <div class="modal-body">
                       <!-- Event Calendar by DayPilot -->
-                        
-                      <div id="dp">
-                        
-                      </div>
+                      <div id="dp"></div>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-                      <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="passSelectTime(eventStatic)">완료</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="passSelectTime(eventStatic)">선택</button>
                     </div>
                   </div>
                 </div>
@@ -212,7 +209,8 @@
               <button type="button" class="btn btn-primary col-md-12" data-toggle="modal" data-target="#curriculumModal">
                 커리큘럼 선택
               </button>
-              <input type="text" id="disabledTextInput" class="form-control" placeholder="커리큘럼을 선택해 주세요" disabled>
+              <input type="hidden" id="courseId">
+              <input type="text" id="courseSubject" class="form-control" placeholder="커리큘럼을 선택해 주세요" disabled>
               
               <!-- Modal For Curriculum -->
               <div class="modal fade" id="curriculumModal" tabindex="-1" role="dialog" aria-labelledby="curriculumLabel" aria-hidden="true">
@@ -223,11 +221,11 @@
                       <h4 class="modal-title" id="curriculumLabel">커리큘럼 선택</h4>
                     </div>
                     <div class="modal-body">
-                      '커리큘럼 들어갈 곳'
+                      <div id="tree"></div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="passSelectCourse()">선택</button>
                     </div>
                   </div>
                 </div>
@@ -253,7 +251,7 @@
                         <p><b>선생님 : <%= @teacher.name %></b></p>
                         <p><b>강의료 : 900 코인</b></p>
                         <p><b>강의 시간 : <span class="selectTimeInput"></span></b></p>
-                        <p><b>커리큘럼 :</b></p>
+                        <p><b>커리큘럼 : <span class="courseSubject"></span></b></p>
                       </div>
                     </div>
                     <div class="modal-footer">
@@ -284,7 +282,7 @@
                         <p><b>선생님 : <%= @teacher.name %></b></p>
                         <p><b>강의료 : 900 코인</b></p>
                         <p><b>강의 시간 : <span class="selectTimeInput"></span></b></p>
-                        <p><b>커리큘럼 :</b></p>
+                        <p><b>커리큘럼 : <span class="courseSubject"></span></b></p>
                       </div>
                     </div>
                     <div class="modal-footer">
@@ -323,25 +321,6 @@
 <script type="text/javascript">
   var dp = new DayPilot.Calendar("dp");
   dp.viewType = "Week";
-  dp.events.list = [
-                {
-                  "id":"5",
-                  "text":"Calendar Event 5",
-                  "start":"2016-03-28T10:30:00",
-                  "end":"2016-03-28T16:30:00"
-                },
-                {
-                  "id":"6",
-                  "text":"Calendar Event 6",
-                  "start":"2014-02-24T09:00:00",
-                  "end":"2014-02-24T14:30:00"
-                },
-                {
-                  "id":"7",
-                  "text":"Calendar Event 7",
-                  "start":"2014-02-27T12:00:00",
-                  "end":"2014-02-27T16:00:00"
-                }];
   dp.eventMoveHandling = "Disabled";
   dp.init();
   
@@ -366,7 +345,7 @@
   };
   
   function loadEvents() {
-    $.post("/get_lessons",   // in ASP.NET MVC, use "backend/events"
+    $.post("/get_lessons",
     {
         user_id: <%= @teacher.id %>,
         start: "'" + dp.visibleStart().toString().replace("T", " [").concat("]'"),
@@ -378,4 +357,28 @@
         dp.update();
     });
   }
+</script>
+
+<script src="/assets/bootstrap-treeview.js"></script>
+<script tpye="text/javascript">
+  function loadCourses() {
+    $.post("/get_courses",
+    {
+        lang: "'ko'"
+    }, 
+    function(data, status, xhr) {
+        loadCoursesCallback(data);
+    });
+  }
+  
+  function loadCoursesCallback(treeData) {
+    console.log(treeData);
+    $('#tree').treeview({
+      data: treeData,
+      showTags: true
+    });
+  }
+  
+  loadCourses();
+  
 </script>

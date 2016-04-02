@@ -32,4 +32,7 @@ Rails.application.routes.draw do
 	
 	# Lesson
 	post 'get_lessons' => 'lesson#getLessons', as: 'get_lessons'
+	
+	# Course
+	post 'get_courses' => 'course#getCourses', as: 'get_courses'
 end
