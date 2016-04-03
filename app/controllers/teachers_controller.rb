@@ -79,6 +79,17 @@ class TeachersController < ApplicationController
 		redirect_to :back
 	end
 
+  def edit_teacher_info
+    @teacher_info = current_user.teacher_info
+  end
+
+  def update_teacher_info
+    teacher_info = current_user.teacher_info
+    teacher_info.update(teacher_application_params)
+
+    redirect_to :dashboard
+  end
+
 	private
 		def teacher_application_params
 			params.require(:teacher_info).permit(:location, :major, :school_grad, :introduction)

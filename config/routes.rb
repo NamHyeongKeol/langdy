@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 	get 'apply_for_teacher' => 'teachers#apply', as: 'apply_for_teacher'
 	post 'teachers/apply' => 'teachers#submit_teacher_application', as: 'submit_teacher_application'
 	get 'certify_teacher/:id' => 'teachers#certify', as: 'teacher_certify'
+  get 'edit_teacher_info' => 'teachers#edit_teacher_info', as: 'edit_teacher_info'
+  post 'teacher/update_info' => 'teachers#update_teacher_info', as: 'update_teacher_info'
 
 	get 'find_teacher' => 'teachers#index', as: 'find_teacher'
 	post 'teachers/filter_teachers'
