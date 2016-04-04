@@ -41,5 +41,6 @@ Rails.application.routes.draw do
 
   # Lecture Room
   get 'lecture_room' => 'lecture_room#index', as: 'lecture_room'
+  get 'self_study' => 'lecture_room#self_study', as: 'self_study'
 
 end
