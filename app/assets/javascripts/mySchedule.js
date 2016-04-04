@@ -2,6 +2,7 @@
 // this js file is writen by Ucheol
 //
 // This script manage teacher schedule inputs
+
 var parse_initial_str = function(str){
   if (str == "") {return []}
   else {
@@ -9,6 +10,7 @@ var parse_initial_str = function(str){
   };
 };
 
+// show schedules in $div, schd is a Teacher_Schedule object
 var show_schedules = function($div, schd){
   $div.empty();
   var list = schd.get_schedule();
@@ -17,6 +19,7 @@ var show_schedules = function($div, schd){
   };
 };
 
+// check if schedule add btn is available
 var check_add_btn =function(){
   if ($('input[name="start-time"]').val() != "" && $('input[name="end-time"]').val() != "") {
     $('#schedule_add_btn').attr('disabled',false);
@@ -30,14 +33,17 @@ var Teacher_Schedule = function(init_str) {
 
 // various methods
 $.extend(Teacher_Schedule.prototype, {
+  // push new item into schedule
   push_schedule: function(week_day,start,end) {
     var item = week_day+'/'+start+'~'+end
     this.times.push(item)
     console.log(item+" is pushed")
   },
+  // return schedule arrays
   get_schedule: function() {
     return this.times
   },
+  // delete schedule by value
   delete_schedule: function(item) {
     var what, a = arguments, L = a.length, ax;
     while (L && this.times.length) {
