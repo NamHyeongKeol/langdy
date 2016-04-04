@@ -170,6 +170,8 @@
       <div id="lessonSelect" class="panel panel-default">
         <form class="form-horizontal">
           <div class="panel-body">
+            <div id="alert-teacher" class="alert alert-danger" role="alert" style="display: none;"><b></b></div>
+            
             <h4> If you want to start lessons </h4>
             <hr>
             <h4>
@@ -255,7 +257,7 @@
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-primary">예</button>
+                      <button type="button" class="btn btn-primary" onclick="submitLesson(<%= @teacher.id %>, 900, true)">예</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">아니오</button>
                     </div>
                   </div>
@@ -265,17 +267,17 @@
             
             <!-- Section - Confirm Free Lecture -->
             <div class="input-group">
-              <button type="button" class="btn btn-success col-md-12" data-toggle="modal" data-target="#applyModal">
+              <button type="button" class="btn btn-success col-md-12" data-toggle="modal" data-target="#applyFreeModal">
                 무료 매칭 신청
               </button>
               
               <!-- Modal For Apply Free Lecture -->
-              <div class="modal fade" id="applyModal" tabindex="-1" role="dialog" aria-labelledby="applyLabel" aria-hidden="true">
+              <div class="modal fade" id="applyFreeModal" tabindex="-1" role="dialog" aria-labelledby="applyFreeLabel" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="applyLabel">무료 매칭 신청</h4>
+                      <h4 class="modal-title" id="applyFreeLabel">무료 매칭 신청</h4>
                     </div>
                     <div class="modal-body">
                       <div class="well">
@@ -286,7 +288,7 @@
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-primary">예</button>
+                      <button type="button" class="btn btn-primary" onclick="submitLesson(<%= @teacher.id %>, 900, true)">예</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">아니오</button>
                     </div>
                   </div>
@@ -352,7 +354,6 @@
         end: "'" + dp.visibleEnd().toString().replace("T", " [").concat("]'")
     }, 
     function(data, status, xhr) {
-        console.log(data);
         dp.events.list = data;
         dp.update();
     });
@@ -372,7 +373,6 @@
   }
   
   function loadCoursesCallback(treeData) {
-    console.log(treeData);
     $('#tree').treeview({
       data: treeData,
       showTags: true

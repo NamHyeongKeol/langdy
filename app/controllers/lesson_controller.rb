@@ -7,6 +7,20 @@ class LessonController < ApplicationController
 	def book
 	end
 	
+	def submitLesson
+		l = Lesson.new
+		l.teacher_id = params[:teacher_id]
+		l.student_id = current_user.id
+		l.start_at = params[:start_at]
+		l.end_at = params[:end_at]
+		l.is_free = params[:is_free]
+		l.course_id = params[:course_id]
+		
+		l.save
+		
+		render plain: 'OK'
+	end
+	
 	# Lesson JSON용 이벤트 클래스
 	class Event
 		def initialize(id, student_id, start_at, end_at)

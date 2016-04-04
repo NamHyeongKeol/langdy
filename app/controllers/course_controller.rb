@@ -1,14 +1,4 @@
 class CourseController < ApplicationController
-
-	# Course JSON용 이벤트 클래스
-	class SingleCourse
-		def initialize(id, student_id, start_at, end_at)
-			@id = id
-			@text = student_id
-			@start = start_at
-			@end = end_at
-		end
-	end
 	
 	def getCourses
 		# 해당하는 언어의 코스를 받아옴
@@ -33,12 +23,12 @@ class CourseController < ApplicationController
 						
 						# 미수강, 수강 예정, 수강 완료 판별
 						if item['lesson_id'].nil?
-							rank['nodes'] << Hash[ "id", item['course_id'], "text", item['subject'], "tags", [ "미수강" ], "selectable", false ]
+							rank['nodes'] << Hash[ "id", item['course_id'], "text", item['subject'], "tags", [ "미수강" ] ]
 						else
-							if item['start_at'] >= DateTime.now
-								rank['nodes'] << Hash[ "id", item['course_id'], "text", item['subject'], "tags", [ "수강 예정" ] ]
-							elsif item['end_at'] <= DateTime.now
-								rank['nodes'] << Hash[ "id", item['course_id'], "text", item['subject'], "tags", [ "수강 완료" ] ]
+							if item['end_at'] >= DateTime.now
+								rank['nodes'] << Hash[ "id", item['course_id'], "text", item['subject'], "tags", [ "수강 예정" ], "selectable", false ]
+							else
+								rank['nodes'] << Hash[ "id", item['course_id'], "text", item['subject'], "tags", [ "수강 완료" ], "selectable", false ]
 							end
 						end
 					end
