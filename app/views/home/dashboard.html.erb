@@ -39,7 +39,7 @@
         </ul>
       <% end %>
 
-      <% if current_user.is_teacher and current_user.teacher_info %>
+      <% if current_user.is_teacher %>
         <ul class="list-group">
           <%= link_to edit_teacher_info_path do %>
             <li class="list-group-item">

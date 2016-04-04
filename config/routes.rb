@@ -38,4 +38,8 @@ Rails.application.routes.draw do
 	
 	# Course
 	post 'get_courses' => 'course#getCourses', as: 'get_courses'
+
+  # Lecture Room
+  get 'lecture_room' => 'lecture_room#index', as: 'lecture_room'
+
 end
