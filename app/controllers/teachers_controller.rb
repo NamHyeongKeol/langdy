@@ -86,7 +86,7 @@ class TeachersController < ApplicationController
   def update_teacher_info
     teacher_info = current_user.teacher_info
     teacher_info.update(teacher_application_params)
-
+    current_user.set_schedule(params[:schedules])
     redirect_to :dashboard
   end
 

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402161934) do
+ActiveRecord::Schema.define(version: 20160404154716) do
+
+  create_table "available_times", force: :cascade do |t|
+    t.integer  "user_id"
+    t.date     "date_at"
+    t.time     "start_at"
+    t.time     "end_at"
+    t.string   "week_day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cash_transactions", force: :cascade do |t|
     t.integer  "sender_id"

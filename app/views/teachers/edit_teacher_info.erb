@@ -76,8 +76,9 @@
 
 <script src="/assets/mySchedule.js"></script>
 <script type="text/javascript">
-  my_schd = new Teacher_Schedule('<%= "" %>');
+  my_schd = new Teacher_Schedule('<%= current_user.get_schedule %>');
   $(document).ready(function(){
+    show_schedules($('#schedule_list'), my_schd);
 
     $('input[name="start-time"]').keyup(function(){
       check_add_btn();
