@@ -4,7 +4,7 @@ class TeachersController < ApplicationController
 
 	def apply
 	end
-
+	
 	def submit_teacher_application
 		t = TeacherInfo.new(teacher_application_params)
 		t.user = current_user

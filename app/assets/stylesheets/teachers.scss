@@ -1,3 +1,29 @@
 // Place all the styles related to the teachers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#lessonSelect {
+	.form-control[disabled] {
+		background: transparent;
+	}
+	
+	.input-group {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+  
+  #dp { // Scheduler
+  }
+}
+
+#applyModal {
+  .modal-footer {
+    text-align: center;
+  }
+}
+
+#applyFreeModal {
+  .modal-footer {
+    text-align: center;
+  }
+}

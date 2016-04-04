@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331090434) do
+
+ActiveRecord::Schema.define(version: 20160402161934) do
 
   create_table "cash_transactions", force: :cascade do |t|
     t.integer  "sender_id"
@@ -20,6 +21,13 @@ ActiveRecord::Schema.define(version: 20160331090434) do
     t.boolean  "is_permitted", default: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "lang"
+    t.string "rank"
+    t.string "subject"
+    t.text   "content"
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -36,6 +44,8 @@ ActiveRecord::Schema.define(version: 20160331090434) do
     t.datetime "end_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "is_free"
+    t.integer  "course_id"
   end
 
   create_table "teacher_comments", force: :cascade do |t|
@@ -52,7 +62,7 @@ ActiveRecord::Schema.define(version: 20160331090434) do
     t.string   "school_grad"
     t.text     "introduction"
     t.string   "location"
-    t.boolean  "is_approved",  default: false
+    t.boolean  "is_approved",  default: true
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.string   "gender"
@@ -74,7 +84,7 @@ ActiveRecord::Schema.define(version: 20160331090434) do
     t.string   "name",                                   null: false
     t.string   "lang_to_learn",                          null: false
     t.string   "native_lang",                            null: false
-    t.boolean  "is_teacher",             default: false
+    t.boolean  "is_teacher",             default: true
     t.boolean  "is_admin",               default: false
     t.integer  "cash",                   default: 0
     t.string   "profile_pic"

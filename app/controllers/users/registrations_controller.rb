@@ -3,6 +3,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	def after_sign_up_path_for(resource)
 		:dashboard
 	end
+	
+	# Override
+	def create
+		super
+		
+		# create blank teacher
+		t = TeacherInfo.new()
+		t.user = current_user
+		t.save
+	end
 
 	private
 		def sign_up_params
