@@ -32,21 +32,23 @@
         <ul class="list-group">
           <%= link_to apply_for_teacher_path do %>
             <li class="list-group-item">
-              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-              Apply for being a teacher
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            Apply for being a teacher
             </li>
           <% end %>
         </ul>
       <% end %>
 
-      <ul class="list-group">
-        <%= link_to edit_teacher_info_path do %>
-          <li class="list-group-item">
-          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-          Edit my teacher information
-          </li>
-        <% end %>
-      </ul>
+      <% if current_user.is_teacher and current_user.teacher_info %>
+        <ul class="list-group">
+          <%= link_to edit_teacher_info_path do %>
+            <li class="list-group-item">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            Edit my teacher information
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
 
       <div class="panel panel-default">
         <div class="panel-body">
