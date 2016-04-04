@@ -11,11 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
+
 ActiveRecord::Schema.define(version: 20160402161934) do
-=======
-ActiveRecord::Schema.define(version: 20160331090434) do
->>>>>>> origin/master
 
   create_table "cash_transactions", force: :cascade do |t|
     t.integer  "sender_id"
@@ -26,7 +23,6 @@ ActiveRecord::Schema.define(version: 20160331090434) do
     t.datetime "updated_at",                   null: false
   end
 
-<<<<<<< HEAD
   create_table "courses", force: :cascade do |t|
     t.string "lang"
     t.string "rank"
@@ -34,8 +30,6 @@ ActiveRecord::Schema.define(version: 20160331090434) do
     t.text   "content"
   end
 
-=======
->>>>>>> origin/master
   create_table "feedbacks", force: :cascade do |t|
     t.integer  "user_id"
     t.text     "text"
@@ -68,16 +62,10 @@ ActiveRecord::Schema.define(version: 20160331090434) do
     t.string   "school_grad"
     t.text     "introduction"
     t.string   "location"
-<<<<<<< HEAD
     t.boolean  "is_approved",  default: true
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-=======
-    t.boolean  "is_approved",  default: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.string   "gender"
->>>>>>> origin/master
   end
 
   create_table "users", force: :cascade do |t|
