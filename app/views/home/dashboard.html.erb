@@ -110,13 +110,18 @@
 </div>
 
 <script src="/assets/daypilot-all.min.js" type="text/javascript"></script>
+<script src="/assets/mySchedule.js" type="text/javascript"></script>
 <script type="text/javascript">
+  var my_avail = new Teacher_Schedule('<%= current_user.get_schedule %>');
   var dp = new DayPilot.Calendar("dp");
+  show_availables_on_calendar(dp,my_avail);
   dp.viewType = "Week";
   dp.eventMoveHandling = "Disabled";
   dp.init();
   
-  loadEvents();
+  //loadEvents();
+
+  //load available times
   
   eventStatic = null; // 이벤트 전역 변수
   // 셀렉트 이벤트 바인딩

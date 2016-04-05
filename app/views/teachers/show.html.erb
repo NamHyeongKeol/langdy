@@ -308,8 +308,10 @@
 </div>
 
 <script src="/assets/daypilot-all.min.js" type="text/javascript"></script>
+<script src="/assets/mySchedule.js" type="text/javascript"></script>
 <script type="text/javascript">
   var dp = new DayPilot.Calendar("dp");
+  show_availables_on_calendar(dp,my_avail);
   dp.viewType = "Week";
   dp.eventMoveHandling = "Disabled";
   dp.init();
