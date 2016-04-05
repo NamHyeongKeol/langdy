@@ -22,12 +22,12 @@ class CourseController < ApplicationController
 
 						# 미수강, 수강 예정, 수강 완료 판별
 						if item['lesson_id'].nil?
-							rank['nodes'] << Hash[ "id", item['course_id'], "text", item['subject'], "tags", [ "미수강" ] ]
+							rank['nodes'] << Hash[ "id", item['course_id'], "text", item['subject'], "tags", [ "미수강" ], "selectable", params[:mi_selectable] == 'true']
 						else
 							if item['end_at'] >= DateTime.now
-								rank['nodes'] << Hash[ "id", item['course_id'], "text", item['subject'], "tags", [ "수강 예정" ], "selectable", false ]
+								rank['nodes'] << Hash[ "id", item['course_id'], "text", item['subject'], "tags", [ "수강 예정" ], "selectable", params[:ye_selectable] == 'true']
 							else
-								rank['nodes'] << Hash[ "id", item['course_id'], "text", item['subject'], "tags", [ "수강 완료" ], "selectable", false ]
+								rank['nodes'] << Hash[ "id", item['course_id'], "text", item['subject'], "tags", [ "수강 완료" ], "selectable", params[:wa_selectable] == 'true' ]
 							end
 						end
 					end
