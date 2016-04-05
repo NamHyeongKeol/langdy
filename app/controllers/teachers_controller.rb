@@ -55,7 +55,7 @@ class TeachersController < ApplicationController
     end
 
 		if gender and language
-			@teachers = User.where(gender: gender, native_lang: language, is_teacher: true)
+			@teachers = User.where(gender: gender, native_lang: language, is_teacher: true)#.joins("LEFT JOIN available_times ON available_times.user_id = users.id AND available_times.start_at <= 12:00 ")
 		elsif gender and !language
 			@teachers = User.where(gender: gender, is_teacher: true)
 		elsif !gender and language
