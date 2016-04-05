@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160405160148) do
+ActiveRecord::Schema.define(version: 20160405190452) do
 
   create_table "available_times", force: :cascade do |t|
     t.integer  "user_id"
@@ -71,11 +71,13 @@ ActiveRecord::Schema.define(version: 20160405160148) do
     t.string   "school_grad"
     t.text     "introduction"
     t.string   "location"
-    t.boolean  "is_approved",   default: true
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "is_approved",    default: true
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "gender"
     t.integer  "lecture_price"
+    t.integer  "lecture_number"
+    t.integer  "rating"
   end
 
   create_table "users", force: :cascade do |t|

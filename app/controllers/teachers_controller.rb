@@ -105,6 +105,6 @@ class TeachersController < ApplicationController
   private
 
   def teacher_application_params
-    params.require(:teacher_info).permit(:location, :major, :school_grad, :introduction)
+    params.require(:teacher_info).permit(:location, :major, :school_grad, :introduction, :lecture_price)
   end
 end
