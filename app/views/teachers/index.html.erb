@@ -1,25 +1,25 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <ul class="breadcrumb">
-        <li>
-          Gender
-          <select class="form-control" id="gender">
-            <option value="">Gender</option>
-            <option value="Female">Female</option>
-            <option value="Male">Male</option>
-          </select>
-        </li>
-        <li>
-          Language
-          <select class="form-control" id="language">
-            <option value="">Language</option>
-            <option value="English">English</option>
-            <option value="Korean">Korean</option>
-            <option value="Chinese">Chinese</option>
-          </select>
-        </li>
-      </ul>
+      <div class="breadcrumb">
+        <div class="col-md-2">
+          <%= label_tag('label', "Gender") %>
+          <%= select_tag :gender, options_for_select([['Gender', ''], ['Male', 'male'], ['Female', 'female']], ''), { :class => 'form-control' } %>
+        </div>
+        <div class="col-md-2">
+          <%= label_tag('label', "Language") %>
+          <%= select_tag :language, options_for_select([['Language', ''], ['English', 'english'], ['Korean', 'korean'], ['Chinese', 'chinese']], ''), { :class => 'form-control' } %>
+        </div>
+        <div class="col-md-2">
+          <%= label_tag('label', "Day of Week") %>
+          <%= select_tag :day_of_week, options_for_select([['Day of Week', ''], ['Monday', 'monday'], ['Tuesday', 'tuesday'], ['Wednesday', 'wednesday'], ['Thursday', 'thursday'], ['Friday', 'friday'], ['Saturday', 'saturday'], ['Sunday', 'sunday']], ''), { :class => 'form-control' } %>
+        </div>
+        <div class="col-md-2">
+          <%= label_tag('label', "Time") %>
+          <%= select_tag :time, options_for_select([['Time', ''], ['Morning', 'morning'], ['Afternoon', 'afternoon'], ['Evening', 'evening']], ''), { :class => 'form-control' } %>
+        </div>
+        <div class="col-md-1"><%= submit_tag 'Search', { :class => 'form-control', :id => 'submit' } %></div>
+      </div>
     </div>
     <!-- Left column -->
     <div class="col-md-9">

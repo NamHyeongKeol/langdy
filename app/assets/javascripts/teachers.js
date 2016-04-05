@@ -1,14 +1,16 @@
 $(document).ready(function() {
-    $(".breadcrumb").change(function() {
+    $("#submit").click(function() {
         gender = $("#gender").val();
-        console.log(gender);
         language = $("#language").val();
+        day_of_week = $("#day_of_week").val();
+        time = $("#time").val();
         $.post('/teachers/filter_teachers',
-               {gender: gender, language: language},
-               function(data) {
-                   $("#user_list").html(data);
-               }
-              );
+             {gender: gender, language: language, day_of_week: day_of_week, time: time},
+             function(data) {
+                 $("#user_list").html(data);
+             }
+            );
+
     });
 
 });

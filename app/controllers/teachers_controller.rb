@@ -4,7 +4,7 @@ class TeachersController < ApplicationController
 
 	def apply
 	end
-	
+
 	def submit_teacher_application
 		t = TeacherInfo.new(teacher_application_params)
 		t.user = current_user
@@ -41,6 +41,18 @@ class TeachersController < ApplicationController
 		else
 			language = params[:language]
 		end
+
+    if params[:day_of_week] == ""
+      day_of_week = nil
+    else
+      day_of_week = params[:day_of_week]
+    end
+
+    if params[:time] == ""
+      time = nil
+    else
+      time = params[:time]
+    end
 
 		if gender and language
 			@teachers = User.where(gender: gender, native_lang: language, is_teacher: true)
