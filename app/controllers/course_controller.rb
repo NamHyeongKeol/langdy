@@ -1,5 +1,5 @@
 class CourseController < ApplicationController
-	
+
 	def getCourses
 		# 해당하는 언어의 코스를 받아옴
 		# ActiveRecord 짜증나게 해서 그냥 raw SQL로 받아옴
@@ -11,16 +11,15 @@ class CourseController < ApplicationController
 		courses << Hash[ "text", "초급", "selectable", false ]
 		courses << Hash[ "text", "중급", "selectable", false ]
 		courses << Hash[ "text", "고급", "selectable", false ]
-		
-		
+
 		courses_raw.each do |item|
-			
+
 				courses.each do |rank|
 					if rank['text'] == item['rank']
 						if !rank['nodes'].kind_of?(Array)
 							rank['nodes'] = []
 						end
-						
+
 						# 미수강, 수강 예정, 수강 완료 판별
 						if item['lesson_id'].nil?
 							rank['nodes'] << Hash[ "id", item['course_id'], "text", item['subject'], "tags", [ "미수강" ] ]
