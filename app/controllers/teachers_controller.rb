@@ -102,8 +102,9 @@ class TeachersController < ApplicationController
     redirect_to :dashboard
   end
 
-	private
-		def teacher_application_params
-			params.require(:teacher_info).permit(:location, :major, :school_grad, :introduction)
-		end
+  private
+
+  def teacher_application_params
+    params.require(:teacher_info).permit(:location, :major, :school_grad, :introduction)
+  end
 end

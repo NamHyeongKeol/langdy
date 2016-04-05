@@ -100,6 +100,7 @@ function submitLesson(teacher_id, coin, is_free = false) {
   },
   function(data, status, xhr) {
     if(data == 'OK') {
+      location.replace("/dashboard");
       // 강의 신청 성공 페이지로 이동
     }
   });

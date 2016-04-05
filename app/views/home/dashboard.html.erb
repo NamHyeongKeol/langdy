@@ -118,11 +118,11 @@
   dp.viewType = "Week";
   dp.eventMoveHandling = "Disabled";
   dp.init();
-  
-  //loadEvents();
+
+  loadEvents();
 
   //load available times
-  
+
   eventStatic = null; // 이벤트 전역 변수
   // 셀렉트 이벤트 바인딩
   dp.onTimeRangeSelected = function (args) {
@@ -134,13 +134,13 @@
         resource: args.resource,
         text: name
     });
-    
+
     eventStatic = e;
     // dp.events.add(e);
-    
+
     // $('#selectTimeModal').modal("hide");
   };
-  
+
   function loadEvents() {
     $.post("/get_lessons",   // in ASP.NET MVC, use "backend/events"
     {
@@ -149,7 +149,6 @@
         end: "'" + dp.visibleEnd().toString().replace("T", " [").concat("]'")
     }, 
     function(data, status, xhr) {
-        console.log(data);
         dp.events.list = data;
         dp.update();
     });

@@ -84,7 +84,6 @@ var isAvailable = function(date, schd) {
 var show_availables_on_calendar = function(dp, schd){
   dp.onBeforeCellRender = function(args) {
     if (isAvailable(args.cell.start, schd)) {
-      console.log("dd?")
       args.cell.backColor = "#9CD09C";
     };
   };
@@ -94,7 +93,11 @@ var show_availables_on_calendar = function(dp, schd){
 var check_add_btn =function(){
   if ($('input[name="start-time"]').val() != "" && $('input[name="end-time"]').val() != "") {
     $('#schedule_add_btn').attr('disabled',false);
-  };
+  }
+  else {
+    $('#schedule_add_btn').attr('disabled',true);
+  }
+  ;
 };
 
 // Teacher schedule class
