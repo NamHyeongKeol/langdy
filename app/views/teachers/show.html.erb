@@ -23,17 +23,17 @@
                 <a class="btn btn-default">
                   Rating
                   <br>
-                  5.0
+                  <%= @teacher.teacher_info.rating %>
                 </a>
                 <a class="btn btn-primary">
                   Students
                   <br>
-                  132
+                  <%= @teacher.teacher_info.student_number %>
                 </a>
                 <a class="btn btn-success">
                   Lessons
                   <br>
-                  512
+                  <%= @teacher.teacher_info.lecture_number %>
                 </a>
               </div>
             </div>
@@ -174,8 +174,8 @@
             
             <h4> If you want to start lessons </h4>
             <hr>
-            <h4>
-              900 Chips for 1 hour
+            <h4 style="margin-top: 50px;">
+              <%= @teacher.teacher_info.lecture_price %> coins / 1 hour
             </h4>
             
             <!-- Section - Select Time -->
@@ -191,7 +191,10 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="selectTimeLabel">강의 시간 선택</h4>
+                      <h4 class="modal-title" id="selectTimeLabel">
+                        강의 시간 선택<br>
+                        <span style="font-size: 12px; color: #aaa;">선생님이 등록한 시간대가 연두색으로 표시됩니다. 선생님이 등록하지 않은 시간도 신청 가능합니다.</span>
+                      </h4>
                     </div>
                     <div class="modal-body">
                       <!-- Event Calendar by DayPilot -->
@@ -236,7 +239,7 @@
                     <div class="modal-body">
                       <div class="well">
                         <p><b>선생님 : <%= @teacher.name %></b></p>
-                        <p><b>강의료 : 900 코인</b></p>
+                        <p><b>강의료 : <%= @teacher.teacher_info.lecture_price %> 코인</b></p>
                         <p><b>강의 시간 : <span class="selectTimeInput"></span></b></p>
                         <p><b>커리큘럼 : <span class="courseSubject"></span></b></p>
                       </div>
@@ -267,7 +270,7 @@
                     <div class="modal-body">
                       <div class="well">
                         <p><b>선생님 : <%= @teacher.name %></b></p>
-                        <p><b>강의료 : 900 코인</b></p>
+                        <p><b>강의료 : <%= @teacher.teacher_info.lecture_price %> 코인</b></p>
                         <p><b>강의 시간 : <span class="selectTimeInput"></span></b></p>
                         <p><b>커리큘럼 : <span class="courseSubject"></span></b></p>
                       </div>
