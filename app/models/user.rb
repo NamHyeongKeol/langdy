@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
 	has_many :lesson_to_study, :class_name => "Lesson", :foreign_key => "student_id"
 
   has_many :available_times
+
+  has_many :memos
 	def lesson
 		lesson_to_teach + lesson_to_study
 	end
