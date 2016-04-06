@@ -13,7 +13,7 @@
           </button>
         </div>
         <div class="col-xs-5" style="display: table-cell;">
-          <a href="#" class="btn btn-sm btn-primary"><span>신고하기</span></a>
+          <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#notify_modal">신고하기</button>
           <a href="#" class="btn btn-sm btn-primary"><span>강의 종료</span></a>
         </div>
       </div>
@@ -29,6 +29,26 @@
       </div>
     </div>
     <!-- left box -->
+
+    <!-- 신고 Modal -->
+    <div class="modal fade" id="notify_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">수업 신고하기</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+            <button type="button" class="btn btn-primary">신고</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- right box -->
     <div class="col-md-5 hidden-md hidden-sm hidden-xs" style="display: table; height:545px; border:1px solid #D8D8D8;">
       <h4 style="display: table-cell; text-align: center; vertical-align: middle;">랭디 페이지를 왼쪽에, 스카이프를 오른쪽에 두고 학습하시면 됩니다.</h4>
