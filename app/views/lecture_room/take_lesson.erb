@@ -17,9 +17,16 @@
           <a href="#" class="btn btn-sm btn-primary"><span>강의 종료</span></a>
         </div>
       </div>
-      <textarea id="curri_text" rows="16" cols="80" disabled></textarea>
-      <h3>메모</h3>
-      <textarea rows="8" cols="80"></textarea>
+      <div class="row">
+        <div class="col-md-12">
+          <textarea id="curri_text" rows="16" cols="80" disabled></textarea>
+          <h3>메모</h3>
+          <textarea id="memo_text" rows="8" cols="80"></textarea>
+        </div>
+        <div class="col-md-12">
+          <button id="memo_save_btn" type="button" class="btn btn-primary" disabled>저장</button>
+        </div>
+      </div>
     </div>
     <!-- left box -->
     <!-- right box -->
@@ -54,9 +61,13 @@
 
   loadCourses();
 
+  var course_id = 0;
   $(document).ready(function(){
     $('#curri_btn').click(function(){
-      showSelectCourse();
+      course_id = showSelectCourse();
+    });
+    $('#memo_save_btn').click(function(){
+      saveMemo(<%= current_user.id %>, course_id, $('#memo_text').val());
     });
   });
 
