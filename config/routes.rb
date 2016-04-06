@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   get 'lecture_room' => 'lecture_room#index', as: 'lecture_room'
   get 'self_study' => 'lecture_room#self_study', as: 'self_study'
   get 'take_lesson' => 'lecture_room#take_lesson', as: 'take_lesson'
+  get 'give_lesson' => 'lecture_room#give_lesson', as: 'give_lesson'
   get 'lecture_room/get_course_curri/:id' => 'lecture_room#get_course_curri'
   get 'lecture_room/save_memo' => 'lecture_room#save_memo'
 

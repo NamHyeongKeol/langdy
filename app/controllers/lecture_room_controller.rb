@@ -8,6 +8,9 @@ class LectureRoomController < ApplicationController
   def take_lesson
   end
 
+  def give_lesson
+  end
+
   def get_course_curri
     course = Course.find(params[:id]);
     memo = current_user.memos.where(course: course).take
