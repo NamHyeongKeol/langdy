@@ -356,10 +356,10 @@
   function loadCourses() {
     $.post("/get_courses",
     {
-        lang: "'ko'",
+        lang: '<%= @teacher.native_lang %>',
         mi_selectable: true, //미수강 선택가능 여부
-        ye_selectable: false, //수강예정 선택가능 여부
-        wa_selectable: false, //수강 완료 선택가능 여부
+        ye_selectable: true, //수강예정 선택가능 여부
+        wa_selectable: true, //수강 완료 선택가능 여부
     },
     function(data, status, xhr) {
         loadCoursesCallback(data);

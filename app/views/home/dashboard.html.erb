@@ -147,7 +147,7 @@
         user_id: <%= current_user.id %>,
         start: "'" + dp.visibleStart().toString().replace("T", " [").concat("]'"),
         end: "'" + dp.visibleEnd().toString().replace("T", " [").concat("]'")
-    }, 
+    },
     function(data, status, xhr) {
         dp.events.list = data;
         dp.update();
