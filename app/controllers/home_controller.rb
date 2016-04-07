@@ -5,6 +5,8 @@ class HomeController < ApplicationController
 	end
 
 	def dashboard
+    @lesson_applying = Lesson.where(student: current_user)
+    @lesson_applied = Lesson.where(teacher: current_user)
 	end
 
 	def feedback
@@ -15,5 +17,18 @@ class HomeController < ApplicationController
 
 		redirect_to :back
 	end
+
+  def confirm_lesson
+    lesson = Lesson.find(params[:lesson_id].to_i)
+    if params[:confirm] == "true"
+      lesson.update(confirmed: true);
+    else
+      lesson.destroy
+    end
+
+    respond_to do |format|
+      format.json { render json: {} }
+    end
+  end
 
 end
