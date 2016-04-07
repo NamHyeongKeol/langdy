@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20160407021741) do
     t.string   "gender"
     t.integer  "lecture_price"
     t.integer  "lecture_number"
-    t.float    "rating"
+    t.integer  "rating"
     t.integer  "student_number"
   end
 
