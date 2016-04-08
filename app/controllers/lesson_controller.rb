@@ -23,9 +23,9 @@ class LessonController < ApplicationController
 	
 	# Lesson JSON용 이벤트 클래스
 	class Event
-		def initialize(id, student_id, start_at, end_at)
+		def initialize(id, text, start_at, end_at)
 			@id = id
-			@text = student_id
+			@text = text
 			@start = start_at
 			@end = end_at
 		end
@@ -37,7 +37,7 @@ class LessonController < ApplicationController
 		
 		lessons_array = []
 		lessons.each do |item|
-			e = Event.new(item.id, item.student_id, item.start_at, item.end_at)
+			e = Event.new(item.id, item.get_event_text(current_user), item.start_at, item.end_at)
 			lessons_array << e
 		end
 		

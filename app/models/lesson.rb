@@ -32,4 +32,15 @@ class Lesson < ActiveRecord::Base
     result = result + '</span>'
     return result.html_safe
   end
+
+  def get_event_text(user)
+    string = ''
+    if self.teacher == user
+      string = string + self.student.name + ' 강의하기'
+    else
+      string = string + self.teacher.name + ' 강의받기'
+    end
+    unless self.confirmed then string = string + ' | 미확정' end
+    return string
+  end
 end
