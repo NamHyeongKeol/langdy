@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20160407055400) do
     t.datetime "updated_at",                  null: false
     t.boolean  "is_free"
     t.integer  "course_id"
+    t.boolean  "confirmed",   default: false
     t.string   "state"
     t.boolean  "is_approved"
     t.boolean  "is_canceled"
