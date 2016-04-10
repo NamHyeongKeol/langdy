@@ -6,7 +6,7 @@ class LessonController < ApplicationController
 
 	def book
 	end
-	
+
 	def submitLesson
 		l = Lesson.new
 		l.teacher_id = params[:teacher_id]
@@ -20,7 +20,7 @@ class LessonController < ApplicationController
 		
 		render plain: 'OK'
 	end
-	
+
 	# Lesson JSON용 이벤트 클래스
 	class Event
 		def initialize(id, student_id, start_at, end_at)
@@ -30,7 +30,7 @@ class LessonController < ApplicationController
 			@end = end_at
 		end
 	end
-	
+
 	def getLessons
 		# 우선 선생님, 학생 모두의 레슨을 받아옴 (수정 가능성 있음)
 		lessons = Lesson.where("teacher_id = #{params[:user_id]} OR student_id = #{params[:user_id]} AND start_at >= #{params[:start]} AND end_at <= #{params[:end]}").all

@@ -20,10 +20,10 @@
         </div>
         <ul class="list-group">
           <li class="list-group-item">
-            <%= link_to edit_user_registration_path do %>
-              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              Edit Profile
-            <% end %>
+          <%= link_to edit_user_registration_path do %>
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            Edit Profile
+          <% end %>
           </li>
         </ul>
       </div>
@@ -102,7 +102,7 @@
         </div>
       </div>
       -->
-      
+
     </div>
     <!-- Right column -->
 
@@ -128,11 +128,11 @@
   dp.onTimeRangeSelected = function (args) {
     name = "name";
     var e = new DayPilot.Event({
-        start: args.start,
-        end: args.end,
-        id: DayPilot.guid(),
-        resource: args.resource,
-        text: name
+      start: args.start,
+      end: args.end,
+      id: DayPilot.guid(),
+      resource: args.resource,
+      text: name
     });
 
     eventStatic = e;
@@ -143,14 +143,14 @@
 
   function loadEvents() {
     $.post("/get_lessons",   // in ASP.NET MVC, use "backend/events"
-    {
+      {
         user_id: <%= current_user.id %>,
         start: "'" + dp.visibleStart().toString().replace("T", " [").concat("]'"),
         end: "'" + dp.visibleEnd().toString().replace("T", " [").concat("]'")
-    }, 
-    function(data, status, xhr) {
+      }, 
+      function(data, status, xhr) {
         dp.events.list = data;
         dp.update();
-    });
-  }
+      });
+  };
 </script>

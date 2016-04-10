@@ -51,10 +51,15 @@ ActiveRecord::Schema.define(version: 20160406070057) do
     t.integer  "student_id"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.boolean  "is_free"
     t.integer  "course_id"
+    t.string   "state"
+    t.boolean  "is_approved"
+    t.boolean  "is_canceled"
+    t.boolean  "teacher_end"
+    t.boolean  "student_end"
   end
 
   create_table "memos", force: :cascade do |t|
