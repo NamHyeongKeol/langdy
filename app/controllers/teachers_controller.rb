@@ -68,7 +68,7 @@ class TeachersController < ApplicationController
 	end
 
 	def show
-		@teacher = User.find(params[:id])
+    @teacher = User.find(params[:id].to_i)
 		if !current_user.is_admin and !@teacher.is_teacher
 			redirect_to find_teacher_path
 		end

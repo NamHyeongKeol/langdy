@@ -47,4 +47,5 @@ Rails.application.routes.draw do
   get 'lecture_room/get_course_curri/:id' => 'lecture_room#get_course_curri'
   get 'lecture_room/save_memo' => 'lecture_room#save_memo'
 
+  post 'confirm_lesson' => 'home#confirm_lesson'
 end
