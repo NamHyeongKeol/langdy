@@ -5,3 +5,16 @@
 img.profile-pic {
 	border-radius: 50%;
 }
+
+.column {
+  text-align: center;
+  border-right-color: grey;
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+
+.first-column {
+  border-left-color: grey;
+  border-left-style: solid;
+  border-left-width: 1px;
+}

@@ -17,4 +17,4 @@
 /tmp
 
 # Ignore Schema File
-db/schema.rb
+/db/schema.rb
