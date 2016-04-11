@@ -120,7 +120,7 @@ function confirm_lesson(confirm, lesson_id){
     success: function(data){
       if (confirm) {
         $('#confirm_span'+lesson_id.toString()).empty();
-        $('#confirm_span'+lesson_id.toString()).append(' | 확정됨');
+        $('#confirm_span'+lesson_id.toString()).append('확정됨');
       }
       else {
         $('#lesson_applied'+lesson_id.toString()).remove();

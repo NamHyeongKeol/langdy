@@ -3,13 +3,16 @@
 /* 선택된 커리큘럼의 내용을 textarea#curri_text에 뿌리기
  * @return {integer} course_id
  */
-function showSelectCourse() {
+function showSelectCourse(need_pay) {
   var selectedNode = $('#tree').treeview('getSelected');
   var course_id = selectedNode[0].id;
 
   $.ajax({
     url: "/lecture_room/get_course_curri/"+course_id,
     dataType: 'json',
+    data: {
+      need_pay: need_pay
+    },
     success: function(data){
       $('#curri_text').empty();
       $('#curri_text').text(data.course.content);

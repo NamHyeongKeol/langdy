@@ -3,11 +3,14 @@ class Lesson < ActiveRecord::Base
 	belongs_to :student, :class_name => "User"
 	belongs_to :course, :class_name => "Course"
 
+  def make_trade
+  end
+
   def get_period
     result = self.start_at.strftime('%a %b %e %T') + ' ~ ' + self.end_at.strftime('%a %b %e %T')
     return result
   end
-  
+
   def get_price
     result = ""
     if self.is_free
