@@ -63,14 +63,6 @@ ActiveRecord::Schema.define(version: 20160407055400) do
     t.boolean  "student_end"
   end
 
-  create_table "memos", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "course_id"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "teacher_comments", force: :cascade do |t|
     t.integer  "commentor_id"
     t.integer  "commentee_id"

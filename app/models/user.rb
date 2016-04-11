@@ -38,4 +38,9 @@ class User < ActiveRecord::Base
     raw_list = self.available_times.pluck(:week_day, :start_at, :end_at)
     return raw_list.map{|item| item[0]+'/'+item[1].strftime('%H:%M')+'~'+item[2].strftime('%H:%M')}.join(',')
   end
+
+  # return current course lesson
+  def get_current_lesson(course)
+    return self.lesson_to_study.where(course: course, confirmed: true).min { |a, b| (a.end_at - Time.now).abs <=> (b.end_at - Time.now).abs }
+  end
 end

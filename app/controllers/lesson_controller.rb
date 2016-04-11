@@ -34,13 +34,13 @@ class LessonController < ApplicationController
 	def getLessons
 		# 우선 선생님, 학생 모두의 레슨을 받아옴 (수정 가능성 있음)
 		lessons = Lesson.where("teacher_id = #{params[:user_id]} OR student_id = #{params[:user_id]} AND start_at >= #{params[:start]} AND end_at <= #{params[:end]}").all
-		
+
 		lessons_array = []
 		lessons.each do |item|
 			e = Event.new(item.id, item.get_event_text(current_user), item.start_at, item.end_at)
 			lessons_array << e
 		end
-		
+
 		if !lessons_array.empty?
 			render json: lessons_array.to_json
 		else

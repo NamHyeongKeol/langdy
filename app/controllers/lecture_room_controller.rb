@@ -14,6 +14,11 @@ class LectureRoomController < ApplicationController
   def get_course_curri
     course = Course.find(params[:id]);
     memo = current_user.memos.where(course: course).take
+    #lesson = current_user.get_current_lesson(course)
+    #if lesson.state != 'paid' and need_pay
+      #lesson.update(state: 'pending')
+      #PayForLessonJob.set(wait: 1.minute).perform_later(lesson)
+    #end
     respond_to do |format|
       format.json { render json: {course: course, memo: memo} }
     end

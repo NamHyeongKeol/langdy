@@ -160,7 +160,7 @@
             </div>
           </div>
           <% @lesson_applied.each do |item| %>
-            <div class="row" id="lesson_applying<%= item.id %>">
+            <div class="row" id="lesson_applied<%= item.id %>">
               <div class="col-md-1 column first-column">
                 <%= item.course.rank %>
               </div>
@@ -265,8 +265,8 @@
   }
 
   $(document).ready(function(){
-      $('.confirm_btn').click(function(){
-        confirm_lesson($(this).data('confirmed'), $(this).parent().data('lesson_id'));
-      });
+    $('.confirm_btn').click(function(){
+      confirm_lesson($(this).data('confirmed'), $(this).parent().data('lesson_id'));
+    });
   });
 </script>

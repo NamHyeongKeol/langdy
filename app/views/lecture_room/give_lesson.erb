@@ -90,7 +90,7 @@
   var course_id = 0;
   $(document).ready(function(){
     $('#curri_btn').click(function(){
-      course_id = showSelectCourse();
+      course_id = showSelectCourse(false);
     });
     $('#memo_save_btn').click(function(){
       saveMemo(<%= current_user.id %>, course_id, $('#memo_text').val());

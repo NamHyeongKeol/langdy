@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class MemoTest < ActiveSupport::TestCase
+class PayForLessonJobTest < ActiveJob::TestCase
   # test "the truth" do
   #   assert true
   # end
