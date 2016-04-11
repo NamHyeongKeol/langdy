@@ -7,19 +7,21 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # 형걸이용 유저목록
-
-#user = User.create!([{}])
-
-
-
-
-
-
-
-
-
-
-
+#
+#user = User.create!([{id: 1, email: "grey_pastor@naver.com", password: "12341234", password_confirmation: "12341234", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-04-11 10:19:33", last_sign_in_at: "2016-04-11 10:19:33", current_sign_in_ip: "::1", last_sign_in_ip: "::1", created_at: "2016-04-11 10:19:33", updated_at: "2016-04-11 10:19:33", name: "로컬용", lang_to_learn: "Chinese", native_lang: "Korean", is_teacher: true, is_admin: true, cash: 0, profile_pic: "___________________.jpg", gender: "Male"}])
+#user = User.create!([{id: 2, email: "asdfasdf@naver.com", password: "12341234", password_confirmation: "12341234", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-04-11 11:03:24", last_sign_in_at: "2016-04-11 11:03:24", current_sign_in_ip: "::1", last_sign_in_ip: "::1", created_at: "2016-04-11 11:03:24", updated_at: "2016-04-11 11:03:24", name: "asdfasdf", lang_to_learn: "Korean", native_lang: "Chinese", is_teacher: true, is_admin: false, cash: 0, profile_pic: nil, gender: "Male"}])
+#user = User.create!([{id: 3, email: "asdf@naver.com", password: "12341234", password_confirmation: "12341234", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-04-11 11:03:24", last_sign_in_at: "2016-04-11 11:03:24", current_sign_in_ip: "::1", last_sign_in_ip: "::1", created_at: "2016-04-11 11:03:24", updated_at: "2016-04-11 11:03:24", name: "asdf", lang_to_learn: "Korean", native_lang: "English", is_teacher: true, is_admin: false, cash: 0, profile_pic: nil, gender: "Female"}])
+#user = User.create!([{id: 4, email: "asdfasdfasdf@naver.com", password: "12341234", password_confirmation: "12341234", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-04-11 11:03:24", last_sign_in_at: "2016-04-11 11:03:24", current_sign_in_ip: "::1", last_sign_in_ip: "::1", created_at: "2016-04-11 11:03:24", updated_at: "2016-04-11 11:03:24", name: "asdfasdfasdf", lang_to_learn: "English", native_lang: "English", is_teacher: true, is_admin: false, cash: 0, profile_pic: nil, gender: "Female"}])
+#user = User.create!([{id: 5, email: "qwer@naver.com", password: "12341234", password_confirmation: "12341234", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-04-11 11:03:24", last_sign_in_at: "2016-04-11 11:03:24", current_sign_in_ip: "::1", last_sign_in_ip: "::1", created_at: "2016-04-11 11:03:24", updated_at: "2016-04-11 11:03:24", name: "qwer", lang_to_learn: "Chinese", native_lang: "Korean", is_teacher: true, is_admin: false, cash: 0, profile_pic: nil, gender: "Female"}])
+#user = User.create!([{id: 6, email: "qwerqwer@naver.com", password: "12341234", password_confirmation: "12341234", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-04-11 11:03:24", last_sign_in_at: "2016-04-11 11:03:24", current_sign_in_ip: "::1", last_sign_in_ip: "::1", created_at: "2016-04-11 11:03:24", updated_at: "2016-04-11 11:03:24", name: "qwerqwer", lang_to_learn: "English", native_lang: "Korean", is_teacher: true, is_admin: false, cash: 0, profile_pic: nil, gender: "Male"}])
+#
+## 형걸이용 선생목록
+#t = TeacherInfo.create!([{user_id: 1, major: "cs", school_grad: "snu", introduction: "로컬용", location: "seoul", is_approved: true, created_at: "2016-04-11 10:19:33", updated_at: "2016-04-11 11:01:31", gender: "Male", lecture_price: 1, lecture_number: 5, rating: 5, student_number: 5}])
+#t = TeacherInfo.create!([{user_id: 2, major: "cs", school_grad: "snu", introduction: "asdfasdf", location: "seoul", is_approved: true, created_at: "2016-04-11 10:19:33", updated_at: "2016-04-11 11:01:31", gender: "Male", lecture_price: 1, lecture_number: 6, rating: 5, student_number: 20}])
+#t = TeacherInfo.create!([{user_id: 3, major: "cs", school_grad: "snu", introduction: "asdf", location: "seoul", is_approved: true, created_at: "2016-04-11 10:19:33", updated_at: "2016-04-11 11:01:31", gender: "Female", lecture_price: 1, lecture_number: 7, rating: 5, student_number: 40}])
+#t = TeacherInfo.create!([{user_id: 4, major: "cs", school_grad: "snu", introduction: "asdfasdfasdf", location: "seoul", is_approved: true, created_at: "2016-04-11 10:19:33", updated_at: "2016-04-11 11:01:31", gender: "Female", lecture_price: 1, lecture_number: 8, rating: 5, student_number: 30}])
+#t = TeacherInfo.create!([{user_id: 5, major: "cs", school_grad: "snu", introduction: "qwer", location: "seoul", is_approved: true, created_at: "2016-04-11 10:19:33", updated_at: "2016-04-11 11:01:31", gender: "Female", lecture_price: 1, lecture_number: 9, rating: 5, student_number: 10}])
+#t = TeacherInfo.create!([{user_id: 6, major: "cs", school_grad: "snu", introduction: "qwerqwer", location: "seoul", is_approved: true, created_at: "2016-04-11 10:19:33", updated_at: "2016-04-11 11:01:31", gender: "Male", lecture_price: 1, lecture_number: 10, rating: 5, student_number: 50}])
 
 
 
