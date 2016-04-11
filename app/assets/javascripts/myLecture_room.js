@@ -12,7 +12,7 @@ function showSelectCourse() {
     dataType: 'json',
     success: function(data){
       $('#curri_text').empty();
-      $('#curri_text').text(data.course.content);
+      $('#curri_text').html($.parseHTML(decodeURI(data.course.content)));
       $('#memo_save_btn').attr('disabled',false);
       $('#memo_text').empty();
       $('#memo_text').text(data.memo.content);
