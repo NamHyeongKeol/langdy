@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 20160407055400) do
     t.boolean  "is_canceled"
     t.boolean  "teacher_end"
     t.boolean  "student_end"
-    t.boolean  "confirmed",   default: false
   end
 
   create_table "memos", force: :cascade do |t|
@@ -92,7 +91,7 @@ ActiveRecord::Schema.define(version: 20160407055400) do
     t.string   "gender"
     t.integer  "lecture_price"
     t.integer  "lecture_number"
-    t.float    "rating"
+    t.integer  "rating"
     t.integer  "student_number"
   end
 

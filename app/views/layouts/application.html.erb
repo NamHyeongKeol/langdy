@@ -14,12 +14,12 @@
       <div class="container">
         <div class="row">
           <div class="navbar-header col-md-3">
-            <a href="../" class="navbar-brand">LangD</a>
+            <a href="../" class="navbar-brand">Langdy</a>
           </div>
           <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav col-md-6">
               <% if user_signed_in? and current_user.is_admin %>
-                <li><%= link_to "관리자페이지", admin_path %></li>
+                
               <% end %>
               <li><%= link_to "마이페이지", dashboard_path %></li>
               <li><%= link_to "선생님 찾기", find_teacher_path %></li>
