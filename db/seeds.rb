@@ -6,6 +6,23 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+# 형걸이용 유저목록
+
+#user = User.create!([{}])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 course = Course.create!([{lang: 'Korean', rank: '초급', subject: 'Ch1 langD에 관한 연구1k.', content: '<p>nothing special</p>'}])
 course = Course.create!([{lang: 'Korean', rank: '초급', subject: 'Ch2 langD에 관한 연구2k.', content: '<p>nothing special</p>'}])
 course = Course.create!([{lang: 'Korean', rank: '초급', subject: 'Ch3 langD에 관한 연구3k.', content: '<p>nothing special</p>'}])
