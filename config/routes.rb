@@ -26,6 +26,9 @@ Rails.application.routes.draw do
 	delete 'teacher/destroy_comment/:id' => 'teachers#destroy_comment', as: 'destroy_teacher_comment'
 
 	get 'purchase' => 'cash#index', as: 'purchase'
+  get 'purchase/buycoin' => 'cash#buycoin'
+  get 'purchase/sellcoin' => 'cash#sellcoin'
+
 	post 'submit_purchase' => 'cash#submit_purchase', as: 'submit_purchase'
 	get 'permit_purchase/:id' => 'cash#permit_purchase', as: 'permit_purchase'
 
