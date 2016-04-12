@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20160402161934) do
 
   create_table "cash_transactions", force: :cascade do |t|
@@ -63,8 +62,8 @@ ActiveRecord::Schema.define(version: 20160402161934) do
     t.text     "introduction"
     t.string   "location"
     t.boolean  "is_approved",  default: true
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "gender"
   end
 
