@@ -1,14 +1,16 @@
 $(document).ready(function() {
-    $(".breadcrumb").change(function() {
+    $("#submit").click(function() {
         gender = $("#gender").val();
-        console.log(gender);
         language = $("#language").val();
+        day_of_week = $("#day_of_week").val();
+        time = $("#time").val();
         $.post('/teachers/filter_teachers',
-               {gender: gender, language: language},
-               function(data) {
-                   $("#user_list").html(data);
-               }
-              );
+             {gender: gender, language: language, day_of_week: day_of_week, time: time},
+             function(data) {
+                 $("#user_list").html(data);
+             }
+            );
+
     });
 
 });
@@ -61,9 +63,9 @@ function submitLessonValidation() {
 /**
  * 강의 시작 시간, 끝나는 시간은 eventStatic 전역 변수에서 바로 받아온다.
  * 커리큘럼의 ID또한 #tree에서 선택된 노드를 바로 받아온다.
- * 
+ *
  * 레슨 DB에 추가
- * 
+ *
  * @param  {Integer}  teacher_id
  * @param  {Integer}  coin
  * @param  {Boolean}  is_free       무료 매칭일 시 = true
@@ -98,7 +100,34 @@ function submitLesson(teacher_id, coin, is_free = false) {
   },
   function(data, status, xhr) {
     if(data == 'OK') {
+      location.replace("/dashboard");
       // 강의 신청 성공 페이지로 이동
+    }
+  });
+}
+
+/*
+ */
+function confirm_lesson(confirm, lesson_id){
+  $.ajax({
+    url: '/confirm_lesson',
+    dataType: 'json',
+    method: 'post',
+    data: {
+      confirm: confirm,
+      lesson_id: lesson_id
+    },
+    success: function(data){
+      if (confirm) {
+        $('#confirm_span'+lesson_id.toString()).empty();
+        $('#confirm_span'+lesson_id.toString()).append('확정됨');
+      }
+      else {
+        $('#lesson_applied'+lesson_id.toString()).remove();
+      }
+    },
+    error: function(){
+      alert('Error occured!');
     }
   });
 }

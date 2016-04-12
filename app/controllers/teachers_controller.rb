@@ -4,7 +4,7 @@ class TeachersController < ApplicationController
 
 	def apply
 	end
-	
+
 	def submit_teacher_application
 		t = TeacherInfo.new(teacher_application_params)
 		t.user = current_user
@@ -42,8 +42,20 @@ class TeachersController < ApplicationController
 			language = params[:language]
 		end
 
+    if params[:day_of_week] == ""
+      day_of_week = nil
+    else
+      day_of_week = params[:day_of_week]
+    end
+
+    if params[:time] == ""
+      time = nil
+    else
+      time = params[:time]
+    end
+
 		if gender and language
-			@teachers = User.where(gender: gender, native_lang: language, is_teacher: true)
+			@teachers = User.where(gender: gender, native_lang: language, is_teacher: true)#.joins("LEFT JOIN available_times ON available_times.user_id = users.id AND available_times.start_at <= 12:00 ")
 		elsif gender and !language
 			@teachers = User.where(gender: gender, is_teacher: true)
 		elsif !gender and language
@@ -56,7 +68,7 @@ class TeachersController < ApplicationController
 	end
 
 	def show
-		@teacher = User.find(params[:id])
+    @teacher = User.find(params[:id].to_i)
 		if !current_user.is_admin and !@teacher.is_teacher
 			redirect_to find_teacher_path
 		end
@@ -79,8 +91,20 @@ class TeachersController < ApplicationController
 		redirect_to :back
 	end
 
-	private
-		def teacher_application_params
-			params.require(:teacher_info).permit(:location, :major, :school_grad, :introduction)
-		end
+  def edit_teacher_info
+    @teacher_info = current_user.teacher_info
+  end
+
+  def update_teacher_info
+    teacher_info = current_user.teacher_info
+    teacher_info.update(teacher_application_params)
+    current_user.set_schedule(params[:schedules])
+    redirect_to :dashboard
+  end
+
+  private
+
+  def teacher_application_params
+    params.require(:teacher_info).permit(:location, :major, :school_grad, :introduction, :lecture_price)
+  end
 end

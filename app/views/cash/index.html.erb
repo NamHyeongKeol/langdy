@@ -1,52 +1,24 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h3> Buy Coins </h3>
+  <div class="row vertical-middle">
+    <div class="col-md-1"></div>
+    <div class="col-md-3 text-center mainpagebutton">
+      <a href="purchase/buycoin">
+      <h3>코인 구매</h3>
+      <p>코인을 구매한 후 강의를 즐겨보세요.</p>
+      </a>
     </div>
-
-    <div class="col-md-8">
-
-      <%= form_for :transaction, url: submit_purchase_path do |f| %>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h3> Select money amount </h3>
-            <hr>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label for="select" class="col-md-2">Selects</label>
-                <div class="col-md-10">
-                  <%= f.select(:amount, [['10,000 KRW = 10 p',10], ['20,000 KRW = 20 p',20]], {}, { :class => 'form-control' }) %>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h3> Select charging method </h3>
-            <hr>
-            <div class="col-md-12">
-              <div class="form-group">
-                <label class="col-lg-2 control-label">Methods</label>
-                <div class="col-lg-10">
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                      Now only BANK TRANSFER is supported
-                    </label>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <%= f.submit "Process payment!", class: "col-md-12 btn btn-md btn-primary" %>
-
-      <% end %>
+    <div class="col-md-3 text-center mainpagebutton">
+      <a href="purchase/sellcoin">
+      <h3>코인 환전</h3>
+      <p>누적된 코인을 현금으로 환전할 수 있습니다.</p>
+      </a>
     </div>
-
+    <div class="col-md-3 text-center mainpagebutton">
+      <a href="#">
+      <h3>코인 내역</h3>
+      <p>코인을 입출금 내역을 확인할 수 있습니다.</p>
+      </a>
+    </div>
+    <div class="col-md-2"></div>
   </div>
 </div>

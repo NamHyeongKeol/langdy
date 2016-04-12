@@ -1,25 +1,25 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <ul class="breadcrumb">
-        <li>
-          Gender
-          <select class="form-control" id="gender">
-            <option value="">Gender</option>
-            <option value="Female">Female</option>
-            <option value="Male">Male</option>
-          </select>
-        </li>
-        <li>
-          Language
-          <select class="form-control" id="language">
-            <option value="">Language</option>
-            <option value="English">English</option>
-            <option value="Korean">Korean</option>
-            <option value="Chinese">Chinese</option>
-          </select>
-        </li>
-      </ul>
+      <div class="breadcrumb">
+        <div class="col-md-2">
+          <%= label_tag('label', "Gender") %>
+          <%= select_tag :gender, options_for_select([['Gender', ''], ['Male', 'Male'], ['Female', 'Female']], ''), { :class => 'form-control' } %>
+        </div>
+        <div class="col-md-2">
+          <%= label_tag('label', "Language") %>
+          <%= select_tag :language, options_for_select([['Language', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], ''), { :class => 'form-control' } %>
+        </div>
+        <div class="col-md-2">
+          <%= label_tag('label', "Day of Week") %>
+          <%= select_tag :day_of_week, options_for_select([['Day of Week', ''], ['Monday', 'monday'], ['Tuesday', 'tuesday'], ['Wednesday', 'wednesday'], ['Thursday', 'thursday'], ['Friday', 'friday'], ['Saturday', 'saturday'], ['Sunday', 'sunday']], ''), { :class => 'form-control' } %>
+        </div>
+        <div class="col-md-2">
+          <%= label_tag('label', "Time") %>
+          <%= select_tag :time, options_for_select([['Time', ''], ['Morning', 'morning'], ['Afternoon', 'afternoon'], ['Evening', 'evening']], ''), { :class => 'form-control' } %>
+        </div>
+        <div class="col-md-1"><%= submit_tag 'Search', { :class => 'form-control', :id => 'submit' } %></div>
+      </div>
     </div>
     <!-- Left column -->
     <div class="col-md-9">
@@ -31,27 +31,30 @@
               <div class="panel-body">
                 <li class="media">
                   <div class="media-left">
-                    <a href="#">
+                    <%= link_to teacher_path(t) do %>
                       <% if t.profile_pic.url.nil? %>
                         <img class="media-object profile-pic" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQV5Y81SdqnTLFEXe_h-4KA2uT4DuNhON4XU32Ut6JkTl2rFDEiOMnmOA" alt="..." height="126" width="126">
                       <% else %>
                         <img class="media-object profile-pic" src=<%= t.profile_pic.url %> alt="..." height="126" width="126">
                       <% end %>
-                    </a>
+                    <% end %>
                   </div>
                   <div class="media-body">
                     <div class="col-md-9">
-                      <%= link_to teacher_path(t) do %>
-                        <h3 class="media-heading">
-                          <%= t.name %>
-                        </h3>
-                      <% end %>
+                      <div class="col-md-3">
+                        <%= link_to teacher_path(t) do %>
+                          <h3 class="media-heading">
+                            <%= t.name %>
+                          </h3>
+                        <% end %>
+                      </div>
+                      <div class="col-md-9" style="height: 30px;"></div>
                       <p>
                       <span class="label label-success"><%= t.native_lang %></span>
                       /
-                      <span class="label label-default"> 5.0 Rating </span>
+                      <span class="label label-default"><%= t.teacher_info.rating %> rating</span>
                       /
-                      <span class="label label-primary"> 500 Lessons finished </span>
+                      <span class="label label-primary"><%= t.teacher_info.lecture_number %> Lessons finished </span>
                       </p>
                       <p>
                       <%= t.teacher_info.introduction %>
@@ -59,10 +62,10 @@
                     </div>
 
                     <div class="col-md-3">
-                      <h4>
-                        900 Chips for 1 hour
+                      <h4 style="margin-top: 50px;">
+                        <%= t.teacher_info.lecture_price %> coins / 1 hour
                       </h4>
-                      <%= link_to "Book trial lesson", select_time_path(t), class: "btn btn-success btn-sm col-md-12" %>
+                      <%# link_to "Book trial lesson", select_time_path(t), class: "btn btn-success btn-sm col-md-12" %>
                     </div>
                   </div>
                 </li>

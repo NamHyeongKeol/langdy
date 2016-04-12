@@ -1,0 +1,100 @@
+<div class="container fixed-container">
+  <div class="row">
+    <%= render partial: '/teachers/curriculum_modal' %>
+    <!-- left box -->
+    <div class="col-md-7 col-sm-12">
+      <div class="row" style="display: table; width: 600px; height: 50px">
+        <div class="col-xs-4" style="display: table-cell;">
+          <h3 style="display: table-cell">커리큘럼</h3>
+        </div>
+        <div class="col-xs-3" style="display: table-cell; vertical-align: baseline;">
+          <button type="button" class="btn btn-primary col-md-12" data-toggle="modal" data-target="#curriculumModal">
+            커리큘럼 선택
+          </button>
+        </div>
+        <div class="col-xs-5" style="display: table-cell;">
+          <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#notify_modal">신고하기</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="curri_text" rows="16" cols="80" disabled></div>
+          <h3>메모</h3>
+          <textarea id="memo_text" rows="8" cols="80"></textarea>
+        </div>
+        <div class="col-md-12">
+          <button id="memo_save_btn" type="button" class="btn btn-primary" disabled>저장</button>
+        </div>
+      </div>
+    </div>
+    <!-- left box -->
+
+    <!-- 신고 Modal -->
+    <div class="modal fade" id="notify_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">수업 신고하기</h4>
+          </div>
+          <div class="modal-body">
+            <p>
+              신고할 내용을 구체적으로 입력해서 admin@langdy.com으로 보내주세요!
+              확인 후 조치를 취하도록 하겠습니다.
+              (스크린샷 등의 증거를 보내주시면 빠른 확인이 가능합니다.)
+            </p>
+            <p>
+              허위 신고자에게는 패널티가 부과됩니다.
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+            <button type="button" class="btn btn-primary">신고</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- right box -->
+    <div class="col-md-5 hidden-md hidden-sm hidden-xs" style="display: table; height:545px; border:1px solid #D8D8D8;">
+      <h4 style="display: table-cell; text-align: center; vertical-align: middle;">랭디 페이지를 왼쪽에, 스카이프를 오른쪽에 두고 학습하시면 됩니다.</h4>
+    </div>
+    <!-- right box -->
+  </div>
+</div>
+<script src="/assets/bootstrap-treeview.js"></script>
+<script src="/assets/myLecture_room.js"></script>
+<script tpye="text/javascript">
+  function loadCourses() {
+    $.post("/get_courses",
+    {
+        lang: '<%= current_user.native_lang %>',
+        mi_selectable: true, //미수강 선택가능 여부
+        ye_selectable: true, //수강예정 선택가능 여부
+        wa_selectable: true, //수강 완료 선택가능 여부
+    },
+    function(data, status, xhr) {
+        loadCoursesCallback(data);
+    });
+  }
+
+  function loadCoursesCallback(treeData) {
+    $('#tree').treeview({
+      data: treeData,
+      showTags: true
+    });
+  }
+
+  loadCourses();
+
+  var course_id = 0;
+  $(document).ready(function(){
+    $('#curri_btn').click(function(){
+      course_id = showSelectCourse(false);
+    });
+    $('#memo_save_btn').click(function(){
+      saveMemo(<%= current_user.id %>, course_id, $('#memo_text').val());
+    });
+  });
+
+</script>

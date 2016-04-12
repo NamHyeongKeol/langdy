@@ -20,10 +20,10 @@
         </div>
         <ul class="list-group">
           <li class="list-group-item">
-            <%= link_to edit_user_registration_path do %>
-              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              Edit Profile
-            <% end %>
+          <%= link_to edit_user_registration_path do %>
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            개인 프로필
+          <% end %>
           </li>
         </ul>
       </div>
@@ -32,8 +32,19 @@
         <ul class="list-group">
           <%= link_to apply_for_teacher_path do %>
             <li class="list-group-item">
-              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-              Apply for being a teacher
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            Apply for being a teacher
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <% if current_user.is_teacher %>
+        <ul class="list-group">
+          <%= link_to edit_teacher_info_path do %>
+            <li class="list-group-item">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            학습 프로필
             </li>
           <% end %>
         </ul>
@@ -43,11 +54,11 @@
         <div class="panel-body">
           <div class="col-md-12">
             <h5>
-              Leave your feedback for improve this platform. We will repay your kindness.
+              언제든지 의견을 남겨주세요. 여러분의 의견에 항상 귀기울이겠습니다.
             </h5>
             <%= form_for :feedback, url: feedback_path do |f| %>
               <%= f.text_field :text, :autocomplete => :off, class: "col-md-12 form-control" %>
-              <%= f.submit "Leave feedback!", class: "btn btn-default col-md-12" %>
+              <%= f.submit "피드백 남기기", class: "btn btn-default col-md-12" %>
             <% end %>
           </div>
         </div>
@@ -57,14 +68,123 @@
 
     <!-- Right column -->
     <div class="col-md-9">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <h3> Lessons </h3>
-          <!-- Event Calendar by DayPilot -->
-          <div id="dp"></div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h3> 강의시간표 </h3>
+              <!-- Event Calendar by DayPilot -->
+              <div id="dp"></div>
+            </div>
+          </div>
         </div>
       </div>
-      
+
+      <div class="row" style="margin-bottom: 100px;">
+        <div class="col-md-12">
+          <h3>내가 신청한 강의</h3>
+          <div class="row">
+            <div class="col-md-1 column first-column">
+              <h4>단계</h4>
+            </div>
+            <div class="col-md-1 column">
+              <h4>언어</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>챕터</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>선생님 성함</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>수강 기간</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>수강 가격</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>수강 확정 여부</h4>
+            </div>
+          </div>
+          <% @lesson_applying.each do |item| %>
+            <div class="row" id="lesson_applying<%= item.id %>">
+              <div class="col-md-1 column first-column">
+                <%= item.course.rank %>
+              </div>
+              <div class="col-md-1 column">
+                <%= item.course.lang %>
+              </div>
+              <div class="col-md-2 column">
+                <%= item.course.subject %>
+              </div>
+              <div class="col-md-2 column">
+                <%= item.teacher.name %>
+              </div>
+              <div class="col-md-2 column">
+                <%= item.get_period.html_safe %>
+              </div>
+              <div class="col-md-2 column">
+                시간당 <%= item.get_price.html_safe %> 코인
+              </div>
+              <div class="col-md-2 column">
+                <span data-lesson_id="<%= item.id.to_s %>" id="confirm_span<%= item.id.to_s %>"><%= item.get_confirm_student.html_safe %></span>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-md-12">
+          <h3>나에게 신청된 강의</h3>
+          <div class="row">
+            <div class="col-md-1 column first-column">
+              <h4>단계</h4>
+            </div>
+            <div class="col-md-1 column">
+              <h4>언어</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>챕터</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>학생 성함</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>수강 기간</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>수강 가격</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>수강 확정 여부</h4>
+            </div>
+          </div>
+          <% @lesson_applied.each do |item| %>
+            <div class="row" id="lesson_applied<%= item.id %>">
+              <div class="col-md-1 column first-column">
+                <%= item.course.rank %>
+              </div>
+              <div class="col-md-1 column">
+                <%= item.course.lang %>
+              </div>
+              <div class="col-md-1 column">
+                <%= item.course.subject %>
+              </div>
+              <div class="col-md-2 column">
+                <%= item.student.name %>
+              </div>
+              <div class="col-md-2 column">
+                <%= item.get_period.html_safe %>
+              </div>
+              <div class="col-md-2 column">
+                시간당 <%= item.get_price.html_safe %> 코인
+              </div>
+              <div class="col-md-2 column">
+                <span data-lesson_id="<%= item.id.to_s %>" id="confirm_span<%= item.id.to_s %>"><%= item.get_confirm_teacher.html_safe %></span>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
       <!--
       <div class="panel panel-default">
         <div class="panel-body">
@@ -91,7 +211,7 @@
         </div>
       </div>
       -->
-      
+
     </div>
     <!-- Right column -->
 
@@ -99,43 +219,53 @@
 </div>
 
 <script src="/assets/daypilot-all.min.js" type="text/javascript"></script>
+<script src="/assets/mySchedule.js" type="text/javascript"></script>
 <script type="text/javascript">
+  var my_avail = new Teacher_Schedule('<%= current_user.get_schedule %>');
   var dp = new DayPilot.Calendar("dp");
+  show_availables_on_calendar(dp,my_avail);
   dp.viewType = "Week";
   dp.eventMoveHandling = "Disabled";
   dp.init();
-  
+
   loadEvents();
-  
+
+  //load available times
+
   eventStatic = null; // 이벤트 전역 변수
   // 셀렉트 이벤트 바인딩
   dp.onTimeRangeSelected = function (args) {
     name = "name";
     var e = new DayPilot.Event({
-        start: args.start,
-        end: args.end,
-        id: DayPilot.guid(),
-        resource: args.resource,
-        text: name
+      start: args.start,
+      end: args.end,
+      id: DayPilot.guid(),
+      resource: args.resource,
+      text: name
     });
-    
+
     eventStatic = e;
     // dp.events.add(e);
-    
+
     // $('#selectTimeModal').modal("hide");
   };
-  
+
   function loadEvents() {
     $.post("/get_lessons",   // in ASP.NET MVC, use "backend/events"
-    {
-        user_id: <%= current_user.id %>,
-        start: "'" + dp.visibleStart().toString().replace("T", " [").concat("]'"),
-        end: "'" + dp.visibleEnd().toString().replace("T", " [").concat("]'")
-    }, 
+        {
+          user_id: <%= current_user.id %>,
+          start: "'" + dp.visibleStart().toString().replace("T", " [").concat("]'"),
+          end: "'" + dp.visibleEnd().toString().replace("T", " [").concat("]'")
+        },
     function(data, status, xhr) {
-        console.log(data);
-        dp.events.list = data;
-        dp.update();
+      dp.events.list = data;
+      dp.update();
     });
   }
+
+  $(document).ready(function(){
+    $('.confirm_btn').click(function(){
+      confirm_lesson($(this).data('confirmed'), $(this).parent().data('lesson_id'));
+    });
+  });
 </script>

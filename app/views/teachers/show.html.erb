@@ -23,17 +23,17 @@
                 <a class="btn btn-default">
                   Rating
                   <br>
-                  5.0
+                  <%= @teacher.teacher_info.rating %>
                 </a>
                 <a class="btn btn-primary">
                   Students
                   <br>
-                  132
+                  <%= @teacher.teacher_info.student_number %>
                 </a>
                 <a class="btn btn-success">
                   Lessons
                   <br>
-                  512
+                  <%= @teacher.teacher_info.lecture_number %>
                 </a>
               </div>
             </div>
@@ -168,14 +168,14 @@
     <!-- Right column -->
     <div class="col-md-3">
       <div id="lessonSelect" class="panel panel-default">
-        <form class="form-horizontal">
+        <form class="panel-body">
           <div class="panel-body">
             <div id="alert-teacher" class="alert alert-danger" role="alert" style="display: none;"><b></b></div>
             
             <h4> If you want to start lessons </h4>
             <hr>
-            <h4>
-              900 Chips for 1 hour
+            <h4 style="margin-top: 50px;">
+              <%= @teacher.teacher_info.lecture_price %> coins / 1 hour
             </h4>
             
             <!-- Section - Select Time -->
@@ -183,7 +183,7 @@
               <button type="button" class="btn btn-primary col-md-12" data-toggle="modal" data-target="#selectTimeModal">
                 강의 시간 선택
               </button>
-              <input type="text" id="selectTimeInput" class="form-control" placeholder="강의 시간을 선택해 주세요" disabled>
+              <input type="text" name="selectTimeInput" id="selectTimeInput" class="form-control" placeholder="강의 시간을 선택해 주세요" disabled>
               
               <!-- Modal For select time-->
               <div class="modal fade" id="selectTimeModal" tabindex="-1" role="dialog" aria-labelledby="selectTimeLabel" aria-hidden="true">
@@ -191,7 +191,10 @@
                   <div class="modal-content">
                     <div class="modal-header">
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="selectTimeLabel">강의 시간 선택</h4>
+                      <h4 class="modal-title" id="selectTimeLabel">
+                        강의 시간 선택<br>
+                        <span style="font-size: 12px; color: #aaa;">선생님이 등록한 시간대가 연두색으로 표시됩니다. 선생님이 등록하지 않은 시간도 신청 가능합니다.</span>
+                      </h4>
                     </div>
                     <div class="modal-body">
                       <!-- Event Calendar by DayPilot -->
@@ -205,35 +208,20 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- Section - Curriculum -->
             <div class="input-group">
               <button type="button" class="btn btn-primary col-md-12" data-toggle="modal" data-target="#curriculumModal">
                 커리큘럼 선택
               </button>
-              <input type="hidden" id="courseId">
+              <input type="hidden" name="courseId" id="courseId">
               <input type="text" id="courseSubject" class="form-control" placeholder="커리큘럼을 선택해 주세요" disabled>
-              
+
               <!-- Modal For Curriculum -->
-              <div class="modal fade" id="curriculumModal" tabindex="-1" role="dialog" aria-labelledby="curriculumLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                      <h4 class="modal-title" id="curriculumLabel">커리큘럼 선택</h4>
-                    </div>
-                    <div class="modal-body">
-                      <div id="tree"></div>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-                      <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="passSelectCourse()">선택</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <%= render partial: 'teachers/curriculum_modal' %>
+
             </div>
-            
+
             <!-- Section - Confirm Lecture -->
             <div class="input-group">
               <button type="button" class="btn btn-success col-md-12" data-toggle="modal" data-target="#applyModal">
@@ -251,13 +239,13 @@
                     <div class="modal-body">
                       <div class="well">
                         <p><b>선생님 : <%= @teacher.name %></b></p>
-                        <p><b>강의료 : 900 코인</b></p>
+                        <p><b>강의료 : <%= @teacher.teacher_info.lecture_price %> 코인</b></p>
                         <p><b>강의 시간 : <span class="selectTimeInput"></span></b></p>
                         <p><b>커리큘럼 : <span class="courseSubject"></span></b></p>
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" onclick="submitLesson(<%= @teacher.id %>, 900, true)">예</button>
+                      <button id="lesson_submit_btn" type="button" class="btn btn-primary">예</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">아니오</button>
                     </div>
                   </div>
@@ -282,13 +270,13 @@
                     <div class="modal-body">
                       <div class="well">
                         <p><b>선생님 : <%= @teacher.name %></b></p>
-                        <p><b>강의료 : 900 코인</b></p>
+                        <p><b>강의료 : <%= @teacher.teacher_info.lecture_price %> 코인</b></p>
                         <p><b>강의 시간 : <span class="selectTimeInput"></span></b></p>
                         <p><b>커리큘럼 : <span class="courseSubject"></span></b></p>
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <button type="button" class="btn btn-primary" onclick="submitLesson(<%= @teacher.id %>, 900, true)">예</button>
+                      <button id="free_lesson_submit_btn" type="button" class="btn btn-primary">예</button>
                       <button type="button" class="btn btn-default" data-dismiss="modal">아니오</button>
                     </div>
                   </div>
@@ -301,6 +289,8 @@
         </form>
       </div>
 
+<%# following is deleted %>
+<%#
       <div class="panel panel-default">
         <div class="panel-body">
           <h4>
@@ -313,6 +303,7 @@
           <a href="#" class="btn btn-default col-md-12">Send a Message</a>
         </div>
       </div>
+%>
     </div>
     <!-- Right column -->
 
@@ -320,8 +311,11 @@
 </div>
 
 <script src="/assets/daypilot-all.min.js" type="text/javascript"></script>
+<script src="/assets/mySchedule.js" type="text/javascript"></script>
 <script type="text/javascript">
+  var my_avail = new Teacher_Schedule('<%= User.find(params[:id].to_i).get_schedule %>');
   var dp = new DayPilot.Calendar("dp");
+  show_availables_on_calendar(dp,my_avail);
   dp.viewType = "Week";
   dp.eventMoveHandling = "Disabled";
   dp.init();
@@ -365,20 +359,36 @@
   function loadCourses() {
     $.post("/get_courses",
     {
-        lang: "'ko'"
-    }, 
+        lang: '<%= @teacher.native_lang %>',
+        mi_selectable: true, //미수강 선택가능 여부
+        ye_selectable: true, //수강예정 선택가능 여부
+        wa_selectable: true, //수강 완료 선택가능 여부
+    },
     function(data, status, xhr) {
         loadCoursesCallback(data);
     });
   }
-  
+
   function loadCoursesCallback(treeData) {
     $('#tree').treeview({
       data: treeData,
       showTags: true
     });
   }
-  
+
   loadCourses();
-  
+</script>
+
+<script>
+  $(document).ready(function(){
+    $('#lesson_submit_btn').click(function(){
+      submitLesson(<%= @teacher.id %>, 900, false);
+    });
+    $('#free_lesson_submit_btn').click(function(){
+      submitLesson(<%= @teacher.id %>, 900, true);
+    });
+    $('#curri_btn').click(function(){
+      passSelectCourse()
+    });
+  });
 </script>

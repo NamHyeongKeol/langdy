@@ -1,0 +1,67 @@
+<div class="container">
+  <div class="row">
+    <%= render partial: '/teachers/curriculum_modal' %>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-4">
+          <h3>커리큘럼</h3>
+        </div>
+        <div class="col-md-3">
+          <button type="button" class="btn btn-sm btn-primary col-md-12" data-toggle="modal" data-target="#curriculumModal">
+            커리큘럼 선택
+          </button>
+        </div>
+        <div class="col-md-5">
+        </div>
+      </div>
+      <textarea id="curri_text" rows="30" cols="60" disabled></textarea>
+    </div>
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-4">
+          <h3>메모</h3>
+        </div>
+        <div class="col-md-8">
+          <button id="memo_save_btn" type="button" class="btn btn-sm btn-primary" disabled>저장</button>
+        </div>
+      </div>
+      <textarea id="memo_text" rows="30" cols="60"></textarea>
+    </div>
+  </div>
+</div>
+<script src="/assets/bootstrap-treeview.js"></script>
+<script src="/assets/myLecture_room.js"></script>
+<script tpye="text/javascript">
+  function loadCourses() {
+    $.post("/get_courses",
+    {
+        lang: '<%= current_user.lang_to_learn %>',
+        mi_selectable: false, //미수강 선택가능 여부
+        ye_selectable: true, //수강예정 선택가능 여부
+        wa_selectable: true, //수강 완료 선택가능 여부
+    },
+    function(data, status, xhr) {
+        console.log(data)
+        loadCoursesCallback(data);
+    });
+  }
+
+  function loadCoursesCallback(treeData) {
+    $('#tree').treeview({
+      data: treeData,
+      showTags: true
+    });
+  }
+
+  loadCourses();
+
+  var course_id = 0;
+  $(document).ready(function(){
+    $('#curri_btn').click(function(){
+      showSelectCourse(false);
+    });
+    $('#memo_save_btn').click(function(){
+      saveMemo(<%= current_user.id %>, course_id, $('#memo_text').val());
+    });
+  });
+</script>

@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402161934) do
+ActiveRecord::Schema.define(version: 20160411083132) do
+
+  create_table "available_times", force: :cascade do |t|
+    t.integer  "user_id"
+    t.date     "date_at"
+    t.time     "start_at"
+    t.time     "end_at"
+    t.string   "week_day"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cash_transactions", force: :cascade do |t|
     t.integer  "sender_id"
@@ -41,10 +51,22 @@ ActiveRecord::Schema.define(version: 20160402161934) do
     t.integer  "student_id"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.boolean  "is_free"
     t.integer  "course_id"
+    t.boolean  "confirmed",   default: false
+    t.string   "state"
+    t.boolean  "is_approved"
+    t.boolean  "is_canceled"
+    t.boolean  "teacher_end"
+    t.boolean  "student_end"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.string  "message"
+    t.boolean "check"
+    t.integer "addressee_id"
   end
 
   create_table "teacher_comments", force: :cascade do |t|
@@ -61,10 +83,14 @@ ActiveRecord::Schema.define(version: 20160402161934) do
     t.string   "school_grad"
     t.text     "introduction"
     t.string   "location"
-    t.boolean  "is_approved",  default: true
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "is_approved",    default: true
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "gender"
+    t.integer  "lecture_price"
+    t.integer  "lecture_number"
+    t.integer  "rating"
+    t.integer  "student_number"
   end
 
   create_table "users", force: :cascade do |t|

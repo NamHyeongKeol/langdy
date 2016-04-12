@@ -1,0 +1,120 @@
+<br><br><br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-1 col-md-10">
+      <div class="col-md-offset-2 col-md-10">
+      <h3> Edit form </h3>
+      <hr>
+      </div>
+      <%= form_for :teacher_info, url: update_teacher_info_path, html: {id: "edit_form"} do |f| %>
+
+        <div class="col-md-2" align="center">
+          <%= f.label :location, "Location", class: "control-label" %>
+        </div>
+        <div class="col-md-10">
+          <%= f.text_field :location, :autocomplete => :off, class: "col-md-12 form-control" %>
+        </div>
+        <div class="col-md-12" style="height: 10px"></div>
+
+        <div class="col-md-2" align="center">
+          <%= f.label :major, "Major", class: "control-label" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :major, :autocomplete => :off, class: "col-md-12 form-control" %>
+        </div>
+        <div class="col-md-2" align="center">
+          <%= f.label :school_grad, "University graduated", class: "control-label" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_field :school_grad, :autocomplete => :off, class: "col-md-12 form-control" %>
+        </div>
+        <div class="col-md-12" style="height: 10px"></div>
+
+        <div class="col-md-2" align="center">
+          <%= f.label :introduction, "Introduction", class: "control-label" %>
+        </div>
+        <div class="col-md-10">
+          <%= f.text_area :introduction, :autocomplete => :off, :placeholder => "Explain yourself...", class: "col-md-12 form-control", rows: "15" %>
+        </div>
+        <div class="col-md-12" style="height: 10px"></div>
+
+        <div class="col-md-2" align="center">
+          <%= f.label :lecture_price, "Lecture Price", class: "control-label" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.text_area :lecture_price, :autocomplete => :off, :placeholder => "any price per chapter from 0 to 10 coins", class: "col-md-12 form-control", rows: "1" %>
+        </div>
+        <div class="col-md-6"></div>
+        <div class="col-md-12" style="height: 10px"></div>
+
+        <div class="col-md-2" align="center">
+          <label class="control-label">Time Schedule</label>
+        </div>
+        <div class="col-md-3">
+          <select name="week-day" class="form-control">
+            <% ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'].each do |item| %>
+              <option value="<%= item %>"><%= item %></option>
+            <% end %>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <input name="start-time" type="time" class="form-control">
+        </div>
+        <div class="col-md-3">
+          <input name="end-time" type="time" class="form-control">
+        </div>
+        <div class="col-md-1">
+          <button id="schedule_add_btn" type="button" class="btn btn-default" style="width: 100%;" disabled="disabled"> + </button>
+        </div>
+        <div class="col-md-10 col-md-offset-2" id="schedule_list" style="margin-top: 2rem;">
+        </div>
+        <div class="col-md-12" style="height: 10px"></div>
+
+        <div class="col-md-12" style="height: 20px"></div>
+
+        <input type="hidden" name="schedules" id="schedules">
+        <div class="col-md-10 col-md-offset-2" style="margin-bottom: 4rem;">
+          <%= f.submit "Submit!", class: "col-md-3 btn btn-primary" %>
+        </div>
+
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
+<script src="/assets/mySchedule.js"></script>
+<script type="text/javascript">
+  my_schd = new Teacher_Schedule('<%= current_user.get_schedule %>');
+  $(document).ready(function(){
+    show_schedules($('#schedule_list'), my_schd);
+
+    $('input[name="start-time"]').keyup(function(){
+      check_add_btn();
+    });
+
+    $('input[name="end-time"]').keyup(function(){
+      check_add_btn();
+    });
+
+    $('#schedule_add_btn').click(function(){
+      $(this).attr('disabled',true);
+      my_schd.push_schedule($('select[name="week-day"]').val(), $('input[name="start-time"]').val(), $('input[name="end-time"]').val())
+      $('input[name="start-time"]').val('');
+      $('input[name="end-time"]').val('');
+      show_schedules($('#schedule_list'), my_schd);
+    });
+
+    $(document).on('click', '.schedule_delete_btn', function(){
+      if(confirm('Are U sure?')){
+        my_schd.delete_schedule($(this).data('schedule'));
+        show_schedules($('#schedule_list'), my_schd);
+      };
+    });
+
+    $('#edit_form').submit(function(e){
+      $('#schedules').val(my_schd.get_schedule().join(','));
+    });
+
+  });
+</script>
