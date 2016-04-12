@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412143909) do
+ActiveRecord::Schema.define(version: 20160412145804) do
 
   create_table "available_times", force: :cascade do |t|
     t.integer  "user_id"
@@ -130,6 +130,8 @@ ActiveRecord::Schema.define(version: 20160412143909) do
     t.string   "rank_to_teach_1"
     t.string   "rank_to_teach_2"
     t.string   "rank_to_teach_3"
+    t.string   "lang_to_learn"
+    t.string   "native_lang"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
