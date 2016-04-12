@@ -11,7 +11,7 @@ class CourseController < ApplicationController
       tag = item.getTag(current_user)
       courses[item.getIndex][:nodes] << {id: item.id, text: item.subject, tags: tag, selectable: item.getSelectable(tag[0],params[:mi_selectable], params[:ye_selectable], params[:wa_selectable])}
     end
-
+    
 	  # 해당하는 언어의 코스를 받아옴
 		# ActiveRecord 짜증나게 해서 그냥 raw SQL로 받아옴
 		#courses_raw_sql = "SELECT courses.id AS course_id, courses.subject, courses.rank, lessons.id AS lesson_id, lessons.start_at, lessons.end_at FROM courses LEFT OUTER JOIN lessons ON lessons.course_id = courses.id WHERE lang = #{params[:lang]} ORDER BY subject"
