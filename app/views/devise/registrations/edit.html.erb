@@ -1,75 +1,88 @@
 <br><br><br>
 <div class="container">
   <div class="row">
-    <div class="col-md-offset-3 col-md-6">
+    <div class="col-md-offset-2 col-md-8">
       <div class="well">
-        <%= devise_error_messages! %>
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { method: :put, :class => "form-horizontal"}) do |f| %>
           <fieldset>
-            <legend>Edit <%= resource_name.to_s.humanize %></legend>
+            <legend>개인 프로필 수정</legend>
 
             <div class="form-group">
-              <label for="inputName" class="col-md-2 control-label">Profile Picture</label>
-              <div class="col-md-10">
+              <label for="inputName" class="col-md-3 control-label">프로필 사진</label>
+              <div class="col-md-9">
                 <%= f.file_field :profile_pic, class: "form-control" %>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="inputName" class="col-md-2 control-label">Full name</label>
-              <div class="col-md-10">
-                <%= f.text_field :name, class: "form-control", :placeholder => "name", autofocus: true %>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="inputEmail" class="col-md-2 control-label">Email</label>
-              <div class="col-md-10">
-                <%= f.email_field :email, class: "form-control", :placeholder => "email", autofocus: true %>
+              <label for="inputName" class="col-md-3 control-label">이름</label>
+              <div class="col-md-9">
+                <%= f.text_field :name, class: "form-control", :placeholder => "이름", autofocus: true %>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="inputGender" class="col-md-2 control-label">Gender</label>
-              <div class="col-md-10">
+              <label for="inputPassword" class="col-md-3 control-label">비밀번호</label>
+              <div class="col-md-9">
+                <%= f.password_field :password, class: "form-control", :placeholder => "비밀번호를 바꾸지 않으려면 비워두세요.", autocomplete: "off" %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputPassword" class="col-md-3 control-label">비밀번호 확인</label>
+              <div class="col-md-9">
+                <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "비밀번호 확인", autocomplete: "off" %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputGender" class="col-md-3 control-label">성별</label>
+              <div class="col-md-9">
                 <%= f.select(:gender, ['Male', 'Female'], {}, { :class => 'form-control' }) %>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="inputPassword" class="col-md-2 control-label">Password</label>
-              <div class="col-md-10">
-                <%= f.password_field :password, class: "form-control", :placeholder => "Leave blank if you don't want to change it", autocomplete: "off" %>
-              </div>
-            </div>
 
+              <!-- 언어별 등급 설정 추가 필요. 
+              가르칠 수 있는 언어는 5개 등급(초급, 중하급, 중상급, 상급)
+              배우고 싶은 언어는 4개등급(초급, 중하급, 중상급, 상급)
+              -->
             <div class="form-group">
-              <label for="inputPassword" class="col-md-2 control-label">Password confirmation</label>
-              <div class="col-md-10">
-                <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "password", autocomplete: "off" %>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="currentPassword" class="col-md-2 control-label">Current password</label>
-              <div class="col-md-10">
-                <%= f.password_field :current_password, class: "form-control", :placeholder => "We need your current password to confirm your changes", autocomplete: "off" %>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="inputName" class="col-md-2 control-label">Language to learn</label>
-              <div class="col-md-4">
-                <%= f.select(:lang_to_learn, ['English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
-              </div>
-              <label for="inputName" class="col-md-2 control-label">Mother tongue</label>
-              <div class="col-md-4">
+              <label for="inputName" class="col-md-3 control-label">가르칠 수 있는 언어</label>
+              <div class="col-md-3">
                 <%= f.select(:native_lang, ['English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
               </div>
+              <label for="inputName" class="col-md-1 control-label">수준</label>
+              <div class="col-md-5">
+                <%# f.select(:native_lang_level, ['중상급', '상급', '모국어'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputName" class="col-md-3 control-label">배우고 싶은 언어</label>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_learn, ['English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <label for="inputName" class="col-md-1 control-label">수준</label>
+              <div class="col-md-5">
+                <%# f.select(:lang_to_learn_level, ['초급', '중하급', '중상급', '상급'], {}, { :class => 'form-control' }) %>
+              </div>
             </div>
 
             <div class="form-group">
-              <div class="col-lg-10 col-lg-offset-2">
+              <label for="currentPassword" class="col-md-3 control-label">현재 비밀번호</label>
+              <div class="col-md-9">
+                <%= f.password_field :current_password, class: "form-control", :placeholder => "본인 확인을 위해 현재 비밀 번호를 입력하세요.", autocomplete: "off" %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-lg-9 col-lg-offset-3">
+                <div class="col-md-3">
                 <%= f.submit "Update", :class => "btn btn-primary" %>
+                </div>
+                <div class="col-md-9">
+                <%= devise_error_messages! %>
+                </div>
               </div>
             </div>
           </fieldset>
