@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412122145) do
+ActiveRecord::Schema.define(version: 20160412123834) do
 
   create_table "available_times", force: :cascade do |t|
     t.integer  "user_id"
@@ -124,6 +124,9 @@ ActiveRecord::Schema.define(version: 20160412122145) do
     t.string   "korean_rank"
     t.string   "english_rank"
     t.string   "chinese_rank"
+    t.boolean  "want_to_learn_korean"
+    t.boolean  "want_to_learn_english"
+    t.boolean  "want_to_learn_chiese"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
