@@ -1,3 +1,20 @@
 // Place all the styles related to the cash controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.vertical-middle{
+    display: table-cell;
+    vertical-align:middle;
+    height: 500px;
+}
+
+.mainpagebutton{
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #eeeeee;
+    margin:10px
+}
+
+.messagebox{
+    margin-top:20px; 
+    margin-bottom:20px
+}

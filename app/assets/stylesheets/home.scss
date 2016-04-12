@@ -18,3 +18,24 @@ img.profile-pic {
   border-left-style: solid;
   border-left-width: 1px;
 }
+
+#main-page-wrapper{
+    position:fixed;
+    z-index: 1;
+    width:100%;
+    height:100%;
+}
+
+#main-page-box{
+    padding:20px;
+    background-color: #FFFFFf;
+    border-radius: 10px;
+    position:absolute;
+    top:120px;
+    z-index:2;
+    opacity:0.85;
+}
+
+#dashboard_container {
+  padding-top: 30px;
+}

@@ -1,3 +1,5 @@
+require 'rufus-scheduler'
+
 class LessonController < ApplicationController
 
 	def select_time
@@ -17,6 +19,20 @@ class LessonController < ApplicationController
 		l.course_id = params[:course_id]
 		
 		l.save
+		
+		# Coin
+		# Coin 사용
+		t = User.find(current_user.id)
+		t.cash -= params[:coin].to_i
+		t.save
+		
+		scheduler = Rufus::Scheduler.new
+		scheduler.in '1m' do # 시간 설정
+			# Coin 선생님에게 전달
+			t = User.find(params[:teacher_id])
+			t.cash += params[:coin].to_i
+			t.save
+		end
 		
 		render plain: 'OK'
 	end

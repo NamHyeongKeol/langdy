@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+/* 남형걸 수정하다가 맘
+@media (min-width: 768px) {
+  .navbar-nav>li>a {
+  padding: 15px; 
+  }
+}
+
+a {
+  height: 53.3333px;
+  line-height: 53.3333px;
+}
+
+.navbar-nav {
+  height: 53.3333px;
+}
+
+.navbar-brand {
+  height: 53.3333px;
+}
+*/
+
+.my-btn {
+  border: none;
+  background-color: #ffffff;
+  height: 53.3333px;
+
+  .noti_icon {
+    vertical-align: middle;
+  }
+}
+

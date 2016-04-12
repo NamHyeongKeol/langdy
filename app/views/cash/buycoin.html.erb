@@ -1,220 +1,107 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-offset-3 col-md-6">
+    <div class="col-md-offset-2 col-md-8">
       <div class="well">
 
-      <form class="form-horizontal" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="buN1IFAyA+Q+l4ZC4oii/wZXe3gTNh8wYnP+UoSYM4Mhe4a9wCh9Tgg3b4udtQ0uFLKG9s/SGXma/MmwSnyA0Q==" />
+        <form class="form-horizontal" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="buN1IFAyA+Q+l4ZC4oii/wZXe3gTNh8wYnP+UoSYM4Mhe4a9wCh9Tgg3b4udtQ0uFLKG9s/SGXma/MmwSnyA0Q==" />
+          <fieldset>
+            <legend>코인 구매하기</legend>
 
-      <fieldset>
-      <legend>코인 구매하기</legend>
-
-      <div class="form-group">
-      <label for="input_current_coin" class="col-md-3 control-label" style="text-align:center"><strong>현재 코인</strong></label>
-        <div class="col-md-9">
-          <div class="panel panel-default">
-            <div class="panel-footer">
-              100 코인<div class="container">
-  <div class="row">
-    <div class="col-md-offset-3 col-md-6">
-      <div class="well">
-
-      <form class="form-horizontal" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="buN1IFAyA+Q+l4ZC4oii/wZXe3gTNh8wYnP+UoSYM4Mhe4a9wCh9Tgg3b4udtQ0uFLKG9s/SGXma/MmwSnyA0Q==" />
-      <fieldset>
-      <legend>코인 구매하기</legend>
-
-      <div class="form-group">
-      <label for="input_current_coin" class="col-md-3 control-label" style="text-align:center"><strong>현재 코인</strong></label>
-        <div class="col-md-9">
-          <div class="panel panel-default">
-            <div class="panel-footer">
-              100 코인
+            <div class="form-group">
+              <label for="input_current_coin" class="col-md-3 control-label" style="text-align:center"><strong>현재 코인</strong></label>
+              <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-footer">
+                    100 코인
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="form-group">
-      <label for="input_howmany_coins" class="col-md-3 control-label" style="text-align:center"><strong>구매하고 싶은<br>코인 갯수</strong></label>
-        <div class="col-md-9">
-          <select class="form-control" name="user[howmany_coins]" id="user_howmany_coins">
-            <option value="5coins">5 코인</option>
-            <option value="10coins">10 코인</option>
-            <option value="15coins">15 코인</option>
-            <option value="20coins">20 코인</option>
-            <option value="25coins">25 코인</option>
-            <option value="30coins">30 코인</option>
-            <option value="35coins">35 코인</option>
-            <option value="40coins">40 코인</option>
-            <option value="45coins">45 코인</option>
-            <option value="50coins">50 코인</option></select>
-        </div>
-      </div>
-
-      <div class="form-group">
-      <label for="input_exchange_coin" class="col-md-3 control-label" style="text-align:center"><strong>입금할 금액</strong></label>
-        <div class="col-md-9">
-          <div class="panel panel-default">
-            <div class="panel-footer">
-              한국 금액 : 10,000 ₩(KRW, 원)<br>
-              중국 금액 : 10,000 ¥(Yuan, 위안) - 2016.04.03 환율 기준
+            <div class="form-group">
+              <label for="input_howmany_coins" class="col-md-3 control-label" style="text-align:center"><strong>구매하고 싶은<br>코인 갯수</strong></label>
+              <div class="col-md-9">
+                <select class="form-control" name="user[howmany_coins]" id="user_howmany_coins">
+                  <option value="5coins">5 코인</option>
+                  <option value="10coins">10 코인</option>
+                  <option value="15coins">15 코인</option>
+                  <option value="20coins">20 코인</option>
+                  <option value="25coins">25 코인</option>
+                  <option value="30coins">30 코인</option>
+                  <option value="35coins">35 코인</option>
+                  <option value="40coins">40 코인</option>
+                  <option value="45coins">45 코인</option>
+                  <option value="50coins">50 코인</option></select>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="form-group">
-      <label for="input_howtopay_coins" class="col-md-3 control-label" style="text-align:center"><strong>구매 방식</strong></label>
-        <div class="col-md-9">
-          <select class="form-control" name="user[howtopay_coins]" id="user_howtopay_coins">
-            <option value="bank_transfer">무통장 입금 (또는 계좌이체)</option>
-            <option value="alipay">알리페이</option></select>
-        </div>
-      </div>
-
-
-      <div class="form-group">
-      <label for="input_account_information" class="col-md-3 control-label" style="text-align:center"><strong>입금계좌정보</strong></label>
-        <div class="col-md-9">
-          <div class="panel panel-default">
-            <div class="panel-footer">
-              한국 계좌번호 : (농협) 000 - 00 - 000000<br>
-              알리페이 : 00000
+            <div class="form-group">
+              <label for="input_exchange_coin" class="col-md-3 control-label" style="text-align:center"><strong>입금할 금액</strong></label>
+              <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-footer">
+                    한국 금액 : 10,000 ₩(KRW, 원)<br>
+                    중국 금액 : 10,000 ¥(Yuan, 위안) - 2016.04.03 환율 기준
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="form-group">
-      <label for="input_buyer_information" class="col-md-3 control-label" style="text-align:center"><strong>입금자 정보<br>(이름 또는 ID)</strong></label>
-        <div class="col-md-9">
-          <input class="form-control" placeholder="buyer_information" autofocus="autofocus" type="text" name="user[buyer_information]" id="user_buyerinformation" />
-        </div>
-      </div>
-
-      <div class="form-group">
-      <label for="input_buyer_account" class="col-md-3 control-label" style="text-align:center"><strong>입금자 정보<br>(계좌번호)</strong></label>
-        <div class="col-md-9">
-          <input class="form-control" placeholder="buyer_account" autofocus="autofocus" type="text" name="user[buyer_account]" id="user_buyeraccount" />
-        </div>
-      </div>
-
-      <div>
-        <p>
-        &nbsp;&nbsp;              * 코인 구매에 관하여<br>
-        &nbsp;&nbsp;              1. 가입하신 분들 중 동명이인이 발생할 가능성이 있어서 입금자정보를 확인하게 되었습니다.<br>
-        &nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;&nbsp;입력하신 정보는 본인확인후 바로 삭제하도록 하겠습니다.<br>
-        &nbsp;&nbsp;              2. 영업일 기준(월~금) 오후 6시 이전에 입금이 확인되면, 당일에 바로 코인이 충전됩니다.<br>
-        &nbsp;&nbsp;              3. 영업일 기준(월~금) 오후 6시 이후에 입금되었을 경우, 다음날에 코인이 충전됩니다.<br>
-        &nbsp;&nbsp;              4. 영업일 이후 또는 휴일에 신청이 확인되면, 가장 가까운 영업일에 돈이 입금됩니다.<br>
-        &nbsp;&nbsp;              5. 랭디 고객의 개인정보는 안전하게 보호되며, 제시된 용도 확인 완료 후 삭제됩니다.
-        </p>
-      </div>
-
-      <div class="form-group">
-        <div class="col-lg-3 col-lg-offset-9">
-          <input type="submit" name="commit" value="구매 신청" class="btn btn-primary" style="position:center"/>
-        </div>
-      </div>
-
-      </fieldset>
-      </form>
-      </div>
-    </div>
-  </div>
-</div>
+            <div class="form-group">
+              <label for="input_howtopay_coins" class="col-md-3 control-label" style="text-align:center"><strong>구매 방식</strong></label>
+              <div class="col-md-9">
+                <select class="form-control" name="user[howtopay_coins]" id="user_howtopay_coins">
+                  <option value="bank_transfer">무통장 입금 (또는 계좌이체)</option>
+                  <option value="alipay">알리페이</option></select>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="form-group">
-      <label for="input_howmany_coins" class="col-md-3 control-label" style="text-align:center"><strong>구매하고 싶은<br>코인 갯수</strong></label>
-        <div class="col-md-9">
-          <select class="form-control" name="user[howmany_coins]" id="user_howmany_coins">
-            <option value="5coins">5 코인</option>
-            <option value="10coins">10 코인</option>
-            <option value="15coins">15 코인</option>
-            <option value="20coins">20 코인</option>
-            <option value="25coins">25 코인</option>
-            <option value="30coins">30 코인</option>
-            <option value="35coins">35 코인</option>
-            <option value="40coins">40 코인</option>
-            <option value="45coins">45 코인</option>
-            <option value="50coins">50 코인</option></select>
-        </div>
-      </div>
 
-      <div class="form-group">
-      <label for="input_exchange_coin" class="col-md-3 control-label" style="text-align:center"><strong>입금할 금액</strong></label>
-        <div class="col-md-9">
-          <div class="panel panel-default">
-            <div class="panel-footer">
-              한국 금액 : 10,000 ₩(KRW, 원)<br>
-              중국 금액 : 10,000 ¥(Yuan, 위안) - 2016.04.03 환율 기준
+            <div class="form-group">
+              <label for="input_account_information" class="col-md-3 control-label" style="text-align:center"><strong>입금계좌정보</strong></label>
+              <div class="col-md-9">
+                <div class="panel panel-default">
+                  <div class="panel-footer">
+                    한국 계좌번호 : (농협) 000 - 00 - 000000<br>
+                    알리페이 : 00000
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="form-group">
-      <label for="input_howtopay_coins" class="col-md-3 control-label" style="text-align:center"><strong>구매 방식</strong></label>
-        <div class="col-md-9">
-          <select class="form-control" name="user[howtopay_coins]" id="user_howtopay_coins">
-            <option value="bank_transfer">무통장 입금 (또는 계좌이체)</option>
-            <option value="alipay">알리페이</option></select>
-        </div>
-      </div>
-
-
-      <div class="form-group">
-      <label for="input_account_information" class="col-md-3 control-label" style="text-align:center"><strong>입금계좌정보</strong></label>
-        <div class="col-md-9">
-          <div class="panel panel-default">
-            <div class="panel-footer">
-              한국 계좌번호 : (농협) 000 - 00 - 000000<br>
-              알리페이 : 00000
+            <div class="form-group">
+              <label for="input_buyer_information" class="col-md-3 control-label" style="text-align:center"><strong>입금자 정보<br>(이름 또는 ID)</strong></label>
+              <div class="col-md-9">
+                <input class="form-control" placeholder="buyer_information" autofocus="autofocus" type="text" name="user[buyer_information]" id="user_buyerinformation" />
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="form-group">
-      <label for="input_buyer_information" class="col-md-3 control-label" style="text-align:center"><strong>입금자 정보<br>(이름 또는 ID)</strong></label>
-        <div class="col-md-9">
-          <input class="form-control" placeholder="buyer_information" autofocus="autofocus" type="text" name="user[buyer_information]" id="user_buyerinformation" />
-        </div>
-      </div>
+            <div class="form-group">
+              <label for="input_buyer_account" class="col-md-3 control-label" style="text-align:center"><strong>입금자 정보<br>(계좌번호)</strong></label>
+              <div class="col-md-9">
+                <input class="form-control" placeholder="buyer_account" autofocus="autofocus" type="text" name="user[buyer_account]" id="user_buyeraccount" />
+              </div>
+            </div>
+            <div class="messagebox col-md-10 col-md-offset-1">
+              <p>
+              &nbsp;&nbsp;              * 코인 구매에 관하여<br>
+              &nbsp;&nbsp;              1. 가입하신 분들 중 동명이인이 발생할 가능성이 있어서 입금자정보를 확인하게 되었습니다.<br>
+              &nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;&nbsp;입력하신 정보는 본인확인후 바로 삭제하도록 하겠습니다.<br>
+              &nbsp;&nbsp;              2. 영업일 기준(월~금) 오후 6시 이전에 입금이 확인되면, 당일에 바로 코인이 충전됩니다.<br>
+              &nbsp;&nbsp;              3. 영업일 기준(월~금) 오후 6시 이후에 입금되었을 경우, 다음날에 코인이 충전됩니다.<br>
+              &nbsp;&nbsp;              4. 영업일 이후 또는 휴일에 신청이 확인되면, 가장 가까운 영업일에 돈이 입금됩니다.<br>
+              &nbsp;&nbsp;              5. 랭디 고객의 개인정보는 안전하게 보호되며, 제시된 용도 확인 완료 후 삭제됩니다.
+              </p>
+            </div>
 
-      <div class="form-group">
-      <label for="input_buyer_account" class="col-md-3 control-label" style="text-align:center"><strong>입금자 정보<br>(계좌번호)</strong></label>
-        <div class="col-md-9">
-          <input class="form-control" placeholder="buyer_account" autofocus="autofocus" type="text" name="user[buyer_account]" id="user_buyeraccount" />
-        </div>
-      </div>
+            <div class="form-group">
+              <div class="col-md-3 col-md-offset-9 col-sm-3 col-sm-offset-9">
+                <input type="submit" name="commit" value="구매 신청" class="btn btn-primary" style="position:center"/>
+              </div>
+            </div>
 
-      <div>
-        <p>
-        &nbsp;&nbsp;* 코인 구매에 관하여<br>
-        &nbsp;&nbsp;1. 가입하신 분들 중 동명이인이 발생할 가능성이 있어서 입금자정보를 확인하게 되었습니다.<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;입력하신 정보는 본인확인후 바로 삭제하도록 하겠습니다.<br>
-        &nbsp;&nbsp;2. 영업일 기준(월~금) 오후 6시 이전에 입금이 확인되면, 당일에 바로 코인이 충전됩니다.<br>
-        &nbsp;&nbsp;3. 영업일 기준(월~금) 오후 6시 이후에 입금되었을 경우, 다음날에 코인이 충전됩니다.<br>
-        &nbsp;&nbsp;4. 영업일 이후 또는 휴일에 신청이 확인되면, 가장 가까운 영업일에 돈이 입금됩니다.<br>
-        &nbsp;&nbsp;5. 랭디 고객의 개인정보는 안전하게 보호되며, 제시된 용도 확인 완료 후 삭제됩니다.
-        </p>
-      </div>
-
-      <div class="form-group">
-        <div class="col-lg-3 col-lg-offset-9">
-          <input type="submit" name="commit" value="구매 신청" class="btn btn-primary" style="position:center"/>
-        </div>
-      </div>
-
-
-      </div>
-      </div>
-      </fieldset>
-      </form>
+          </fieldset>
+        </form>
       </div>
     </div>
   </div>

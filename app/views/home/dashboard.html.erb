@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="dashboard_container">
   <div class="row">
 
     <!-- Left column -->
@@ -22,7 +22,7 @@
           <li class="list-group-item">
           <%= link_to edit_user_registration_path do %>
             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            Edit Profile
+            개인 프로필
           <% end %>
           </li>
         </ul>
@@ -43,8 +43,8 @@
         <ul class="list-group">
           <%= link_to edit_teacher_info_path do %>
             <li class="list-group-item">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            Edit my teacher information
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            학습 프로필
             </li>
           <% end %>
         </ul>
@@ -54,11 +54,11 @@
         <div class="panel-body">
           <div class="col-md-12">
             <h5>
-              Leave your feedback for improve this platform. We will repay your kindness.
+              언제든지 의견을 남겨주세요. 여러분의 의견에 항상 귀기울이겠습니다.
             </h5>
             <%= form_for :feedback, url: feedback_path do |f| %>
               <%= f.text_field :text, :autocomplete => :off, class: "col-md-12 form-control" %>
-              <%= f.submit "Leave feedback!", class: "btn btn-default col-md-12" %>
+              <%= f.submit "피드백 남기기", class: "btn btn-default col-md-12" %>
             <% end %>
           </div>
         </div>
@@ -73,13 +73,12 @@
         <div class="col-md-12">
           <div class="panel panel-default">
             <div class="panel-body">
-              <h3> Lessons </h3>
+              <h3> 강의시간표 </h3>
               <!-- Event Calendar by DayPilot -->
               <div id="dp"></div>
             </div>
           </div>
         </div>
-
       </div>
 
       <div class="row" style="margin-bottom: 100px;">

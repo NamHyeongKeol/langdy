@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407055400) do
+ActiveRecord::Schema.define(version: 20160412123834) do
 
   create_table "available_times", force: :cascade do |t|
     t.integer  "user_id"
@@ -64,6 +64,16 @@ ActiveRecord::Schema.define(version: 20160407055400) do
     t.boolean  "student_end"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string   "message"
+    t.boolean  "check"
+    t.integer  "user_id"
+    t.integer  "lesson_id"
+    t.integer  "cash_transaction_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
   create_table "teacher_comments", force: :cascade do |t|
     t.integer  "commentor_id"
     t.integer  "commentee_id"
@@ -102,13 +112,21 @@ ActiveRecord::Schema.define(version: 20160407055400) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.string   "name",                                   null: false
-    t.string   "lang_to_learn",                          null: false
-    t.string   "native_lang",                            null: false
     t.boolean  "is_teacher",             default: true
     t.boolean  "is_admin",               default: false
     t.integer  "cash",                   default: 0
     t.string   "profile_pic"
     t.string   "gender"
+    t.string   "skype_id"
+    t.boolean  "korean"
+    t.boolean  "english"
+    t.boolean  "chinese"
+    t.string   "korean_rank"
+    t.string   "english_rank"
+    t.string   "chinese_rank"
+    t.boolean  "want_to_learn_korean"
+    t.boolean  "want_to_learn_english"
+    t.boolean  "want_to_learn_chiese"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

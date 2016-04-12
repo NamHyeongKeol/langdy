@@ -1,9 +1,24 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <%= link_to "혼자 공부하기", self_study_path %><br>
-      <%= link_to "강의 듣기", take_lesson_path %><br>
-      <%= link_to "강의 하기", give_lesson_path %>
+  <div class="row vertical-middle">
+    <div class="col-md-1"></div>
+    <div class="col-md-3 text-center mainpagebutton">
+      <a href="/self_study">
+      <h3>혼자 공부하기</h3>
+      <p>선생님과 학습한 내용을 복습하거나, 강의 전 예습을 해보세요!</p>
+      </a>
     </div>
+    <div class="col-md-3 text-center mainpagebutton">
+      <a href="/take_lesson">
+      <h3>강의 듣기</h3>
+      <p>강의 시간이 되면 학생은 이곳에서 강의를 들을 수 있어요!</p>
+      </a>
+    </div>
+    <div class="col-md-3 text-center mainpagebutton">
+      <a href="/give_lesson">
+      <h3>강의 하기</h3>
+      <p>강의 시간이 되면 선생님은 이곳에서 강의를 할 수 있어요!</p>
+      </a>
+    </div>
+    <div class="col-md-2"></div>
   </div>
 </div>
