@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160407055400) do
     t.integer  "student_id"
     t.datetime "start_at"
     t.datetime "end_at"
+    t.text     "memo"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "is_free"
