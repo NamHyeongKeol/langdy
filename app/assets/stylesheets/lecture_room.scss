@@ -1,15 +1,30 @@
 // Place all the styles related to the lecture_room controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.vertical-middle{
-    display: table-cell;
-    vertical-align:middle;
-    height: 500px;
-}
-
 .mainpagebutton{
     background-color: #ffffff;
     border-radius: 10px;
     border: 1px solid #eeeeee;
     margin:10px
+}
+
+.lectureroom-info{
+    padding-top:260px; 
+    padding-bottom:260px; 
+    border: 1px solid #eeeeee; 
+    background-color: #ffffff;
+}
+
+#curri_text{
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    height:300px; 
+    overflow: auto;
+}
+
+#memo_text{
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    height:180px; 
+    overflow: auto;
 }
