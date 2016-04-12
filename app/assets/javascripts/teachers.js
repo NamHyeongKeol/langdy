@@ -74,7 +74,6 @@ function submitLessonValidation() {
 function submitLesson(teacher_id, coin, is_free = false) {
   
   // Validation
-  // 들어가야 함
   if (!submitLessonValidation()) {
     $('#applyModal').modal('hide');
     $('#applyFreeModal').modal('hide');
@@ -100,8 +99,8 @@ function submitLesson(teacher_id, coin, is_free = false) {
   },
   function(data, status, xhr) {
     if(data == 'OK') {
-      location.replace("/dashboard");
       // 강의 신청 성공 페이지로 이동
+      location.replace("/dashboard");
     }
   });
 }
