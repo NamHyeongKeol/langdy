@@ -3,52 +3,66 @@
   <div class="row">
     <div class="col-md-offset-1 col-md-10">
       <div class="col-md-offset-2 col-md-10">
-      <h3> Edit form </h3>
+      <h3> 학습 프로필 </h3>
       <hr>
       </div>
       <%= form_for :teacher_info, url: update_teacher_info_path, html: {id: "edit_form"} do |f| %>
-
+        <!-- location 우선 제거, 필요 시 개인 프로필에 추가
         <div class="col-md-2" align="center">
-          <%= f.label :location, "Location", class: "control-label" %>
+          <%#= f.label :location, "Location", class: "control-label" %>
         </div>
         <div class="col-md-10">
-          <%= f.text_field :location, :autocomplete => :off, class: "col-md-12 form-control" %>
+          <%#= f.text_field :location, :autocomplete => :off, class: "col-md-12 form-control" %>
         </div>
+        
+        <!-- 줄바꿈용 div 우선 제거
         <div class="col-md-12" style="height: 10px"></div>
-
+        -->
+        
+        <!-- major 제거
         <div class="col-md-2" align="center">
-          <%= f.label :major, "Major", class: "control-label" %>
+          <%#= f.label :major, "Major", class: "control-label" %>
         </div>
         <div class="col-md-4">
-          <%= f.text_field :major, :autocomplete => :off, class: "col-md-12 form-control" %>
+          <%#= f.text_field :major, :autocomplete => :off, class: "col-md-12 form-control" %>
         </div>
+        -->
+        
+        <!-- University 제거
         <div class="col-md-2" align="center">
-          <%= f.label :school_grad, "University graduated", class: "control-label" %>
+          <%#= f.label :school_grad, "University graduated", class: "control-label" %>
         </div>
         <div class="col-md-4">
-          <%= f.text_field :school_grad, :autocomplete => :off, class: "col-md-12 form-control" %>
+          <%#= f.text_field :school_grad, :autocomplete => :off, class: "col-md-12 form-control" %>
         </div>
+        -->
+        
+        <!-- 줄바꿈용 div 우선 제거
         <div class="col-md-12" style="height: 10px"></div>
-
+        -->
+        
         <div class="col-md-2" align="center">
-          <%= f.label :introduction, "Introduction", class: "control-label" %>
+          <%= f.label :lecture_price, "강의료 설정", class: "control-label" %>
+        </div>
+        <div class="col-md-5">
+          <%= f.text_area :lecture_price, :autocomplete => :off, :placeholder => "10코인 이하로 설정해주세요.", class: "col-md-12 form-control", rows: "1" %>
+        </div>
+        <div class="col-md-5"></div>
+        <div class="col-md-12" style="height: 10px"></div>
+        
+        <!-- 간단 소개글 div 추가 필요-->
+        
+        
+        <div class="col-md-2" align="center">
+          <%= f.label :introduction, "긴 소개글", class: "control-label" %>
         </div>
         <div class="col-md-10">
-          <%= f.text_area :introduction, :autocomplete => :off, :placeholder => "Explain yourself...", class: "col-md-12 form-control", rows: "15" %>
+          <%= f.text_area :introduction, :autocomplete => :off, :placeholder => "강사로서의 장점, 강사로서의 경험, 강의 방식 등을 자세히 소개해 주세요.", class: "col-md-12 form-control", rows: "15" %>
         </div>
         <div class="col-md-12" style="height: 10px"></div>
 
         <div class="col-md-2" align="center">
-          <%= f.label :lecture_price, "Lecture Price", class: "control-label" %>
-        </div>
-        <div class="col-md-4">
-          <%= f.text_area :lecture_price, :autocomplete => :off, :placeholder => "any price per chapter from 0 to 10 coins", class: "col-md-12 form-control", rows: "1" %>
-        </div>
-        <div class="col-md-6"></div>
-        <div class="col-md-12" style="height: 10px"></div>
-
-        <div class="col-md-2" align="center">
-          <label class="control-label">Time Schedule</label>
+          <label class="control-label">강의시간표 설정</label>
         </div>
         <div class="col-md-3">
           <select name="week-day" class="form-control">
@@ -57,6 +71,7 @@
             <% end %>
           </select>
         </div>
+        
         <div class="col-md-3">
           <input name="start-time" type="time" class="form-control">
         </div>
@@ -70,11 +85,9 @@
         </div>
         <div class="col-md-12" style="height: 10px"></div>
 
-        <div class="col-md-12" style="height: 20px"></div>
-
         <input type="hidden" name="schedules" id="schedules">
         <div class="col-md-10 col-md-offset-2" style="margin-bottom: 4rem;">
-          <%= f.submit "Submit!", class: "col-md-3 btn btn-primary" %>
+          <%= f.submit "완료", class: "col-md-3 btn btn-primary" %>
         </div>
 
       <% end %>
