@@ -3,8 +3,8 @@ class Lesson < ActiveRecord::Base
 	belongs_to :student, :class_name => "User"
 	belongs_to :course, :class_name => "Course"
 
-  def make_trade
-  end
+  has_one :evaluation
+  has_many :memos
 
   def get_period
     result = self.start_at.strftime('%a %b %e %T') + ' ~ ' + self.end_at.strftime('%a %b %e %T')

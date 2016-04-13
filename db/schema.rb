@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412145804) do
+ActiveRecord::Schema.define(version: 20160413071615) do
 
   create_table "available_times", force: :cascade do |t|
     t.integer  "user_id"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20160412145804) do
     t.text   "content"
   end
 
+  create_table "evaluations", force: :cascade do |t|
+    t.integer  "lesson_id"
+    t.float    "rate"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "feedbacks", force: :cascade do |t|
     t.integer  "user_id"
     t.text     "text"
@@ -51,7 +59,6 @@ ActiveRecord::Schema.define(version: 20160412145804) do
     t.integer  "student_id"
     t.datetime "start_at"
     t.datetime "end_at"
-    t.text     "memo"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.boolean  "is_free"
@@ -62,6 +69,14 @@ ActiveRecord::Schema.define(version: 20160412145804) do
     t.boolean  "is_canceled"
     t.boolean  "teacher_end"
     t.boolean  "student_end"
+  end
+
+  create_table "memos", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "lesson_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "notifications", force: :cascade do |t|

@@ -1,6 +1,6 @@
 <div class="container fixed-container">
+  <%= render partial: 'lecture_room/lesson_modal' %>
   <div class="row">
-    <%= render partial: '/teachers/curriculum_modal' %>
     <!-- left box -->
     <div class="col-md-7 col-sm-12">
       <div class="row">
@@ -8,13 +8,41 @@
           <h3>커리큘럼</h3>
         </div>
         <div class="col-xs-4">
-          <button type="button" class="btn btn-sm btn-primary col-xs-10" data-toggle="modal" data-target="#curriculumModal">
-            커리큘럼 선택
+          <button type="button" class="btn btn-sm btn-primary col-xs-10" data-toggle="modal" data-target="#lessonModal">
+            수업 선택
           </button>
         </div>
         <div class="col-xs-5">
           <button type="button" class="btn btn-sm btn-primary col-xs-6" data-toggle="modal" data-target="#notify_modal">신고하기</button>
-          <a href="#" class="btn btn-sm btn-primary col-md-6"><span>강의 종료</span></a>
+          <button id="end_lesson_btn" type="button" class="btn btn-sm btn-primary col-xs-6" data-toggle="modal" data-target="#end_lesson_modal">강의 종료</button>
+
+          <div class="modal fade" id="end_lesson_modal" tabindex="-1" role="dialog" aria-labelledby="curriculumLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="curriculumLabel">강의 평가</h4>
+                </div>
+                <div id="rate_body" class="modal-body" style="display: none;">
+                  <h3 id="teacher_name"></h3>
+                  <% for i in 1..5 do %>
+                    <input type="radio" name="rating" value="<%= i %>"> <%= i %>점
+                  <% end %>
+                  <br>
+                  <br>
+                  <div class="form-group">
+                    <label for="comment">한마디</label>
+                    <input type="text" class="form-control" id="comment" name="comment" placeholder="평가를 남겨주세요">
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                  <button id="rate_btn" type="button" class="btn btn-primary" disabled>선택</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
       <div id="curri_text" class="col-xs-12"></div>
@@ -40,12 +68,12 @@
           </div>
           <div class="modal-body">
             <p>
-              신고할 내용을 구체적으로 입력해서 admin@langdy.com으로 보내주세요!
-              확인 후 조치를 취하도록 하겠습니다.
-              (스크린샷 등의 증거를 보내주시면 빠른 확인이 가능합니다.)
+            신고할 내용을 구체적으로 입력해서 admin@langdy.com으로 보내주세요!
+            확인 후 조치를 취하도록 하겠습니다.
+            (스크린샷 등의 증거를 보내주시면 빠른 확인이 가능합니다.)
             </p>
             <p>
-              허위 신고자에게는 패널티가 부과됩니다.
+            허위 신고자에게는 패널티가 부과됩니다.
             </p>
           </div>
           <div class="modal-footer">
@@ -59,45 +87,32 @@
     <!-- right box -->
     <div class="col-md-5 hidden-md hidden-sm hidden-xs text-center">
       <div class="lectureroom-info">
-      <h4>랭디 페이지를 왼쪽에, 스카이프를 오른쪽에 두고 학습하시면 됩니다.</h4>
+        <h4>랭디 페이지를 왼쪽에, 스카이프를 오른쪽에 두고 학습하시면 됩니다.</h4>
       </div>
     </div>
     <!-- right box -->
   </div>
 </div>
-<script src="/assets/bootstrap-treeview.js"></script>
 <script src="/assets/myLecture_room.js"></script>
 <script tpye="text/javascript">
-  function loadCourses() {
-    $.post("/get_courses",
-    {
-        lang: '<%= current_user.lang_to_learn %>',
-        mi_selectable: false, //미수강 선택가능 여부
-        ye_selectable: true, //수강예정 선택가능 여부
-        wa_selectable: true, //수강 완료 선택가능 여부
-    },
-    function(data, status, xhr) {
-        loadCoursesCallback(data);
-    });
-  }
-
-  function loadCoursesCallback(treeData) {
-    $('#tree').treeview({
-      data: treeData,
-      showTags: true
-    });
-  }
-
-  loadCourses();
-
-  var course_id = 0;
+  var lesson_id = 0;
   $(document).ready(function(){
+    loadLessons(true);
     $('#curri_btn').click(function(){
-      course_id = showSelectCourse(true);
+      $('#rate_btn').attr('disabled', false);
+      $('#rate_body').show();
+      lesson_id = showSelectLesson();
     });
     $('#memo_save_btn').click(function(){
-      saveMemo(<%= current_user.id %>, course_id, $('#memo_text').val());
+      saveMemo(lesson_id, $('#memo_text').val());
     });
+    $('#rate_btn').click(function(e){
+      if ($('input[name="rating"]:checked').val()) {
+        evalLesson(lesson_id, $('input[name="rating"]:checked').val(), $('input[name="comment"]').val());
+      }
+      else {
+        alert('점수를 선택해 주세요');
+      }
+    })
   });
-
 </script>
