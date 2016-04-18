@@ -38,10 +38,9 @@ a {
 .my-btn {
   border: none;
   background-color: #ffffff;
-  height: 53.3333px;
-
+  height: 40px;
+}
   .noti_icon {
     vertical-align: middle;
-  }
 }
 
