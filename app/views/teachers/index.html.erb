@@ -1,79 +1,83 @@
 <div class="container" id="teacher_container">
   <div class="row">
-    <div class="col-md-12">
-      <div class="breadcrumb">
-        <div class="col-md-2">
-          <%= label_tag('label', "Gender") %>
-          <%= select_tag :gender, options_for_select([['Gender', ''], ['Male', 'Male'], ['Female', 'Female']], ''), { :class => 'form-control' } %>
-        </div>
-        <div class="col-md-2">
-          <%= label_tag('label', "Language") %>
-          <%= select_tag :language, options_for_select([['Language', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], ''), { :class => 'form-control' } %>
-        </div>
-        <div class="col-md-2">
-          <%= label_tag('label', "Day of Week") %>
-          <%= select_tag :day_of_week, options_for_select([['Day of Week', ''], ['Monday', 'monday'], ['Tuesday', 'tuesday'], ['Wednesday', 'wednesday'], ['Thursday', 'thursday'], ['Friday', 'friday'], ['Saturday', 'saturday'], ['Sunday', 'sunday']], ''), { :class => 'form-control' } %>
-        </div>
-        <div class="col-md-2">
-          <%= label_tag('label', "Time") %>
-          <%= select_tag :time, options_for_select([['Time', ''], ['Morning', 'morning'], ['Afternoon', 'afternoon'], ['Evening', 'evening']], ''), { :class => 'form-control' } %>
-        </div>
-        <div class="col-md-1"><%= submit_tag 'Search', { :class => 'form-control', :id => 'submit' } %></div>
-      </div>
-    </div>
     <!-- Left column -->
     <div class="col-md-9">
-
-      <div class="col-md-12" id="user_list">
-        <% @teachers.each do |t| %>
-          <ul class="media-list">
-            <div class="panel panel-default">
-              <div class="panel-body">
-                <li class="media">
-                  <div class="media-left">
-                    <%= link_to teacher_path(t) do %>
-                      <% if t.profile_pic.url.nil? %>
-                        <img class="media-object profile-pic" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQV5Y81SdqnTLFEXe_h-4KA2uT4DuNhON4XU32Ut6JkTl2rFDEiOMnmOA" alt="..." height="126" width="126">
-                      <% else %>
-                        <img class="media-object profile-pic" src=<%= t.profile_pic.url %> alt="..." height="126" width="126">
-                      <% end %>
-                    <% end %>
-                  </div>
-                  <div class="media-body">
-                    <div class="col-md-9">
-                      <div class="col-md-3">
-                        <%= link_to teacher_path(t) do %>
-                          <h3 class="media-heading">
-                            <%= t.name %>
-                          </h3>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="col-md-3" id="small-padding">
+            <%#= label_tag('label', "배우고 싶은 언어") %>
+            <!-- 라벨 태그 삭제해도 되는지?-->
+            <%= select_tag :language, options_for_select([['배우고 싶은 언어', ''], ['영어', 'English'], ['한국어', 'Korean'], ['중국어', 'Chinese']], ''), { :class => 'form-control' } %>
+          </div>
+          <div class="col-md-2" id="small-padding">
+            <%#= label_tag('label', "강의 요일") %>
+            <%= select_tag :day_of_week, options_for_select([['강의 요일', ''], ['월요일', 'monday'], ['화요일', 'tuesday'], ['수요일', 'wednesday'], ['목요일', 'thursday'], ['금요일', 'friday'], ['토요일', 'saturday'], ['일요일', 'sunday']], ''), { :class => 'form-control' } %>
+          </div>
+          <div class="col-md-2" id="small-padding"> 
+            <%#= label_tag('label', "강의 시간") %>
+            <%= select_tag :time, options_for_select([['강의 시간', ''], ['아침', 'morning'], ['오후', 'afternoon'], ['저녁', 'evening']], ''), { :class => 'form-control' } %>
+          </div>
+          <div class="col-md-3" id="small-padding">
+            <%#= label_tag('label', "선생님 성별") %>
+            <%= select_tag :gender, options_for_select([['선생님 성별', ''], ['남', 'Male'], ['여', 'Female']], ''), { :class => 'form-control' } %>
+          </div>
+          <div class="col-md-2" id="small-padding">
+            <%= submit_tag '검색', { :class => 'form-control', :id => 'submit' } %>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panel panel-default">
+        <div class="panel-body" id="user_list">
+          <% @teachers.each do |t| %>
+            <ul class="media-list">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <li class="media">
+                    <div class="media-left">
+                      <%= link_to teacher_path(t) do %>
+                        <% if t.profile_pic.url.nil? %>
+                          <img class="media-object profile-pic" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQV5Y81SdqnTLFEXe_h-4KA2uT4DuNhON4XU32Ut6JkTl2rFDEiOMnmOA" alt="..." height="126" width="126">
+                        <% else %>
+                          <img class="media-object profile-pic" src=<%= t.profile_pic.url %> alt="..." height="126" width="126">
                         <% end %>
+                      <% end %>
+                    </div>
+                    <div class="media-body">
+                      <div class="col-md-9">
+                        <div class="col-md-3">
+                          <%= link_to teacher_path(t) do %>
+                            <h3 class="media-heading">
+                              <%= t.name %>
+                            </h3>
+                          <% end %>
+                        </div>
+                        <div class="col-md-9" style="height: 30px;"></div>
+                        <p>
+                        <span class="label label-success"><%= t.native_lang %></span>
+                        /
+                        <span class="label label-default"><%= t.teacher_info.rating %> rating</span>
+                        /
+                        <span class="label label-primary"><%= t.teacher_info.lecture_number %> Lessons finished </span>
+                        </p>
+                        <p>
+                        <%= t.teacher_info.introduction %>
+                        </p>
                       </div>
-                      <div class="col-md-9" style="height: 30px;"></div>
-                      <p>
-                      <span class="label label-success"><%= t.native_lang %></span>
-                      /
-                      <span class="label label-default"><%= t.teacher_info.rating %> rating</span>
-                      /
-                      <span class="label label-primary"><%= t.teacher_info.lecture_number %> Lessons finished </span>
-                      </p>
-                      <p>
-                      <%= t.teacher_info.introduction %>
-                      </p>
+  
+                      <div class="col-md-3">
+                        <h4 style="margin-top: 50px;">
+                          <%= t.teacher_info.lecture_price %> coins / 1 hour
+                        </h4>
+                        <%# link_to "Book trial lesson", select_time_path(t), class: "btn btn-success btn-sm col-md-12" %>
+                      </div>
                     </div>
-
-                    <div class="col-md-3">
-                      <h4 style="margin-top: 50px;">
-                        <%= t.teacher_info.lecture_price %> coins / 1 hour
-                      </h4>
-                      <%# link_to "Book trial lesson", select_time_path(t), class: "btn btn-success btn-sm col-md-12" %>
-                    </div>
-                  </div>
-                </li>
+                  </li>
+                </div>
               </div>
-            </div>
-          </ul>
-
-        <% end %>
+            </ul>
+          <% end %>
+        </div>
       </div>
     </div>
     <!-- Left column -->
@@ -81,9 +85,10 @@
     <!-- Right column -->
     <div class="col-md-3">
       <div class="panel panel-default">
-        <div class="panel-heading">Tips</div>
+        <div class="panel-heading">랭디 이용 팁</div>
         <div class="panel-body">
           <ul>
+            <li>Welcome</li>
             <li>Welcome</li>
           </ul>
         </div>
