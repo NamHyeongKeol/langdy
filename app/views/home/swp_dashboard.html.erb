@@ -84,46 +84,148 @@
       </div>
 
       <div class="row" >
-        <div class="col-md-6" style="padding-right:2px;">
+        <div class="col-md-6">
           <div class="panel panel-default">
             <div class="lectureinfo-panel-heading">
               <h3>내가 신청한 강의</h3>
             </div>
-            <div class="panel-body lectureinfo-panel">
-              <% @lesson_applying.each do |item| %>
-                <div class="row" id="lesson_applying<%= item.id %>">
-                  <div class=lectureinfo>  
-                    <h4><%= item.teacher.name %>님에게 강의를 신청하였습니다.</h4>
-                    <h5>강의 시간 : <%= item.get_period.html_safe %><h5>
-                    <h5>커리큘럼 : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
-                    <h5>강의료 : <%= item.get_price.html_safe %> 코인</h5>
-                  </div> 
-                </div>
-              <% end %>
+          <div class="panel-body lectureinfo-panel">
+            
+          <!--
+          <div class="row">
+            <div class="col-md-1 column first-column">
+              <h4>단계</h4>
+            </div>
+            <div class="col-md-1 column">
+              <h4>언어</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>챕터</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>선생님 성함</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>수강 기간</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>수강 가격</h4>
+            </div>
+            <div class="col-md-2 column">
+              <h4>수강 확정 여부</h4>
             </div>
           </div>
+          -->
+          <% @lesson_applying.each do |item| %>
+            <div class="row" id="lesson_applying<%= item.id %>">
+              <div class=lectureinfo>  
+                <h4><%= item.teacher.name %>님에게 강의를 신청하였습니다.</h4>
+                <h5>강의 시간 : <%= item.get_period.html_safe %><h5>
+                <h5>커리큘럼 : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
+                <h5>강의료 : <%= item.get_price.html_safe %> 코인</h5>
+              </div> 
+            </div>
+            <!--
+              <div class="col-md-1 column first-column">
+                <%#= item.course.rank %>
+              </div>
+              <div class="col-md-1 column">
+                <%#= item.course.lang %>
+              </div>
+              <div class="col-md-2 column">
+                <%#= item.course.subject %>
+              </div>
+              <div class="col-md-2 column">
+                <%#= item.teacher.name %>
+              </div>
+              <div class="col-md-2 column">
+                <%#= item.get_period.html_safe %>
+              </div>
+              <div class="col-md-2 column">
+                시간당 <%#= item.get_price.html_safe %> 코인
+              </div>
+              <div class="col-md-2 column">
+                <span data-lesson_id="<%#= item.id.to_s %>" id="confirm_span<%#= item.id.to_s %>"><%#= item.get_confirm_student.html_safe %></span>
+              </div>
+            -->
+          <% end %>
+          
+          </div>
+          </div>
+        </div>
         </div>
         
-        <div class="col-md-6" style="padding-left:2px;">
+        <div class="row" >
+        <div class="col-md-6">
           <div class="panel panel-default">
             <div class="lectureinfo-panel-heading">
               <h3>나에게 신청된 강의</h3>
             </div>
             <div class="panel-body lectureinfo-panel">
-              <% @lesson_applied.each do |item| %>
-                <div class="row" id="lesson_applied<%= item.id %>">
-                  <div class=lectureinfo>
-                    <h4><%= item.student.name %>님이 강의를 신청하였습니다.<span data-lesson_id="<%= item.id.to_s %>" id="confirm_span<%= item.id.to_s %>"><%= item.get_confirm_teacher.html_safe %></span></h4>
-                    <h5>강의 시간 : <%= item.get_period.html_safe %><h5>
-                    <h5>커리큘럼 : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
-                    <h5>강의료 : <%= item.get_price.html_safe %> 코인</h5>
-                  </div>    
+            
+            <!--
+            <div class="row">
+              <div class="col-md-1 column first-column">
+                <h4>단계</h4>
+              </div>
+              <div class="col-md-1 column">
+                <h4>언어</h4>
+              </div>
+              <div class="col-md-2 column">
+                <h4>챕터</h4>
+              </div>
+              <div class="col-md-2 column">
+                <h4>학생 성함</h4>
+              </div>
+              <div class="col-md-2 column">
+                <h4>수강 기간</h4>
+              </div>
+              <div class="col-md-2 column">
+                <h4>수강 가격</h4>
+              </div>
+              <div class="col-md-2 column">
+                <h4>수강 확정 여부</h4>
+              </div>
+            </div>
+            -->
+            
+            <% @lesson_applied.each do |item| %>
+              <div class="row" id="lesson_applied<%= item.id %>">
+                <div class=lectureinfo>
+                  <h4><%= item.student.name %>님이 강의를 신청하였습니다.<span data-lesson_id="<%= item.id.to_s %>" id="confirm_span<%= item.id.to_s %>"><%= item.get_confirm_teacher.html_safe %></span></h4>
+                  <h5>강의 시간 : <%= item.get_period.html_safe %><h5>
+                  <h5>커리큘럼 : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
+                  <h5>강의료 : <%= item.get_price.html_safe %> 코인</h5>
+                </div>    
+              <!--
+                <div class="col-md-1 column first-column">
+                  <#%= item.course.rank %>
                 </div>
-              <% end %>
+                <div class="col-md-1 column">
+                  <#%= item.course.lang %>
+                </div>
+                <div class="col-md-1 column">
+                  <#%= item.course.subject %>
+                </div>
+                <div class="col-md-2 column">
+                  <#%= item.student.name %>
+                </div>
+                <div class="col-md-2 column">
+                  <#%= item.get_period.html_safe %>
+                </div>
+                <div class="col-md-2 column">
+                  시간당 <#%= item.get_price.html_safe %> 코인
+                </div>
+                <div class="col-md-2 column">
+                  <span data-lesson_id="<#%= item.id.to_s %>" id="confirm_span<#%= item.id.to_s %>"><#%= item.get_confirm_teacher.html_safe %></span>
+                </div>
+              </div>
+              -->
+            <% end %>
             </div>
           </div>
         </div>
-      </div>
+        </div>
         
     <!-- Right column -->
 
