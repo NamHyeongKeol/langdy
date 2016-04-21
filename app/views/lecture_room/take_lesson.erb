@@ -1,98 +1,120 @@
 <div class="container fixed-container">
   <%= render partial: 'lecture_room/lesson_modal' %>
   <div class="row">
+    
     <!-- left box -->
     <div class="col-md-7 col-sm-12">
-      <div class="row">
-        <div class="col-xs-3">
-          <h3>커리큘럼</h3>
-        </div>
-        <div class="col-xs-4">
-          <button type="button" class="btn btn-sm btn-primary col-xs-10" data-toggle="modal" data-target="#lessonModal">
-            수업 선택
-          </button>
-        </div>
-        <div class="col-xs-5">
-          <button type="button" class="btn btn-sm btn-primary col-xs-6" data-toggle="modal" data-target="#notify_modal">신고하기</button>
-          <button id="end_lesson_btn" type="button" class="btn btn-sm btn-primary col-xs-6" data-toggle="modal" data-target="#end_lesson_modal">강의 종료</button>
-
-          <div class="modal fade" id="end_lesson_modal" tabindex="-1" role="dialog" aria-labelledby="curriculumLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="curriculumLabel">강의 평가</h4>
-                </div>
-                <div id="rate_body" class="modal-body" style="display: none;">
-                  <h3 id="teacher_name"></h3>
-                  <% for i in 1..5 do %>
-                    <input type="radio" name="rating" value="<%= i %>"> <%= i %>점
-                  <% end %>
-                  <br>
-                  <br>
-                  <div class="form-group">
-                    <label for="comment">한마디</label>
-                    <input type="text" class="form-control" id="comment" name="comment" placeholder="평가를 남겨주세요">
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-                  <button id="rate_btn" type="button" class="btn btn-primary" disabled>선택</button>
-                </div>
-              </div>
-            </div>
+      <!-- contents box -->
+      <div style="margin-bottom:15px">
+        <div class="row">
+          <div class="col-xs-3">
+            <h3 style="margin-top:5px">커리큘럼</h3>
           </div>
-
+          <div class="col-xs-4">
+            <button type="button" class="btn btn-sm btn-primary col-xs-10" data-toggle="modal" data-target="#lessonModal">
+              수업 선택
+            </button>
+          </div>
+          <div class="col-xs-5">
+            <button type="button" class="btn btn-sm btn-primary col-xs-6" data-toggle="modal" data-target="#notify_modal">신고하기</button>
+            <button id="end_lesson_btn" type="button" class="btn btn-sm btn-primary col-xs-6" data-toggle="modal" data-target="#end_lesson_modal">강의 종료</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div id="curri_text"></div>
+          </div>
         </div>
       </div>
-      <div id="curri_text" class="col-xs-12"></div>
-      <div class="row">
-        <div class="col-xs-3">
-          <h3>메모</h3>
+      <!-- contents box -->
+      <!-- memo box -->
+      <div>
+        <div class="row">
+          <div class="col-xs-3">
+            <h3 style="margin-top:5px">메모</h3>
+          </div>
+          <div class="col-xs-9">
+            <button id="memo_save_btn" type="button" class="btn btn-sm btn-primary col-xs-4">저장</button>
+          </div>
         </div>
-        <div class="col-xs-9">
-          <button id="memo_save_btn" type="button" class="btn btn-sm btn-primary col-xs-4">저장</button>
+        <div class="row">
+          <div class="col-xs-12">
+            <textarea id="memo_text" class="col-xs-12"></textarea>
+          </div>
         </div>
-      </div>  
-      <textarea id="memo_text" class="col-xs-12"></textarea>
+      </div>
+      <!-- memo box -->
     </div>  
     <!-- left box -->
 
-    <!-- 신고 Modal -->
-    <div class="modal fade" id="notify_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">수업 신고하기</h4>
-          </div>
-          <div class="modal-body">
-            <p>
-            신고할 내용을 구체적으로 입력해서 admin@langdy.com으로 보내주세요!
-            확인 후 조치를 취하도록 하겠습니다.
-            (스크린샷 등의 증거를 보내주시면 빠른 확인이 가능합니다.)
-            </p>
-            <p>
-            허위 신고자에게는 패널티가 부과됩니다.
-            </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-            <button type="button" class="btn btn-primary">신고</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- right box -->
     <div class="col-md-5 hidden-md hidden-sm hidden-xs text-center">
-      <div class="lectureroom-info">
-        <h4>랭디 페이지를 왼쪽에, 스카이프를 오른쪽에 두고 학습하시면 됩니다.</h4>
+      <div class="row">
+        <div class="col-md-12 lectureroom-info" style="margin-top:39px">
+          <h3>랭디 페이지를 왼쪽에, </br></br>스카이프를 오른쪽에 두고 </br></br>학습하시면 됩니다.</h3>
+        </div>
       </div>
     </div>
     <!-- right box -->
   </div>
 </div>
+
+<!-- 신고 Modal -->
+<div class="modal fade" id="notify_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">수업 신고하기</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          수업 중 부적절한 상황이 발생한 경우, 신고할 내용을 구체적으로 입력해서 admin@langdy.com으로 보내주세요!
+          확인 후 조치를 취하도록 하겠습니다.
+          (스크린샷 등의 증거를 보내주시면 빠른 확인이 가능합니다.)
+        </p>
+        <p>
+          허위 신고자에게는 패널티가 부과됩니다.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">확인</button>
+        <!--<button type="button" class="btn btn-primary">신고</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 신고 Modal -->
+
+<!-- 강의종료 Modal -->
+<div class="modal fade" id="end_lesson_modal" tabindex="-1" role="dialog" aria-labelledby="curriculumLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="curriculumLabel">강의 평가</h4>
+      </div>
+      <div id="rate_body" class="modal-body" style="display: none;">
+        <h3 id="teacher_name"></h3>
+        <% for i in 1..5 do %>
+          <input type="radio" name="rating" value="<%= i %>"> <%= i %>점
+        <% end %>
+        <br>
+        <br>
+        <div class="form-group">
+          <label for="comment">한마디</label>
+          <input type="text" class="form-control" id="comment" name="comment" placeholder="평가를 남겨주세요">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+        <button id="rate_btn" type="button" class="btn btn-primary" disabled>선택</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 강의종료 Modal -->
+
 <script src="/assets/myLecture_room.js"></script>
 <script tpye="text/javascript">
   var lesson_id = 0;
