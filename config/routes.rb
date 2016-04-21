@@ -53,4 +53,6 @@ Rails.application.routes.draw do
   get 'eval_lesson/:id' => 'lecture_room#eval_lesson'
 
   post 'confirm_lesson' => 'home#confirm_lesson'
+  get 'home/lecture_request_complete'
+  get 'home/freematching_request_complete'
 end

@@ -31,4 +31,10 @@ class HomeController < ApplicationController
     end
   end
 
+  def lecture_request_complete
+  end
+  
+  def freematching_request_complete
+  end
+  
 end
