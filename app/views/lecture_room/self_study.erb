@@ -1,34 +1,47 @@
 <div class="container">
-  <%= render partial: 'lecture_room/lesson_modal' %>
   <div class="row">
+    <%= render partial: 'lecture_room/lesson_modal' %>
+  
+    <!-- left box -->
     <div class="col-md-6">
       <div class="row">
         <div class="col-md-3">
-          <h3>커리큘럼</h3>
+          <h3 style="margin-top:5px">커리큘럼</h3>
         </div>
         <div class="col-md-4">
-          <button type="button" class="btn btn-sm btn-primary col-xs-10" data-toggle="modal" data-target="#lessonModal">
+          <button type="button" class="btn btn-sm btn-primary col-md-10" data-toggle="modal" data-target="#lessonModal">
             수업 선택
           </button>
         </div>
-        <div class="col-md-5"></div>
-        <div id="curri_text" class="col-md-12"></div>
       </div>
-      
+      <div class="row">
+        <div class="col-md-12">
+          <div id="curri_text" style="height:560px;"></div>
+        </div>
+      </div>
     </div>
+    <!-- left box -->
+    
+    <!-- right box -->
     <div class="col-md-6">
       <div class="row">
         <div class="col-md-3">
-          <h3>메모</h3>
+          <h3 style="margin-top:5px">메모</h3>
         </div>
         <div class="col-md-9">
-          <button id="memo_save_btn" type="button" class="btn btn-sm btn-primary">저장</button>
+          <button id="memo_save_btn" type="button" class="btn btn-sm btn-primary col-md-4">저장</button>
         </div>
       </div>
-      <textarea id="memo_text" class="col-md-12"></textarea>
+      <div class="row">
+        <div class="col-xs-12">
+          <textarea id="memo_text" class="col-md-12" style="height:560px;"></textarea>
+        </div>
+      </div>
     </div>
+    <!-- right box -->
   </div>
 </div>
+    
 <script src="/assets/bootstrap-treeview.js"></script>
 <script src="/assets/myLecture_room.js"></script>
 <script tpye="text/javascript">
