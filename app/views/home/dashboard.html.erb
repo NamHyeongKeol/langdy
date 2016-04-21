@@ -97,6 +97,7 @@
                     <h5>강의 시간 : <%= item.get_period.html_safe %><h5>
                     <h5>커리큘럼 : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
                     <h5>강의료 : <%= item.get_price.html_safe %> 코인</h5>
+                    <h5>스카이프 아이디 : <%= item.teacher.teacher_info.skype_id %></h5>
                   </div> 
                 </div>
               <% end %>
@@ -117,6 +118,7 @@
                     <h5>강의 시간 : <%= item.get_period.html_safe %><h5>
                     <h5>커리큘럼 : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
                     <h5>강의료 : <%= item.get_price.html_safe %> 코인</h5>
+                    <h5>스카이프 아이디 : <%= item.student.teacher_info.skype_id %></h5>
                   </div>    
                 </div>
               <% end %>

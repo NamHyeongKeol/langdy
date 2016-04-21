@@ -14,6 +14,7 @@
         <div class="col-md-10">
           <%#= f.text_field :location, :autocomplete => :off, class: "col-md-12 form-control" %>
         </div>
+        -->
         
         <!-- 줄바꿈용 div 우선 제거
         <div class="col-md-12" style="height: 10px"></div>
@@ -49,9 +50,26 @@
         </div>
         <div class="col-md-5"></div>
         <div class="col-md-12" style="height: 10px"></div>
+
+        <div class="col-md-2" align="center">
+          <%= f.label :skype_id, "스카이프 아이디", class: "control-label" %>
+        </div>
+        <div class="col-md-5">
+          <%= f.text_area :skype_id, autocomplete: "off", :placeholder => "스카이프 아이디", class: "form-control", rows: "1" %>
+        </div>
+        <div class="col-md-5"></div>
+        <div class="col-md-12" style="height: 10px"></div>
+
         
         <!-- 간단 소개글 div 추가 필요-->
         
+        <div class="col-md-2" align="center">
+          <%= f.label :brief_introduction, "짧은 소개글", class: "control-label" %>
+        </div>
+        <div class="col-md-10">
+          <%= f.text_area :brief_introduction, :autocomplete => :off, :placeholder => "짧게 자신을 소개해 주세요.", class: "col-md-12 form-control", rows: "2" %>
+        </div>
+        <div class="col-md-12" style="height: 10px"></div>
         
         <div class="col-md-2" align="center">
           <%= f.label :introduction, "긴 소개글", class: "control-label" %>
