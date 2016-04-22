@@ -9,22 +9,22 @@
             <legend>회원가입</legend>
 
             <div class="form-group">
-              <label for="inputEmail" class="col-md-2 control-label">이메일 아이디</label>
-              <div class="col-md-10">
+              <label for="inputEmail" class="col-md-3 control-label">이메일 아이디</label>
+              <div class="col-md-9">
                 <%= f.email_field :email, class: "form-control", :placeholder => "email", autofocus: true %>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="inputName" class="col-md-2 control-label">이름</label>
-              <div class="col-md-10">
+              <label for="inputName" class="col-md-3 control-label">이름</label>
+              <div class="col-md-9">
                 <%= f.text_field :name, class: "form-control", :placeholder => "name", autofocus: true %>
               </div>
             </div>
             
             <div class="form-group">
-              <label for="inputPassword" class="col-md-2 control-label">비밀번호</label>
-              <div class="col-md-10">
+              <label for="inputPassword" class="col-md-3 control-label">비밀번호</label>
+              <div class="col-md-9">
                 <%= f.password_field :password, class: "form-control", :placeholder => "password", autocomplete: "off" %>
                 <% if @minimum_password_length %>
                   <em>(<%= @minimum_password_length %>글자 이상)</em>
@@ -33,11 +33,83 @@
             </div>
 
             <div class="form-group">
-              <label for="inputPassword" class="col-md-2 control-label">비밀번호 확인</label>
-              <div class="col-md-10">
+              <label for="inputPassword" class="col-md-3 control-label">비밀번호 확인</label>
+              <div class="col-md-9">
                 <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "password", autocomplete: "off" %>
               </div>
             </div>
+
+            <div class="form-group" id="lang_to_teach_1">
+              <%= f.label :lang_to_teach_1, "가르칠 수 있는 언어", class: "col-md-3 control-label" %>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_teach_1, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_teach_1, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_teach_1, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+
+            <div class="form-group" id="lang_to_teach_2" style="display: none;">
+              <div class="col-md-3">&nbsp;</div>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_teach_2, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_teach_2, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_teach_2, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+
+            <div class="form-group" id="lang_to_teach_3" style="display: none;">
+              <div class="col-md-3">&nbsp;</div>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_teach_3, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_teach_3, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_teach_3, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+
+            <div class="col-md-3">&nbsp;</div>
+            <a class="col-md-9" id="add_lang_to_teach" style="height: 30px;">+ 언어 추가하기</a>
+
+            <div class="form-group" id="lang_to_learn_1">
+              <%= f.label :lang_to_learn_1, "배우고 싶은 언어", class: "col-md-3 control-label" %>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_learn_1, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_learn_1, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_learn_1, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+
+            <div class="form-group" id="lang_to_learn_2" style="display: none;">
+              <div class="col-md-3">&nbsp;</div>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_learn_2, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_learn_2, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_learn_2, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+
+            <div class="form-group" id="lang_to_learn_3" style="display: none;">
+              <div class="col-md-3">&nbsp;</div>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_learn_3, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_learn_3, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_learn_3, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+
+            <div class="col-md-3">&nbsp;</div>
+            <a class="col-md-9" id="add_lang_to_learn" style="height: 30px;">+ 언어 추가하기</a>
 
             <div class="form-group">
               <div class="col-lg-10 col-lg-offset-2">
@@ -51,3 +123,30 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+    teach_num = 1;
+    learn_num = 1;
+    $('#add_lang_to_teach').click(function(){
+      if (teach_num == 1) {
+        teach_num++;
+        $('#lang_to_teach_2').fadeIn('slow'); 
+      } else if (teach_num == 2) {
+        teach_num++;
+        $('#lang_to_teach_3').fadeIn('slow'); 
+        $(this).empty();
+      }
+    });
+    $('#add_lang_to_learn').click(function(){
+      if (learn_num == 1) {
+        learn_num++;
+        $('#lang_to_learn_2').fadeIn('slow',function(){}); 
+      } else if (learn_num == 2) {
+        learn_num++;
+        $('#lang_to_learn_3').fadeIn('slow',function(){}); 
+        $(this).empty();
+      }
+    });
+  });
+</script>

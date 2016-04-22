@@ -44,29 +44,82 @@
 
 
               <!-- 언어별 등급 설정 추가 필요. 
-              가르칠 수 있는 언어는 5개 등급(초급, 중하급, 중상급, 상급)
-              배우고 싶은 언어는 4개등급(초급, 중하급, 중상급, 상급)
+              가르칠 수 있는 언어는 4개 등급(선택해주세요, 중상급, 고급, 모국어)
+              배우고 싶은 언어는 5개등급(선택해주세요, 초급, 중하급, 중상급, 고급)
               -->
-<!--
-            <div class="form-group">
-              <label for="input" class="col-md-3 control-label">가르칠 수 있는 언어</label>
+
+            <div class="form-group" id="lang_to_teach_1">
+              <%= f.label :lang_to_teach_1, "가르칠 수 있는 언어", class: "col-md-3 control-label" %>
               <div class="col-md-3">
-                <%# f.select(, ['English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
-                <%# f.select(, ['중상급', '상급', '모국어'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:lang_to_teach_1, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_teach_1, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_teach_1, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="inputName" class="col-md-3 control-label">배우고 싶은 언어</label>
+            <div class="form-group" id="lang_to_teach_2" style="display: none;">
+              <div class="col-md-3">&nbsp;</div>
               <div class="col-md-3">
-                <%# f.select(:lang_to_learn, ['English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:lang_to_teach_2, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
               </div>
-              <label for="inputName" class="col-md-1 control-label">수준</label>
+              <%= f.label :rank_to_teach_2, "수준", class: "col-md-1 control-label" %>
               <div class="col-md-5">
-                <%# f.select(:lang_to_learn_level, ['초급', '중하급', '중상급', '상급'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:rank_to_teach_2, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
               </div>
             </div>
--->
+
+            <div class="form-group" id="lang_to_teach_3" style="display: none;">
+              <div class="col-md-3">&nbsp;</div>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_teach_3, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_teach_3, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_teach_3, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+
+            <div class="col-md-3">&nbsp;</div>
+            <a class="col-md-9" id="add_lang_to_teach" style="height: 30px;">+ 언어 추가하기</a>
+
+            <div class="form-group" id="lang_to_learn_1">
+              <%= f.label :lang_to_learn_1, "배우고 싶은 언어", class: "col-md-3 control-label" %>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_learn_1, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_learn_1, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_learn_1, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+
+            <div class="form-group" id="lang_to_learn_2" style="display: none;">
+              <div class="col-md-3">&nbsp;</div>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_learn_2, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_learn_2, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_learn_2, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+
+            <div class="form-group" id="lang_to_learn_3" style="display: none;">
+              <div class="col-md-3">&nbsp;</div>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_learn_3, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_learn_3, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_learn_3, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+
+            <div class="col-md-3">&nbsp;</div>
+            <a class="col-md-9" id="add_lang_to_learn" style="height: 30px;">+ 언어 추가하기</a>
+
             <div class="form-group">
               <label for="currentPassword" class="col-md-3 control-label">현재 비밀번호</label>
               <div class="col-md-9">
@@ -90,3 +143,30 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+    teach_num = 1;
+    learn_num = 1;
+    $('#add_lang_to_teach').click(function(){
+      if (teach_num == 1) {
+        teach_num++;
+        $('#lang_to_teach_2').fadeIn('slow'); 
+      } else if (teach_num == 2) {
+        teach_num++;
+        $('#lang_to_teach_3').fadeIn('slow'); 
+        $(this).empty();
+      }
+    });
+    $('#add_lang_to_learn').click(function(){
+      if (learn_num == 1) {
+        learn_num++;
+        $('#lang_to_learn_2').fadeIn('slow',function(){}); 
+      } else if (learn_num == 2) {
+        learn_num++;
+        $('#lang_to_learn_3').fadeIn('slow',function(){}); 
+        $(this).empty();
+      }
+    });
+  });
+</script>
