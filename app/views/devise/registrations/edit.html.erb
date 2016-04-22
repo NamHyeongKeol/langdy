@@ -3,96 +3,176 @@
     <div class="panel-body">
       <legend>개인 프로필</legend>
       <div class="row">  
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { method: :put, :class => "form-horizontal" }) do |f| %>
-   
-        <div class=col-md-3>
-          <div class="form-group">
-            <div class="col-md-12 text-center">
-              <% if current_user.profile_pic.url.nil? %>
-                <img src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png" height="180" width="180"/>
-              <% else %>
-                <img src=<%= current_user.profile_pic.url %> class="profile-pic" height="180" width="180"/>
-              <% end %>
-            </div>
-            <label for="inputProfilePic" class="col-md-12 control-label" style="text-align:center;">프로필 사진</label>
-            <div class="col-md-12 text-center">
-              <%= f.file_field :profile_pic, class: "form-control" %>
-            </div>
-          </div>
-        </div>
-        
-        <div class=col-md-9>
-          <div class="form-group">
-            <label for="inputName" class="col-md-3 control-label">이름</label>
-            <div class="col-md-9">
-              <%= f.text_field :name, class: "form-control", :placeholder => "이름", autofocus: true %>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="inputPassword" class="col-md-3 control-label">비밀번호</label>
-            <div class="col-md-9">
-              <%= f.password_field :password, class: "form-control", :placeholder => "비밀번호를 바꾸지 않으려면 비워두세요.", autocomplete: "off" %>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="inputPassword" class="col-md-3 control-label">비밀번호 확인</label>
-            <div class="col-md-9">
-              <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "비밀번호 확인", autocomplete: "off" %>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="inputGender" class="col-md-3 control-label">성별</label>
-            <div class="col-md-9">
-              <%= f.select(:gender, ['Male', 'Female'], {}, { :class => 'form-control' }) %>
-            </div>
-          </div>
-          
-          <!-- 언어별 등급 설정 추가 필요. 
-          가르칠 수 있는 언어는 5개 등급(초급, 중하급, 중상급, 상급)
-          배우고 싶은 언어는 4개등급(초급, 중하급, 중상급, 상급)
-          -->
-          <!--
-          <div class="form-group">
-          <label for="input" class="col-md-3 control-label">가르칠 수 있는 언어</label>
-          <div class="col-md-3">
-          <%# f.select(, ['English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
-          <%# f.select(, ['중상급', '상급', '모국어'], {}, { :class => 'form-control' }) %>
-          </div>
-          </div>
-          
-          <div class="form-group">
-          <label for="inputName" class="col-md-3 control-label">배우고 싶은 언어</label>
-          <div class="col-md-3">
-          <%# f.select(:lang_to_learn, ['English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
-          </div>
-          <label for="inputName" class="col-md-1 control-label">수준</label>
-          <div class="col-md-5">
-          <%# f.select(:lang_to_learn_level, ['초급', '중하급', '중상급', '상급'], {}, { :class => 'form-control' }) %>
-          </div>
-          </div>
-          -->
-          <div class="form-group">
-          <label for="currentPassword" class="col-md-3 control-label">현재 비밀번호</label>
-            <div class="col-md-9">
-              <%= f.password_field :current_password, class: "form-control", :placeholder => "본인 확인을 위해 현재 비밀 번호를 입력하세요.", autocomplete: "off" %>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <div class="col-md-9 col-md-offset-3">
-              <%= f.submit "완료", :class => "btn btn-primary col-md-3" %>
-              <div class="col-md-9">
-                <%= devise_error_messages! %>
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { method: :put, :class => "form-horizontal" }) do |f| %>
+       
+          <div class=col-md-3>
+            <div class="form-group">
+              <div class="col-md-12 text-center">
+                <% if current_user.profile_pic.url.nil? %>
+                  <img src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png" height="180" width="180"/>
+                <% else %>
+                  <img src=<%= current_user.profile_pic.url %> class="profile-pic" height="180" width="180"/>
+                <% end %>
+              </div>
+              <label for="inputProfilePic" class="col-md-12 control-label" style="text-align:center;">프로필 사진</label>
+              <div class="col-md-12 text-center">
+                <%= f.file_field :profile_pic, class: "form-control" %>
               </div>
             </div>
           </div>
-        </div>
+          
+          <div class=col-md-9>
+            <div class="form-group">
+              <label for="inputName" class="col-md-3 control-label">이름</label>
+              <div class="col-md-9">
+                <%= f.text_field :name, class: "form-control", :placeholder => "이름", autofocus: true %>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="inputPassword" class="col-md-3 control-label">비밀번호</label>
+              <div class="col-md-9">
+                <%= f.password_field :password, class: "form-control", :placeholder => "비밀번호를 바꾸지 않으려면 비워두세요.", autocomplete: "off" %>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="inputPassword" class="col-md-3 control-label">비밀번호 확인</label>
+              <div class="col-md-9">
+                <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "비밀번호 확인", autocomplete: "off" %>
+              </div>
+            </div>
+       
+                <!-- 언어별 등급 설정 추가 필요. 
+                가르칠 수 있는 언어는 4개 등급(선택해주세요, 중상급, 고급, 모국어)
+                배우고 싶은 언어는 5개등급(선택해주세요, 초급, 중하급, 중상급, 고급)
+                -->
+       
+            <div class="form-group" id="lang_to_teach_1">
+              <%= f.label :lang_to_teach_1, "가르칠 수 있는 언어", class: "col-md-3 control-label" %>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_teach_1, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_teach_1, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_teach_1, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+       
+            <div class="form-group" id="lang_to_teach_2" style="display: none;">
+              <div class="col-md-3">&nbsp;</div>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_teach_2, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_teach_2, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_teach_2, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+       
+            <div class="form-group" id="lang_to_teach_3" style="display: none;">
+              <div class="col-md-3">&nbsp;</div>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_teach_3, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_teach_3, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_teach_3, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+       
+            <a class="col-md-9 col-md-offset-3" id="add_lang_to_teach" style="height: 30px;">+ 언어 추가하기</a>
+       
+            <div class="form-group" id="lang_to_learn_1">
+              <%= f.label :lang_to_learn_1, "배우고 싶은 언어", class: "col-md-3 control-label" %>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_learn_1, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_learn_1, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_learn_1, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+       
+            <div class="form-group" id="lang_to_learn_2" style="display: none;">
+              <div class="col-md-3">&nbsp;</div>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_learn_2, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_learn_2, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_learn_2, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+       
+            <div class="form-group" id="lang_to_learn_3" style="display: none;">
+              <div class="col-md-3">&nbsp;</div>
+              <div class="col-md-3">
+                <%= f.select(:lang_to_learn_3, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+              </div>
+              <%= f.label :rank_to_learn_3, "수준", class: "col-md-1 control-label" %>
+              <div class="col-md-5">
+                <%= f.select(:rank_to_learn_3, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+       
+            <a class="col-md-9 col-md-offset-3" id="add_lang_to_learn" style="height: 30px;">+ 언어 추가하기</a>
+       
+            <div class="form-group">
+              <label for="currentPassword" class="col-md-3 control-label">현재 비밀번호</label>
+              <div class="col-md-9">
+                <%= f.password_field :current_password, class: "form-control", :placeholder => "본인 확인을 위해 현재 비밀 번호를 입력하세요.", autocomplete: "off" %>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="inputGender" class="col-md-3 control-label">성별</label>
+              <div class="col-md-9">
+                <%= f.select(:gender, ['Male', 'Female'], {}, { :class => 'form-control' }) %>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="col-md-9 col-md-offset-3">
+                <div class="col-md-3">
+                  <%= f.submit "완료", :class => "btn btn-primary" %>
+                </div>
+                <div class="col-md-9">
+                  <%= devise_error_messages! %>
+                </div>
+              </div>
+            </div>
+          </div>
      
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+    teach_num = 1;
+    learn_num = 1;
+    $('#add_lang_to_teach').click(function(){
+      if (teach_num == 1) {
+        teach_num++;
+        $('#lang_to_teach_2').fadeIn('slow'); 
+      } else if (teach_num == 2) {
+        teach_num++;
+        $('#lang_to_teach_3').fadeIn('slow'); 
+        $(this).remove();
+      }
+    });
+    $('#add_lang_to_learn').click(function(){
+      if (learn_num == 1) {
+        learn_num++;
+        $('#lang_to_learn_2').fadeIn('slow',function(){}); 
+      } else if (learn_num == 2) {
+        learn_num++;
+        $('#lang_to_learn_3').fadeIn('slow',function(){}); 
+        $(this).remove();
+      }
+    });
+  });
+</script>
