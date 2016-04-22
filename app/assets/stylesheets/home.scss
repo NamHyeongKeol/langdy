@@ -6,6 +6,14 @@ img.profile-pic {
 	border-radius: 50%;
 }
 
+.inner {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
 .column {
   text-align: center;
   border-right-color: grey;
@@ -46,6 +54,12 @@ img.profile-pic {
   border-top-right-radius: 3px;
 }
 
+.outer {
+  display: table;
+  width: 100%;
+  height: 450px;
+}
+
 #main-page-wrapper{
     position:fixed;
     z-index: 1;
@@ -63,6 +77,4 @@ img.profile-pic {
     opacity:0.85;
 }
 
-#dashboard_container {
-  padding-top: 20px;
-}
+
