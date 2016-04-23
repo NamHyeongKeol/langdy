@@ -31,29 +31,52 @@
       
       <div class="panel panel-default">
         <div class="panel-body" id="user_list">
-          <% @teachers.each do |t| %>
-            <ul class="media-list">
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <li class="media">
-                    <div class="media-left">
-                      <%= link_to teacher_path(t) do %>
-                        <% if t.profile_pic.url.nil? %>
-                          <img class="media-object profile-pic" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQV5Y81SdqnTLFEXe_h-4KA2uT4DuNhON4XU32Ut6JkTl2rFDEiOMnmOA" alt="..." height="126" width="126">
-                        <% else %>
-                          <img class="media-object profile-pic" src=<%= t.profile_pic.url %> alt="..." height="126" width="126">
-                        <% end %>
-                      <% end %>
-                    </div>
-                    <div class="media-body">
-                      <div class="col-md-9">
-                        <div class="col-md-3">
-                          <%= link_to teacher_path(t) do %>
-                            <h3 class="media-heading">
-                              <%= t.name %>
-                            </h3>
+          <% if @teachers.to_a == [] %>
+            <h4 style="color: #e15242;">일치하는 검색결과가 없습니다.</h4> 
+          <% else %>
+            <% @teachers.each do |t| %>
+              <ul class="media-list">
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <li class="media">
+                      <div class="media-left">
+                        <%= link_to teacher_path(t) do %>
+                          <% if t.profile_pic.url.nil? %>
+                            <img class="media-object profile-pic" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQV5Y81SdqnTLFEXe_h-4KA2uT4DuNhON4XU32Ut6JkTl2rFDEiOMnmOA" alt="..." height="126" width="126">
+                          <% else %>
+                            <img class="media-object profile-pic" src=<%= t.profile_pic.url %> alt="..." height="126" width="126">
                           <% end %>
+                        <% end %>
+                      </div>
+                      <div class="media-body">
+                        <div class="col-md-9">
+                          <div class="col-md-3">
+                            <%= link_to teacher_path(t) do %>
+                              <h3 class="media-heading">
+                                <%= t.name %>
+                              </h3>
+                            <% end %>
+                          </div>
+                          <div class="col-md-9" style="height: 30px;"></div>
+                          <p>
+                          <span class="label label-success"><%= t.native_lang %></span>
+                          /
+                          <span class="label label-default"><%= t.teacher_info.rating %> rating</span>
+                          /
+                          <span class="label label-primary"><%= t.teacher_info.lecture_number %> Lessons finished </span>
+                          </p>
+                          <p>
+                          <%= t.teacher_info.brief_introduction %>
+                          </p>
                         </div>
+           
+                        <div class="col-md-3">
+                          <h4 style="margin-top: 50px;">
+                            <%= t.teacher_info.lecture_price %> coins / 1 hour
+                          </h4>
+                          <%# link_to "Book trial lesson", select_time_path(t), class: "btn btn-success btn-sm col-md-12" %>
+                        </div>
+
                         <div class="col-md-9" style="height: 30px;"></div>
                         <p>
                         <% if !t.lang_to_teach_1.nil? %>
@@ -81,11 +104,11 @@
                         </h4>
                         <%# link_to "Book trial lesson", select_time_path(t), class: "btn btn-success btn-sm col-md-12" %>
                       </div>
-                    </div>
-                  </li>
+                    </li>
+                  </div>
                 </div>
-              </div>
-            </ul>
+              </ul>
+            <% end %>
           <% end %>
           
           <div class="row">
