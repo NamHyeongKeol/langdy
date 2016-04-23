@@ -4,7 +4,7 @@
     <div class="col-md-9">
       <div class="panel panel-default">
         <div class="panel-body">
-          <%= form_tag("/teachers/filter_teachers", method: "POST") do %>
+          <%= form_tag("/teachers/filter_teachers", method: "GET") do %>
           <div class="col-md-3" id="small-padding">
             <%#= label_tag('label', "배우고 싶은 언어") %>
             <!-- 라벨 태그 삭제해도 되는지?-->
@@ -56,7 +56,15 @@
                         </div>
                         <div class="col-md-9" style="height: 30px;"></div>
                         <p>
-                        <span class="label label-success"><%= t.native_lang %></span>
+                        <% if !t.lang_to_teach_1.nil? %>
+                          <span class="label label-success"><%= t.lang_to_teach_1 %></span>
+                        <% end %>
+                        <% if !t.lang_to_teach_2.nil? %>
+                          <span class="label label-success"><%= t.lang_to_teach_2 %></span>
+                        <% end %>
+                        <% if !t.lang_to_teach_3.nil? %>
+                          <span class="label label-success"><%= t.lang_to_teach_3 %></span>
+                        <% end %>
                         /
                         <span class="label label-default"><%= t.teacher_info.rating %> rating</span>
                         /
@@ -79,6 +87,13 @@
               </div>
             </ul>
           <% end %>
+          
+          <div class="row">
+            <div style="text-align: center">
+              <%= will_paginate @teachers, previous_label: "« 이전", next_label: "다음 »" %>
+            </div>
+        </div>
+          
         </div>
       </div>
     </div>

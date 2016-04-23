@@ -1,3 +1,6 @@
+require 'will_paginate'
+require 'will_paginate/active_record'
+
 class TeachersController < ApplicationController
 	before_action :authenticate_user!
 	before_action :require_admin_login, only: [:certify]
@@ -26,13 +29,13 @@ class TeachersController < ApplicationController
 	end
 
 	def index
-		@teachers = User.where(is_teacher: true)
+		@teachers = User.where(is_teacher: true).where("is_teacher = ? AND skype_id is NOT NULL", true).paginate(page: params[:page], per_page: 5)
 	end
 
 	def filter_teachers
 		# 시간 설정 되어있을 경우 JOIN, 아니면 하지 않음
 		if !params[:day_of_week].nil? && !params[:day_of_week].empty? || !params[:time].nil? && !params[:time].empty?
-			@teachers = User.joins(:available_times).where(is_teacher: true)
+			@teachers = User.joins(:available_times).where("is_teacher = ? AND skype_id is NOT NULL", true)
 		else
 			@teachers = User.where(is_teacher: true)
 		end
@@ -67,6 +70,8 @@ class TeachersController < ApplicationController
 			
 			@teachers = @teachers.where("available_times.start_at >= ? AND available_times.start_at < ? OR available_times.end_at >= ? AND available_times.end_at < ? OR available_times.start_at <= ? AND available_times.end_at > ?", time_specific_start, time_specific_end, time_specific_start, time_specific_end, time_specific_start, time_specific_end)
 		end
+		
+		@teachers = @teachers.paginate(page: params[:page], per_page: 5)
 
 		render :index
 	end
