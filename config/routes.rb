@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 	get 'purchase' => 'cash#index', as: 'purchase'
   get 'purchase/buycoin' => 'cash#buycoin'
   get 'purchase/sellcoin' => 'cash#sellcoin'
+  get 'purchase/history' => 'cash#coinhistory'
 
 	post 'submit_purchase' => 'cash#submit_purchase', as: 'submit_purchase'
 	get 'permit_purchase/:id' => 'cash#permit_purchase', as: 'permit_purchase'

@@ -30,4 +30,8 @@ class CashController < ApplicationController
 		redirect_to :back
 	end
 
+	def coinhistory
+		@coin_histories = current_user.coin_history.to_a
+	end
+	
 end

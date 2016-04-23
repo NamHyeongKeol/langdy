@@ -1,11 +1,7 @@
-<br><br><br>
 <div class="container">
-  <div class="row">
-    <div class="col-md-offset-1 col-md-10">
-      <div class="col-md-offset-2 col-md-10">
-      <h3> 학습 프로필 </h3>
-      <hr>
-      </div>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <legend>학습 프로필</legend>
       <%= form_for :teacher_info, url: update_teacher_info_path, html: {id: "edit_form"} do |f| %>
         <!-- location 우선 제거, 필요 시 개인 프로필에 추가
         <div class="col-md-2" align="center">
@@ -42,75 +38,72 @@
         <div class="col-md-12" style="height: 10px"></div>
         -->
         
-        <div class="col-md-2" align="center">
-          <%= f.label :lecture_price, "강의료 설정", class: "control-label" %>
-        </div>
-        <div class="col-md-5">
-          <%= f.text_area :lecture_price, :autocomplete => :off, :placeholder => "10코인 이하로 설정해주세요.", class: "col-md-12 form-control", rows: "1" %>
-        </div>
-        <div class="col-md-5"></div>
-        <div class="col-md-12" style="height: 10px"></div>
-
-        <div class="col-md-2" align="center">
-          <%= f.label :skype_id, "스카이프 아이디", class: "control-label" %>
-        </div>
-        <div class="col-md-5">
-          <%= f.text_area :skype_id, autocomplete: "off", :placeholder => "스카이프 아이디", class: "form-control", rows: "1" %>
-        </div>
-        <div class="col-md-5"></div>
-        <div class="col-md-12" style="height: 10px"></div>
-
+        <div class="form-group">
+          <%= f.label :lecture_price, "강의료 설정", class: "col-md-2 control-label" %>
+          <div class="col-md-10">
+            <%= f.text_area :lecture_price, :autocomplete => :off, :placeholder => "10코인 이하로 설정해주세요.", class: "form-control", rows: "1" %>
+          </div>
+        </div>  
+        <div class="col-md-12" style="height:10px"></div>
         
-        <!-- 간단 소개글 div 추가 필요-->
+        <div class="form-group">
+          <%= f.label :skype_id, "스카이프 아이디", class: "col-md-2 control-label" %>
+          <div class="col-md-10">
+            <%= f.text_area :skype_id, autocomplete: "off", :placeholder => "스카이프 아이디", class: "form-control", rows: "1" %>
+          </div>
+        </div>
+        <div class="col-md-12" style="height:10px"></div>
         
-        <div class="col-md-2" align="center">
-          <%= f.label :brief_introduction, "짧은 소개글", class: "control-label" %>
+        <div class="form-group">
+          <%= f.label :brief_introduction, "짧은 소개글", class: "col-md-2 control-label" %>
+          <div class="col-md-10">
+            <%= f.text_area :brief_introduction, :autocomplete => :off, :placeholder => "간단하게 자신을 소개해주세요. 선생님 검색 목록에 표시되는 소개글입니다.", class: "col-md-12 form-control", rows: "2" %>
+          </div>
         </div>
-        <div class="col-md-10">
-          <%= f.text_area :brief_introduction, :autocomplete => :off, :placeholder => "짧게 자신을 소개해 주세요.", class: "col-md-12 form-control", rows: "2" %>
-        </div>
-        <div class="col-md-12" style="height: 10px"></div>
+        <div class="col-md-12" style="height:10px"></div>
         
-        <div class="col-md-2" align="center">
-          <%= f.label :introduction, "긴 소개글", class: "control-label" %>
+        <div class="form-group">
+          <%= f.label :introduction, "긴 소개글", class: "col-md-2 control-label" %>
+          <div class="col-md-10">
+            <%= f.text_area :introduction, :autocomplete => :off, :placeholder => "강사로서의 장점, 강사로서의 경험, 강의 방식 등을 자세히 소개해 주세요. 강사 페이지에 표시되는 소개글입니다.", class: "col-md-12 form-control", rows: "15" %>
+          </div>
         </div>
-        <div class="col-md-10">
-          <%= f.text_area :introduction, :autocomplete => :off, :placeholder => "강사로서의 장점, 강사로서의 경험, 강의 방식 등을 자세히 소개해 주세요.", class: "col-md-12 form-control", rows: "15" %>
-        </div>
-        <div class="col-md-12" style="height: 10px"></div>
-
-        <div class="col-md-2" align="center">
-          <label class="control-label">강의시간표 설정</label>
-        </div>
-        <div class="col-md-3">
-          <select name="week-day" class="form-control">
-            <% ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'].each do |item| %>
-              <option value="<%= item %>"><%= item %></option>
-            <% end %>
-          </select>
-        </div>
+        <div class="col-md-12" style="height:10px"></div>
         
-        <div class="col-md-3">
-          <input name="start-time" type="time" class="form-control">
-        </div>
-        <div class="col-md-3">
-          <input name="end-time" type="time" class="form-control">
-        </div>
-        <div class="col-md-1">
-          <button id="schedule_add_btn" type="button" class="btn btn-default" style="width: 100%;" disabled="disabled"> + </button>
-        </div>
-        <div class="col-md-10 col-md-offset-2" id="schedule_list" style="margin-top: 2rem;">
-        </div>
-        <div class="col-md-12" style="height: 10px"></div>
-
-        <input type="hidden" name="schedules" id="schedules">
-        <div class="col-md-10 col-md-offset-2" style="margin-bottom: 4rem;">
-          <%= f.submit "완료", class: "col-md-3 btn btn-primary" %>
+        <div class="form-group">
+          <label class="col-md-2 control-label" style="padding-top:25px">강의시간표 설정</label>
+          <div class="col-md-3">
+            &nbsp
+            <select name="week-day" class="form-control">
+              <% ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'].each do |item| %>
+                <option value="<%= item %>"><%= item %></option>
+              <% end %>
+            </select>
+          </div>
+          <div class="col-md-3">
+            시작 시간
+            <input name="start-time" type="time" class="form-control"> 
+          </div>
+          <div class="col-md-3">
+            종료 시간
+            <input name="end-time" type="time" class="form-control">
+          </div>
+          <div class="col-md-1">
+            &nbsp
+            <button id="schedule_add_btn" type="button" class="btn btn-default" style="width: 100%;" disabled="disabled"> + </button>
+          </div>
+          <div class="col-md-10 col-md-offset-2">강의 신청을 받을 수 있는 시간대를 요일별로 설정해주세요.</div>
+          <div class="col-md-10 col-md-offset-2" id="schedule_list">
+          </div>
+          <input type="hidden" name="schedules" id="schedules">
+          
+          <div class="col-md-10 col-md-offset-2" style="margin-bottom: 4rem;">
+            <%= f.submit "완료", class: "col-md-3 btn btn-primary" %>
+          </div>
         </div>
 
       <% end %>
     </div>
-
   </div>
 </div>
 

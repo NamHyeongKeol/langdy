@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  is_buycoin: false
+  buycoin_complete: false
+  is_exchange: false
+  exchange_comlete: false
+  amount: 1
+
+two:
+  user_id: 
+  is_buycoin: false
+  buycoin_complete: false
+  is_exchange: false
+  exchange_comlete: false
+  amount: 1
