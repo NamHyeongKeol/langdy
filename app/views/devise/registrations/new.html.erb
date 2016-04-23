@@ -19,9 +19,9 @@
             </div>
             
             <div class="form-group">
-              <label for="inputGender" class="col-md-3 control-label">Gender</label>
+              <label for="inputGender" class="col-md-3 control-label">성별</label>
               <div class="col-md-9">
-              <%= f.select(:gender, ['Male', 'Female'], {}, { :class => 'form-control' }) %>
+              <%= f.select(:gender, [['남자', 'Male'], ['여자', 'Female']], {}, { :class => 'form-control' }) %>
               </div>
             </div>
             
