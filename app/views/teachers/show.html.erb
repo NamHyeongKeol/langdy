@@ -198,6 +198,7 @@
                         </h4>
                       </div>
                       <div class="modal-body">
+                        <div class="go-demo-box"></div>
                         <!-- Event Calendar by DayPilot -->
                         <div id="dp"></div>
                       </div>
@@ -320,6 +321,7 @@
   show_availables_on_calendar(dp,my_avail);
   dp.viewType = "Week";
   dp.eventMoveHandling = "Disabled";
+  dp.theme = "langdy";
   dp.init();
   
   loadEvents();

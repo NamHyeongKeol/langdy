@@ -80,6 +80,7 @@
               <h3> 강의시간표 </h3>
             </div>
             <div class="panel-body">
+              <div class="go-demo-box"></div>
               <!-- Event Calendar by DayPilot -->
               <div id="dp"></div>
             </div>
@@ -144,6 +145,7 @@
   show_availables_on_calendar(dp,my_avail);
   dp.viewType = "Week";
   dp.eventMoveHandling = "Disabled";
+  dp.theme = "langdy";
   dp.init();
 
   loadEvents();

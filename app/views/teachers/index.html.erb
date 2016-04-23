@@ -23,7 +23,7 @@
             <%= select_tag :gender, options_for_select([['선생님 성별', ''], ['남', 'Male'], ['여', 'Female']], params[:gender]), { :class => 'form-control' } %>
           </div>
           <div class="col-md-2" id="small-padding">
-            <%= submit_tag '검색', { :class => 'form-control', :id => 'submit' } %>
+            <%= submit_tag '검색', { :class => 'form-control btn btn-primary', :id => 'submit' } %>
           </div>
         </div>
         <% end %>

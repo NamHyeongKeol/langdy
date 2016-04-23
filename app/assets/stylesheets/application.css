@@ -44,3 +44,12 @@ a {
     vertical-align: middle;
 }
 
+.go-demo-box {
+  width: 45px;
+  height: 23px;
+  position: absolute;
+  background: #EEEEEE;
+  border-top: 1px solid #999999;
+  border-left: 1px solid #999999;
+  z-index: 9999;
+}
