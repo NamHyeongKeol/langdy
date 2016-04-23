@@ -30,4 +30,7 @@ class CashController < ApplicationController
 		redirect_to :back
 	end
 
+	def coinhistory
+	end
+	
 end
