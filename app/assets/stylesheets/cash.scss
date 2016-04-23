@@ -20,6 +20,11 @@
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
+.coinhistory-panel{
+  height:450px; 
+  overflow: auto;
+}
+
 .inner {
   display: table-cell;
   vertical-align: middle;
@@ -30,7 +35,7 @@
 
 .mainpagebutton{
     text-align:center;
-    background-color: #ffffff;
+    background-color: #ffffff; 
     border-radius: 10px;
     border: 1px solid #eeeeee;
     margin:10px;
@@ -45,3 +50,7 @@
   height: 450px;
 }
 
+tr > th,
+tr > td{
+  text-align:center;
+}
