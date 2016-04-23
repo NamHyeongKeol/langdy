@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :available_times
 
   has_many :memos
+  has_many :coin_history
 	def lesson
 		lesson_to_teach + lesson_to_study
 	end

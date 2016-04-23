@@ -28,8 +28,8 @@ class LessonController < ApplicationController
 		
 		scheduler = Rufus::Scheduler.new
 		scheduler.in '1m' do # 시간 설정
-			# Coin 선생님에게 전달
-			t = User.find(params[:teacher_id])
+	    # Coin 선생님에게 전달
+      t = User.find(params[:teacher_id])
 			t.cash += params[:coin].to_i
 			t.save
 		end

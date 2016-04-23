@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160421103035) do
+ActiveRecord::Schema.define(version: 20160423093458) do
 
   create_table "available_times", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,10 +27,27 @@ ActiveRecord::Schema.define(version: 20160421103035) do
     t.integer  "sender_id"
     t.integer  "receiver_id"
     t.integer  "amount"
-    t.boolean  "is_permitted", default: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.boolean  "is_permitted",       default: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "coin_history_id_id"
   end
+
+  add_index "cash_transactions", ["coin_history_id_id"], name: "index_cash_transactions_on_coin_history_id_id"
+
+  create_table "coin_histories", force: :cascade do |t|
+    t.integer  "user_id"
+    t.boolean  "is_buycoin"
+    t.boolean  "buycoin_complete"
+    t.boolean  "is_exchange"
+    t.boolean  "exchange_comlete"
+    t.integer  "amount"
+    t.datetime "time"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "coin_histories", ["user_id"], name: "index_coin_histories_on_user_id"
 
   create_table "courses", force: :cascade do |t|
     t.string "lang"
