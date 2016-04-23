@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   post 'teacher/update_info' => 'teachers#update_teacher_info', as: 'update_teacher_info'
 
 	get 'find_teacher' => 'teachers#index', as: 'find_teacher'
-	post 'teachers/filter_teachers'
+	get 'teachers/filter_teachers'
 
 	get 'teacher/:id' => 'teachers#show', as: 'teacher'
 	post 'teacher/add_comment/:id' => 'teachers#add_comment', as: 'teacher_comments'

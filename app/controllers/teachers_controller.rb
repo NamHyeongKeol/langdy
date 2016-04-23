@@ -1,3 +1,6 @@
+require 'will_paginate'
+require 'will_paginate/active_record'
+
 class TeachersController < ApplicationController
 	before_action :authenticate_user!
 	before_action :require_admin_login, only: [:certify]
@@ -26,45 +29,51 @@ class TeachersController < ApplicationController
 	end
 
 	def index
-		@teachers = User.where('is_teacher = ?', true)
+		@teachers = User.where(is_teacher: true).where("is_teacher = ? AND skype_id is NOT NULL", true).paginate(page: params[:page], per_page: 5)
 	end
 
 	def filter_teachers
-		if params[:gender] == ""
-			gender = nil
+		# 시간 설정 되어있을 경우 JOIN, 아니면 하지 않음
+		if !params[:day_of_week].nil? && !params[:day_of_week].empty? || !params[:time].nil? && !params[:time].empty?
+			@teachers = User.joins(:available_times).where("is_teacher = ? AND skype_id is NOT NULL", true)
 		else
-			gender = params[:gender]
+			@teachers = User.where(is_teacher: true)
 		end
-
-		if params[:language] == ""
-			language = nil
-		else
-			language = params[:language]
+		
+		if !params[:gender].nil? && !params[:gender].empty?
+			@teachers = @teachers.where(gender: params[:gender])
 		end
-
-    if params[:day_of_week] == ""
-      day_of_week = nil
-    else
-      day_of_week = params[:day_of_week]
-    end
-
-    if params[:time] == ""
-      time = nil
-    else
-      time = params[:time]
-    end
-
-		if gender and language
-			@teachers = User.where(gender: gender, native_lang: language, is_teacher: true)#.joins("LEFT JOIN available_times ON available_times.user_id = users.id AND available_times.start_at <= 12:00 ")
-		elsif gender and !language
-			@teachers = User.where(gender: gender, is_teacher: true)
-		elsif !gender and language
-			@teachers = User.where(native_lang: language, is_teacher: true)
-		else
-			@teachers = User.all
+		
+		if !params[:language].nil? && !params[:language].empty?
+			@teachers = @teachers.where("lang_to_teach_1 = ? OR lang_to_teach_2 = ? OR lang_to_teach_3 = ?", params[:language], params[:language], params[:language])
 		end
+		
+		if !params[:day_of_week].nil? && !params[:day_of_week].empty?
+			@teachers = @teachers.where(available_times: { week_day: params[:day_of_week] })
+		end
+		
+		if !params[:time].nil? && !params[:time].empty?
+			time_specific_start = nil
+			time_specific_end = nil
+			
+			if params[:time] == '0'
+				time_specific_start = DateTime.new(2000, 1, 1, 0, 0, 0)
+			elsif params[:time] == '1'
+				time_specific_start = DateTime.new(2000, 1, 1, 6, 0, 0)
+			elsif params[:time] == '2'
+				time_specific_start = DateTime.new(2000, 1, 1, 12, 0, 0)
+			else
+				time_specific_start = DateTime.new(2000, 1, 1, 18, 0, 0)
+			end
+			
+			time_specific_end = time_specific_start.advance(:hours => 6)
+			
+			@teachers = @teachers.where("available_times.start_at >= ? AND available_times.start_at < ? OR available_times.end_at >= ? AND available_times.end_at < ? OR available_times.start_at <= ? AND available_times.end_at > ?", time_specific_start, time_specific_end, time_specific_start, time_specific_end, time_specific_start, time_specific_end)
+		end
+		
+		@teachers = @teachers.paginate(page: params[:page], per_page: 5)
 
-		render layout: false
+		render :index
 	end
 
 	def show
