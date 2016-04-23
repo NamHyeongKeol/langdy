@@ -1,5 +1,5 @@
 <div class="container fixed-container">
-  <%= render partial: 'lecture_room/lesson_modal' %>
+  <%= render partial: 'teachers/curriculum_modal' %>
   <div class="row">
     
     <!-- left box -->
@@ -11,7 +11,7 @@
             <h3 style="margin-top:5px">커리큘럼</h3>
           </div>
           <div class="col-xs-4">
-            <button type="button" class="btn btn-sm btn-primary col-xs-10" data-toggle="modal" data-target="#lessonModal">
+            <button type="button" class="btn btn-sm btn-primary col-xs-10" data-toggle="modal" data-target="#curriculumModal">
               수업 선택
             </button>
           </div>
@@ -137,4 +137,29 @@
       }
     })
   });
+</script>
+
+<script src="/assets/bootstrap-treeview.js"></script>
+<script tpye="text/javascript">
+  function loadCourses() {
+    $.post("/get_courses",
+    {
+        lang: '<%= current_user.lang_to_learn_1 %>',
+        mi_selectable: true, //미수강 선택가능 여부
+        ye_selectable: true, //수강예정 선택가능 여부
+        wa_selectable: true, //수강 완료 선택가능 여부
+    },
+    function(data, status, xhr) {
+        loadCoursesCallback(data);
+    });
+  }
+
+  function loadCoursesCallback(treeData) {
+    $('#tree').treeview({
+      data: treeData,
+      showTags: true
+    });
+  }
+
+  loadCourses();
 </script>

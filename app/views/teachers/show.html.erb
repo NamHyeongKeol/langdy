@@ -361,7 +361,7 @@
   function loadCourses() {
     $.post("/get_courses",
     {
-        lang: '<%= @teacher.native_lang %>',
+        lang: '<%= @teacher.lang_to_teach_1 %>',
         mi_selectable: true, //미수강 선택가능 여부
         ye_selectable: true, //수강예정 선택가능 여부
         wa_selectable: true, //수강 완료 선택가능 여부
