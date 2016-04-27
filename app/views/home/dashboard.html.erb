@@ -29,41 +29,37 @@
             개인 프로필
           <% end %>
           </li>
+          <li class="list-group-item">
+          <%= link_to edit_teacher_info_path do %>
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+              학습 프로필
+            <% end %>
+          </li>
         </ul>
       </div>
-
-      <% unless current_user.is_teacher or not current_user.teacher_info.nil? %>
-        <ul class="list-group">
-          <%= link_to apply_for_teacher_path do %>
-            <li class="list-group-item">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            Apply for being a teacher
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
-
-      <% if current_user.is_teacher %>
-        <ul class="list-group">
-          <%= link_to edit_teacher_info_path do %>
-            <li class="list-group-item">
-            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            학습 프로필
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
-
+      
       <div class="panel panel-default">
         <div class="panel-body">
           <div class="col-md-12">
             <h5>
               언제든지 의견을 남겨주세요. 여러분의 의견에 항상 귀기울이겠습니다.
             </h5>
-            <%= form_for :feedback, url: feedback_path do |f| %>
-              <%= f.text_field :text, :autocomplete => :off, class: "col-md-12 form-control" %>
-              <%= f.submit "피드백 남기기", class: "btn btn-default col-md-12" %>
-            <% end %>
+              <%= form_for :feedback, url: feedback_path do |f| %>
+                <!-- 상욱 수정중-->
+                    <div class="form-group">
+                    <label for="#">카테고리 선택</label>
+                    <div>
+                    <select class="form-control" name="#" id="#">
+                    <option value="#">웹 사이트 기능 관련</option>
+                    <option value="#">커리큘럼 관련</option>
+                    <option value="#s">기타</option>
+                    </select>
+                    </div>
+                    </div>
+                <!-- 상욱 수정중-->
+                <%= f.text_field :text, :autocomplete => :off, class: "col-md-12 form-control" %>
+                <%= f.submit "피드백 남기기", class: "btn btn-default col-md-12" %>
+              <% end %>
           </div>
         </div>
       </div>
