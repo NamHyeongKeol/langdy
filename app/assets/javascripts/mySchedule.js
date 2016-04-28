@@ -84,7 +84,9 @@ var isAvailable = function(date, schd) {
 var show_availables_on_calendar = function(dp, schd){
   dp.onBeforeCellRender = function(args) {
     if (isAvailable(args.cell.start, schd)) {
-      args.cell.backColor = "#9CD09C";
+      //오픈 시간 배경색//
+      args.cell.backColor = "#FAB89B";
+      //오픈 시간 배경색//
     };
   };
 };
