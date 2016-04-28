@@ -8,7 +8,7 @@ class TeachersController < ApplicationController
 	def apply
 	end
 
-	def submit_teacher_application
+	def submit_teacher_applicatio
 		t = TeacherInfo.new(teacher_application_params)
 		t.user = current_user
 		t.save
@@ -33,7 +33,7 @@ class TeachersController < ApplicationController
 	end
 
 	def filter_teachers
-		# 시간 설정 되어있을 경우 JOIN, 아니면 하지 않음
+		시간 설정 되어있을 경우 JOIN, 아니면 하지 않음
 		if !params[:day_of_week].nil? && !params[:day_of_week].empty? || !params[:time].nil? && !params[:time].empty?
 			@teachers = User.joins(:available_times).where("is_teacher = ? AND skype_id is NOT NULL", true)
 		else
