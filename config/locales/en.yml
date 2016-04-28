@@ -18,6 +18,12 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
+  menu:
+    mypage: "My Page"
+    find_teacher: "Find Teacher"
+    coin: "Coin"
+    lecture_room: "Lecture Room"
+  landing:
+    intro_title: "Learn Chinese from chinese!"
