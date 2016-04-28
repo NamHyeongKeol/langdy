@@ -17,16 +17,16 @@ Rails.application.routes.draw do
   post 'teacher/update_info' => 'teachers#update_teacher_info', as: 'update_teacher_info'
 
 	get 'find_teacher' => 'teachers#index', as: 'find_teacher'
-	get 'teachers/filter_teachers'
+	get 'teachers/filter_teachers', as: 'filter_teacher'
 
 	get 'teacher/:id' => 'teachers#show', as: 'teacher'
 	post 'teacher/add_comment/:id' => 'teachers#add_comment', as: 'teacher_comments'
 	delete 'teacher/destroy_comment/:id' => 'teachers#destroy_comment', as: 'destroy_teacher_comment'
 
 	get 'purchase' => 'cash#index', as: 'purchase'
-  get 'purchase/buycoin' => 'cash#buycoin'
-  get 'purchase/sellcoin' => 'cash#sellcoin'
-  get 'purchase/history' => 'cash#coinhistory'
+  get 'purchase/buycoin' => 'cash#buycoin', as: 'buycoin'
+  get 'purchase/sellcoin' => 'cash#sellcoin', as: 'sellcoin'
+  get 'purchase/history' => 'cash#coinhistory', as: 'coinhistory'
 
 	post 'submit_purchase' => 'cash#submit_purchase', as: 'submit_purchase'
 	get 'permit_purchase/:id' => 'cash#permit_purchase', as: 'permit_purchase'
