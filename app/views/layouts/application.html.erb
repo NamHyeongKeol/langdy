@@ -15,7 +15,7 @@
       <div class="container">
         <div class="row">
           <div class="navbar-header col-md-3">
-            <a href="../" class="navbar-brand">Langdy</a>
+            <a href="<%= url_for(:home) %>" class="navbar-brand">Langdy</a>
           </div>
           <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav col-md-4">
@@ -28,9 +28,9 @@
               <li><%= link_to (t "menu.lecture_room"), lecture_room_path %></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li <%= params[:locale] == "ko" ? "class=active" : "" %> ><%= link_to "한국어", url_for( locale: 'ko') %></li>
-              <li <%= params[:locale] == "en" ? "class=active" : "" %> ><%= link_to "English", url_for( locale: 'en') %></li>
-              <li <%= params[:locale] == "ch" ? "class=active" : "" %> ><%= link_to "中國語", url_for( locale: 'ch') %></li>
+              <li <%= I18n.locale == :ko ? "class=active" : "" %> ><%= link_to "한국어", url_for( locale: 'ko') %></li>
+              <li <%= I18n.locale == :en ? "class=active" : "" %> ><%= link_to "English", url_for( locale: 'en') %></li>
+              <li <%= I18n.locale == :ch ? "class=active" : "" %> ><%= link_to "中國語", url_for( locale: 'ch') %></li>
               <% unless user_signed_in? %>
                 <li><%= link_to "회원가입", new_user_registration_path %></li>
                 <li><%= link_to "로그인", new_user_session_path %></li>
