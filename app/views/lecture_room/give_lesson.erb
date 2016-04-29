@@ -100,27 +100,6 @@
   });
 </script>
 
-<script src="/assets/bootstrap-treeview.js"></script>
 <script tpye="text/javascript">
-  function loadCourses() {
-    $.post("/get_courses",
-    {
-        lang: '<%= current_user.lang_to_teach_1 %>',
-        mi_selectable: true, //미수강 선택가능 여부
-        ye_selectable: true, //수강예정 선택가능 여부
-        wa_selectable: true, //수강 완료 선택가능 여부
-    },
-    function(data, status, xhr) {
-        loadCoursesCallback(data);
-    });
-  }
-
-  function loadCoursesCallback(treeData) {
-    $('#tree').treeview({
-      data: treeData,
-      showTags: true
-    });
-  }
-
   loadCourses();
 </script>

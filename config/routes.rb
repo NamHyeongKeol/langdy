@@ -41,7 +41,7 @@ Rails.application.routes.draw do
 	post 'submit_lesson' => 'lesson#submitLesson', as: 'submit_lesson'
 
 	# Course
-	post 'get_courses' => 'course#getCourses', as: 'get_courses'
+	get 'get_courses/:lang' => 'course#getCourses', as: 'get_courses'
 
   # Lecture Room
   get 'lecture_room' => 'lecture_room#index', as: 'lecture_room'
