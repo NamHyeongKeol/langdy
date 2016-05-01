@@ -46,7 +46,7 @@
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-body">
-            <h3>Introduction</h3>
+            <h3>소개</h3>
             <hr>
             <%= @teacher.teacher_info.introduction %>
           </div>
@@ -55,24 +55,26 @@
       <!-- Self intro -->
 
       <!-- Certificate intro -->
+      <!-- 불필요 정보 비활성화
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-body">
             <h3>Education</h3>
             <hr>
-            Studied <%= @teacher.teacher_info.major %> in <%= @teacher.teacher_info.school_grad %>
+            Studied <%#= @teacher.teacher_info.major %> in <%#= @teacher.teacher_info.school_grad %>
           <h3>Certificates</h3>
           <hr>
           </div>
         </div>
       </div>
+      -->
       <!-- Certificate intro -->
 
       <!-- Comments -->
       <div class="col-md-12">
         <div class="panel panel-default">
           <div class="panel-body">
-            <h3>Comments</h3>
+            <h3>강의 후기</h3>
             <hr>
 
             <div class="col-md-12">
@@ -84,9 +86,11 @@
                   <div class="media">
                     <div class="col-md-2">
                       <div class="media-left">
-                        <a href="#">
-                          <img src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png" class="media-object profile-pic col-md-12"/>
-                        </a>
+                        <% if current_user.profile_pic.url.nil? %>
+                          <img src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png" class="profile-pic" height="50" width="50"/>
+                        <% else %>
+                          <img src=<%= current_user.profile_pic.url %> class="profile-pic" height="50" width="50"/>
+                        <% end %>
                       </div>
                     </div>
                     <div class="col-md-9">
@@ -112,10 +116,10 @@
               <div class="form-group">
                 <%= form_for :new_comment, url: teacher_comments_path(@teacher) do |f| %>
                   <div class="col-md-10">
-                    <%= f.text_field :text, class: "form-control", placeholder: "Leave a comment" %>
+                    <%= f.text_field :text, class: "form-control", placeholder: "후기를 남겨주세요" %>
                   </div>
                   <div class="col-md-2">
-                    <%= f.submit "Submit", class: "btn btn-default" %>
+                    <%= f.submit "완료", class: "btn btn-default" %>
                   </div>
                 <% end %>
               </div>
@@ -173,11 +177,8 @@
             <div class="panel-body">
               <div id="alert-teacher" class="alert alert-danger" role="alert" style="display: none;"><b></b></div>
               
-              <h4> If you want to start lessons </h4>
-              <hr>
-              <h4 style="margin-top: 50px;">
                 <%= @teacher.teacher_info.lecture_price %> coins / 1 hour
-              </h4>
+              
               
               <!-- Section - Select Time -->
               <div class="input-group">

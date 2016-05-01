@@ -18,7 +18,7 @@
             <a href="<%= url_for(:home) %>" class="navbar-brand">Langdy</a>
           </div>
           <div class="navbar-collapse collapse" id="navbar-main">
-            <ul class="nav navbar-nav col-md-4">
+            <ul class="nav navbar-nav col-md-5">
               <% if user_signed_in? and current_user.is_admin %>
                 <li><%= link_to "관리자", admin_path %></li>
               <% end %>
@@ -28,9 +28,15 @@
               <li><%= link_to (t "menu.lecture_room"), lecture_room_path %></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li <%= I18n.locale == :ko ? "class=active" : "" %> ><%= link_to "한국어", url_for( locale: 'ko') %></li>
-              <li <%= I18n.locale == :en ? "class=active" : "" %> ><%= link_to "English", url_for( locale: 'en') %></li>
-              <li <%= I18n.locale == :ch ? "class=active" : "" %> ><%= link_to "中國語", url_for( locale: 'ch') %></li>
+              
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Site Language <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li <%= I18n.locale == :ko ? "class=active" : "" %> ><%= link_to "한국어", url_for( locale: 'ko') %></li>
+                  <li <%= I18n.locale == :en ? "class=active" : "" %> ><%= link_to "English", url_for( locale: 'en') %></li>
+                  <li <%= I18n.locale == :ch ? "class=active" : "" %> ><%= link_to "中國語", url_for( locale: 'ch') %></li>
+                </ul>
+              </li>
               <% unless user_signed_in? %>
                 <li><%= link_to "회원가입", new_user_registration_path %></li>
                 <li><%= link_to "로그인", new_user_session_path %></li>
