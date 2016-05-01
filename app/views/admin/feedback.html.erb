@@ -9,16 +9,32 @@
     <div class="col-md-9">
       <div class="col-md-12">
         <h2> Feedbacks </h2>
+        <div class="dropdown">
+          <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            분류
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dLabel">
+            <li><a href="/admin/feedback"> 전체 </a></li>
+            <li><a href="/admin/feedback?cat=website"> 웹 사이트 기능 관련 </a></li>
+            <li><a href="/admin/feedback?cat=curriculum"> 커리큘럼 관련 </a></li>
+            <li><a href="/admin/feedback?cat=others"> 기타 </a></li>
+          </ul>
+        </div>
         <table class="table table-striped table-hover ">
           <thead>
             <tr>
-              <th class="col-md-3">Name</th>
-              <th class="col-md-9">Feedback</th>
+              <th class="col-md-1">id</th>
+              <th class="col-md-1">category</th>
+              <th class="col-md-2">Name</th>
+              <th class="col-md-8">Feedback</th>
             </tr>
           </thead>
           <tbody>
             <% @feedbacks.each do |f| %>
               <tr>
+                <td><%= f.id %></td>
+                <td><%= f.cat %></td>
                 <td><%= f.user.name %></td>
                 <td><%= f.text %></td>
               </tr>

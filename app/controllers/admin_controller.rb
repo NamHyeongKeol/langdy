@@ -14,7 +14,11 @@ class AdminController < ApplicationController
 	end
 
 	def feedback
-		@feedbacks = Feedback.all
+    if params[:cat].nil?
+      @feedbacks = Feedback.all
+    else
+		  @feedbacks = Feedback.where(cat: params[:cat])
+    end
 	end
 
   def set_cash
