@@ -4,6 +4,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
 		:dashboard
 	end
 
+  def after_update_path_for(resource)
+    :dashboard
+  end
+
 	# Override
 	def create
 		super

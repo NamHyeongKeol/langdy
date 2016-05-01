@@ -23,8 +23,11 @@ $(document).ready(function() {
  */
 function passSelectTime(e) {
   // set input's value
-  $('#selectTimeInput').val(e.data.start.value + ' - ' + e.data.end.value);
-  $('.selectTimeInput').text(e.data.start.value + ' - ' + e.data.end.value);
+  start_splited = e.data.start.value.split('T')
+  end_splited = e.data.end.value.split('T')
+  formated = start_splited[0] + ' ' + start_splited[1].substring(0, 5)+' ~ '+end_splited[1].substring(0, 5)
+  $('#selectTimeInput').val(formated);
+  $('.selectTimeInput').text(formated);
 }
 
 /**
