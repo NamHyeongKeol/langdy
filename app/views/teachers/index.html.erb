@@ -66,36 +66,65 @@
                             <% end %>
                           </div>
                           <div class="col-md-12">
-                            
-                            <% if !t.lang_to_teach_1.nil? %>
-                            <div>
-                              <h5><b><%= t.lang_to_teach_1 %></b></h5>
-                              <!--<span class="label label-success"><%#= t.lang_to_teach_1 %></span>-->
-                            </div>
-                            <% end %>
-                            <% if !t.lang_to_teach_2.nil? %>
-                            <div>
-                              <h5><b><%= t.lang_to_teach_2 %></b></h5>
-                              <!--<span class="label label-success"><%#= t.lang_to_teach_2 %></span>-->
-                            </div>
-                            <% end %>
-                            <% if !t.lang_to_teach_3.nil? %>
-                            <div>
-                              <h5><b><%= t.lang_to_teach_3 %></b></h5>
-                              <!--<span class="label label-success"><%#= t.lang_to_teach_3 %></span>-->
-                            </div>
-                            <% end %>
+                            <h5><b>가르치는 언어 </b>
+                              <% if !t.lang_to_teach_1.nil? %>
+                                <%= t.lang_to_teach_1 %>(<%= t.rank_to_teach_1 %>)
+                              <% end %>
+                              <% if !t.lang_to_teach_2.nil? %>
+                                <%= t.lang_to_teach_2 %>(<%= t.rank_to_teach_2 %>)
+                              <% end %>
+                            </h5>
                           </div>
+                          <div class="col-md-12">
+                            <h5><b>배우는 언어 </b>
+                              <% if !t.lang_to_learn_1.nil? %>
+                                <%= t.lang_to_learn_1 %>(<%= t.rank_to_learn_1 %>)
+                              <% end %>
+                              <% if !t.lang_to_learn_2.nil? %>
+                                <%= t.lang_to_learn_2 %>(<%= t.rank_to_learn_2 %>)
+                              <% end %>
+                              <% if !t.lang_to_learn_3.nil? %>
+                                <%= t.lang_to_learn_3 %>(<%= t.rank_to_learn_3 %>)
+                              <% end %>
+                            </h5>
+                          </div>
+                            <!--
+                            <div class="col-md-12">
+                              <h5><b>가능한 언어 </b>
+                                <%# lang_array = [t.lang_to_teach_1, t.lang_to_teach_2, t.lang_to_teach_3, t.lang_to_learn_1, t.lang_to_learn_2, t.lang_to_learn_3] %>
+                                <%# rank_array = [t.rank_to_teach_1, t.rank_to_teach_2, t.rank_to_teach_3, t.rank_to_learn_1, t.rank_to_learn_2, t.rank_to_learn_3] %>
+                                <%# lang_array = lang_array.compact %>
+                                <%# rank_array = rank_array.compact %>
+                                <%# res_str = "" %>
+                                <%# lang_array.each_with_index do |l, i| %>
+                                  <%# res_str += l + '(' + rank_array[i] + ')' + ' ' %>
+                                <%# end %>
+                                <%#= res_str %>
+                              </h5>
+                            </div>
+                            
+                            <%# if !t.lang_to_teach_1.nil? %>
+                            <div>
+                              <h5><b><%#= t.lang_to_teach_1 %>(<%#= t.rank_to_teach_1 %>)</b></h5>
+                              <span class="label label-success"><%#= t.lang_to_teach_1 %></span>
+                            </div>
+                            <%# end %>
+                            <%# if !t.lang_to_teach_2.nil? %>
+                            <div>
+                              <h5><b><%#= t.lang_to_teach_2 %>(<%#= t.rank_to_teach_2 %>)</b></h5>
+                              <span class="label label-success"><%#= t.lang_to_teach_2 %></span>
+                            </div>
+                            <%# end %>
+                            -->
                           <div class="col-md-12">
                             <p>
                               <%= t.teacher_info.brief_introduction %>
                             </p>
                           </div>
                         </div>
-           
                         <div class="col-md-3">
                            <div class="col-md-12">
-                            <h5 class="text-center">강의 회수</h5>
+                            <h5 class="text-center">강의수</h5>
                             <h4 class="text-center"><b><%= t.teacher_info.lecture_number %>회</b></h4>
                             <!--<span class="label label-primary"><%#= t.teacher_info.lecture_number %> Lessons finished </span>-->
                           </div>
