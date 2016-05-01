@@ -44,6 +44,7 @@ a {
     vertical-align: middle;
 }
 
+/* DEMO 박스 가려버리기 */
 .go-demo-box {
   width: 45px;
   height: 23px;
@@ -52,4 +53,9 @@ a {
   border-top: 1px solid #999999;
   border-left: 1px solid #999999;
   z-index: 9999;
+}
+
+/* 커리큘럽 Tree에서 상단 부분 이쁘게 */
+#tree-wrapper ul.list-group li:first-child {
+  border-top: 0;
 }

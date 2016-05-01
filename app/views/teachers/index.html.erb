@@ -5,6 +5,7 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <%= form_tag("/teachers/filter_teachers", method: "GET") do %>
+            <input type="hidden" name="locale" value=<%= I18n.locale %>>
             <div class="col-md-3" id="small-padding">
               <%#= label_tag('label', "배우고 싶은 언어") %>
               <!-- 라벨 태그 삭제해도 되는지?-->
