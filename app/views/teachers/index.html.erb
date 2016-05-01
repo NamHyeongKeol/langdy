@@ -5,26 +5,34 @@
       <div class="panel panel-default">
         <div class="panel-body">
           <%= form_tag("/teachers/filter_teachers", method: "GET") do %>
-          <div class="col-md-3" id="small-padding">
-            <%#= label_tag('label', "배우고 싶은 언어") %>
-            <!-- 라벨 태그 삭제해도 되는지?-->
-            <%= select_tag :language, options_for_select([['배우고 싶은 언어', ''], ['영어', 'English'], ['한국어', 'Korean'], ['중국어', 'Chinese']], params[:language]), { :class => 'form-control' } %>
-          </div>
-          <div class="col-md-2" id="small-padding">
-            <%#= label_tag('label', "강의 요일") %>
-            <%= select_tag :day_of_week, options_for_select([['강의 요일', ''], ['월요일', 'Monday'], ['화요일', 'Tuesday'], ['수요일', 'Wednesday'], ['목요일', 'Thursday'], ['금요일', 'Friday'], ['토요일', 'Saturday'], ['일요일', 'Sunday']], params[:day_of_week]), { :class => 'form-control' } %>
-          </div>
-          <div class="col-md-2" id="small-padding"> 
-            <%#= label_tag('label', "강의 시간") %>
-            <%= select_tag :time, options_for_select([['강의 시간', ''], ['00:00 ~ 05:59', 0], ['06:00 ~ 11:59', 1], ['12:00 ~ 17:59', 2], ['18:00 ~ 23:59', 3]], params[:time]), { :class => 'form-control' } %>
-          </div>
-          <div class="col-md-3" id="small-padding">
-            <%#= label_tag('label', "선생님 성별") %>
-            <%= select_tag :gender, options_for_select([['선생님 성별', ''], ['남', 'Male'], ['여', 'Female']], params[:gender]), { :class => 'form-control' } %>
-          </div>
-          <div class="col-md-2" id="small-padding">
-            <%= submit_tag '검색', { :class => 'form-control btn btn-primary', :id => 'submit' } %>
-          </div>
+            <input type="hidden" name="locale" value=<%= I18n.locale %>>
+            <div class="col-md-3" id="small-padding">
+              <%#= label_tag('label', "배우고 싶은 언어") %>
+              <!-- 라벨 태그 삭제해도 되는지?-->
+              <%= select_tag :language, options_for_select([['배우고 싶은 언어', ''], ['영어', 'English'], ['한국어', 'Korean'], ['중국어', 'Chinese']], params[:language]), { :class => 'form-control' } %>
+            </div>
+            <div class="col-md-2" id="small-padding">
+              <%#= label_tag('label', "강의 요일") %>
+              <%= select_tag :day_of_week, options_for_select([['강의 요일', ''], ['월요일', 'Monday'], ['화요일', 'Tuesday'], ['수요일', 'Wednesday'], ['목요일', 'Thursday'], ['금요일', 'Friday'], ['토요일', 'Saturday'], ['일요일', 'Sunday']], params[:day_of_week]), { :class => 'form-control' } %>
+            </div>
+            <div class="col-md-2" id="small-padding"> 
+              <%#= label_tag('label', "강의 시간") %>
+              <%= select_tag :time, options_for_select([['강의 시간', ''], ['00:00 ~ 05:59', 0], ['06:00 ~ 11:59', 1], ['12:00 ~ 17:59', 2], ['18:00 ~ 23:59', 3]], params[:time]), { :class => 'form-control' } %>
+            </div>
+            <div class="col-md-3" id="small-padding">
+              <%#= label_tag('label', "선생님 성별") %>
+              <%= select_tag :gender, options_for_select([['선생님 성별', ''], ['남', 'Male'], ['여', 'Female']], params[:gender]), { :class => 'form-control' } %>
+            </div>
+            <div class="col-md-2" id="small-padding">
+              <%= submit_tag '검색', { :class => 'form-control btn btn-primary', :id => 'submit' } %>
+            </div>
+            <div class="col-md-5" id="small-padding">
+              <% if params[:sort_rating] == 'y' %>
+                <%= check_box_tag 'sort_rating', 'y', true %> 평점순으로 보기
+              <% else %>
+                <%= check_box_tag 'sort_rating', 'y', false %> 평점순으로 보기
+              <% end %>
+            </div>
         </div>
         <% end %>
       </div>

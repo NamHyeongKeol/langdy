@@ -6,7 +6,17 @@
         <h4 class="modal-title" id="curriculumLabel">커리큘럼 선택</h4>
       </div>
       <div class="modal-body">
-        <div id="tree"></div>
+        <ul id="tree-tab" class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#tree-ko">한국어</a></li>
+          <li><a data-toggle="tab" href="#tree-en">English</a></li>
+          <li><a data-toggle="tab" href="#tree-ch">中國語</a></li>
+        </ul>
+        
+        <div id="tree-wrapper" class="tab-content">
+          <div id="tree-ko" class="tab-pane fade active in"></div>
+          <div id="tree-en" class="tab-pane fade"></div>
+          <div id="tree-ch" class="tab-pane fade"></div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>

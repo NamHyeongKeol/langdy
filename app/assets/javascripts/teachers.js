@@ -32,7 +32,18 @@ function passSelectTime(e) {
  * 사실, hidden input은 필요없다.
  */
 function passSelectCourse() {
-  var selectedNode = $('#tree').treeview('getSelected');
+  var selectedLang = $('#tree-tab li.active a').attr("href");
+  var selectedNode;
+  
+  // 선택된 언어에 따라서 노드를 선택하여 가져옴
+  if (selectedLang == "#tree-ko") {
+    selectedNode = $('#tree-ko').treeview('getSelected');
+  } else if (selectedLang == "#tree-en") {
+    selectedNode = $('#tree-en').treeview('getSelected');
+  } else if (selectedLang == "#tree-ch") {
+    selectedNode = $('#tree-ch').treeview('getSelected');
+  } else {}
+  
   $('#courseId').val(selectedNode[0].id); // hidden input의 data id 설정
   $('#courseSubject').val(selectedNode[0].text);
   $('.courseSubject').text(selectedNode[0].text);
@@ -51,7 +62,7 @@ function submitLessonValidation() {
     return false;
   }
   
-  if (typeof $('#tree').treeview('getSelected')[0] === 'undefined') {
+  if ($("#courseId").val() == "") {
     $('#alert-teacher b').text('커리큘럼을 선택해 주세요.');
     $('#alert-teacher').show();
     return false;
@@ -86,7 +97,7 @@ function submitLesson(teacher_id, coin, is_free = false) {
   var coin = coin;
   var start_at = eventStatic.data.start.value.replace("T", " [").concat("]");
   var end_at = eventStatic.data.end.value.replace("T", " [").concat("]");
-  var course_id = $('#tree').treeview('getSelected')[0].id;
+  var course_id = $("#courseId").val();
   
   $.post('/submit_lesson',
   {

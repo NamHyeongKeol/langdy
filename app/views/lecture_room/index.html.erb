@@ -2,19 +2,19 @@
   <div class="outer">
     <div class="inner">
       <div class="mainpagebutton">
-        <a href="/self_study">
+        <a href="<%= url_for(:self_study) %>">
         <h3>혼자 공부하기</h3>
         <p>선생님과 학습한 내용을 복습하거나, </br>강의 전 예습을 해보세요!</p>
         </a>
       </div>
       <div class="mainpagebutton">
-        <a href="/take_lesson">
+        <a href="<%= url_for(:take_lesson) %>">
         <h3>강의 듣기</h3>
         <p>강의 시간이 되면 </br>학생은 이곳에서 강의를 들을 수 있어요!</p>
         </a>
       </div>
       <div class="mainpagebutton">
-        <a href="/give_lesson">
+        <a href="<%= url_for(:give_lesson) %>">
         <h3>강의 하기</h3>
         <p>강의 시간이 되면 </br>선생님은 이곳에서 강의를 할 수 있어요!</p>
         </a>

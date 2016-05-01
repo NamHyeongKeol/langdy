@@ -8,7 +8,7 @@ class TeachersController < ApplicationController
 	def apply
 	end
 
-	def submit_teacher_application
+	def submit_teacher_applicatio
 		t = TeacherInfo.new(teacher_application_params)
 		t.user = current_user
 		t.save
@@ -29,29 +29,41 @@ class TeachersController < ApplicationController
 	end
 
 	def index
-		@teachers = User.where(is_teacher: true).where("is_teacher = ? AND skype_id is NOT NULL", true).paginate(page: params[:page], per_page: 5)
+		########################
+		# 초기 선생님 찾기 시 목록
+		# 1. is_teacher가 ture
+		# 2. skype_id가 not null
+		# 3. Order는 로그인 횟수
+		########################
+		@teachers = User.joins(:teacher_info).where(is_teacher: true).where("is_teacher = ? AND users.skype_id is NOT NULL", true).order(sign_in_count: :desc)
+		
+		@teachers = @teachers.paginate(page: params[:page], per_page: 5)
 	end
 
 	def filter_teachers
-		# 시간 설정 되어있을 경우 JOIN, 아니면 하지 않음
+		# 시간 설정 되어있을 경우 available_time 테이블 JOIN, 아니면 하지 않음 (teacher_info만 JOIN)
 		if !params[:day_of_week].nil? && !params[:day_of_week].empty? || !params[:time].nil? && !params[:time].empty?
-			@teachers = User.joins(:available_times).where("is_teacher = ? AND skype_id is NOT NULL", true)
+			@teachers = User.joins(:available_times).joins(:teacher_info).where("is_teacher = ? AND users.skype_id is NOT NULL", true)
 		else
-			@teachers = User.where(is_teacher: true)
+			@teachers = User.joins(:teacher_info).where(is_teacher: true).where("is_teacher = ? AND users.skype_id is NOT NULL", true)
 		end
 		
+		# 성별
 		if !params[:gender].nil? && !params[:gender].empty?
 			@teachers = @teachers.where(gender: params[:gender])
 		end
-		
+
+		# 언어		
 		if !params[:language].nil? && !params[:language].empty?
 			@teachers = @teachers.where("lang_to_teach_1 = ? OR lang_to_teach_2 = ? OR lang_to_teach_3 = ?", params[:language], params[:language], params[:language])
 		end
 		
+		# 강의 요일
 		if !params[:day_of_week].nil? && !params[:day_of_week].empty?
 			@teachers = @teachers.where(available_times: { week_day: params[:day_of_week] })
 		end
 		
+		# 강의 시간
 		if !params[:time].nil? && !params[:time].empty?
 			time_specific_start = nil
 			time_specific_end = nil
@@ -69,6 +81,13 @@ class TeachersController < ApplicationController
 			time_specific_end = time_specific_start.advance(:hours => 6)
 			
 			@teachers = @teachers.where("available_times.start_at >= ? AND available_times.start_at < ? OR available_times.end_at >= ? AND available_times.end_at < ? OR available_times.start_at <= ? AND available_times.end_at > ?", time_specific_start, time_specific_end, time_specific_start, time_specific_end, time_specific_start, time_specific_end)
+		end
+		
+		# 평점순
+		if params[:sort_rating] == 'y'
+			@teachers = @teachers.order("rating DESC")
+		else # 평점순이 아닌경우는 로그인 횟수순 정렬
+			@teachers = @teachers.order("sign_in_count DESC")
 		end
 		
 		@teachers = @teachers.paginate(page: params[:page], per_page: 5)
