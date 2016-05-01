@@ -10,15 +10,6 @@ var parse_initial_str = function(str){
   };
 };
 
-// show schedules in $div, schd is a Teacher_Schedule object
-var show_schedules = function($div, schd){
-  $div.empty();
-  var list = schd.get_schedule();
-  for (i=0; i < list.length; i++){
-    $div.append('<p class="schedule_item">'+list[i]+' &nbsp <a type="button" class="schedule_delete_btn" data-schedule="'+list[i]+'">X</a></p>');
-  };
-};
-
 //get monday of this week
 function getSunday(d) {
   d = new Date(d);
@@ -91,17 +82,6 @@ var show_availables_on_calendar = function(dp, schd){
   };
 };
 
-// check if schedule add btn is available
-var check_add_btn =function(){
-  if ($('input[name="start-time"]').val() != "" && $('input[name="end-time"]').val() != "") {
-    $('#schedule_add_btn').attr('disabled',false);
-  }
-  else {
-    $('#schedule_add_btn').attr('disabled',true);
-  }
-  ;
-};
-
 // Teacher schedule class
 var Teacher_Schedule = function(init_str) {
   this.times = parse_initial_str(init_str);
@@ -129,5 +109,23 @@ $.extend(Teacher_Schedule.prototype, {
       }
     }
     console.log(item+" is removed");
+  },
+  show_schedules: function(item) {
+    $('.wday_td').empty();
+    for (i = 0; i < this.times.length; i++){
+      parsed = this.times[i].split('/');
+      $('#'+parsed[0]+'_td').prepend('<p class="schedule_item">'+parsed[1]+' &nbsp <a type="button" class="schedule_delete_btn" data-schedule="'+this.times[i]+'">X</a></p>');
+    }
   }
 });
+
+// check if schedule add btn is available
+var check_add_btn =function(){
+  if ($('input[name="start-time"]').val() != "" && $('input[name="end-time"]').val() != "") {
+    $('#schedule_add_btn').attr('disabled',false);
+  }
+  else {
+    $('#schedule_add_btn').attr('disabled',true);
+  }
+  ;
+};

@@ -72,31 +72,66 @@
         
         <div class="form-group">
           <label class="col-md-2 control-label" style="padding-top:25px">강의시간표 설정</label>
-          <div class="col-md-3">
-            &nbsp
-            <select name="week-day" class="form-control">
-              <% ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'].each do |item| %>
-                <option value="<%= item %>"><%= item %></option>
-              <% end %>
-            </select>
+          <div class="col-md-10">
+            <div class="row">
+              <div class="col-md-12">
+                <table class="table table-striped" style="table-layout: fixed;">
+                  <thead>
+                    <tr>
+                      <% ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'].each do |item| %>
+                        <th><%= item %></th>
+                      <% end %>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <% ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'].each do |item| %>
+                        <td>
+                          <p class='wday_td' id="<%= item %>_td">
+                          </p>
+                          <a class="schedule_add_trigger" data-toggle="modal" data-target="#schedule_modal" data-wday="<%= item %>">
+                            +add schedule
+                          </a>
+                        </td>
+                      <% end %>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-          <div class="col-md-3">
-            시작 시간
-            <input name="start-time" type="time" class="form-control"> 
-          </div>
-          <div class="col-md-3">
-            종료 시간
-            <input name="end-time" type="time" class="form-control">
-          </div>
-          <div class="col-md-1">
-            &nbsp
-            <button id="schedule_add_btn" type="button" class="btn btn-default" style="width: 100%;" disabled="disabled"> + </button>
+          <div class="modal fade" id="schedule_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">시간표 설정</h4>
+                </div>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <span id="wd_text"></span>
+                    </div>
+                    <div class="col-md-4">
+                      시작 시간
+                      <input name="start-time" type="time" class="form-control"> 
+                    </div>
+                    <div class="col-md-4">
+                      종료 시간
+                      <input name="end-time" type="time" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button id="schedule_add_btn" type="button" class="btn btn-primary" data-dismiss="modal" disabled>Save</button>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col-md-10 col-md-offset-2">강의 신청을 받을 수 있는 시간대를 요일별로 설정해주세요.</div>
-          <div class="col-md-10 col-md-offset-2" id="schedule_list">
-          </div>
+          <input type="hidden" name="week-day">
           <input type="hidden" name="schedules" id="schedules">
-          
           <div class="col-md-10 col-md-offset-2" style="margin-top: 2rem; margin-bottom: 4rem;">
             <%= f.submit "완료", class: "col-md-3 btn btn-primary" %>
           </div>
@@ -111,28 +146,32 @@
 <script type="text/javascript">
   my_schd = new Teacher_Schedule('<%= current_user.get_schedule %>');
   $(document).ready(function(){
-    show_schedules($('#schedule_list'), my_schd);
+    my_schd.show_schedules();
 
-    $('input[name="start-time"]').keyup(function(){
+    $('input[name="start-time"]').change(function(){
       check_add_btn();
     });
 
-    $('input[name="end-time"]').keyup(function(){
+    $('input[name="end-time"]').change(function(){
       check_add_btn();
+    });
+
+    $('.schedule_add_trigger').click(function(){
+      $('#wd_text').text($(this).data('wday'));
+      $('input[name="week-day"]').val($(this).data('wday'));
     });
 
     $('#schedule_add_btn').click(function(){
-      $(this).attr('disabled',true);
-      my_schd.push_schedule($('select[name="week-day"]').val(), $('input[name="start-time"]').val(), $('input[name="end-time"]').val())
+      my_schd.push_schedule($('input[name="week-day"]').val(), $('input[name="start-time"]').val(), $('input[name="end-time"]').val())
       $('input[name="start-time"]').val('');
       $('input[name="end-time"]').val('');
-      show_schedules($('#schedule_list'), my_schd);
+      my_schd.show_schedules();
     });
 
     $(document).on('click', '.schedule_delete_btn', function(){
       if(confirm('Are U sure?')){
         my_schd.delete_schedule($(this).data('schedule'));
-        show_schedules($('#schedule_list'), my_schd);
+        my_schd.show_schedules();
       };
     });
 

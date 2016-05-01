@@ -44,4 +44,8 @@ class User < ActiveRecord::Base
   def get_current_lesson(course)
     return self.lesson_to_study.where(course: course, confirmed: true).min { |a, b| (a.end_at - Time.now).abs <=> (b.end_at - Time.now).abs }
   end
+
+  def clean_delete
+    self.teacher_info.destroy
+  end
 end
