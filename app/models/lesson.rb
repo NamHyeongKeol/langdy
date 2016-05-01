@@ -7,7 +7,7 @@ class Lesson < ActiveRecord::Base
   has_many :memos
 
   def get_period
-    result = self.start_at.strftime('%a %b %e %T') + ' ~ ' + self.end_at.strftime('%a %b %e %T')
+    result = self.start_at.strftime('%Y-%m-%d %R') + ' ~ ' + self.end_at.strftime('%R')
     return result
   end
 
