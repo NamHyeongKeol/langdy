@@ -19,3 +19,5 @@
 # Ignore Schema File
 /db/schema.rb
 .DS_Store
+
+tags

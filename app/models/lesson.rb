@@ -82,7 +82,7 @@ class Lesson < ActiveRecord::Base
     else
       string = string + self.teacher.name + ' 강의받기'
     end
-    unless self.confirmed then string = string + ' | 미확정' end
+    unless self.confirmed then string = string + ' 미확정' end
     return string
   end
 end
