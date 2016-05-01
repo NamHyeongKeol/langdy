@@ -44,22 +44,20 @@
             <h5>
               언제든지 의견을 남겨주세요. 여러분의 의견에 항상 귀기울이겠습니다.
             </h5>
+            <div class="form-group">
               <%= form_for :feedback, url: feedback_path do |f| %>
-                <!-- 상욱 수정중-->
-                    <div class="form-group">
-                    <label for="#">카테고리 선택</label>
-                    <div>
-                    <select class="form-control" name="#" id="#">
-                    <option value="#">웹 사이트 기능 관련</option>
-                    <option value="#">커리큘럼 관련</option>
-                    <option value="#s">기타</option>
-                    </select>
-                    </div>
-                    </div>
-                <!-- 상욱 수정중-->
-                <%= f.text_field :text, :autocomplete => :off, class: "col-md-12 form-control" %>
-                <%= f.submit "피드백 남기기", class: "btn btn-default col-md-12" %>
+                <div>
+                  <select class="form-control" name="userfeedback">
+                    <option value="" disabled selected hidden>카테고리 선택</option>
+                    <option value="website">웹 사이트 기능 관련</option>
+                    <option value="curriculum">커리큘럼 관련</option>
+                    <option value="others">기타</option>
+                  </select>
+                </div>
+                <%= f.text_area :text, :autocomplete => :off, rows: "5", class: "col-md-12 form-control" %>
+                <%= f.submit "피드백 남기기", class: "btn btn-sm btn-primary col-md-12" %>
               <% end %>
+            </div>
           </div>
         </div>
       </div>
