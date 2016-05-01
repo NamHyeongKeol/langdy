@@ -12,6 +12,16 @@ class CashController < ApplicationController
 		t.amount = params[:transaction][:amount]
 		t.save
 
+    # coin 거래 프로세스 바꿔야함
+#    h = CoinHistory.new
+#    h.user = current_user
+#    h.is_buycoin = true
+#    h.buycoin_complete = false
+#    h.is_exchange = false
+#    h.exchange_complete = false
+#    h.amount = t.amount
+#    h.save
+
 		redirect_to :dashboard
 	end
 

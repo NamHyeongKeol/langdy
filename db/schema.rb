@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423093458) do
+ActiveRecord::Schema.define(version: 20160501094442) do
 
   create_table "available_times", force: :cascade do |t|
     t.integer  "user_id"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20160423093458) do
     t.text     "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "cat"
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -166,6 +167,7 @@ ActiveRecord::Schema.define(version: 20160423093458) do
     t.string   "rank_to_teach_3"
     t.string   "lang_to_learn"
     t.string   "native_lang"
+    t.boolean  "inactive",               default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

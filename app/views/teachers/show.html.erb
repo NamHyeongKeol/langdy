@@ -125,21 +125,21 @@
                   <div class="media">
                     <div class="col-md-2">
                       <div class="media-left">
-                        <% if c.commentor.profile_pic.url.nil? %>
+                        <% if User.unscoped{ c.commentor.profile_pic.url.nil? } %>
                           <img src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png" class="profile-pic" height="50" width="50"/>
                         <% else %>
-                          <img src=<%= c.commentor.profile_pic.url %> class="profile-pic" height="50" width="50"/>
+                          <img src=<%= User.unscoped{ c.commentor.profile_pic.url } %> class="profile-pic" height="50" width="50"/>
                         <% end %>
                       </div>
                     </div>
                     <div class="col-md-9">
                       <div class="media-body">
-                        <h4 class="media-heading"> <%= c.commentor.name %> </h4>
+                        <h4 class="media-heading"> <%= User.unscoped{ c.commentor.name } %> </h4>
                         <%= c.text %>
                       </div>
                     </div>
                     <div class="col-md-1">
-                      <% if c.commentor == current_user %>
+                      <% if User.unscoped{ c.commentor == current_user } %>
                         <%= link_to destroy_teacher_comment_path(c), method: :delete do %>
                           <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                         <% end %>

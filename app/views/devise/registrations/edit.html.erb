@@ -140,7 +140,8 @@
             
             <div class="form-group">
               <div class="col-md-9 col-md-offset-3">
-                <%= f.submit "완료", :class => "col-md-3 btn btn-primary" %>
+                <%= f.submit "완료", :class => "col-md-3 btn btn-primary" %><br>
+                <%= link_to '탈퇴', disable_user_path, id: 'disable_btn', class: "btn btn-primary" %>
               </div>
               <div class="col-md-9">
                 <%= devise_error_messages! %>
@@ -176,6 +177,11 @@
         learn_num++;
         $('#lang_to_learn_3').fadeIn('slow',function(){}); 
         $(this).remove();
+      }
+    });
+    $('#disable_btn').click(function(e){
+      if (!confirm('Are U sure?')){
+        e.preventDefault();
       }
     });
   });

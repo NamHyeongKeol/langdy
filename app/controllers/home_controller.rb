@@ -13,6 +13,7 @@ class HomeController < ApplicationController
 		f = Feedback.new
 		f.user = current_user
 		f.text = params[:feedback][:text]
+		f.cat = params[:cat]
 		f.save
 
 		redirect_to :back
@@ -37,4 +38,8 @@ class HomeController < ApplicationController
   def freematching_request_complete
   end
   
+  def disable_user
+    current_user.update(inactive: true)
+    redirect_to '/'
+  end
 end

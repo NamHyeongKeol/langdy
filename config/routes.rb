@@ -62,5 +62,7 @@ Rails.application.routes.draw do
   get 'home/lecture_request_complete'
   get 'home/freematching_request_complete'
 
+  get 'home/disable_user' => 'home#disable_user', as: 'disable_user'
+
   resources :courses
 end
