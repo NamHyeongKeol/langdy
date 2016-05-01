@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
 	def after_sign_up_path_for(resource)
-		:dashboard
+    :dashboard
 	end
 
   def after_update_path_for(resource)
@@ -16,6 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 		t = TeacherInfo.new()
 		t.user = current_user
 		t.save
+
 	end
 
 	private
