@@ -6,3 +6,6 @@ ko:
     lecture_room: "강의실"
   landing:
     intro_title: "중국인에게 배우는 중국어!"
+  home:
+    dashboard:
+      title_timetable: "강의시간표"

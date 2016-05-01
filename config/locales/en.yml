@@ -27,3 +27,6 @@ en:
     lecture_room: "Lecture Room"
   landing:
     intro_title: "Learn Chinese from chinese!"
+  home:
+    dashboard:
+      title_timetable: "Time Table"
