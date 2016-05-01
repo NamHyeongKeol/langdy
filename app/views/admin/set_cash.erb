@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+        <%= render partial: '/admin/menu_list' %>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <% @users.each do |u| %>
+        <%= form_tag(set_cash_path(u.id), method: 'post') do %>
+          <%= u.name %> | <%= u.email %> | <%= u.cash %>Cash<br>
+          <input name="amount" type="number">
+          <input type="submit" value="변경">
+          <hr>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+

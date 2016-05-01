@@ -17,4 +17,15 @@ class AdminController < ApplicationController
 		@feedbacks = Feedback.all
 	end
 
+  def set_cash
+    @users = User.all
+  end
+
+  def set_cash_proc
+    amount = params[:amount].to_i
+    user = User.find(params[:id].to_i)
+    user.update(cash: user.cash+amount)
+    redirect_to :back
+  end
+
 end

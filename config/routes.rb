@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 	get 'admin/teacher' => 'admin#teacher', as: 'admin_teacher'
 	get 'admin/cash' => 'admin#cash', as: 'admin_cash'
 	get 'admin/feedback' => 'admin#feedback', as: 'admin_feedback'
+  get 'admin/set_cash' => 'admin#set_cash'
+  post 'admin/set_cash_proc/:id' => 'admin#set_cash_proc', as: 'set_cash'
 
 	get 'apply_for_teacher' => 'teachers#apply', as: 'apply_for_teacher'
 	post 'teachers/apply' => 'teachers#submit_teacher_application', as: 'submit_teacher_application'
