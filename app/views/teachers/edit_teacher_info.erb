@@ -262,7 +262,7 @@
     });
 
     $('#schedule_add_btn').click(function(){
-      my_schd.push_schedule($('input[name="week-day"]').val(), $('input[name="start-time"]').val(), $('input[name="end-time"]').val())
+      my_schd.push_schedule($('input[name="week-day"]').val(), $('select[name="start-time"]').val(), $('select[name="end-time"]').val())
       $('input[name="start-time"]').val('');
       $('input[name="end-time"]').val('');
       my_schd.show_schedules();
