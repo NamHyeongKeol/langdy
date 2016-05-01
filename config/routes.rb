@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post 'admin/set_cash_proc/:id' => 'admin#set_cash_proc', as: 'set_cash'
   get 'admin/curriculum' => 'admin#curriculum'
   post 'admin/create_course' => 'admin#create_course'
+  get 'admin/lesson_history' => 'admin#lesson_history'
 
 	get 'apply_for_teacher' => 'teachers#apply', as: 'apply_for_teacher'
 	post 'teachers/apply' => 'teachers#submit_teacher_application', as: 'submit_teacher_application'

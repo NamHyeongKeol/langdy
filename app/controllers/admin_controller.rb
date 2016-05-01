@@ -38,6 +38,10 @@ class AdminController < ApplicationController
     redirect_to :back
   end
 
+  def lesson_history
+    @lessons = Lesson.all
+  end
+
   private
 
   def course_params

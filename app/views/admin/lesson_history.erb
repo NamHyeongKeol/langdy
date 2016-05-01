@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="list-group">
+        <%= render partial: '/admin/menu_list' %>
+      </div>
+    </div>
+
+    <div class="col-md-9">
+      <% @lessons.each do |l| %>
+        선생님: <%= l.teacher.name %> | <%= l.teacher.email %><br>
+        학생: <%= l.student.name %> | <%= l.student.email %><br>
+        강의 시간: <%= l.get_period.html_safe %><br>
+        신청한 시간: <%= l.created_at.strftime('%c') %><br>
+        free수업: <%= l.is_free %><br>
+        커리큘럼: <%= l.course.lang %> | <%= l.course.rank %> | <%= l.course.subject %><br>
+        confirmed: <%= l.confirmed %><br>
+        state: <%= l.state %><br>
+        is_approved: <%= l.is_approved %><br>
+        is_canceled: <%= l.is_canceled %><br>
+        teacher_end: <%= l.teacher_end %><br>
+        student_end: <%= l.student_end %><br>
+        <hr>
+      <% end %>
+    </div>
+
+  </div>
+</div>
+
