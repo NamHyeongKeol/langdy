@@ -28,4 +28,20 @@ class AdminController < ApplicationController
     redirect_to :back
   end
 
+  def curriculum
+    @course = Course.new
+  end
+
+  def create_course
+    course = Course.new(course_params)
+    course.save
+    redirect_to :back
+  end
+
+  private
+
+  def course_params
+    params.require(:course).permit(:lang, :rank, :subject, :content)
+  end
+
 end

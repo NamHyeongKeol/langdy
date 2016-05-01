@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 	get 'admin/feedback' => 'admin#feedback', as: 'admin_feedback'
   get 'admin/set_cash' => 'admin#set_cash'
   post 'admin/set_cash_proc/:id' => 'admin#set_cash_proc', as: 'set_cash'
+  get 'admin/curriculum' => 'admin#curriculum'
+  post 'admin/create_course' => 'admin#create_course'
 
 	get 'apply_for_teacher' => 'teachers#apply', as: 'apply_for_teacher'
 	post 'teachers/apply' => 'teachers#submit_teacher_application', as: 'submit_teacher_application'
@@ -58,4 +60,6 @@ Rails.application.routes.draw do
   post 'confirm_lesson' => 'home#confirm_lesson'
   get 'home/lecture_request_complete'
   get 'home/freematching_request_complete'
+
+  resources :courses
 end
