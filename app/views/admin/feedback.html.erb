@@ -35,7 +35,7 @@
               <tr>
                 <td><%= f.id %></td>
                 <td><%= f.cat %></td>
-                <td><%= f.user.name %></td>
+                <td><%= User.unscoped{ f.user.name } %></td>
                 <td><%= f.text %></td>
               </tr>
             <% end %>
