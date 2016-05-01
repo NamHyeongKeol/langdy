@@ -5,8 +5,7 @@
     <div class="col-md-9">
 
       <!-- Basic Info -->
-      <div class="col-md-12">
-        <div class="panel panel-default">
+      <div class="panel panel-default">
           <div class="panel-body">
             <div class="col-md-3">
               <% if @teacher.profile_pic.url.nil? %>
@@ -16,40 +15,81 @@
               <% end %>
             </div>
             <div class="col-md-9">
-              <h2><%= @teacher.name %></h2>
-              <h5>Location : <%= @teacher.teacher_info.location %></h5>
-              <br>
-              <div class="btn-group" role="group">
-                <a class="btn btn-default">
-                  Rating
-                  <br>
-                  <%= @teacher.teacher_info.rating %>
-                </a>
-                <a class="btn btn-primary">
-                  Students
-                  <br>
-                  <%= @teacher.teacher_info.student_number %>
-                </a>
-                <a class="btn btn-success">
-                  Lessons
-                  <br>
-                  <%= @teacher.teacher_info.lecture_number %>
-                </a>
+              <div class="col-md-9">
+                <div class="col-md-12">
+                  <h3><%= @teacher.name %></h3>
+                </div>
+                <!--<h5>Location : <%#= @teacher.teacher_info.location %></h5>-->
+                <!--
+                <div class="btn-group" role="group">
+                  <a class="btn btn-default">
+                    Rating
+                    <br>
+                    <%#= @teacher.teacher_info.rating %>
+                  </a>
+                  <a class="btn btn-primary">
+                    Students
+                    <br>
+                    <%#= @teacher.teacher_info.student_number %>
+                  </a>
+                  <a class="btn btn-success">
+                    Lessons
+                    <br>
+                    <%#= @teacher.teacher_info.lecture_number %>
+                  </a>
+                </div>
+                -->
+                <div class="col-md-12">
+                  <h5><b>가르치는 언어 </b>
+                    <% if !@teacher.lang_to_teach_1.nil? %>
+                      <%= @teacher.lang_to_teach_1 %>(<%= @teacher.rank_to_teach_1 %>)
+                    <% end %>
+                    <% if !@teacher.lang_to_teach_2.nil? %>
+                      <%= @teacher.lang_to_teach_2 %>(<%= @teacher.rank_to_teach_2 %>)
+                    <% end %>
+                  </h5>
+                </div>
+                <div class="col-md-12">
+                  <h5><b>배우는 언어 </b>
+                    <% if !@teacher.lang_to_learn_1.nil? %>
+                      <%= @teacher.lang_to_learn_1 %>(<%= @teacher.rank_to_learn_1 %>)
+                    <% end %>
+                    <% if !@teacher.lang_to_learn_2.nil? %>
+                      <%= @teacher.lang_to_learn_2 %>(<%= @teacher.rank_to_learn_2 %>)
+                    <% end %>
+                    <% if !@teacher.lang_to_learn_3.nil? %>
+                      <%= @teacher.lang_to_learn_3 %>(<%= @teacher.rank_to_learn_3 %>)
+                    <% end %>
+                  </h5>
+                </div>
               </div>
+              <div class="col-md-3">
+                <div class="col-md-12">
+                  <h5 class="text-center">강의수</h5>
+                  <h4 class="text-center"><b><%= @teacher.teacher_info.lecture_number %>회</b></h4>
+                </div>
+                <div class="col-md-12">
+                  <h5 class="text-center">강의 평점</h5>
+                  <h4 class="text-center"><b><%= @teacher.teacher_info.rating %>점</b></h4>
+                </div>
+                <div class="col-md-12">
+                  <h5 class="text-center">강의료</h5>
+                  <h4 class="text-center"><b><%= @teacher.teacher_info.lecture_price %>코인</b></h4>
+                </div>
+              </div>  
             </div>
+            
+            
           </div>
         </div>
-      </div>
       <!-- Basic Info -->
 
       <!-- Self intro -->
-      <div class="col-md-12">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h3>소개</h3>
-            <hr>
-            <%= @teacher.teacher_info.introduction %>
-          </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>소개</h3>
+          <hr>
+          <%= @teacher.teacher_info.introduction %>
         </div>
       </div>
       <!-- Self intro -->
@@ -71,8 +111,7 @@
       <!-- Certificate intro -->
 
       <!-- Comments -->
-      <div class="col-md-12">
-        <div class="panel panel-default">
+      <div class="panel panel-default">
           <div class="panel-body">
             <h3>강의 후기</h3>
             <hr>
@@ -86,10 +125,10 @@
                   <div class="media">
                     <div class="col-md-2">
                       <div class="media-left">
-                        <% if current_user.profile_pic.url.nil? %>
+                        <% if c.commentor.profile_pic.url.nil? %>
                           <img src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png" class="profile-pic" height="50" width="50"/>
                         <% else %>
-                          <img src=<%= current_user.profile_pic.url %> class="profile-pic" height="50" width="50"/>
+                          <img src=<%= c.commentor.profile_pic.url %> class="profile-pic" height="50" width="50"/>
                         <% end %>
                       </div>
                     </div>
@@ -127,7 +166,6 @@
 
           </div>
         </div>
-      </div>
       <!-- Comments -->
 
       <!-- Schedule -->
@@ -149,16 +187,16 @@
                 </tr>
               </thead>
               <tbody>
-                <% 10.upto(22).each do |h| %>
+                <%# 10.upto(22).each do |h| %>
                   <tr>
-                    <th><%= h %>:00 - <%= h+1 %>:00</th>
+                    <th><%#= h %>:00 - <%#= h+1 %>:00</th>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                   </tr>
-                <% end %>
+                <%# end %>
               </tbody>
             </table>
           </div>
@@ -177,7 +215,7 @@
             <div class="panel-body">
               <div id="alert-teacher" class="alert alert-danger" role="alert" style="display: none;"><b></b></div>
               
-                <%= @teacher.teacher_info.lecture_price %> coins / 1 hour
+                <!--<%#= @teacher.teacher_info.lecture_price %> coins / 1 hour-->
               
               
               <!-- Section - Select Time -->
@@ -246,10 +284,20 @@
                           <p><b>강의 시간 : <span class="selectTimeInput"></span></b></p>
                           <p><b>커리큘럼 : <span class="courseSubject"></span></b></p>
                         </div>
+                        <div class="well">
+                          강의 신청 전에 아래의 사항들을 확인해 주세요.
+                          <p><input type="checkbox" required>상대방이 24시간 안에 답변하지 않으면 신청한 강의는 자동으로 취소되고 코인이 환불됩니다.</p>
+                          <p><input type="checkbox" required>상대방이 수업시간 24시간 전까지 답변하지 않으면 신청한 강의는 자동으로 취소되고 코인이 환불됩니다.</p>
+                          <p><input type="checkbox" required>상대방 승인 이전에는 자유롭게 수업 취소가 가능합니다.</p>
+                          <p><input type="checkbox" required>상대방 승인 후에는 기준 시점인 수업 시간 24시간 이전까지만 취소가 가능합니다.</p>
+                          <p><input type="checkbox" required>기준 시점 경과 후에는 전체 환불을 받을 수 없습니다.</br>
+                          &nbsp&nbsp- 수업시간 12시간 전까지 취소할 경우 강의료의 50%를 환불 받을 수 있습니다.</br>
+                          &nbsp&nbsp-	수업시간 12시간 전 시점 경과 시 수업료를 환불 받을 수 없습니다.</p>
+                        </div>
                       </div>
                       <div class="modal-footer">
-                        <button id="lesson_submit_btn" type="button" class="btn btn-primary">예</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">아니오</button>
+                        <button id="lesson_submit_btn" type="button" class="btn btn-primary">신청</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
                       </div>
                     </div>
                   </div>
@@ -272,15 +320,25 @@
                       </div>
                       <div class="modal-body">
                         <div class="well">
-                          <p><b>선생님 : <%= @teacher.name %></b></p>
-                          <p><b>강의료 : <%= @teacher.teacher_info.lecture_price %> 코인</b></p>
-                          <p><b>강의 시간 : <span class="selectTimeInput"></span></b></p>
-                          <p><b>커리큘럼 : <span class="courseSubject"></span></b></p>
+                          <p>선생님 : <%= @teacher.name %></p>
+                          <p>강의료 : <%= @teacher.teacher_info.lecture_price %> 코인</p>
+                          <p>강의 시간 : <span class="selectTimeInput"></span></p>
+                          <p>커리큘럼 : <span class="courseSubject"></span></p>
+                        </div>
+                        <div class="well">
+                          강의 신청 전에 아래의 사항들을 확인해 주세요.
+                          <p><input type="checkbox" required>상대방이 24시간 안에 답변하지 않으면 신청한 강의는 자동으로 취소됩니다.</p>
+                          <p><input type="checkbox" required>상대방이 수업시간 24시간 전까지 답변하지 않으면 신청한 강의는 자동으로 취소됩니다.</p>
+                          <p><input type="checkbox" required>상대방 승인 이전에는 자유롭게 신청 취소가 가능합니다.</p>
+                          <p><input type="checkbox" required>상대방 승인 후에는 기준 시점인 강의 시간 24시간 이전까지만 취소가 가능합니다.</p>
+                          <p><input type="checkbox" required>기준 시점 경과 후에는 전체 환불을 받을 수 없습니다.</br>
+                          &nbsp&nbsp- 강의시간 12시간 전까지 취소할 경우 강의료의 50%를 환불 받을 수 있습니다. 내용 수정 필요</br>
+                          &nbsp&nbsp-	강의시간 12시간 전 시점 경과 시 수업료를 환불 받을 수 없습니다. 내용 수정 필요</p>
                         </div>
                       </div>
                       <div class="modal-footer">
-                        <button id="free_lesson_submit_btn" type="button" class="btn btn-primary">예</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">아니오</button>
+                        <button id="free_lesson_submit_btn" type="button" class="btn btn-primary">신청</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
                       </div>
                     </div>
                   </div>
