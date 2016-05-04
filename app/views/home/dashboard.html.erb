@@ -89,7 +89,7 @@
               <h3>내가 신청한 강의</h3>
             </div>
             <div class="panel-body lectureinfo-panel">
-              <% @lesson_applying.each do |item| %>
+              <% @lesson_applying.reverse_each do |item| %>
                 <div class="row" id="lesson_applying<%= item.id %>">
                   <div class=lectureinfo>  
                     <h4><%= item.teacher.name %>님에게 강의를 신청하였습니다.</h4>
@@ -100,6 +100,11 @@
                   </div> 
                 </div>
               <% end %>
+              <div class="row">
+                <div style="text-align: center">
+                  <%= will_paginate @lesson_applying, previous_label: "« 이전", next_label: "다음 »" %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -110,7 +115,7 @@
               <h3>나에게 신청된 강의</h3>
             </div>
             <div class="panel-body lectureinfo-panel">
-              <% @lesson_applied.each do |item| %>
+              <% @lesson_applied.reverse_each do |item| %>
                 <div class="row" id="lesson_applied<%= item.id %>">
                   <div class=lectureinfo>
                     <h4><%= item.student.name %>님이 강의를 신청하였습니다.<span data-lesson_id="<%= item.id.to_s %>" id="confirm_span<%= item.id.to_s %>"><%= item.get_confirm_teacher.html_safe %></span></h4>
@@ -121,6 +126,11 @@
                   </div>    
                 </div>
               <% end %>
+              <div class="row">
+                <div style="text-align: center">
+                  <%= will_paginate @lesson_applied, previous_label: "« 이전", next_label: "다음 »" %>
+                </div>
+              </div>
             </div>
           </div>
         </div>

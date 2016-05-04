@@ -17,15 +17,15 @@ class LessonController < ApplicationController
 		l.end_at = params[:end_at]
 		l.is_free = params[:is_free]
 		l.course_id = params[:course_id]
-		
+
 		l.save
-		
+
 		# Coin
 		# Coin 사용
 		t = User.find(current_user.id)
 		t.cash -= params[:coin].to_i
 		t.save
-		
+
 		scheduler = Rufus::Scheduler.new
 		scheduler.in '1m' do # 시간 설정
 	    # Coin 선생님에게 전달
@@ -33,7 +33,7 @@ class LessonController < ApplicationController
 			t.cash += params[:coin].to_i
 			t.save
 		end
-		
+
 		render plain: 'OK'
 	end
 

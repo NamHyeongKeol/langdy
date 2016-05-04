@@ -365,10 +365,10 @@
 <script>
   $(document).ready(function(){
     $('#lesson_submit_btn').click(function(){
-      submitLesson(<%= @teacher.id %>, 900, false);
+      submitLesson(<%= @teacher.id %>, <%= @teacher.teacher_info.lecture_price %>, false);
     });
     $('#free_lesson_submit_btn').click(function(){
-      submitLesson(<%= @teacher.id %>, 900, true);
+      submitLesson(<%= @teacher.id %>, <%= @teacher.teacher_info.lecture_price %>, true);
     });
     $('#curri_btn').click(function(){
       passSelectCourse()

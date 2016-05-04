@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423093458) do
+ActiveRecord::Schema.define(version: 20160501121803) do
 
   create_table "available_times", force: :cascade do |t|
     t.integer  "user_id"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 20160423093458) do
     t.boolean  "is_canceled"
     t.boolean  "teacher_end"
     t.boolean  "student_end"
+    t.boolean  "is_expired",  default: false
+    t.boolean  "is_rejected", default: false
   end
 
   create_table "memos", force: :cascade do |t|

@@ -133,7 +133,8 @@ function confirm_lesson(confirm, lesson_id){
         $('#confirm_span'+lesson_id.toString()).append('확정됨');
       }
       else {
-        $('#lesson_applied'+lesson_id.toString()).remove();
+        $('#confirm_span'+lesson_id.toString()).empty();
+        $('#confirm_span'+lesson_id.toString()).append('거절됨');
       }
     },
     error: function(){

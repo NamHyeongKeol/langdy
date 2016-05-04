@@ -7,6 +7,8 @@ class HomeController < ApplicationController
 	def dashboard
     @lesson_applying = Lesson.where(student: current_user)
     @lesson_applied = Lesson.where(teacher: current_user)
+		@lesson_applying = @lesson_applying.paginate(page: params[:page], per_page: 5)
+		@lesson_applied = @lesson_applied.paginate(page: params[:page], per_page: 5)
 	end
 
 	def feedback
@@ -21,9 +23,9 @@ class HomeController < ApplicationController
   def confirm_lesson
     lesson = Lesson.find(params[:lesson_id].to_i)
     if params[:confirm] == "true"
-      lesson.update(confirmed: true);
+      lesson.update(confirmed: true)
     else
-      lesson.destroy
+      lesson.update(is_rejected: true)
     end
 
     respond_to do |format|
