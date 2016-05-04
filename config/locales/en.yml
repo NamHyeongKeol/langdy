@@ -18,15 +18,18 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-en:
-  hello: "Hello world"
-  menu:
-    mypage: "My Page"
-    find_teacher: "Find Teacher"
+ko:
+  navbar:
+    admin: "admin"
+    my_page: "Mypage"
+    find_teacher: "Find teacher"
     coin: "Coin"
-    lecture_room: "Lecture Room"
-  landing:
-    intro_title: "Learn Chinese from chinese!"
-  home:
-    dashboard:
-      title_timetable: "Time Table"
+    classroom: "Classroom"
+    sign_up: "Sign up"
+    sign_in: "Sign in"
+    sign_out: "Sign out"
+  landing_page:
+    slogan: "Learn Chinese with Chinese!"
+    detail_slogan: "Learn speaking with native friends for free!"
+    getting_started: "Getting started"
+    guide_video: "How can I use Langdy?"
