@@ -1,8 +1,15 @@
-ch:
-  menu:
-    mypage: "中國語"
-    find_teacher: "中國語"
-    coin: "中國語"
-    lecture_room: "中國語"
-  landing:
-    intro_title: "中國語"
+ko:
+  navbar:
+    admin: "管理者"
+    my_page: "我的主页"
+    find_teacher: "搜索老师"
+    coin: "听课券"
+    classroom: "教室"
+    sign_up: "注册"
+    sign_in: "登录"
+    sign_out: "推出"
+  landing_page:
+    slogan: "跟中国人学习中文！"
+    detail_slogan: "和中国朋友一起系统地练习会话吧!"
+    getting_started: "开始"
+    guide_video: "如何使用‘练得’"

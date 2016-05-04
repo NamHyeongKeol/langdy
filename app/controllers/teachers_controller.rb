@@ -126,6 +126,11 @@ class TeachersController < ApplicationController
   def update_teacher_info
     teacher_info = current_user.teacher_info
     teacher_info.update(teacher_application_params)
+    
+    # user 테이블에도 skype_id가 있음
+    current_user.skype_id = teacher_application_params["skype_id"]
+    current_user.save
+    
     current_user.set_schedule(params[:schedules])
     redirect_to :dashboard
   end

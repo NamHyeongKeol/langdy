@@ -114,17 +114,117 @@
                     </div>
                     <div class="col-md-4">
                       시작 시간
-                      <input name="start-time" type="time" class="form-control"> 
+                      <!--<input name="start-time" type="time" class="form-control">-->
+                      <select name="start-time" class="form-control">
+                        <option value="00:00">00:00</option>
+                        <option value="00:30">00:30</option>
+                        <option value="01:00">01:00</option>
+                        <option value="01:30">01:30</option>
+                        <option value="02:00">02:00</option>
+                        <option value="02:30">02:30</option>
+                        <option value="03:00">03:00</option>
+                        <option value="03:30">03:30</option>
+                        <option value="04:00">04:00</option>
+                        <option value="04:30">04:30</option>
+                        <option value="05:00">05:00</option>
+                        <option value="05:30">05:30</option>
+                        <option value="06:00">06:00</option>
+                        <option value="06:30">06:30</option>
+                        <option value="07:00">07:00</option>
+                        <option value="07:30">07:30</option>
+                        <option value="08:00">08:00</option>
+                        <option value="08:30">08:30</option>
+                        <option value="09:00">09:00</option>
+                        <option value="09:30">09:30</option>
+                        <option value="10:00">10:00</option>
+                        <option value="10:30">10:30</option>
+                        <option value="11:00">11:00</option>
+                        <option value="11:30">11:30</option>
+                        <option value="12:00">12:00</option>
+                        <option value="12:30">12:30</option>
+                        <option value="13:00">13:00</option>
+                        <option value="13:30">13:30</option>
+                        <option value="14:00">14:00</option>
+                        <option value="14:30">14:30</option>
+                        <option value="15:00">15:00</option>
+                        <option value="15:30">15:30</option>
+                        <option value="16:00">16:00</option>
+                        <option value="16:30">16:30</option>
+                        <option value="17:00">17:00</option>
+                        <option value="17:30">17:30</option>
+                        <option value="18:00">18:00</option>
+                        <option value="18:30">18:30</option>
+                        <option value="19:00">19:00</option>
+                        <option value="19:30">19:30</option>
+                        <option value="20:00">20:00</option>
+                        <option value="20:30">20:30</option>
+                        <option value="21:00">21:00</option>
+                        <option value="21:30">21:30</option>
+                        <option value="22:00">22:00</option>
+                        <option value="22:30">22:30</option>
+                        <option value="23:00">23:00</option>
+                        <option value="23:30">23:30</option>
+                      </select>
                     </div>
                     <div class="col-md-4">
                       종료 시간
-                      <input name="end-time" type="time" class="form-control">
+                      <select name="end-time" class="form-control">
+                      <!--<input name="end-time" type="time" class="form-control">-->
+                        <option value="00:00">00:00</option>
+                        <option value="00:30">00:30</option>
+                        <option value="01:00">01:00</option>
+                        <option value="01:30">01:30</option>
+                        <option value="02:00">02:00</option>
+                        <option value="02:30">02:30</option>
+                        <option value="03:00">03:00</option>
+                        <option value="03:30">03:30</option>
+                        <option value="04:00">04:00</option>
+                        <option value="04:30">04:30</option>
+                        <option value="05:00">05:00</option>
+                        <option value="05:30">05:30</option>
+                        <option value="06:00">06:00</option>
+                        <option value="06:30">06:30</option>
+                        <option value="07:00">07:00</option>
+                        <option value="07:30">07:30</option>
+                        <option value="08:00">08:00</option>
+                        <option value="08:30">08:30</option>
+                        <option value="09:00">09:00</option>
+                        <option value="09:30">09:30</option>
+                        <option value="10:00">10:00</option>
+                        <option value="10:30">10:30</option>
+                        <option value="11:00">11:00</option>
+                        <option value="11:30">11:30</option>
+                        <option value="12:00">12:00</option>
+                        <option value="12:30">12:30</option>
+                        <option value="13:00">13:00</option>
+                        <option value="13:30">13:30</option>
+                        <option value="14:00">14:00</option>
+                        <option value="14:30">14:30</option>
+                        <option value="15:00">15:00</option>
+                        <option value="15:30">15:30</option>
+                        <option value="16:00">16:00</option>
+                        <option value="16:30">16:30</option>
+                        <option value="17:00">17:00</option>
+                        <option value="17:30">17:30</option>
+                        <option value="18:00">18:00</option>
+                        <option value="18:30">18:30</option>
+                        <option value="19:00">19:00</option>
+                        <option value="19:30">19:30</option>
+                        <option value="20:00">20:00</option>
+                        <option value="20:30">20:30</option>
+                        <option value="21:00">21:00</option>
+                        <option value="21:30">21:30</option>
+                        <option value="22:00">22:00</option>
+                        <option value="22:30">22:30</option>
+                        <option value="23:00">23:00</option>
+                        <option value="23:30">23:30</option>
+                      </select>
                     </div>
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button id="schedule_add_btn" type="button" class="btn btn-primary" data-dismiss="modal" disabled>Save</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+                  <button id="schedule_add_btn" type="button" class="btn btn-primary" data-dismiss="modal" disabled>저장</button>
                 </div>
               </div>
             </div>
@@ -148,11 +248,11 @@
   $(document).ready(function(){
     my_schd.show_schedules();
 
-    $('input[name="start-time"]').change(function(){
+    $('select[name="start-time"]').change(function(){
       check_add_btn();
     });
 
-    $('input[name="end-time"]').change(function(){
+    $('select[name="end-time"]').change(function(){
       check_add_btn();
     });
 
@@ -162,7 +262,7 @@
     });
 
     $('#schedule_add_btn').click(function(){
-      my_schd.push_schedule($('input[name="week-day"]').val(), $('input[name="start-time"]').val(), $('input[name="end-time"]').val())
+      my_schd.push_schedule($('input[name="week-day"]').val(), $('select[name="start-time"]').val(), $('select[name="end-time"]').val())
       $('input[name="start-time"]').val('');
       $('input[name="end-time"]').val('');
       my_schd.show_schedules();

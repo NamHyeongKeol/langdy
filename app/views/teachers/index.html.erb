@@ -58,38 +58,85 @@
                       </div>
                       <div class="media-body">
                         <div class="col-md-9">
-                          <div class="col-md-3">
+                          <div class="col-md-12">
                             <%= link_to teacher_path(t) do %>
                               <h3 class="media-heading">
                                 <%= t.name %>
                               </h3>
                             <% end %>
                           </div>
-                          <div class="col-md-9" style="height: 30px;"></div>
-                          <p>
-                          <% if !t.lang_to_teach_1.nil? %>
-                          <span class="label label-success"><%= t.lang_to_teach_1 %></span>
-                          <% end %>
-                          <% if !t.lang_to_teach_2.nil? %>
-                            <span class="label label-success"><%= t.lang_to_teach_2 %></span>
-                          <% end %>
-                          <% if !t.lang_to_teach_3.nil? %>
-                            <span class="label label-success"><%= t.lang_to_teach_3 %></span>
-                          <% end %>
-                          /
-                          <span class="label label-default"><%= t.teacher_info.rating %> rating</span>
-                          /
-                          <span class="label label-primary"><%= t.teacher_info.lecture_number %> Lessons finished </span>
-                          </p>
-                          <p>
-                          <%= t.teacher_info.brief_introduction %>
-                          </p>
+                          <div class="col-md-12">
+                            <h5><b>가르치는 언어 </b>
+                              <% if !t.lang_to_teach_1.nil? %>
+                                <%= t.lang_to_teach_1 %>(<%= t.rank_to_teach_1 %>)
+                              <% end %>
+                              <% if !t.lang_to_teach_2.nil? %>
+                                <%= t.lang_to_teach_2 %>(<%= t.rank_to_teach_2 %>)
+                              <% end %>
+                            </h5>
+                          </div>
+                          <div class="col-md-12">
+                            <h5><b>배우는 언어 </b>
+                              <% if !t.lang_to_learn_1.nil? %>
+                                <%= t.lang_to_learn_1 %>(<%= t.rank_to_learn_1 %>)
+                              <% end %>
+                              <% if !t.lang_to_learn_2.nil? %>
+                                <%= t.lang_to_learn_2 %>(<%= t.rank_to_learn_2 %>)
+                              <% end %>
+                              <% if !t.lang_to_learn_3.nil? %>
+                                <%= t.lang_to_learn_3 %>(<%= t.rank_to_learn_3 %>)
+                              <% end %>
+                            </h5>
+                          </div>
+                            <!--
+                            <div class="col-md-12">
+                              <h5><b>가능한 언어 </b>
+                                <%# lang_array = [t.lang_to_teach_1, t.lang_to_teach_2, t.lang_to_teach_3, t.lang_to_learn_1, t.lang_to_learn_2, t.lang_to_learn_3] %>
+                                <%# rank_array = [t.rank_to_teach_1, t.rank_to_teach_2, t.rank_to_teach_3, t.rank_to_learn_1, t.rank_to_learn_2, t.rank_to_learn_3] %>
+                                <%# lang_array = lang_array.compact %>
+                                <%# rank_array = rank_array.compact %>
+                                <%# res_str = "" %>
+                                <%# lang_array.each_with_index do |l, i| %>
+                                  <%# res_str += l + '(' + rank_array[i] + ')' + ' ' %>
+                                <%# end %>
+                                <%#= res_str %>
+                              </h5>
+                            </div>
+                            
+                            <%# if !t.lang_to_teach_1.nil? %>
+                            <div>
+                              <h5><b><%#= t.lang_to_teach_1 %>(<%#= t.rank_to_teach_1 %>)</b></h5>
+                              <span class="label label-success"><%#= t.lang_to_teach_1 %></span>
+                            </div>
+                            <%# end %>
+                            <%# if !t.lang_to_teach_2.nil? %>
+                            <div>
+                              <h5><b><%#= t.lang_to_teach_2 %>(<%#= t.rank_to_teach_2 %>)</b></h5>
+                              <span class="label label-success"><%#= t.lang_to_teach_2 %></span>
+                            </div>
+                            <%# end %>
+                            -->
+                          <div class="col-md-12">
+                            <p>
+                              <%= t.teacher_info.brief_introduction %>
+                            </p>
+                          </div>
                         </div>
-           
                         <div class="col-md-3">
-                          <h4 style="margin-top: 50px;">
-                            <%= t.teacher_info.lecture_price %> coins / 1 hour
-                          </h4>
+                           <div class="col-md-12">
+                            <h5 class="text-center">강의수</h5>
+                            <h4 class="text-center"><b><%= t.teacher_info.lecture_number %>회</b></h4>
+                            <!--<span class="label label-primary"><%#= t.teacher_info.lecture_number %> Lessons finished </span>-->
+                          </div>
+                          <div class="col-md-12">
+                            <h5 class="text-center">강의 평점</h5>
+                            <h4 class="text-center"><b><%= t.teacher_info.rating %>점</b></h4>
+                            <!--<span class="label label-default "><%#= t.teacher_info.rating %>rating</span>-->
+                          </div>
+                          <div class="col-md-12">
+                            <h5 class="text-center">강의료</h5>
+                            <h4 class="text-center"><b><%= t.teacher_info.lecture_price %>코인</b></h4>
+                          </div>
                           <%# link_to "Book trial lesson", select_time_path(t), class: "btn btn-success btn-sm col-md-12" %>
                         </div>
                       </div>

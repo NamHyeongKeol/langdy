@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20160501121803) do
     t.text     "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "cat"
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -168,6 +169,7 @@ ActiveRecord::Schema.define(version: 20160501121803) do
     t.string   "rank_to_teach_3"
     t.string   "lang_to_learn"
     t.string   "native_lang"
+    t.boolean  "inactive",               default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

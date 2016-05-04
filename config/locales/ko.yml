@@ -1,8 +1,15 @@
 ko:
-  menu:
-    mypage: "마이페이지"
+  navbar:
+    admin: "관리자"
+    my_page: "마이페이지"
     find_teacher: "선생님 찾기"
     coin: "코인"
-    lecture_room: "강의실"
-  landing:
-    intro_title: "중국인에게 배우는 중국어!"
+    classroom: "강의실"
+    sign_up: "회원가입"
+    sign_in: "로그인"
+    sign_out: "로그아웃"
+  landing_page:
+    slogan: "중국인에게 배우는 중국어!"
+    detail_slogan: "중국인 친구와 함께 체계적인 회화 학습을 해보세요!"
+    getting_started: "시작하기"
+    guide_video: "랭디는 어떻게 사용하나요?"
