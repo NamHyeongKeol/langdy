@@ -1,4 +1,5 @@
 ko:
+  langdy_logo: "Langdy"
   navbar:
     admin: "관리자"
     my_page: "마이페이지"
@@ -9,7 +10,7 @@ ko:
     sign_in: "로그인"
     sign_out: "로그아웃"
   landing_page:
-    slogan: "중국인에게 배우는 중국어!"
-    detail_slogan: "중국인 친구와 함께 체계적인 회화 학습을 해보세요!"
+    slogan: "외국인에게 배우는 외국어!"
+    detail_slogan: "외국인 친구와 함께 체계적인 회화 학습을 해보세요!"
     getting_started: "시작하기"
     guide_video: "랭디는 어떻게 사용하나요?"

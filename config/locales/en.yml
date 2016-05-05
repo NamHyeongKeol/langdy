@@ -18,7 +18,8 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-ko:
+en:
+  langdy_logo: "Langdy"
   navbar:
     admin: "admin"
     my_page: "Mypage"
@@ -29,7 +30,7 @@ ko:
     sign_in: "Sign in"
     sign_out: "Sign out"
   landing_page:
-    slogan: "Learn Chinese with Chinese!"
+    slogan: "Learn languages with foriegners!"
     detail_slogan: "Learn speaking with native friends for free!"
     getting_started: "Getting started"
     guide_video: "How can I use Langdy?"
