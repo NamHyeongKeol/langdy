@@ -65,8 +65,11 @@
                 <%= f.select(:lang_to_teach_2, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
               </div>
               <%= f.label :rank_to_teach_2, "수준", class: "col-md-1 control-label" %>
-              <div class="col-md-5">
+              <div class="col-md-4">
                 <%= f.select(:rank_to_teach_2, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
+              </div>
+              <div class="col-md-1">
+                <button type="button" class="btn btn-primary" onclick="removeItem(this, 'teach')">&times;</button>
               </div>
             </div>
        
@@ -76,8 +79,11 @@
                 <%= f.select(:lang_to_teach_3, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
               </div>
               <%= f.label :rank_to_teach_3, "수준", class: "col-md-1 control-label" %>
-              <div class="col-md-5">
+              <div class="col-md-4">
                 <%= f.select(:rank_to_teach_3, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
+              </div>
+              <div class="col-md-1">
+                <button type="button" class="btn btn-primary" onclick="removeItem(this, 'teach')">&times;</button>
               </div>
             </div>
        
@@ -103,8 +109,11 @@
                 <%= f.select(:lang_to_learn_2, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
               </div>
               <%= f.label :rank_to_learn_2, "수준", class: "col-md-1 control-label" %>
-              <div class="col-md-5">
+              <div class="col-md-4">
                 <%= f.select(:rank_to_learn_2, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+              </div>
+              <div class="col-md-1">
+                <button type="button" class="btn btn-primary" onclick="removeItem(this, 'learn')">&times;</button>
               </div>
             </div>
        
@@ -114,8 +123,11 @@
                 <%= f.select(:lang_to_learn_3, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
               </div>
               <%= f.label :rank_to_learn_3, "수준", class: "col-md-1 control-label" %>
-              <div class="col-md-5">
+              <div class="col-md-4">
                 <%= f.select(:rank_to_learn_3, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+              </div>
+              <div class="col-md-1">
+                <button type="button" class="btn btn-primary" onclick="removeItem(this, 'learn')">&times;</button>
               </div>
             </div>
        
@@ -156,9 +168,10 @@
 </div>
 
 <script>
+  teach_num = 1;
+  learn_num = 1; 
+  
   $(document).ready(function(){
-    teach_num = 1;
-    learn_num = 1;
     $('#add_lang_to_teach').click(function(){
       if (teach_num == 1) {
         teach_num++;
@@ -166,7 +179,7 @@
       } else if (teach_num == 2) {
         teach_num++;
         $('#lang_to_teach_3').fadeIn('slow'); 
-        $(this).remove();
+        $(this).hide();
       }
     });
     $('#add_lang_to_learn').click(function(){
@@ -176,7 +189,7 @@
       } else if (learn_num == 2) {
         learn_num++;
         $('#lang_to_learn_3').fadeIn('slow',function(){}); 
-        $(this).remove();
+        $(this).hide();
       }
     });
     $('#disable_btn').click(function(e){
@@ -185,4 +198,23 @@
       }
     });
   });
+  
+  function removeItem(object, cate)
+  {
+    $(object).parent().parent().fadeOut('slow');
+    
+    if (cate == "teach") {
+      teach_num--;
+      if (teach_num == 2) {
+        $('#add_lang_to_teach').fadeIn('slow');
+      }
+    } else if (cate == "learn") {
+      learn_num--;
+      if (learn_num == 2) {
+        $('#add_lang_to_learn').fadeIn('slow');
+      } else {
+        return -1;
+      }
+    }
+  }
 </script>
