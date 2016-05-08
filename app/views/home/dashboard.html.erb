@@ -96,7 +96,7 @@
                     <h5><%= t "my_page.lesson.time" %> : <%= item.get_period.html_safe %><h5>
                     <h5><%= t "my_page.lesson.curriculum" %> : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
                     <h5><%= t "my_page.lesson.fee" %> : <%= item.get_price.html_safe %> <%= t "coin" %></h5>
-                    <h5><%= t "my_page.lesson.skype_id" %> : <%= item.teacher.teacher_info.skype_id %></h5>
+                    <h5><%= t "my_page.lesson.skype_id" %> : <%= item.teacher.skype_id %></h5>
                   </div> 
                 </div>
               <% end %>
