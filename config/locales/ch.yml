@@ -1,10 +1,10 @@
 ch:
   langdy_logo: "练得"
+  coin : "coin"
   navbar:
     admin: "管理者"
     my_page: "我的主页"
     find_teacher: "搜索老师"
-    coin: "听课券"
     classroom: "教室"
     sign_up: "注册"
     sign_in: "登录"

@@ -121,7 +121,7 @@
                     <h4><%= item.student.name %><%= t "my_page.lesson.required_message" %><span data-lesson_id="<%= item.id.to_s %>" id="confirm_span<%= item.id.to_s %>"><%= item.get_confirm_teacher.html_safe %></span></h4>
                     <h5><%= t "my_page.lesson.time" %> : <%= item.get_period.html_safe %><h5>
                     <h5><%= t "my_page.lesson.curriculum" %> : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
-                    <h5><%= t "my_page.lesson.fee" %> : <%= item.get_price.html_safe %> <%= t "coin" %></h5>
+                    <h5><%= t "my_page.lesson.fee" %> : <%= item.get_price.html_safe %><%= t "coin" %></h5>
                     <h5><%= t "my_page.lesson.skype_id" %> : <%= item.student.teacher_info.skype_id %></h5>
                   </div>    
                 </div>

@@ -1,16 +1,16 @@
 <div class="container">
   <div class="panel panel-default col-md-10 col-md-offset-1">
     <div class="panel-body">
-      <legend>코인 거래 내역</legend>
+      <legend><%= t "coin.history_page.title" %> </legend>
       <!-- 거래ID|일시|내용|거래액|잔액 -->
       <table class="table" style="margin-bottom:0px">
         <thead>
           <tr>
-            <th style="width:15%">거래ID</th>
-            <th style="width:15%">일시</th>
-            <th style="width:40%">내용</th>
-            <th style="width:15%">거래액</th>
-            <th style="width:15%">잔액</th>
+            <th style="width:15%"><%= t "coin.history_page.transaction_id" %></th>
+            <th style="width:15%"><%= t "coin.history_page.date" %></th>
+            <th style="width:40%"><%= t "coin.history_page.describe" %></th>
+            <th style="width:15%"><%= t "coin.history_page.transaction_coin" %></th>
+            <th style="width:15%"><%= t "coin.history_page.current_coin" %></th>
           </tr>
         </thead>
       </table>
@@ -22,33 +22,33 @@
                 <tr>
                 <td style="width:15%">2134adsf</td>
                 <td style="width:15%"><%= item.time.to_formatted_s(:db) %></td>
-                <td style="width:40%">코인 구매 신청</td>
-                <td style="width:15%"><%= item.amount %>코인</td>
-                <td style="width:15%"><%= current_user.cash %>코인</td>
+                <td style="width:40%"><%= t "coin.history_page.describe1" %></td>
+                <td style="width:15%"><%= item.amount %><%= t "coin" %></td>
+                <td style="width:15%"><%= current_user.cash %><%= t "coin" %></td>
                 </tr>
                 <% elsif item.buycoin_complete %>
                 <tr>
                 <td style="width:15%">2134adsf</td>
                 <td style="width:15%"><%= item.time.to_formatted_s(:db) %></td>
-                <td style="width:40%">입금 확인 및 코인 충전 완료</td>
-                <td style="width:15%"><%= item.amount %>코인</td>
-                <td style="width:15%"><%= current_user.cash %>코인</td>
+                <td style="width:40%"><%= t "coin.history_page.describe2" %></td>
+                <td style="width:15%"><%= item.amount %><%= t "coin" %></td>
+                <td style="width:15%"><%= current_user.cash %><%= t "coin" %></td>
                 </tr>
                 <% elsif item.is_exchange and !item.exchange_comlete %>
                 <tr>
                 <td style="width:15%">2134adsf</td>
                 <td style="width:15%"><%= item.time.to_formatted_s(:db) %></td>
-                <td style="width:40%">코인 환전 신청</td>
-                <td style="width:15%"><%= item.amount %>코인</td>
-                <td style="width:15%"><%= current_user.cash %>코인</td>
+                <td style="width:40%"><%= t "coin.history_page.describe3" %></td>
+                <td style="width:15%"><%= item.amount %><%= t "coin" %></td>
+                <td style="width:15%"><%= current_user.cash %><%= t "coin" %></td>
                 </tr>
                 <% elsif item.exchange_comlete %>
                 <tr>
                 <td style="width:15%">2134adsf</td>
                 <td style="width:15%"><%= item.time.to_formatted_s(:db) %></td>
-                <td style="width:40%">코인 차감 및 입금 완료</td>
-                <td style="width:15%"><%= item.amount %>코인</td>
-                <td style="width:15%"><%= current_user.cash %>코인</td>
+                <td style="width:40%"><%= t "coin.history_page.describe4" %></td>
+                <td style="width:15%"><%= item.amount %><%= t "coin" %></td>
+                <td style="width:15%"><%= current_user.cash %><%= t "coin" %></td>
                 </tr>
               <% end %>
             <% end %>
