@@ -1,40 +1,19 @@
 en:
   langdy_logo: "Langdy"
-  coin : "coin"
+  coin : "코인"
+  devise_shared_links:
+    sign_up: "Sign up"
+    forgot_password: "Forgot your password?"
   navbar:
-    admin: "admin"
-    my_page: "Mypage"
-    find_teacher: "Find teacher"
+    admin: "Admin"
+    my_page: "My apge"
+    find_teacher: "Find Teacher"
     classroom: "Classroom"
     sign_up: "Sign up"
     sign_in: "Sign in"
     sign_out: "Sign out"
   landing_page:
-    slogan: "Learn languages with foriegners!"
-    detail_slogan: "Learn speaking with native friends for free!"
+    slogan: "Learn languages with Foreign Friends!"
+    detail_slogan: "Efficiently pracitce your language speaking with foriegn friends!"
     getting_started: "Getting started"
     guide_video: "How can I use Langdy?"
-  register:
-    title: "Sign_up"
-    email_id:
-    name: 
-    gender:
-      gender: 
-      male: 
-      female: 
-    password: 
-      password: 
-      confirm: 
-      guide_word: 
-    language:
-      language_to_teach: 
-      language_to_learn: 
-      select: 
-      level: 
-      level1: 
-      level2: 
-      level3: 
-      level4: 
-      level5: 
-      add_language: 
-    finish: "finish"

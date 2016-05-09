@@ -1,24 +1,24 @@
 <div class="container">
   <div class="panel panel-default col-md-10 col-md-offset-1">
     <div class="panel-body">
-      <legend><%= t "coin.sell_page.title" %></legend>
+      <legend><%= t "coinpage.sell_page.title" %></legend>
       <form class="form-horizontal" id="new_user" enctype="multipart/form-data" action="/users" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="buN1IFAyA+Q+l4ZC4oii/wZXe3gTNh8wYnP+UoSYM4Mhe4a9wCh9Tgg3b4udtQ0uFLKG9s/SGXma/MmwSnyA0Q==" />
 
         <div class="form-group">
-          <label class="col-md-2 control-label"><%= t "coin.sell_page.info_title" %></label>
+          <label class="col-md-2 control-label"><%= t "coinpage.sell_page.info_title" %></label>
           <div class="col-md-10">
             <div class="box-control">
-              1. 본인 확인을 위해 입금자정보를 확인하게 되었습니다.<br>
-              2. 영업일(월~금요일) 오전 9시~오후 6시에 환전 신청 시 당일 오후 6시~7시에 환전 및 입금이 완료됩니다.<br>
-              3. 영업일(월~금요일) 오후 6시 이후에 환전 신청 시 다음 영업일 오전 8시~9시에 환전 및 입금이 완료됩니다.<br>
-              4. 비영업일(토~일요일, 공휴일)에 환전 신청 시, 다음 영업일 오전 8시~9시에 환전 및 입금이 완료됩니다.<br>
-              5. 랭디 고객의 개인정보는 안전하게 보호되며, 본인 확인 완료 후 완전히 삭제됩니다.
+              <%= t "coinpage.sell_page.info_describe1" %><br>
+              <%= t "coinpage.sell_page.info_describe2" %><br>
+              <%= t "coinpage.sell_page.info_describe3" %><br>
+              <%= t "coinpage.sell_page.info_describe4" %><br>
+              <%= t "coinpage.sell_page.info_describe5" %>
             </div>
           </div>
         </div>
         
         <div class="form-group">
-        <label for="input_current_coin" class="col-md-2 control-label"><%= t "coin.sell_page.current_coin" %></label>
+        <label for="input_current_coin" class="col-md-2 control-label"><%= t "coinpage.sell_page.current_coin" %></label>
           <div class="col-md-10">
             <div class="form-control">
               <%= current_user.cash %><%= t "coin" %>
@@ -27,7 +27,7 @@
         </div>
   
         <div class="form-group">
-        <label for="input_howmany_coins" class="col-md-2 control-label"><%= t "coin.sell_page.selling_coin" %></label>
+        <label for="input_howmany_coins" class="col-md-2 control-label"><%= t "coinpage.sell_page.selling_coin" %></label>
           <div class="col-md-10">
             <select class="form-control" name="user[howmany_exchange]" id="user_howmany_exchange">
               <option value="50coins">50 <%= t "coin" %></option>
@@ -40,42 +40,42 @@
         </div>
   
         <div class="form-group">
-        <label for="input_exchange_coin" class="col-md-2 control-label"><%= t "coin.sell_page.withdrawal_amount" %></label>
+        <label for="input_exchange_coin" class="col-md-2 control-label"><%= t "coinpage.sell_page.withdrawal_amount" %></label>
           <div class="col-md-10">
             <div class="box-control">
-              한국 금액 : 10,000 ₩(KRW, 원)<br>
-              중국 금액 : 10,000 ¥(Yuan, 위안) - 2016.04.03 환율 기준<br>
-              * 코인 환전시 랭디에서 수수료 15%를 제외한 금액이 송금됩니다.
+              <%= t "coinpage.sell_page.amount_describe1" %><br>
+              <%= t "coinpage.sell_page.amount_describe2" %><br>
+              <%= t "coinpage.sell_page.amount_describe3" %><br>
             </div>
           </div>
         </div>
   
         <div class="form-group">
-        <label for="input_howtopay_coins" class="col-md-2 control-label"><%= t "coin.sell_page.withdrawal_method" %></label>
+        <label for="input_howtopay_coins" class="col-md-2 control-label"><%= t "coinpage.sell_page.withdrawal_method" %></label>
           <div class="col-md-10">
             <select class="form-control" name="user[howtoexchange_coins]" id="user_howtoexchange_coins">
-              <option value="bank_transfer"><%= t "coin.sell_page.account_transfer" %></option>
-              <option value="alipay"><%= t "coin.sell_page.alipay" %></option></select>
+              <option value="bank_transfer"><%= t "coinpage.sell_page.account_transfer" %></option>
+              <option value="alipay"><%= t "coinpage.sell_page.alipay" %></option></select>
           </div>
         </div>
   
         <div class="form-group">
-        <label for="input_buyer_information" class="col-md-2 control-label"><%= t "coin.sell_page.name/id" %></label>
+        <label for="input_buyer_information" class="col-md-2 control-label"><%= t "coinpage.sell_page.name/id" %></label>
           <div class="col-md-10">
-            <input class="form-control" placeholder=(t "coin.sell_page.name/id_describe") autofocus="autofocus" type="text" name="user[buyer_information]" id="user_buyerinformation" />
+            <input class="form-control" placeholder=(t "coinpage.sell_page.name/id_describe") autofocus="autofocus" type="text" name="user[buyer_information]" id="user_buyerinformation" />
           </div>
         </div>
   
         <div class="form-group">
-        <label for="input_buyer_account" class="col-md-2 control-label"><%= t "coin.sell_page.account_numbe" %></label>
+        <label for="input_buyer_account" class="col-md-2 control-label"><%= t "coinpage.sell_page.account_numbe" %></label>
           <div class="col-md-10">
-            <input class="form-control" placeholder=(t "coin.sell_page.account_number_describe") autofocus="autofocus" type="text" name="user[buyer_account]" id="user_buyeraccount" />
+            <input class="form-control" placeholder=(t "coinpage.sell_page.account_number_describe") autofocus="autofocus" type="text" name="user[buyer_account]" id="user_buyeraccount" />
           </div>
         </div>
   
         <div class="form-group">
           <div class="col-md-3 col-md-offset-2">
-            <input type="submit" name="commit" value=(t "coin.sell_page.finish") class="btn btn-primary"/>
+            <input type="submit" name="commit" value=(t "coinpage.sell_page.finish") class="btn btn-primary"/>
           </div>
         </div>
 

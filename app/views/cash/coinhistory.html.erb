@@ -1,16 +1,16 @@
 <div class="container">
   <div class="panel panel-default col-md-10 col-md-offset-1">
     <div class="panel-body">
-      <legend><%= t "coin.history_page.title" %> </legend>
+      <legend><%= t "coinpage.history_page.title" %> </legend>
       <!-- 거래ID|일시|내용|거래액|잔액 -->
       <table class="table" style="margin-bottom:0px">
         <thead>
           <tr>
-            <th style="width:15%"><%= t "coin.history_page.transaction_id" %></th>
-            <th style="width:15%"><%= t "coin.history_page.date" %></th>
-            <th style="width:40%"><%= t "coin.history_page.describe" %></th>
-            <th style="width:15%"><%= t "coin.history_page.transaction_coin" %></th>
-            <th style="width:15%"><%= t "coin.history_page.current_coin" %></th>
+            <th style="width:15%"><%= t "coinpage.history_page.transaction_id" %></th>
+            <th style="width:15%"><%= t "coinpage.history_page.date" %></th>
+            <th style="width:40%"><%= t "coinpage.history_page.describe" %></th>
+            <th style="width:15%"><%= t "coinpage.history_page.transaction_coin" %></th>
+            <th style="width:15%"><%= t "coinpage.history_page.current_coin" %></th>
           </tr>
         </thead>
       </table>
@@ -22,7 +22,7 @@
                 <tr>
                 <td style="width:15%">2134adsf</td>
                 <td style="width:15%"><%= item.time.to_formatted_s(:db) %></td>
-                <td style="width:40%"><%= t "coin.history_page.describe1" %></td>
+                <td style="width:40%"><%= t "coinpage.history_page.describe1" %></td>
                 <td style="width:15%"><%= item.amount %><%= t "coin" %></td>
                 <td style="width:15%"><%= current_user.cash %><%= t "coin" %></td>
                 </tr>
@@ -30,7 +30,7 @@
                 <tr>
                 <td style="width:15%">2134adsf</td>
                 <td style="width:15%"><%= item.time.to_formatted_s(:db) %></td>
-                <td style="width:40%"><%= t "coin.history_page.describe2" %></td>
+                <td style="width:40%"><%= t "coinpage.history_page.describe2" %></td>
                 <td style="width:15%"><%= item.amount %><%= t "coin" %></td>
                 <td style="width:15%"><%= current_user.cash %><%= t "coin" %></td>
                 </tr>
@@ -38,7 +38,7 @@
                 <tr>
                 <td style="width:15%">2134adsf</td>
                 <td style="width:15%"><%= item.time.to_formatted_s(:db) %></td>
-                <td style="width:40%"><%= t "coin.history_page.describe3" %></td>
+                <td style="width:40%"><%= t "coinpage.history_page.describe3" %></td>
                 <td style="width:15%"><%= item.amount %><%= t "coin" %></td>
                 <td style="width:15%"><%= current_user.cash %><%= t "coin" %></td>
                 </tr>
@@ -46,7 +46,7 @@
                 <tr>
                 <td style="width:15%">2134adsf</td>
                 <td style="width:15%"><%= item.time.to_formatted_s(:db) %></td>
-                <td style="width:40%"><%= t "coin.history_page.describe4" %></td>
+                <td style="width:40%"><%= t "coinpage.history_page.describe4" %></td>
                 <td style="width:15%"><%= item.amount %><%= t "coin" %></td>
                 <td style="width:15%"><%= current_user.cash %><%= t "coin" %></td>
                 </tr>

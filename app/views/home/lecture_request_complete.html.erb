@@ -3,9 +3,9 @@
     <div class="inner">
       <div class="panel panel-default">
           <div class="panel-body">
-            <h4>강의 신청이 성공적으로 완료되었습니다.<br><br>
-            선생님의 수락 후 강의가 확정되니 조금만 기다려주세요!<br><br>
-            강의 신청이 거절되거나 취소되는 경우 코인이 반환됩니다.
+            <h4><%= t "request_complete.exchange_message1" %><br><br>
+            <%= t "request_complete.exchange_message2" %><br><br>
+            <%= t "request_complete.exchange_message3" %>
             </h4>
           </div>
           <div class="panel-body">
@@ -13,13 +13,13 @@
               적당한 이미지
             </div>
             <div>
-              <a class="btn btn-primary" href="/dashboard" role="button">마이페이지로 가기</a>
+              <a class="btn btn-primary" href="/dashboard" role="button"><%= t "request_complete.button_to_mypage" %></a>
             </div>
           </div>
           <div class="panel-body">
             <h4>
-            회화의 달인이 되는 그날까지 힘내세요!<br><br>
-            랭디는 여러분에게 도움이 될 수 있도록 힘을 내겠습니다.
+            <%= t "request_complete.bottom_message1" %><br><br>
+            <%= t "request_complete.bottom_message2" %>
             </h4>
           </div>    
       </div>

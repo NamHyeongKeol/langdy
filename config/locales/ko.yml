@@ -25,7 +25,7 @@ ko:
       gender: "성별"
       male: "남자"
       female: "여자"
-    password: 
+    password:
       password: "비밀번호"
       confirm: "비밀번호 확인"
       guide_word: "글자 이상"
@@ -77,14 +77,14 @@ ko:
       skype_id: "스카이프 아이디"
       accepted: "수락함"
       rejected: "거절함"
-teacher:
+  teacher:
     filter:
       language_to_learn: "배우고 싶은 언어"
       lesson_day: "강의 요일"
       lesson_time: "강의 시간"
       teacher_gender: "선생님 성별"
       browse: "검색"
-      according_to_rate: "평점순으로 보기"
+      according_to_rate: "평점 순으로 보기"
       no_result: "일치하는 검색 결과가 없습니다."
     tip: "랭디 이용 팁"
     info:
@@ -98,12 +98,13 @@ teacher:
       coin: "코인"
       introduction: "소개"
       comment: "강의 후기"
+      comment_empty: "강의 후기가 없습니다."
       finish: "완료"
     timetable:
       title: "강의 시간 선택"
-      describe: "가능하면 상대방이 등록한 시간대에서 선택해주세요. 등록하지 않은 시간대에 대한 신청은 거절될 수 있습니다."
+      describe: "상대방이 등록한 시간대에서 강의 시간을 선택해주세요. 등록하지 않은 시간대에 대한 신청은 거절될 수 있습니다."
       cancel: "취소"
-      select: "선택해주세요"
+      select: "선택"
     curriculum:
       title: "커리큘럼 선택"
       level1: "초급"
@@ -125,7 +126,7 @@ teacher:
       check_describe3: "상대방 승인 이전에는 자유롭게 수업 취소가 가능합니다."
       check_describe4: "상대방 승인 후에는 기준 시점인 수업 시간 24시간 이전까지만 취소가 가능합니다."
       check_describe5: "기준 시점 경과 후에는 전체 환불을 받을 수 없습니다."
-       check_describe5-1: "  - 수업시간 12시간 전까지 취소할 경우 강의료의 50%를 환불 받을 수 있습니다."
+      check_describe5-1: "  - 수업시간 12시간 전까지 취소할 경우 강의료의 50%를 환불 받을 수 있습니다."
       check_describe5-2: "  - 수업시간 12시간 전 시점 경과 시 수업료를 환불 받을 수 없습니다."
     exchange:
       title: "무료 매칭 신청"
@@ -139,6 +140,8 @@ teacher:
     fee  : "강의료"
     time  : "강의 시간"
     curriculum  : "커리큘럼"
+    finish: "신청"
+    cancel: "취소"
   request_complete:
     lesson_message1: "강의 신청이 성공적으로 완료되었습니다."
     lesson_message2: "선생님의 수락 후 강의가 확정되니 조금만 기다려주세요!"
@@ -148,8 +151,8 @@ teacher:
     exchange_message3: "무료 매칭 신청이 거절되거나 취소되는 경우 코인이 반환됩니다."
     button_to_mypage: "마이페이지로 가기"
     bottom_message1: "회화의 달인이 되는 그날까지 힘내세요!"
-    bottom_message1: "랭디는 여러분에게 도움이 될 수 있도록 힘을 내겠습니다."
-  coin:
+    bottom_message2: "랭디는 여러분에게 도움이 될 수 있도록 힘을 내겠습니다."
+  coinpage:
     mainpage:
       buy_button_title: "코인 구매"
       buy_button_describe: "강의를 듣기 위한 코인을 구매할 수 있습니다."
@@ -175,7 +178,7 @@ teacher:
       alipay: "알리페이"
       account_info: "입금 계좌 정보"
       account_describe1: "한국 계좌번호 : (농협) 000 - 00 - 000000"
-      account_describe1: "알리페이 : 00000"
+      account_describe2: "알리페이 : 00000"
       name/id: "입금자 성명/Alipay ID"
       name/id_describe: "계좌이체는 입금자 성명을, 알리페이는 입금자 아이디를 입력해 주세요."
       account_number: "입금자 계좌번호"
@@ -220,9 +223,9 @@ teacher:
   classroom:
     mainpage:
       self_button_title: "혼자 공부하기"
-       self_button_describe: "선생님과 학습한 내용을 복습하거나, 강의 전 예습을 해보세요!"
+      self_button_describe: "선생님과 학습한 내용을 복습하거나, 강의 전 예습을 해보세요!"
       learn_button_title: "강의 듣기"
-      learn_button_describe: "강의 시간이 되면 학생은 이곳에서 강의를 들을 수 있어요!"
+      learn_button_describe: "선생님과 학습한 내용을 복습하거나, 강의 전 예습을 해보세요!"
       teach_button_title: "강의 하기"
       teach_button_describe: "강의 시간이 되면 선생님은 이곳에서 강의를 할 수 있어요!"
     curriculum:
@@ -246,7 +249,8 @@ teacher:
     memo:
       title: "메모"
       save_button: "저장"
-    report  button: "신고하기"
+    report:
+      button: "신고하기"
       modal_title: "신고하기"
       modal_describe1: "수업 중 부적절한 상황이 발생한 경우, 신고할 내용을 구체적으로 입력해서 admin@langdy.com으로 보내주세요! 확인 후 조치를 취하도록 하겠습니다. (스크린샷 등의 증거를 보내주시면 빠른 확인이 가능합니다.)"
       modal_describe2: "허위 신고자에게는 패널티가 부과됩니다."
