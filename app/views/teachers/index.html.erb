@@ -36,7 +36,7 @@
         </div>
         <% end %>
       </div>
-      
+
       <div class="panel panel-default">
         <div class="panel-body" id="user_list">
           <% if @teachers.to_a == [] %>
@@ -125,17 +125,17 @@
                         <div class="col-md-3">
                            <div class="col-md-12">
                             <h5 class="text-center"><%= t "teacher.info.the_number_of_lessons" %></h5>
-                            <h4 class="text-center"><b><%= t.teacher_info.lecture_number %><%= t "teacher.info.times" %></b></h4>
+                            <h4 class="text-center"><b><%= t.teacher_info.lecture_number || 0 %><%= t "teacher.info.times" %></b></h4>
                             <!--<span class="label label-primary"><%#= t.teacher_info.lecture_number %> Lessons finished </span>-->
                           </div>
                           <div class="col-md-12">
                             <h5 class="text-center"><%= t "teacher.info.rating" %></h5>
-                            <h4 class="text-center"><b><%= t.teacher_info.rating %><%= t "teacher.info.score" %></b></h4>
+                            <h4 class="text-center"><b><%= t.teacher_info.rating || 0 %><%= t "teacher.info.score" %></b></h4>
                             <!--<span class="label label-default "><%#= t.teacher_info.rating %>rating</span>-->
                           </div>
                           <div class="col-md-12">
                             <h5 class="text-center"><%= t "teacher.info.fee" %></h5>
-                            <h4 class="text-center"><b><%= t.teacher_info.lecture_price %><%= t "coin" %></b></h4>
+                            <h4 class="text-center"><b><%= t.teacher_info.lecture_price || 0 %><%= t "coin" %></b></h4>
                           </div>
                           <%# link_to "Book trial lesson", select_time_path(t), class: "btn btn-success btn-sm col-md-12" %>
                         </div>
@@ -146,13 +146,13 @@
               </ul>
             <% end %>
           <% end %>
-          
+
           <div class="row">
             <div style="text-align: center">
               <%= will_paginate @teachers, previous_label: "« 이전", next_label: "다음 »" %>
             </div>
           </div>
-          
+
         </div>
       </div>
     </div>
