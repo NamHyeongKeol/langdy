@@ -1,126 +1,126 @@
 <div class="container">
   <div class="panel panel-default col-md-8 col-md-offset-2">
     <div class="panel-body">
-      <legend>회원가입</legend>
+      <legend><%= t "register.title" %></legend>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
           
             <div class="form-group">
-              <label for="inputEmail" class="col-md-3 control-label">이메일 아이디</label>
+              <label for="inputEmail" class="col-md-3 control-label"><%= t "register.email_id" %></label>
               <div class="col-md-9">
                 <%= f.email_field :email, class: "form-control", :placeholder => "email", autofocus: true %>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="inputName" class="col-md-3 control-label">이름</label>
+              <label for="inputName" class="col-md-3 control-label"><%= t "register.name" %></label>
               <div class="col-md-9">
                 <%= f.text_field :name, class: "form-control", :placeholder => "name", autofocus: true %>
               </div>
             </div>
             
             <div class="form-group">
-              <label for="inputGender" class="col-md-3 control-label">성별</label>
+              <label for="inputGender" class="col-md-3 control-label"><%= t "register.gender.gender" %></label>
               <div class="col-md-9">
-              <%= f.select(:gender, [['남자', 'Male'], ['여자', 'Female']], {}, { :class => 'form-control' }) %>
+              <%= f.select(:gender, [[(t "register.gender.male"), 'Male'], [(t "register.gender.female"), 'Female']], {}, { :class => 'form-control' }) %>
               </div>
             </div>
             
             <div class="form-group">
-              <label for="inputPassword" class="col-md-3 control-label">비밀번호</label>
+              <label for="inputPassword" class="col-md-3 control-label"><%= t "register.password.password" %></label>
               <div class="col-md-9">
                 <%= f.password_field :password, class: "form-control", :placeholder => "password", autocomplete: "off" %>
                 <% if @minimum_password_length %>
-                  <em>(<%= @minimum_password_length %>글자 이상)</em>
+                  <em>(<%= @minimum_password_length %><%= t "register.password.guide_word" %>)</em>
                 <% end %><br />
               </div>
             </div>
 
             <div class="form-group">
-              <label for="inputPassword" class="col-md-3 control-label">비밀번호 확인</label>
+              <label for="inputPassword" class="col-md-3 control-label"><%= t "register.password.confirm" %></label>
               <div class="col-md-9">
                 <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "password", autocomplete: "off" %>
               </div>
             </div>
 
             <div class="form-group" id="lang_to_teach_1">
-              <%= f.label :lang_to_teach_1, "가르칠 수 있는 언어", class: "col-md-3 control-label" %>
+              <%= f.label :lang_to_teach_1, (t "register.language.language_to_teach"), class: "col-md-3 control-label" %>
               <div class="col-md-3">
-                <%= f.select(:lang_to_teach_1, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:lang_to_teach_1, [(t "register.language.select"), 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
               </div>
-              <%= f.label :rank_to_teach_1, "수준", class: "col-md-1 control-label" %>
+              <%= f.label :rank_to_teach_1, (t "register.language.level"), class: "col-md-1 control-label" %>
               <div class="col-md-5">
-                <%= f.select(:rank_to_teach_1, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:rank_to_teach_1, [(t "register.language.select"), (t "register.language.level3"), (t "register.language.level4"), (t "register.language.level5")], {}, { :class => 'form-control' }) %>
               </div>
             </div>
 
             <div class="form-group" id="lang_to_teach_2" style="display: none;">
               <div class="col-md-3">&nbsp;</div>
               <div class="col-md-3">
-                <%= f.select(:lang_to_teach_2, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:lang_to_teach_2, [(t "register.language.select"), 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
               </div>
-              <%= f.label :rank_to_teach_2, "수준", class: "col-md-1 control-label" %>
+              <%= f.label :rank_to_teach_2, (t "register.language.level"), class: "col-md-1 control-label" %>
               <div class="col-md-5">
-                <%= f.select(:rank_to_teach_2, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:rank_to_teach_2, [(t "register.language.select"), (t "register.language.level3"), (t "register.language.level4"), (t "register.language.level5")], {}, { :class => 'form-control' }) %>
               </div>
             </div>
 
             <div class="form-group" id="lang_to_teach_3" style="display: none;">
               <div class="col-md-3">&nbsp;</div>
               <div class="col-md-3">
-                <%= f.select(:lang_to_teach_3, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:lang_to_teach_3, [(t "register.language.select"), 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
               </div>
-              <%= f.label :rank_to_teach_3, "수준", class: "col-md-1 control-label" %>
+              <%= f.label :rank_to_teach_3, (t "register.language.level"), class: "col-md-1 control-label" %>
               <div class="col-md-5">
-                <%= f.select(:rank_to_teach_3, ['선택해주세요', '중상급', '고급', '모국어'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:rank_to_teach_3, [(t "register.language.select"), (t "register.language.level3"), (t "register.language.level4"), (t "register.language.level5")], {}, { :class => 'form-control' }) %>
               </div>
             </div>
 
             <div class="row" id="add_lang_to_teach">
-              <a class="col-md-2 col-md-offset-3" style="height: 30px; cursor: pointer;">+ 언어 추가하기</a>
+              <a class="col-md-9 col-md-offset-3" style="height: 30px; cursor: pointer;">+ <%= t "register.language.add_language" %></a>
               <div class="col-md-7"></div>
             </div>
 
             <div class="form-group" id="lang_to_learn_1">
-              <%= f.label :lang_to_learn_1, "배우고 싶은 언어", class: "col-md-3 control-label" %>
+              <%= f.label :lang_to_learn_1, (t "register.language.language_to_learn"), class: "col-md-3 control-label" %>
               <div class="col-md-3">
-                <%= f.select(:lang_to_learn_1, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:lang_to_learn_1, [(t "register.language.select"), 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
               </div>
-              <%= f.label :rank_to_learn_1, "수준", class: "col-md-1 control-label" %>
+              <%= f.label :rank_to_learn_1, (t "register.language.level"), class: "col-md-1 control-label" %>
               <div class="col-md-5">
-                <%= f.select(:rank_to_learn_1, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:rank_to_learn_1, [(t "register.language.select"), (t "register.language.level1"), (t "register.language.level2"), (t "register.language.level3"), (t "register.language.level4")], {}, { :class => 'form-control' }) %>
               </div>
             </div>
 
             <div class="form-group" id="lang_to_learn_2" style="display: none;">
               <div class="col-md-3">&nbsp;</div>
               <div class="col-md-3">
-                <%= f.select(:lang_to_learn_2, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:lang_to_learn_2, [(t "register.language.select"), 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
               </div>
-              <%= f.label :rank_to_learn_2, "수준", class: "col-md-1 control-label" %>
+              <%= f.label :rank_to_learn_2, (t "register.language.level"), class: "col-md-1 control-label" %>
               <div class="col-md-5">
-                <%= f.select(:rank_to_learn_2, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:rank_to_learn_2, [(t "register.language.select"), (t "register.language.level1"), (t "register.language.level2"), (t "register.language.level3"), (t "register.language.level4")], {}, { :class => 'form-control' }) %>
               </div>
             </div>
 
             <div class="form-group" id="lang_to_learn_3" style="display: none;">
               <div class="col-md-3">&nbsp;</div>
               <div class="col-md-3">
-                <%= f.select(:lang_to_learn_3, ['선택해주세요', 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:lang_to_learn_3, [(t "register.language.select"), 'English', 'Korean', 'Chinese'], {}, { :class => 'form-control' }) %>
               </div>
-              <%= f.label :rank_to_learn_3, "수준", class: "col-md-1 control-label" %>
+              <%= f.label :rank_to_learn_3, (t "register.language.level"), class: "col-md-1 control-label" %>
               <div class="col-md-5">
-                <%= f.select(:rank_to_learn_3, ['선택해주세요', '초급', '중하급', '중상급', '고급'], {}, { :class => 'form-control' }) %>
+                <%= f.select(:rank_to_learn_3, [(t "register.language.select"), (t "register.language.level1"), (t "register.language.level2"), (t "register.language.level3"), (t "register.language.level4")], {}, { :class => 'form-control' }) %>
               </div>
             </div>
 
             <div class="row" id="add_lang_to_learn">
-              <a class="col-md-2 col-md-offset-3" style="height: 30px; cursor: pointer;">+ 언어 추가하기</a>
+              <a class="col-md-9 col-md-offset-3" style="height: 30px; cursor: pointer;">+ <%= t "register.language.add_language" %></a>
               <div class="col-md-7"></div>
             </div>
 
             <div class="form-group">
               <div class="col-md-3 col-md-offset-3">
-                <%= f.submit "회원가입", :class => "btn btn-primary" %>
+                <%= f.submit (t "register.finish"), :class => "btn btn-primary" %>
               </div>
               <div>
               <%= devise_error_messages! %>

@@ -18,7 +18,7 @@
           <div class="col-md-12 text-center">
             <a href="/purchase" class="btn btn-sm btn-primary">
               <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
-              <%= current_user.cash %>코인
+              <%= current_user.cash %><%= t "coin" %>
             </a>
           </div>
         </div>
@@ -26,13 +26,13 @@
           <li class="list-group-item">
           <%= link_to edit_user_registration_path do %>
             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-            개인 프로필
+            <%= t "my_page.profile.personal" %>
           <% end %>
           </li>
           <li class="list-group-item">
           <%= link_to edit_teacher_info_path do %>
             <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              학습 프로필
+              <%= t "my_page.profile.teaching" %>
             <% end %>
           </li>
         </ul>
@@ -42,20 +42,20 @@
         <div class="panel-body">
           <div class="col-md-12">
             <h5>
-              언제든지 의견을 남겨주세요. 여러분의 의견에 항상 귀기울이겠습니다.
+              <%= t "my_page.feedback.describe" %>
             </h5>
             <div class="form-group">
               <%= form_for :feedback, url: feedback_path do |f| %>
                 <div>
                   <select class="form-control" name="cat">
-                    <option value="" disabled selected hidden>카테고리 선택</option>
-                    <option value="website">웹 사이트 기능 관련</option>
-                    <option value="curriculum">커리큘럼 관련</option>
-                    <option value="others">기타</option>
+                    <option value="" disabled selected hidden><%= t "my_page.feedback.select" %></option>
+                    <option value="website"><%= t "my_page.feedback.website" %></option>
+                    <option value="curriculum"><%= t "my_page.feedback.curriculum" %></option>
+                    <option value="others"><%= t "my_page.feedback.others" %></option>
                   </select>
                 </div>
                 <%= f.text_area :text, :autocomplete => :off, rows: "5", class: "col-md-12 form-control" %>
-                <%= f.submit "피드백 남기기", class: "btn btn-sm btn-primary col-md-12" %>
+                <%= f.submit (t "my_page.feedback.finish"), class: "btn btn-sm btn-primary col-md-12" %>
               <% end %>
             </div>
           </div>
@@ -71,7 +71,7 @@
         <div class="col-md-12">
           <div class="panel panel-default">
             <div class="lectureinfo-panel-heading">
-              <h3> 강의시간표 </h3>
+              <h3> <%= t "my_page.timetable.title" %> </h3>
             </div>
             <div class="panel-body">
               <div class="go-demo-box"></div>
@@ -86,17 +86,17 @@
         <div class="col-md-6" style="padding-right:2px;">
           <div class="panel panel-default">
             <div class="lectureinfo-panel-heading">
-              <h3>내가 신청한 강의</h3>
+              <h3><%= t "my_page.lesson.requiring" %></h3>
             </div>
             <div class="panel-body lectureinfo-panel">
               <% @lesson_applying.reverse_each do |item| %>
                 <div class="row" id="lesson_applying<%= item.id %>">
                   <div class=lectureinfo>  
-                    <h4><%= item.teacher.name %>님에게 강의를 신청하였습니다.</h4>
-                    <h5>강의 시간 : <%= item.get_period.html_safe %><h5>
-                    <h5>커리큘럼 : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
-                    <h5>강의료 : <%= item.get_price.html_safe %> 코인</h5>
-                    <h5>스카이프 아이디 : <%= item.teacher.teacher_info.skype_id %></h5>
+                    <h4><%= item.teacher.name %><%= t "my_page.lesson.requiring_message" %></h4>
+                    <h5><%= t "my_page.lesson.time" %> : <%= item.get_period.html_safe %><h5>
+                    <h5><%= t "my_page.lesson.curriculum" %> : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
+                    <h5><%= t "my_page.lesson.fee" %> : <%= item.get_price.html_safe %> <%= t "coin" %></h5>
+                    <h5><%= t "my_page.lesson.skype_id" %> : <%= item.teacher.skype_id %></h5>
                   </div> 
                 </div>
               <% end %>
@@ -112,17 +112,17 @@
         <div class="col-md-6" style="padding-left:2px;">
           <div class="panel panel-default">
             <div class="lectureinfo-panel-heading">
-              <h3>나에게 신청된 강의</h3>
+              <h3><%= t "my_page.lesson.required" %></h3>
             </div>
             <div class="panel-body lectureinfo-panel">
               <% @lesson_applied.reverse_each do |item| %>
                 <div class="row" id="lesson_applied<%= item.id %>">
                   <div class=lectureinfo>
-                    <h4><%= item.student.name %>님이 강의를 신청하였습니다.<span data-lesson_id="<%= item.id.to_s %>" id="confirm_span<%= item.id.to_s %>"><%= item.get_confirm_teacher.html_safe %></span></h4>
-                    <h5>강의 시간 : <%= item.get_period.html_safe %><h5>
-                    <h5>커리큘럼 : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
-                    <h5>강의료 : <%= item.get_price.html_safe %> 코인</h5>
-                    <h5>스카이프 아이디 : <%= item.student.teacher_info.skype_id %></h5>
+                    <h4><%= item.student.name %><%= t "my_page.lesson.required_message" %><span data-lesson_id="<%= item.id.to_s %>" id="confirm_span<%= item.id.to_s %>"><%= item.get_confirm_teacher.html_safe %></span></h4>
+                    <h5><%= t "my_page.lesson.time" %> : <%= item.get_period.html_safe %><h5>
+                    <h5><%= t "my_page.lesson.curriculum" %> : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
+                    <h5><%= t "my_page.lesson.fee" %> : <%= item.get_price.html_safe %><%= t "coin" %></h5>
+                    <h5><%= t "my_page.lesson.skype_id" %> : <%= item.student.teacher_info.skype_id %></h5>
                   </div>    
                 </div>
               <% end %>

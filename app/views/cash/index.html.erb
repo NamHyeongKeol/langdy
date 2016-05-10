@@ -3,20 +3,20 @@
     <div class="inner">
       <div class="mainpagebutton">
         <a href="<%= url_for(:buycoin) %>">
-        <h3>코인 구매</h3>
-        <p>코인을 구매한 후 강의를 즐겨보세요.</p>
+        <h3><%= t "coinpage.mainpage.buy_button_title" %></h3>
+        <p><%= t "coinpage.mainpage.buy_button_describe" %></p>
         </a>
       </div>
       <div class="mainpagebutton">
         <a href="<%= url_for(:sellcoin) %>">
-        <h3>코인 환전</h3>
-        <p>누적된 코인을 현금으로 환전할 수 있습니다.</p>
+        <h3><%= t "coinpage.mainpage.sell_button_title" %></h3>
+        <p><%= t "coinpage.mainpage.sell_button_describe" %></p>
         </a>
       </div>
       <div class="mainpagebutton">
         <a href="<%= url_for(:coinhistory) %>">
-        <h3>코인 거래 내역</h3>
-        <p>코인을 입출금 내역을 확인할 수 있습니다.</p>
+        <h3><%= t "coinpage.mainpage.history_button_title" %></h3>
+        <p><%= t "coinpage.mainpage.history_button_describe" %></p>
         </a>
       </div>
     </div>

@@ -1,97 +1,97 @@
 <div class="container">
   <div class="panel panel-default col-md-10 col-md-offset-1">
     <div class="panel-body">
-      <legend>코인 구매</legend>
+      <legend><%= t "coinpage.buy_page.title" %></legend>
       <form class="form-horizontal" id="new_user" enctype="multipart/form-data" action="/submit_purchase" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="buN1IFAyA+Q+l4ZC4oii/wZXe3gTNh8wYnP+UoSYM4Mhe4a9wCh9Tgg3b4udtQ0uFLKG9s/SGXma/MmwSnyA0Q==" />
         
         <div class="form-group">
-          <label class="col-md-2 control-label">코인 구매 안내</label>
+          <label class="col-md-2 control-label"><%= t "coinpage.buy_page.info_title" %></label>
           <div class="col-md-10">
             <div class="box-control">
-              1. 본인 확인을 위해 입금자정보를 확인하게 되었습니다.<br>
-              2. 영업일(월~금요일) 오전 9시~오후 6시에 구매 신청 및 입금 시 당일 오후 6시~7시에 코인이 충전됩니다.<br>
-              3. 영업일(월~금요일) 오후 6시 이후에 구매 신청 및 입금 시 다음 영업일 오전 8시~9시에 코인이 충전됩니다.<br>
-              4. 비영업일(토~일요일, 공휴일)에 구매 신청 및 입금 시, 다음 영업일 오전 8시~9시에 코인이 충전됩니다.<br>
-              5. 랭디 고객의 개인정보는 안전하게 보호되며, 본인 확인 완료 후 완전히 삭제됩니다.
+              <%= t "coinpage.buy_page.info_describe1" %><br>
+              <%= t "coinpage.buy_page.info_describe2" %><br>
+              <%= t "coinpage.buy_page.info_describe3" %><br>
+              <%= t "coinpage.buy_page.info_describe4" %><br>
+              <%= t "coinpage.buy_page.info_describe5" %>
             </div>
           </div>
         </div>
         
         <div class="form-group">
-          <label for="input_current_coin" class="col-md-2 control-label">현재 코인</label>
+          <label for="input_current_coin" class="col-md-2 control-label"><%= t "coinpage.buy_page.current_coin" %></label>
           <div class="col-md-10">
             <div class="form-control">
-            <%= current_user.cash %>코인
+            <%= current_user.cash %><%= t "coin" %>
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="input_howmany_coins" class="col-md-2 control-label">구매 코인</label>
+          <label for="input_howmany_coins" class="col-md-2 control-label"><%= t "coinpage.buy_page.buying_coin" %></label>
           <div class="col-md-10">
             <select class="form-control" name="user[howmany_coins]" id="user_howmany_coins">
-              <option value="5coins">5 코인</option>
-              <option value="10coins">10 코인</option>
-              <option value="15coins">15 코인</option>
-              <option value="20coins">20 코인</option>
-              <option value="25coins">25 코인</option>
-              <option value="30coins">30 코인</option>
-              <option value="35coins">35 코인</option>
-              <option value="40coins">40 코인</option>
-              <option value="45coins">45 코인</option>
-              <option value="50coins">50 코인</option>
+              <option value="5coins">5 <%= t "coin" %></option>
+              <option value="10coins">10 <%= t "coin" %></option>
+              <option value="15coins">15 <%= t "coin" %></option>
+              <option value="20coins">20 <%= t "coin" %></option>
+              <option value="25coins">25 <%= t "coin" %></option>
+              <option value="30coins">30 <%= t "coin" %></option>
+              <option value="35coins">35 <%= t "coin" %></option>
+              <option value="40coins">40 <%= t "coin" %></option>
+              <option value="45coins">45 <%= t "coin" %></option>
+              <option value="50coins">50 <%= t "coin" %></option>
             </select>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="input_exchange_coin" class="col-md-2 control-label">입금 금액</label>
+          <label for="input_exchange_coin" class="col-md-2 control-label"><%= t "coinpage.buy_page.deposit_amount" %></label>
           <div class="col-md-10">
             <div class="box-control">
-            한국 금액 : 10,000 ₩(KRW, 원)<br>
-            중국 금액 : 10,000 ¥(Yuan, 위안) - 2016.04.03 환율 기준
+            <%= t "coinpage.buy_page.amount_describe1" %><br>
+            <%= t "coinpage.buy_page.amount_describe2" %>
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="input_howtopay_coins" class="col-md-2 control-label">구매 방식</label>
+          <label for="input_howtopay_coins" class="col-md-2 control-label"><%= t "coinpage.buy_page.deposit_method" %></label>
           <div class="col-md-10">
             <select class="form-control" name="user[howtopay_coins]" id="user_howtopay_coins">
-              <option value="bank_transfer">계좌이체</option>
-              <option value="alipay">알리페이</option>
+              <option value="bank_transfer"><%= t "coinpage.buy_page.account_transfer" %></option>
+              <option value="alipay"><%= t "coinpage.buy_page.alipay" %></option>
             </select>
           </div>
         </div>
 
 
         <div class="form-group">
-          <label for="input_account_information" class="col-md-2 control-label">입금계좌정보</label>
+          <label for="input_account_information" class="col-md-2 control-label"><%= t "coinpage.buy_page.account_info" %></label>
           <div class="col-md-10">
             <div class="box-control">
-            한국 계좌번호 : (농협) 000 - 00 - 000000<br>
-            알리페이 : 00000
+            <%= t "coinpage.buy_page.account_describe1" %><br>
+            <%= t "coinpage.buy_page.account_describe2" %>
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="input_buyer_information" class="col-md-2 control-label">입금자 성명/ID</label>
+          <label for="input_buyer_information" class="col-md-2 control-label"><%= t "coinpage.buy_page.name/id" %></label>
           <div class="col-md-10">
-            <input class="form-control" placeholder="계좌이체는 입금자 성명을, 알리페이는 입금자 아이디를 입력해 주세요." autofocus="autofocus" type="text" name="user[buyer_information]" id="user_buyerinformation" />
+            <input class="form-control" placeholder=(t "coinpage.buy_page.name/id_describe") autofocus="autofocus" type="text" name="user[buyer_information]" id="user_buyerinformation" />
           </div>
         </div>
 
         <div class="form-group">
-          <label for="input_buyer_account" class="col-md-2 control-label">입금자 계좌번호</label>
+          <label for="input_buyer_account" class="col-md-2 control-label"><%= t "coinpage.buy_page.account_number" %></label>
           <div class="col-md-10">
-            <input class="form-control" placeholder="코인 구매 금액을 입금할 계좌번호를 입력해 주세요" autofocus="autofocus" type="text" name="user[buyer_account]" id="user_buyeraccount" />
+            <input class="form-control" placeholder=(t "coinpage.buy_page.account_number_describe") autofocus="autofocus" type="text" name="user[buyer_account]" id="user_buyeraccount" />
           </div>
         </div>
 
         <div class="form-group">
           <div class="col-md-3 col-md-offset-2">
-            <input type="submit" name="commit" value="구매 신청" class="btn btn-primary"/>
+            <input type="submit" name="commit" value=(t "coinpage.buy_page.finish") class="btn btn-primary"/>
           </div>
         </div>
 

@@ -24,13 +24,13 @@
               <%= select_tag :gender, options_for_select([['선생님 성별', ''], ['남', 'Male'], ['여', 'Female']], params[:gender]), { :class => 'form-control' } %>
             </div>
             <div class="col-md-2" id="small-padding">
-              <%= submit_tag '검색', { :class => 'form-control btn btn-primary', :id => 'submit' } %>
+              <%= submit_tag (t "teacher.filter.browse"), { :class => 'form-control btn btn-primary', :id => 'submit' } %>
             </div>
             <div class="col-md-5" id="small-padding">
               <% if params[:sort_rating] == 'y' %>
-                <%= check_box_tag 'sort_rating', 'y', true %> 평점순으로 보기
+                <%= check_box_tag 'sort_rating', 'y', true %><%= t "teacher.filter.according_to_rate" %>
               <% else %>
-                <%= check_box_tag 'sort_rating', 'y', false %> 평점순으로 보기
+                <%= check_box_tag 'sort_rating', 'y', false %><%= t "teacher.filter.according_to_rate" %>
               <% end %>
             </div>
         </div>
@@ -40,7 +40,7 @@
       <div class="panel panel-default">
         <div class="panel-body" id="user_list">
           <% if @teachers.to_a == [] %>
-            <h4 style="color: #e15242;">일치하는 검색결과가 없습니다.</h4> 
+            <h4 style="color: #e15242;"><%= t "teacher.filter.no_result" %></h4> 
           <% else %>
             <% @teachers.each do |t| %>
               <ul class="media-list">
@@ -66,7 +66,7 @@
                             <% end %>
                           </div>
                           <div class="col-md-12">
-                            <h5><b>가르치는 언어 </b>
+                            <h5><b><%= t "teacher.info.language_to_teach" %></b>
                               <% if !t.lang_to_teach_1.nil? %>
                                 <%= t.lang_to_teach_1 %>(<%= t.rank_to_teach_1 %>)
                               <% end %>
@@ -76,7 +76,7 @@
                             </h5>
                           </div>
                           <div class="col-md-12">
-                            <h5><b>배우는 언어 </b>
+                            <h5><b><%= t "teacher.info.language_to_learn" %></b>
                               <% if !t.lang_to_learn_1.nil? %>
                                 <%= t.lang_to_learn_1 %>(<%= t.rank_to_learn_1 %>)
                               <% end %>
@@ -124,18 +124,18 @@
                         </div>
                         <div class="col-md-3">
                            <div class="col-md-12">
-                            <h5 class="text-center">강의수</h5>
-                            <h4 class="text-center"><b><%= t.teacher_info.lecture_number || 0 %>회</b></h4>
+                            <h5 class="text-center"><%= t "teacher.info.the_number_of_lessons" %></h5>
+                            <h4 class="text-center"><b><%= t.teacher_info.lecture_number || 0 %><%= t "teacher.info.times" %></b></h4>
                             <!--<span class="label label-primary"><%#= t.teacher_info.lecture_number %> Lessons finished </span>-->
                           </div>
                           <div class="col-md-12">
-                            <h5 class="text-center">강의 평점</h5>
-                            <h4 class="text-center"><b><%= t.teacher_info.rating || 0 %>점</b></h4>
+                            <h5 class="text-center"><%= t "teacher.info.rating" %></h5>
+                            <h4 class="text-center"><b><%= t.teacher_info.rating || 0 %><%= t "teacher.info.score" %></b></h4>
                             <!--<span class="label label-default "><%#= t.teacher_info.rating %>rating</span>-->
                           </div>
                           <div class="col-md-12">
-                            <h5 class="text-center">강의료</h5>
-                            <h4 class="text-center"><b><%= t.teacher_info.lecture_price || 0 %>코인</b></h4>
+                            <h5 class="text-center"><%= t "teacher.info.fee" %></h5>
+                            <h4 class="text-center"><b><%= t.teacher_info.lecture_price || 0 %><%= t "coin" %></b></h4>
                           </div>
                           <%# link_to "Book trial lesson", select_time_path(t), class: "btn btn-success btn-sm col-md-12" %>
                         </div>
@@ -161,7 +161,7 @@
     <!-- Right column -->
     <div class="col-md-3">
       <div class="panel panel-default">
-        <div class="panel-heading">랭디 이용 팁</div>
+        <div class="panel-heading"><%= t "teacher.tip" %></div>
         <div class="panel-body">
           <ul>
             <li>Welcome</li>

@@ -1,40 +1,37 @@
-<br><br><br>
 <div class="container">
-  <div class="row">
-    <div class="col-md-offset-3 col-md-6">
-      <div class="well">
+  <div class="panel panel-default col-md-offset-3 col-md-6">
+      <div class="panel-body">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
           <fieldset>
-            <legend>로그인</legend>
+            <legend><%= t "sign_in.title" %></legend>
             <div class="form-group">
-              <label for="inputEmail" class="col-md-3 control-label">이메일 아이디</label>
+              <label for="inputEmail" class="col-md-3 control-label"><%= t "sign_in.email_id" %></label>
               <div class="col-md-9">
-                <%= f.email_field :email, class: "form-control", :placeholder => "이메일 아이디", autofocus: true %>
+                <%= f.email_field :email, class: "form-control", :placeholder => (t "sign_in.email_id"), autofocus: true %>
               </div>
             </div>
             <div class="form-group">
-              <label for="inputPassword" class="col-md-3 control-label">비밀번호</label>
+              <label for="inputPassword" class="col-md-3 control-label"><%= t "sign_in.password" %></label>
               <div class="col-md-9">
-                <%= f.password_field :password, class: "form-control", :placeholder => "비밀번호", autocomplete: "off" %>
+                <%= f.password_field :password, class: "form-control", :placeholder => (t "sign_in.password"), autocomplete: "off" %>
                 <% if devise_mapping.rememberable? -%>
                   <div class="field">
                     <%= f.check_box :remember_me %>
-                    <%= f.label :아이디_기억하기 %>
+                    <%= f.label (t "sign_in.remember_id") %>
                   </div>
                 <% end -%>
               </div>
             </div>
             <div class="form-group">
-              <div class="col-lg-9 col-lg-offset-3">
-                <%= f.submit "로그인", :class => "btn btn-primary" %>
+              <div class="col-lg-3 col-lg-offset-3">
+                <%= f.submit (t "sign_in.finish"), :class => "btn btn-primary" %>
               </div>
-            </div>
-            <div class="col-lg-9 col-lg-offset-3">
-              <%= render "devise/shared/links" %>
+              <div class="col-lg-6">
+                <%= render "devise/shared/links" %>
+              </div>
             </div>
           </fieldset>
         <% end %>
       </div>
-    </div>
   </div>
 </div>
