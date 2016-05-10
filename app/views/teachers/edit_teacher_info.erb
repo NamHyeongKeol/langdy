@@ -1,7 +1,7 @@
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-body">
-      <legend>학습 프로필</legend>
+      <legend><%= t "edit_teaching.title" %></legend>
       <%= form_for :teacher_info, url: update_teacher_info_path, html: {id: "edit_form"} do |f| %>
         <!-- location 우선 제거, 필요 시 개인 프로필에 추가
         <div class="col-md-2" align="center">
@@ -34,44 +34,73 @@
         </div>
         -->
         
-        <!-- 줄바꿈용 div 우선 제거
-        <div class="col-md-12" style="height: 10px"></div>
+        <!--
+        <div class="form-group">
+          <#%= f.label :lecture_price, "강의료 설정", class: "col-md-2 control-label" %>
+          <div class="col-md-10">
+            <#%= f.text_area :lecture_price, :autocomplete => :off, :placeholder => "10코인 이하로 설정해주세요.", class: "form-control", rows: "1" %>
+          </div>
+        </div>  
         -->
         
         <div class="form-group">
-          <%= f.label :lecture_price, "강의료 설정", class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_area :lecture_price, :autocomplete => :off, :placeholder => "10코인 이하로 설정해주세요.", class: "form-control", rows: "1" %>
+          <label for="leture_price" class="col-md-2 control-label"><%= t "edit_teaching.fee" %></label>
+          <div class="col-md-4">
+            <select class="form-control" name="lecture_price">
+              <option value="0coin">0 <%= t "coin" %></option>
+              <option value="1coin">1 <%= t "coin" %></option>
+              <option value="2coins">2 <%= t "coin" %></option>
+              <option value="3coins">3 <%= t "coin" %></option>
+              <option value="4coins">4 <%= t "coin" %></option>
+              <option value="5coins">5 <%= t "coin" %></option>
+              <option value="6coins">6 <%= t "coin" %></option>
+              <option value="7coins">7 <%= t "coin" %></option>
+              <option value="8coins">8 <%= t "coin" %></option>
+              <option value="9coins">9 <%= t "coin" %></option>
+              <option value="10coins">10 <%= t "coin" %></option>
+            </select>
           </div>
-        </div>  
+          <div class="col-md-6" style="padding-top:7px">
+            <%= t "edit_teaching.fee_describe" %>
+          </div>  
+        </div>
         <div class="col-md-12" style="height:10px"></div>
         
         <div class="form-group">
-          <%= f.label :skype_id, "스카이프 아이디", class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_area :skype_id, autocomplete: "off", :placeholder => "스카이프 아이디", class: "form-control", rows: "1" %>
+          <%= f.label :skype_id, (t "edit_teaching.skype_id"), class: "col-md-2 control-label" %>
+          <div class="col-md-4">
+            <%= f.text_area :skype_id, autocomplete: "off", class: "form-control", rows: "1" %>
+          </div>
+          <div class="col-md-6" style="padding-top:7px">
+            <%= t "edit_teaching.skype_id_describe" %>
           </div>
         </div>
         <div class="col-md-12" style="height:10px"></div>
         
         <div class="form-group">
-          <%= f.label :brief_introduction, "짧은 소개글", class: "col-md-2 control-label" %>
+          <%= f.label :brief_introduction, (t "edit_teaching.brief_introduction"), class: "col-md-2 control-label" %>
           <div class="col-md-10">
-            <%= f.text_area :brief_introduction, :autocomplete => :off, :placeholder => "간단하게 자신을 소개해주세요. 선생님 검색 목록에 표시되는 소개글입니다.", class: "col-md-12 form-control", rows: "2" %>
+            <%= f.text_area :brief_introduction, :autocomplete => :off, class: "col-md-12 form-control", rows: "2" %>
+          </div>
+          <div class="col-md-10 col-md-offset-2">
+            <%= t "edit_teaching.brief_introduction_describe" %>
           </div>
         </div>
         <div class="col-md-12" style="height:10px"></div>
         
         <div class="form-group">
-          <%= f.label :introduction, "긴 소개글", class: "col-md-2 control-label" %>
+          <%= f.label :introduction, (t "edit_teaching.introduction"), class: "col-md-2 control-label" %>
           <div class="col-md-10">
-            <%= f.text_area :introduction, :autocomplete => :off, :placeholder => "강사로서의 장점, 강사로서의 경험, 강의 방식 등을 자세히 소개해 주세요. 강사 페이지에 표시되는 소개글입니다.", class: "col-md-12 form-control", rows: "15" %>
+            <%= f.text_area :introduction, :autocomplete => :off, class: "col-md-12 form-control", rows: "15" %>
+          </div>
+          <div class="col-md-10 col-md-offset-2">
+            <%= t "edit_teaching.introduction_describe" %>
           </div>
         </div>
         <div class="col-md-12" style="height:10px"></div>
         
         <div class="form-group">
-          <label class="col-md-2 control-label" style="padding-top:25px">강의시간표 설정</label>
+          <label class="col-md-2 control-label" style="padding-top:25px"><%= t "edit_teaching.timetable" %></label>
           <div class="col-md-10">
             <div class="row">
               <div class="col-md-12">
@@ -105,7 +134,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">시간표 설정</h4>
+                  <h4 class="modal-title" id="myModalLabel"><%= t "edit_teaching.timetable_modal.title" %></h4>
                 </div>
                 <div class="modal-body">
                   <div class="row">
@@ -113,7 +142,7 @@
                       <span id="wd_text"></span>
                     </div>
                     <div class="col-md-4">
-                      시작 시간
+                      <%= t "edit_teaching.timetable_modal.beginning_time" %>
                       <!--<input name="start-time" type="time" class="form-control">-->
                       <select name="start-time" class="form-control">
                         <option value="00:00">00:00</option>
@@ -167,7 +196,7 @@
                       </select>
                     </div>
                     <div class="col-md-4">
-                      종료 시간
+                      <%= t "edit_teaching.timetable_modal.ending_time" %>
                       <select name="end-time" class="form-control">
                       <!--<input name="end-time" type="time" class="form-control">-->
                         <option value="00:00">00:00</option>
@@ -223,17 +252,17 @@
                   </div>
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-                  <button id="schedule_add_btn" type="button" class="btn btn-primary" data-dismiss="modal" disabled>저장</button>
+                  <button type="button" class="btn btn-default" data-dismiss="modal"><%= t "edit_teaching.timetable_modal.cancel" %></button>
+                  <button id="schedule_add_btn" type="button" class="btn btn-primary" data-dismiss="modal" disabled><%= t "edit_teaching.timetable_modal.save" %></button>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-10 col-md-offset-2">강의 신청을 받을 수 있는 시간대를 요일별로 설정해주세요.</div>
+          <div class="col-md-10 col-md-offset-2"><%= t "edit_teaching.timetable_describe" %></div>
           <input type="hidden" name="week-day">
           <input type="hidden" name="schedules" id="schedules">
           <div class="col-md-10 col-md-offset-2" style="margin-top: 2rem; margin-bottom: 4rem;">
-            <%= f.submit "완료", class: "col-md-3 btn btn-primary" %>
+            <%= f.submit (t "edit_teaching.finish"), class: "col-md-3 btn btn-primary" %>
           </div>
         </div>
 

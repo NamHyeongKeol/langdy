@@ -155,7 +155,7 @@
               <div class="form-group">
                 <%= form_for :new_comment, url: teacher_comments_path(@teacher) do |f| %>
                   <div class="col-md-10">
-                    <%= f.text_field :text, class: "form-control", placeholder: "후기를 남겨주세요" %>
+                    <%= f.text_field :text, class: "form-control", placeholder: (t "teacher.info.comment_describe") %>
                   </div>
                   <div class="col-md-2">
                     <%= f.submit (t "teacher.info.finish"), class: "btn btn-default" %>
