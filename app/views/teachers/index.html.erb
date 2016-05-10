@@ -67,23 +67,26 @@
                           </div>
                           <div class="col-md-12">
                             <h5><b><%= t "teacher.info.language_to_teach" %></b>
-                              <% if !t.lang_to_teach_1.nil? %>
+                              <% if !t.lang_to_teach_1.nil? and t.lang_to_teach_1 != '' %>
                                 <%= t.lang_to_teach_1 %>(<%= t.rank_to_teach_1 %>)
                               <% end %>
-                              <% if !t.lang_to_teach_2.nil? %>
+                              <% if !t.lang_to_teach_2.nil? and t.lang_to_teach_2 != '' %>
                                 <%= t.lang_to_teach_2 %>(<%= t.rank_to_teach_2 %>)
+                              <% end %>
+                              <% if !t.lang_to_teach_3.nil? and t.lang_to_teach_3 != '' %>
+                                <%= t.lang_to_teach_3 %>(<%= t.rank_to_teach_3 %>)
                               <% end %>
                             </h5>
                           </div>
                           <div class="col-md-12">
                             <h5><b><%= t "teacher.info.language_to_learn" %></b>
-                              <% if !t.lang_to_learn_1.nil? %>
+                              <% if !t.lang_to_learn_1.nil? and t.lang_to_learn_1 != '' %>
                                 <%= t.lang_to_learn_1 %>(<%= t.rank_to_learn_1 %>)
                               <% end %>
-                              <% if !t.lang_to_learn_2.nil? %>
+                              <% if !t.lang_to_learn_2.nil? and t.lang_to_learn_2 != '' %>
                                 <%= t.lang_to_learn_2 %>(<%= t.rank_to_learn_2 %>)
                               <% end %>
-                              <% if !t.lang_to_learn_3.nil? %>
+                              <% if !t.lang_to_learn_3.nil? and t.lang_to_learn_3 != '' %>
                                 <%= t.lang_to_learn_3 %>(<%= t.rank_to_learn_3 %>)
                               <% end %>
                             </h5>
