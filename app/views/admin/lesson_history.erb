@@ -1,29 +1,69 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="list-group">
         <%= render partial: '/admin/menu_list' %>
       </div>
     </div>
 
-    <div class="col-md-9">
-      <% @lessons.each do |l| %>
-        선생님: <%= l.teacher.name %> | <%= l.teacher.email %><br>
-        학생: <%= l.student.name %> | <%= l.student.email %><br>
-        강의 시간: <%= l.get_period.html_safe %><br>
-        신청한 시간: <%= l.created_at.strftime('%c') %><br>
-        free수업: <%= l.is_free %><br>
-        커리큘럼: <%= l.course.lang %> | <%= l.course.rank %> | <%= l.course.subject %><br>
-        confirmed: <%= l.confirmed %><br>
-        state: <%= l.state %><br>
-        is_approved: <%= l.is_approved %><br>
-        is_canceled: <%= l.is_canceled %><br>
-        teacher_end: <%= l.teacher_end %><br>
-        student_end: <%= l.student_end %><br>
-        <hr>
-      <% end %>
+    <div class="panel panel-default col-md-10">
+      <!--<div class="panel-body">-->
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th style="width:6%">번호</th>
+              <th style="width:12%">신청 시각</th>
+              <th style="width:10%">선생님 이름<br>(이메일)</th>
+              <th style="width:10%">학생 이름<br>(이메일)</th>
+              <th style="width:12%">강의 시간</th>
+              <th style="width:22%">커리큘럼</th>
+              <th style="width:7%">선생<br>수락</th>
+              <th style="width:7%">선생<br>거절</th>
+              <th style="width:7%">강의<br>종료</th>
+              <th style="width:7%">지불<br>완료</th>
+            </tr>
+          </thead>
+            
+          <tbody>
+            <% @lessons.each do |l| %>
+            <tr>
+              <td style="width:6%"><%= l.id %></th>
+              <td style="width:12%"><%= l.created_at.strftime('%c') %></th>
+              <td style="width:10%"><%= l.teacher.name %><br>(<%= l.teacher.email %>)</th>
+              <td style="width:10%"><%= l.student.name %><br>(<%= l.student.email %>)</th>
+              <td style="width:12%"><%= l.get_period.html_safe %></th>
+              <td style="width:22%"><%= l.course.lang %><br><%= l.course.rank %><br><%= l.course.subject %></th>
+              <td style="width:7%"><%= l.is_approved %></th>
+              <td style="width:7%"><%= l.is_canceled %></th>
+              <td style="width:7%"><%= l.teacher_end %></th>
+              <td style="width:7%"><%= l.student_end %></th>
+            </tr>
+            <% end %>
+          </tbody>
+        <!--
+        <div class="col-md-10">
+          <th style="width:6%">확정</th>
+          <th style="width:6%"><#%= l.confirmed %></th>
+          <%# @lessons.each do |l| %>
+            선생님: <%#= l.teacher.name %> | <%#= l.teacher.email %><br>
+            학생: <%#= l.student.name %> | <%#= l.student.email %><br>
+            강의 시간: <%#= l.get_period.html_safe %><br>
+            신청한 시간: <%#= l.created_at.strftime('%c') %><br>
+            free수업: <%#= l.is_free %><br>
+            커리큘럼: <%#= l.course.lang %> | <%#= l.course.rank %> | <%#= l.course.subject %><br>
+            confirmed: <%#= l.confirmed %><br>
+            is_approved: <%#= l.is_approved %><br>
+            is_canceled: <%#= l.is_canceled %><br>
+            teacher_end: <%#= l.teacher_end %><br>
+            student_end: <%#= l.student_end %><br>
+            <hr>
+          <%# end %>
+        </div>
+        -->
+        </table>
+      <!--</div>-->
     </div>
-
+    
   </div>
 </div>
 
