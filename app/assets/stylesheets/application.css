@@ -52,7 +52,7 @@ a {
   background: #EEEEEE;
   border-top: 1px solid #999999;
   border-left: 1px solid #999999;
-  z-index: 9999;
+  z-index: 10;
 }
 
 /* 커리큘럽 Tree에서 상단 부분 이쁘게 */
