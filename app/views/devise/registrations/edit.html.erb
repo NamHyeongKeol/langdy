@@ -53,22 +53,22 @@
             <div class="form-group" id="lang_to_teach_1">
               <%= f.label :lang_to_teach_1, "가르칠 수 있는 언어", class: "col-md-3 control-label" %>
               <div class="col-md-3">
-                <%= f.select :lang_to_teach_1, options_for_select([['선택해주세요', nil], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_teach_1), {}, { :class => 'form-control' } %>
+                <%= f.select :lang_to_teach_1, options_for_select([['선택해주세요', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_teach_1), {}, { :class => 'form-control' } %>
               </div>
               <%= f.label :rank_to_teach_1, "수준", class: "col-md-1 control-label" %>
               <div class="col-md-5">
-                <%= f.select :rank_to_teach_1, options_for_select([['선택해주세요', nil], ['중상급', '중상급'], ['고급', '고급'], ['모국어', '모국어']], selected: current_user.rank_to_teach_1), {}, { :class => 'form-control' } %>
+                <%= f.select :rank_to_teach_1, options_for_select([['선택해주세요', ''], ['중상급', '중상급'], ['고급', '고급'], ['모국어', '모국어']], selected: current_user.rank_to_teach_1), {}, { :class => 'form-control' } %>
               </div>
             </div>
 
             <div class="form-group" id="lang_to_teach_2" style="display: none;">
               <div class="col-md-3">&nbsp;</div>
               <div class="col-md-3">
-                <%= f.select :lang_to_teach_2, options_for_select([['선택해주세요', nil], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_teach_2), {}, { :class => 'form-control' } %>
+                <%= f.select :lang_to_teach_2, options_for_select([['선택해주세요', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_teach_2), {}, { :class => 'form-control' } %>
               </div>
               <%= f.label :rank_to_teach_2, "수준", class: "col-md-1 control-label" %>
               <div class="col-md-4">
-                <%= f.select :rank_to_teach_2, options_for_select([['선택해주세요', nil], ['중상급', '중상급'], ['고급', '고급'], ['모국어', '모국어']], selected: current_user.rank_to_teach_2), {}, { :class => 'form-control' } %>
+                <%= f.select :rank_to_teach_2, options_for_select([['선택해주세요', ''], ['중상급', '중상급'], ['고급', '고급'], ['모국어', '모국어']], selected: current_user.rank_to_teach_2), {}, { :class => 'form-control' } %>
               </div>
               <div class="col-md-1">
                 <button type="button" class="btn btn-primary" onclick="removeItem(this, 'teach')">&times;</button>
@@ -78,11 +78,11 @@
             <div class="form-group" id="lang_to_teach_3" style="display: none;">
               <div class="col-md-3">&nbsp;</div>
               <div class="col-md-3">
-                <%= f.select :lang_to_teach_3, options_for_select([['선택해주세요', nil], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_teach_3), {}, { :class => 'form-control' } %>
+                <%= f.select :lang_to_teach_3, options_for_select([['선택해주세요', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_teach_3), {}, { :class => 'form-control' } %>
               </div>
               <%= f.label :rank_to_teach_3, "수준", class: "col-md-1 control-label" %>
               <div class="col-md-4">
-                <%= f.select :rank_to_teach_3, options_for_select([['선택해주세요', nil], ['중상급', '중상급'], ['고급', '고급'], ['모국어', '모국어']], selected: current_user.rank_to_teach_3), {}, { :class => 'form-control' } %>
+                <%= f.select :rank_to_teach_3, options_for_select([['선택해주세요', ''], ['중상급', '중상급'], ['고급', '고급'], ['모국어', '모국어']], selected: current_user.rank_to_teach_3), {}, { :class => 'form-control' } %>
               </div>
               <div class="col-md-1">
                 <button type="button" class="btn btn-primary" onclick="removeItem(this, 'teach')">&times;</button>
@@ -97,22 +97,22 @@
             <div class="form-group" id="lang_to_learn_1">
               <%= f.label :lang_to_learn_1, "배우고 싶은 언어", class: "col-md-3 control-label" %>
               <div class="col-md-3">
-                <%= f.select :lang_to_learn_1, options_for_select([['선택해주세요', nil], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_learn_1), {}, { :class => 'form-control' } %>
+                <%= f.select :lang_to_learn_1, options_for_select([['선택해주세요', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_learn_1), {}, { :class => 'form-control' } %>
               </div>
               <%= f.label :rank_to_learn_1, "수준", class: "col-md-1 control-label" %>
               <div class="col-md-5">
-                <%= f.select :rank_to_learn_1, options_for_select([['선택해주세요', nil], ['초급', '초급'], ['중하급', '중하급'], ['중상급', '중상급'], ['고급', '고급']], selected: current_user.rank_to_learn_1), {}, { :class => 'form-control' } %>
+                <%= f.select :rank_to_learn_1, options_for_select([['선택해주세요', ''], ['초급', '초급'], ['중하급', '중하급'], ['중상급', '중상급'], ['고급', '고급']], selected: current_user.rank_to_learn_1), {}, { :class => 'form-control' } %>
               </div>
             </div>
 
             <div class="form-group" id="lang_to_learn_2" style="display: none;">
               <div class="col-md-3">&nbsp;</div>
               <div class="col-md-3">
-                <%= f.select :lang_to_learn_2, options_for_select([['선택해주세요', nil], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_learn_2), {}, { :class => 'form-control' } %>
+                <%= f.select :lang_to_learn_2, options_for_select([['선택해주세요', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_learn_2), {}, { :class => 'form-control' } %>
               </div>
               <%= f.label :rank_to_learn_2, "수준", class: "col-md-1 control-label" %>
               <div class="col-md-4">
-                <%= f.select :rank_to_learn_2, options_for_select([['선택해주세요', nil], ['초급', '초급'], ['중하급', '중하급'], ['중상급', '중상급'], ['고급', '고급']], selected: current_user.rank_to_learn_2), {}, { :class => 'form-control' } %>
+                <%= f.select :rank_to_learn_2, options_for_select([['선택해주세요', ''], ['초급', '초급'], ['중하급', '중하급'], ['중상급', '중상급'], ['고급', '고급']], selected: current_user.rank_to_learn_2), {}, { :class => 'form-control' } %>
               </div>
               <div class="col-md-1">
                 <button type="button" class="btn btn-primary" onclick="removeItem(this, 'learn')">&times;</button>
@@ -122,11 +122,11 @@
             <div class="form-group" id="lang_to_learn_3" style="display: none;">
               <div class="col-md-3">&nbsp;</div>
               <div class="col-md-3">
-                <%= f.select :lang_to_learn_3, options_for_select([['선택해주세요', nil], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_learn_3), {}, { :class => 'form-control' } %>
+                <%= f.select :lang_to_learn_3, options_for_select([['선택해주세요', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_learn_3), {}, { :class => 'form-control' } %>
               </div>
               <%= f.label :rank_to_learn_3, "수준", class: "col-md-1 control-label" %>
               <div class="col-md-4">
-                <%= f.select :rank_to_learn_3, options_for_select([['선택해주세요', nil], ['초급', '초급'], ['중하급', '중하급'], ['중상급', '중상급'], ['고급', '고급']], selected: current_user.rank_to_learn_3), {}, { :class => 'form-control' } %>
+                <%= f.select :rank_to_learn_3, options_for_select([['선택해주세요', ''], ['초급', '초급'], ['중하급', '중하급'], ['중상급', '중상급'], ['고급', '고급']], selected: current_user.rank_to_learn_3), {}, { :class => 'form-control' } %>
               </div>
               <div class="col-md-1">
                 <button type="button" class="btn btn-primary" onclick="removeItem(this, 'learn')">&times;</button>
