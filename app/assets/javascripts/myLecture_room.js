@@ -4,8 +4,7 @@
  * @return {integer} course_id
  */
 function showSelectLesson() {
-  var selectedNode = $('#lesson_tree').treeview('getSelected');
-  var lesson_id = selectedNode[0].id;
+  var lesson_id = getSelectedLesson()[0].id;
 
   $.ajax({
     url: "/get_selected_lesson/"+lesson_id,
@@ -81,4 +80,27 @@ function evalLesson(lesson_id, rate, comment) {
       alert('Error occurred!');
     }
   });
+}
+
+/**
+ * 트리에서 선택된 레슨을 가져옴
+ * views.teachers.show에서도 같은 방식으로 가져오나 리턴이 달라 본 js에만 쓰이는 function.
+ * views.teachers.show에서도 아래 함수로 쓰도록 리팩토링하는 것을 권장함
+ * 
+ * @return {[Array] selectedNode} 선택된 노드를 반환
+ */
+function getSelectedLesson() {
+  var selectedLang = $('#tree-tab li.active a').attr("href");
+  var selectedNode;
+  
+  // 선택된 언어에 따라서 노드를 선택하여 가져옴
+  if (selectedLang == "#tree-ko") {
+    selectedNode = $('#tree-ko').treeview('getSelected');
+  } else if (selectedLang == "#tree-en") {
+    selectedNode = $('#tree-en').treeview('getSelected');
+  } else if (selectedLang == "#tree-ch") {
+    selectedNode = $('#tree-ch').treeview('getSelected');
+  } else {}
+  
+  return selectedNode;
 }
