@@ -87,7 +87,7 @@ function evalLesson(lesson_id, rate, comment) {
  * views.teachers.show에서도 같은 방식으로 가져오나 리턴이 달라 본 js에만 쓰이는 function.
  * views.teachers.show에서도 아래 함수로 쓰도록 리팩토링하는 것을 권장함
  * 
- * @return {[Array] selectedNode} 선택된 노드를 반환
+ * @return array 선택된 노드를 반환
  */
 function getSelectedLesson() {
   var selectedLang = $('#tree-tab li.active a').attr("href");
