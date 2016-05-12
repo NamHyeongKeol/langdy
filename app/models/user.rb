@@ -68,18 +68,18 @@ class User < ActiveRecord::Base
 
   	# 언어 고르면 랭크도 골라야만 통과
     def rank_should_not_be_nil
-      if !lang_to_teach_1.nil? and (rank_to_teach_1.nil? or rank_to_teach_1 == '')
+      if (lang_to_teach_1 != '') and (rank_to_teach_1.nil? or rank_to_teach_1 == '')
         errors.add('가르칠 수 있는 언어 1', '의 수준을 골라주세요.')
-      elsif !lang_to_teach_2.nil? and (rank_to_teach_2.nil? or rank_to_teach_2 == '')
+      elsif (lang_to_teach_2 != '') and (rank_to_teach_2.nil? or rank_to_teach_2 == '')
         errors.add('가르칠 수 있는 언어 2', '의 수준을 골라주세요.')
-      elsif !lang_to_teach_3.nil? and (rank_to_teach_3.nil? or rank_to_teach_3 == '')
+      elsif (lang_to_teach_3 != '') and (rank_to_teach_3.nil? or rank_to_teach_3 == '')
         errors.add('가르칠 수 있는 언어 3', '의 수준을 골라주세요.')
-      elsif !lang_to_learn_1.nil? and (rank_to_learn_1.nil? or rank_to_learn_1 == '')
+      elsif (lang_to_learn_1 != '') and (rank_to_learn_1.nil? or rank_to_learn_1 == '')
         errors.add('배우고 싶은 언어 1', '의 수준을 골라주세요.')
-      elsif !lang_to_learn_2.nil? and (rank_to_learn_2.nil? or rank_to_learn_2 == '')
+      elsif (lang_to_learn_2 != '') and (rank_to_learn_2.nil? or rank_to_learn_2 == '')
         errors.add('배우고 싶은 언어 2', '의 수준을 골라주세요.')
-      elsif !lang_to_learn_3.nil? and (rank_to_learn_3.nil? or rank_to_learn_3 == '')
+      elsif (lang_to_learn_3 != '') and (rank_to_learn_3.nil? or rank_to_learn_3 == '')
         errors.add('배우고 싶은 언어 3', '의 수준을 골라주세요.')
-	  end
+	    end
     end
 end
