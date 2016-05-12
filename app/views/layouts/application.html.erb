@@ -33,7 +33,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Site Language <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li <%= I18n.locale == :ko ? "class=active" : "" %> ><%= link_to "한국어", url_for( locale: 'ko') %></li>
-                  <li <%= I18n.locale == :en ? "class=active" : "" %> ><%= link_to "English", url_for( locale: 'en') %></li>
+                  <!--<li <%#= I18n.locale == :en ? "class=active" : "" %> ><%#= link_to "English", url_for( locale: 'en') %></li>-->
                   <li <%= I18n.locale == :ch ? "class=active" : "" %> ><%= link_to "中文", url_for( locale: 'ch') %></li>
                 </ul>
               </li>
