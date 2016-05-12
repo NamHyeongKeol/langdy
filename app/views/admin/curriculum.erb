@@ -1,22 +1,40 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
+    
+    <div class="col-md-2">
       <div class="list-group">
         <%= render partial: '/admin/menu_list' %>
       </div>
     </div>
-
-    <div class="col-md-9">
-      <%= form_for @course, url: '/admin/create_course' do |f| %>
-        <%= f.select :lang, ['Korean', 'English', 'Chinese'] %>
-        <%= f.select :rank, ['초급', '중급', '고급']%><br>
-        제목: <%= f.text_field :subject %><br>
-        내용: <%= f.text_area :content %>
-        <br>
-        <%= f.submit '작성'%>
-      <% end %>
+    
+    <div class="col-md-5">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <legend>커리큘럼 추가</legend>
+          <%= form_for @course, url: '/admin/create_course' do |f| %>
+            구분: 
+            <%= f.select :lang, ['Korean', 'English', 'Chinese'] %>
+            <%= f.select :rank, ['초급', '중급', '고급']%><br>
+            제목: <%= f.text_area :subject, cols: "57", rows: "1"%><br>
+            내용: <%= f.text_area :content, cols: "57", rows: "20" %>
+            <br>
+            <%= f.submit '작성'%>
+          <% end %>
+          
+        </div>
+      </div>
     </div>
-
+    
+    <div class="col-md-5">
+      <div class="panel panel-default">
+        <div class="panel-body">
+        <legend>커리큘럼 숨김, 삭제</legend>
+         
+          
+        </div>
+      </div>
+    </div>
+    
   </div>
 </div>
 

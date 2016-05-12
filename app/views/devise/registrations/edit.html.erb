@@ -1,7 +1,7 @@
 <div class="container">
   <div class="panel panel-default">
     <div class="panel-body">
-      <legend>개인 프로필</legend>
+      <legend><%= t "edit_personal.title" %></legend>
       <div class="row">  
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { method: :put, :class => "form-horizontal" }) do |f| %>
 
@@ -14,7 +14,7 @@
                   <img src=<%= current_user.profile_pic.url %> class="profile-pic" height="180" width="180"/>
                 <% end %>
               </div>
-              <label for="inputProfilePic" class="col-md-12 control-label" style="text-align:center;">프로필 사진</label>
+              <label for="inputProfilePic" class="col-md-12 control-label" style="text-align:center;"><%= t "edit_personal.photo" %></label>
               <div class="col-md-12 text-center">
                 <%= f.file_field :profile_pic, class: "form-control" %>
               </div>
@@ -23,23 +23,27 @@
 
           <div class=col-md-9>
             <div class="form-group">
-              <label for="inputName" class="col-md-3 control-label">이름</label>
-              <div class="col-md-9">
-                <%= f.text_field :name, class: "form-control", :placeholder => "이름", autofocus: true %>
+              <label for="inputName" class="col-md-3 control-label"><%= t "edit_personal.name" %></label>
+              <div class="col-md-3">
+                <%= f.text_field :name, class: "form-control", :placeholder =>( t "edit_personal.name" ), autofocus: true %>
+              </div>
+              <label for="inputGender" class="col-md-1 control-label"><%= t "edit_personal.gender" %></label>
+              <div class="col-md-5">
+                <%= f.select :gender, [( t "edit_personal.male" ), ( t "edit_personal.female" )], {}, { :class => 'form-control' } %>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="inputPassword" class="col-md-3 control-label">비밀번호</label>
+              <label for="inputPassword" class="col-md-3 control-label"><%= t "edit_personal.password_change" %></label>
               <div class="col-md-9">
-                <%= f.password_field :password, class: "form-control", :placeholder => "비밀번호를 바꾸지 않으려면 비워두세요.", autocomplete: "off" %>
+                <%= f.password_field :password, class: "form-control", :placeholder => ( t "edit_personal.password_change_describe" ), autocomplete: "off" %>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="inputPassword" class="col-md-3 control-label">비밀번호 확인</label>
+              <label for="inputPassword" class="col-md-3 control-label"><%= t "edit_personal.password_confirm" %></label>
               <div class="col-md-9">
-                <%= f.password_field :password_confirmation, class: "form-control", :placeholder => "비밀번호 확인", autocomplete: "off" %>
+                <%= f.password_field :password_confirmation, class: "form-control", :placeholder => ( t "edit_personal.password_change" ), autocomplete: "off" %>
               </div>
             </div>
 
@@ -49,113 +53,23 @@
                 -->
 				<!-- 사용자가 자신의 언어 nil로 바꾸려면 선택해주세요 선택해야 한다는 가이드 문구 필요함
 				-->
-
-            <div class="form-group" id="lang_to_teach_1">
-              <%= f.label :lang_to_teach_1, "가르칠 수 있는 언어", class: "col-md-3 control-label" %>
-              <div class="col-md-3">
-                <%= f.select :lang_to_teach_1, options_for_select([['선택해주세요', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_teach_1), {}, { :class => 'form-control' } %>
-              </div>
-              <%= f.label :rank_to_teach_1, "수준", class: "col-md-1 control-label" %>
-              <div class="col-md-5">
-                <%= f.select :rank_to_teach_1, options_for_select([['선택해주세요', ''], ['중상급', '중상급'], ['고급', '고급'], ['모국어', '모국어']], selected: current_user.rank_to_teach_1), {}, { :class => 'form-control' } %>
-              </div>
-            </div>
-
-            <div class="form-group" id="lang_to_teach_2" style="display: none;">
-              <div class="col-md-3">&nbsp;</div>
-              <div class="col-md-3">
-                <%= f.select :lang_to_teach_2, options_for_select([['선택해주세요', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_teach_2), {}, { :class => 'form-control' } %>
-              </div>
-              <%= f.label :rank_to_teach_2, "수준", class: "col-md-1 control-label" %>
-              <div class="col-md-4">
-                <%= f.select :rank_to_teach_2, options_for_select([['선택해주세요', ''], ['중상급', '중상급'], ['고급', '고급'], ['모국어', '모국어']], selected: current_user.rank_to_teach_2), {}, { :class => 'form-control' } %>
-              </div>
-              <div class="col-md-1">
-                <button type="button" class="btn btn-primary" onclick="removeItem(this, 'teach')">&times;</button>
-              </div>
-            </div>
-
-            <div class="form-group" id="lang_to_teach_3" style="display: none;">
-              <div class="col-md-3">&nbsp;</div>
-              <div class="col-md-3">
-                <%= f.select :lang_to_teach_3, options_for_select([['선택해주세요', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_teach_3), {}, { :class => 'form-control' } %>
-              </div>
-              <%= f.label :rank_to_teach_3, "수준", class: "col-md-1 control-label" %>
-              <div class="col-md-4">
-                <%= f.select :rank_to_teach_3, options_for_select([['선택해주세요', ''], ['중상급', '중상급'], ['고급', '고급'], ['모국어', '모국어']], selected: current_user.rank_to_teach_3), {}, { :class => 'form-control' } %>
-              </div>
-              <div class="col-md-1">
-                <button type="button" class="btn btn-primary" onclick="removeItem(this, 'teach')">&times;</button>
-              </div>
-            </div>
-
-            <div class="row" id="add_lang_to_teach">
-              <a class="col-md-2 col-md-offset-3" style="height: 30px; cursor: pointer;">+ 언어 추가하기</a>
-              <div class="col-md-7"></div>
-            </div>
-
-            <div class="form-group" id="lang_to_learn_1">
-              <%= f.label :lang_to_learn_1, "배우고 싶은 언어", class: "col-md-3 control-label" %>
-              <div class="col-md-3">
-                <%= f.select :lang_to_learn_1, options_for_select([['선택해주세요', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_learn_1), {}, { :class => 'form-control' } %>
-              </div>
-              <%= f.label :rank_to_learn_1, "수준", class: "col-md-1 control-label" %>
-              <div class="col-md-5">
-                <%= f.select :rank_to_learn_1, options_for_select([['선택해주세요', ''], ['초급', '초급'], ['중하급', '중하급'], ['중상급', '중상급'], ['고급', '고급']], selected: current_user.rank_to_learn_1), {}, { :class => 'form-control' } %>
-              </div>
-            </div>
-
-            <div class="form-group" id="lang_to_learn_2" style="display: none;">
-              <div class="col-md-3">&nbsp;</div>
-              <div class="col-md-3">
-                <%= f.select :lang_to_learn_2, options_for_select([['선택해주세요', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_learn_2), {}, { :class => 'form-control' } %>
-              </div>
-              <%= f.label :rank_to_learn_2, "수준", class: "col-md-1 control-label" %>
-              <div class="col-md-4">
-                <%= f.select :rank_to_learn_2, options_for_select([['선택해주세요', ''], ['초급', '초급'], ['중하급', '중하급'], ['중상급', '중상급'], ['고급', '고급']], selected: current_user.rank_to_learn_2), {}, { :class => 'form-control' } %>
-              </div>
-              <div class="col-md-1">
-                <button type="button" class="btn btn-primary" onclick="removeItem(this, 'learn')">&times;</button>
-              </div>
-            </div>
-
-            <div class="form-group" id="lang_to_learn_3" style="display: none;">
-              <div class="col-md-3">&nbsp;</div>
-              <div class="col-md-3">
-                <%= f.select :lang_to_learn_3, options_for_select([['선택해주세요', ''], ['English', 'English'], ['Korean', 'Korean'], ['Chinese', 'Chinese']], selected: current_user.lang_to_learn_3), {}, { :class => 'form-control' } %>
-              </div>
-              <%= f.label :rank_to_learn_3, "수준", class: "col-md-1 control-label" %>
-              <div class="col-md-4">
-                <%= f.select :rank_to_learn_3, options_for_select([['선택해주세요', ''], ['초급', '초급'], ['중하급', '중하급'], ['중상급', '중상급'], ['고급', '고급']], selected: current_user.rank_to_learn_3), {}, { :class => 'form-control' } %>
-              </div>
-              <div class="col-md-1">
-                <button type="button" class="btn btn-primary" onclick="removeItem(this, 'learn')">&times;</button>
-              </div>
-            </div>
-
-            <div class="row" id="add_lang_to_learn">
-              <a class="col-md-2 col-md-offset-3" style="height: 30px; cursor: pointer;">+ 언어 추가하기</a>
-              <div class="col-md-7"></div>
-            </div>
-
+            
+            
+            <div class="col-md-9 col-md-offset-3 text-center" style="height:30px"><%= t "edit_personal.password_info" %></div>
+            
             <div class="form-group">
-              <label for="currentPassword" class="col-md-3 control-label">현재 비밀번호</label>
+              <label for="currentPassword" class="col-md-3 control-label"><%= t "edit_personal.current_password" %></label>
               <div class="col-md-9">
-                <%= f.password_field :current_password, class: "form-control", :placeholder => "본인 확인을 위해 현재 비밀 번호를 입력하세요.", autocomplete: "off" %>
+                <%= f.password_field :current_password, class: "form-control", :placeholder => ( t "edit_personal.current_password_describe" ), autocomplete: "off" %>
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="inputGender" class="col-md-3 control-label">성별</label>
-              <div class="col-md-9">
-                <%= f.select :gender, ['Male', 'Female'], {}, { :class => 'form-control' } %>
-              </div>
-            </div>
+
 
             <div class="form-group">
               <div class="col-md-4 col-md-offset-3">
-                <%= f.submit "완료", :class => "col-md-6 btn btn-primary" %>
-                <%= link_to '탈퇴신청', disable_user_path, id: 'disable_btn', class: "btn btn-primary col-md-6" %>
+                <%= f.submit ( t "edit_personal.finish" ), :class => "col-md-6 btn btn-primary" %>
+                <%= link_to ( t "edit_personal.withdrawal" ), disable_user_path, id: 'disable_btn', class: "btn btn-primary col-md-6" %>
               </div>
               <div class="col-md-5">
                 <%= devise_error_messages! %>
