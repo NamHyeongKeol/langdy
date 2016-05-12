@@ -63,7 +63,7 @@ ko:
       take_lesson: "강의받기"
       give_lesson: "강의하기"
       unconfirmed: "미확정"
-      confirmed: "확정"
+      confirmed: "확정됨"
     lesson:
       requiring: "내가 신청한 강의"
       required: "나에게 신청된 강의"
