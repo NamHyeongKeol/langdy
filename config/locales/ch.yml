@@ -68,7 +68,7 @@ ch:
       requiring: "已申请的课程"
       required: "向我申请的课程"
       requiring_message: "已向...申请课程"
-      required_message: "..向我申请了课程"
+      required_message: "向我申请了课程"
       required_accept: "接受"
       required_reject: "拒接"
       time: "上课时间"

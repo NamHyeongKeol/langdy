@@ -77,6 +77,97 @@
         </div>
         <div class="col-md-12" style="height:10px"></div>
         
+        <div class="col-md-9 col-md-offset-3 text-center" style="height:30px"><%= t "edit_personal.delete_info" %></div>
+              
+        <div class="form-group" id="lang_to_teach_1">
+          <%= f.label :lang_to_teach_1, ( t "edit_personal.language_to_teach" ), class: "col-md-3 control-label" %>
+          <div class="col-md-3">
+            <%= f.select :lang_to_teach_1, options_for_select([[( t "edit_personal.select" ), ''], ['English', 'English'], ['한국어', 'Korean'], ['中文', 'Chinese']], selected: current_user.lang_to_teach_1), {}, { :class => 'form-control' } %>
+          </div>
+          <%= f.label :rank_to_teach_1, ( t "edit_personal.level" ), class: "col-md-1 control-label" %>
+          <div class="col-md-5">
+            <%= f.select :rank_to_teach_1, options_for_select([[( t "edit_personal.level" ), ''], [( t "edit_personal.level3" ), '중상급'], [( t "edit_personal.level4" ), '고급'], [( t "edit_personal.level5" ), '모국어']], selected: current_user.rank_to_teach_1), {}, { :class => 'form-control' } %>
+          </div>
+        </div>
+
+        <div class="form-group" id="lang_to_teach_2" style="display: none;">
+          <div class="col-md-3">&nbsp;</div>
+          <div class="col-md-3">
+            <%= f.select :lang_to_teach_2, options_for_select([[( t "edit_personal.select" ), ''], ['English', 'English'], ['한국어', 'Korean'], ['中文', 'Chinese']], selected: current_user.lang_to_teach_2), {}, { :class => 'form-control' } %>
+          </div>
+          <%= f.label :rank_to_teach_2, ( t "edit_personal.level" ), class: "col-md-1 control-label" %>
+          <div class="col-md-4">
+            <%= f.select :rank_to_teach_2, options_for_select([[( t "edit_personal.select" ), ''], [( t "edit_personal.level3" ), '중상급'], [( t "edit_personal.level4" ), '고급'], [( t "edit_personal.level5" ), '모국어']], selected: current_user.rank_to_teach_2), {}, { :class => 'form-control' } %>
+          </div>
+          <div class="col-md-1">
+            <button type="button" class="btn btn-primary" onclick="removeItem(this, 'teach')">&times;</button>
+          </div>
+        </div>
+
+        <div class="form-group" id="lang_to_teach_3" style="display: none;">
+          <div class="col-md-3">&nbsp;</div>
+          <div class="col-md-3">
+            <%= f.select :lang_to_teach_3, options_for_select([[( t "edit_personal.select" ), ''], ['English', 'English'], ['한국어', 'Korean'], ['中文', 'Chinese']], selected: current_user.lang_to_teach_3), {}, { :class => 'form-control' } %>
+          </div>
+          <%= f.label :rank_to_teach_3, ( t "edit_personal.level" ), class: "col-md-1 control-label" %>
+          <div class="col-md-4">
+            <%= f.select :rank_to_teach_3, options_for_select([[( t "edit_personal.select" ), ''], [( t "edit_personal.level3" ), '중상급'], [( t "edit_personal.level4" ), '고급'], [( t "edit_personal.level5" ), '모국어']], selected: current_user.rank_to_teach_3), {}, { :class => 'form-control' } %>
+          </div>
+          <div class="col-md-1">
+            <button type="button" class="btn btn-primary" onclick="removeItem(this, 'teach')">&times;</button>
+          </div>
+        </div>
+
+        <div class="row" id="add_lang_to_teach">
+          <a class="col-md-2 col-md-offset-3" style="height: 30px; cursor: pointer;"><%= t "edit_personal.add_language" %></a>
+          <div class="col-md-7"></div>
+        </div>
+
+        <div class="form-group" id="lang_to_learn_1">
+          <%= f.label :lang_to_learn_1, ( t "edit_personal.language_to_learn" ), class: "col-md-3 control-label" %>
+          <div class="col-md-3">
+            <%= f.select :lang_to_learn_1, options_for_select([[( t "edit_personal.select" ), ''], ['English', 'English'], ['한국어', 'Korean'], ['中文', 'Chinese']], selected: current_user.lang_to_learn_1), {}, { :class => 'form-control' } %>
+          </div>
+          <%= f.label :rank_to_learn_1, ( t "edit_personal.level" ), class: "col-md-1 control-label" %>
+          <div class="col-md-5">
+            <%= f.select :rank_to_learn_1, options_for_select([[( t "edit_personal.select" ), ''], [( t "edit_personal.level1" ), '초급'], [( t "edit_personal.level2" ), '중하급'], [( t "edit_personal.level3" ), '중상급'], [( t "edit_personal.level4" ), '고급']], selected: current_user.rank_to_learn_1), {}, { :class => 'form-control' } %>
+          </div>
+        </div>
+
+        <div class="form-group" id="lang_to_learn_2" style="display: none;">
+          <div class="col-md-3">&nbsp;</div>
+          <div class="col-md-3">
+            <%= f.select :lang_to_learn_2, options_for_select([[( t "edit_personal.select" ), ''], ['English', 'English'], ['한국어', 'Korean'], ['中文', 'Chinese']], selected: current_user.lang_to_learn_2), {}, { :class => 'form-control' } %>
+          </div>
+          <%= f.label :rank_to_learn_2, ( t "edit_personal.level" ), class: "col-md-1 control-label" %>
+          <div class="col-md-4">
+            <%= f.select :rank_to_learn_2, options_for_select([[( t "edit_personal.select" ), ''], [( t "edit_personal.level1" ), '초급'], [( t "edit_personal.level2" ), '중하급'], [( t "edit_personal.level3" ), '중상급'], [( t "edit_personal.level4" ), '고급']], selected: current_user.rank_to_learn_2), {}, { :class => 'form-control' } %>
+          </div>
+          <div class="col-md-1">
+            <button type="button" class="btn btn-primary" onclick="removeItem(this, 'learn')">&times;</button>
+          </div>
+        </div>
+
+        <div class="form-group" id="lang_to_learn_3" style="display: none;">
+          <div class="col-md-3">&nbsp;</div>
+          <div class="col-md-3">
+            <%= f.select :lang_to_learn_3, options_for_select([[( t "edit_personal.select" ), ''], ['English', 'English'], ['한국어', 'Korean'], ['中文', 'Chinese']], selected: current_user.lang_to_learn_3), {}, { :class => 'form-control' } %>
+          </div>
+          <%= f.label :rank_to_learn_3, ( t "edit_personal.level" ), class: "col-md-1 control-label" %>
+          <div class="col-md-4">
+            <%= f.select :rank_to_learn_3, options_for_select([[( t "edit_personal.select" ), ''], [( t "edit_personal.level1" ), '초급'], [( t "edit_personal.level2" ), '중하급'], [( t "edit_personal.level3" ), '중상급'], [( t "edit_personal.level4" ), '고급']], selected: current_user.rank_to_learn_3), {}, { :class => 'form-control' } %>
+          </div>
+          <div class="col-md-1">
+            <button type="button" class="btn btn-primary" onclick="removeItem(this, 'learn')">&times;</button>
+          </div>
+        </div>
+
+        <div class="row" id="add_lang_to_learn">
+          <a class="col-md-2 col-md-offset-3" style="height: 30px; cursor: pointer;"><%= t "edit_personal.add_language" %></a>
+          <div class="col-md-7"></div>
+        </div>
+        
+        
         <div class="form-group">
           <%= f.label :brief_introduction, (t "edit_teaching.brief_introduction"), class: "col-md-2 control-label" %>
           <div class="col-md-10">

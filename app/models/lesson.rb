@@ -24,9 +24,9 @@ class Lesson < ActiveRecord::Base
   def get_confirm_student
     result = ""
     if self.confirmed
-      result = "확정됨"
+      result = ' <button class="btn btn-primary">확정됨</button> '
     else
-      result = "미확정"
+      result = ' <button class="btn btn-default">미확정</button> '
     end
     return result
   end
@@ -34,9 +34,10 @@ class Lesson < ActiveRecord::Base
   def get_confirm_teacher
     result = ""
     if self.confirmed
-      result = "확정됨"
+      result = ' <button class="btn btn-primary">' + I18n.t("my_page.lesson.accepted") + '</button> '
+      # 거절함 추가 필요 #
     else
-      result = result + ' <button data-confirmed="true" class="confirm_btn btn btn-info">승인</button> <button data-confirmed="false" class="confirm_btn btn btn-primary">거절</button>'
+      result = result + ' <button data-confirmed="true" class="confirm_btn btn btn-primary">' + I18n.t("my_page.lesson.required_accept") + '</button> <button data-confirmed="false" class="confirm_btn btn btn-default">' + I18n.t("my_page.lesson.required_reject") + '</button>'
     end
     return result
   end
