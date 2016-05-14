@@ -54,7 +54,7 @@
 				<!-- 사용자가 자신의 언어 nil로 바꾸려면 선택해주세요 선택해야 한다는 가이드 문구 필요함
 				-->
             <div class="col-md-9 col-md-offset-3 text-center" style="height:30px"><%= t "edit_personal.delete_info" %></div>
-              
+
             <div class="form-group" id="lang_to_teach_1">
               <%= f.label :lang_to_teach_1, ( t "edit_personal.language_to_teach" ), class: "col-md-3 control-label" %>
               <div class="col-md-3">
@@ -100,7 +100,7 @@
             </div>
 
             <div class="form-group" id="lang_to_learn_1">
-              <%= f.label :lang_to_learn_1, ( t "edit_personal.language_to_teach" ), class: "col-md-3 control-label" %>
+              <%= f.label :lang_to_learn_1, ( t "edit_personal.language_to_learn" ), class: "col-md-3 control-label" %>
               <div class="col-md-3">
                 <%= f.select :lang_to_learn_1, options_for_select([[( t "edit_personal.select" ), ''], ['English', 'English'], ['한국어', 'Korean'], ['中文', 'Chinese']], selected: current_user.lang_to_learn_1), {}, { :class => 'form-control' } %>
               </div>
@@ -143,12 +143,14 @@
               <div class="col-md-7"></div>
             </div>
 
-            <div class="form-group">
-              <label for="currentPassword" class="col-md-3 control-label"><%= t "edit_personal.current_password" %></label>
+            <div class="col-md-9 col-md-offset-3 text-center" style="height:30px"><%= t "edit_personal.password_info" %></div>
+
+            <!--div class="form-group">
+              <label for="currentPassword" class="col-md-3 control-label"><%#= t "edit_personal.current_password" %></label>
               <div class="col-md-9">
-                <%= f.password_field :current_password, class: "form-control", :placeholder => ( t "edit_personal.current_password_describe" ), autocomplete: "off" %>
+                <%#= f.password_field :current_password, class: "form-control", :placeholder => ( t "edit_personal.current_password_describe" ), autocomplete: "off" %>
               </div>
-            </div>
+            </div-->
 
 
 

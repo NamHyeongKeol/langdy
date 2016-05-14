@@ -35,8 +35,8 @@ class TeachersController < ApplicationController
 		# 2. skype_id가 not null
 		# 3. Order는 로그인 횟수
 		########################
-		@teachers = User.joins(:teacher_info).where(is_teacher: true).where("is_teacher = ? AND users.skype_id is NOT NULL", true).order(sign_in_count: :desc)
-		
+		@teachers = User.joins(:teacher_info).where(is_teacher: true).where("lang_to_teach_1 != ? OR lang_to_teach_2 != ? OR lang_to_teach_3 != ?", "", "", "").where("is_teacher = ? AND users.skype_id is NOT NULL", true).order(sign_in_count: :desc)
+
 		@teachers = @teachers.paginate(page: params[:page], per_page: 5)
 	end
 
@@ -47,7 +47,7 @@ class TeachersController < ApplicationController
 		else
 			@teachers = User.joins(:teacher_info).where(is_teacher: true).where("is_teacher = ? AND users.skype_id is NOT NULL", true)
 		end
-		
+
 		# 성별
 		if !params[:gender].nil? && !params[:gender].empty?
 			@teachers = @teachers.where(gender: params[:gender])
@@ -57,7 +57,7 @@ class TeachersController < ApplicationController
 		if !params[:language].nil? && !params[:language].empty?
 			@teachers = @teachers.where("lang_to_teach_1 = ? OR lang_to_teach_2 = ? OR lang_to_teach_3 = ?", params[:language], params[:language], params[:language])
 		end
-		
+
 		# 강의 요일
 		if !params[:day_of_week].nil? && !params[:day_of_week].empty?
 			@teachers = @teachers.where(available_times: { week_day: params[:day_of_week] })

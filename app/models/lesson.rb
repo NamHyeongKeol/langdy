@@ -23,9 +23,9 @@ class Lesson < ActiveRecord::Base
   def get_confirm_student
     result = ""
     if self.confirmed
-      result = "확정됨"
+      result = I18n.t("my_page.timetable.confirmed") #확정됨
     else
-      result = "미확정"
+      result = I18n.t("my_page.timetable.unconfirmed") #미확정
     end
     return result
   end
@@ -33,9 +33,9 @@ class Lesson < ActiveRecord::Base
   def get_confirm_teacher
     result = ""
     if self.confirmed
-      result = "확정됨"
+      result = I18n.t("my_page.timetable.confirmed") #확정됨
     else
-      result = result + ' <button data-confirmed="true" class="confirm_btn btn btn-info">승인</button> <button data-confirmed="false" class="confirm_btn btn btn-primary">거절</button>'
+      result = result + ' <button data-confirmed="true" class="confirm_btn btn btn-info">' + I18n.t("my_page.lesson.required_accept") + '</button> <button data-confirmed="false" class="confirm_btn btn btn-primary">' + I18n.t("my_page.lesson.required_reject") + '</button>' #수락, 거절
     end
     return result
   end
@@ -49,9 +49,9 @@ class Lesson < ActiveRecord::Base
     end
     result = result + '<span id="confirm_span' + self.id.to_s + '">'
     if self.confirmed
-      result = result + " | 확정됨"
+      result = result + " | " + I18n.t("my_page.timetable.confirmed") #확정됨
     else
-      result = result + " | 미확정"
+      result = result + " | " + I18n.t("my_page.timetable.unconfirmed") #미확정
     end
     result = result + '</span>'
     return result.html_safe
@@ -66,9 +66,9 @@ class Lesson < ActiveRecord::Base
     end
     result = result + '<span data-lesson_id="' + self.id.to_s + '" id="confirm_span' + self.id.to_s + '">'
     if self.confirmed
-      result = result + " | 확정됨"
+      result = result + " | " + I18n.t("my_page.timetable.confirmed") #확정됨
     else
-      result = result + ' <button data-confirmed="true" class="confirm_btn btn btn-info">승인</button> <button data-confirmed="false" class="confirm_btn btn btn-primary">거절</button>'
+      result = result + ' <button data-confirmed="true" class="confirm_btn btn btn-info">' + I18n.t("my_page.lesson.required_accept") + '</button> <button data-confirmed="false" class="confirm_btn btn btn-primary">' + I18n.t("my_page.lesson.required_accept") + '</button>' #수락, 거절
     end
     result = result + '</span>'
     return result.html_safe
@@ -77,11 +77,11 @@ class Lesson < ActiveRecord::Base
   def get_event_text(user)
     string = ''
     if self.teacher == user
-      string = string + self.student.name + ' 강의하기'
+      string = string + self.student.name + I18n.t("my_page.timetable.give_lesson") #강의하기
     else
-      string = string + self.teacher.name + ' 강의받기'
+      string = string + self.teacher.name + I18n.t("my_page.timetable.take_lesson") #강의받기
     end
-    unless self.confirmed then string = string + ' 미확정' end
+    unless self.confirmed then string = string + I18n.t("my_page.timetable.unconfirmed") end #미확정
     return string
   end
 end
