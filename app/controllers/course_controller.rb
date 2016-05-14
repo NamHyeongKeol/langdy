@@ -8,7 +8,7 @@ class CourseController < ApplicationController
     end
 
     Course.where(lang: params[:lang]).each do |item|
-      tag = item.getTag(current_user)
+      tag = item.getTag(current_user, params[:is_student])
       courses[item.getIndex][:nodes] << {id: item.id, text: item.subject, tags: tag, selectable: item.getSelectable(tag[0],params[:mi_selectable], params[:ye_selectable], params[:wa_selectable])}
     end
     
