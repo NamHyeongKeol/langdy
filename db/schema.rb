@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160501121803) do
+ActiveRecord::Schema.define(version: 20160510123442) do
 
   create_table "available_times", force: :cascade do |t|
     t.integer  "user_id"
@@ -83,10 +83,10 @@ ActiveRecord::Schema.define(version: 20160501121803) do
     t.integer  "course_id"
     t.boolean  "confirmed",   default: false
     t.string   "state"
-    t.boolean  "is_approved"
-    t.boolean  "is_canceled"
-    t.boolean  "teacher_end"
-    t.boolean  "student_end"
+    t.boolean  "is_approved", default: false
+    t.boolean  "is_canceled", default: false
+    t.boolean  "teacher_end", default: false
+    t.boolean  "student_end", default: false
     t.boolean  "is_expired",  default: false
     t.boolean  "is_rejected", default: false
   end
