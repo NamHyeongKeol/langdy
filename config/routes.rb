@@ -11,8 +11,11 @@ Rails.application.routes.draw do
 	get 'admin/feedback' => 'admin#feedback', as: 'admin_feedback'
   get 'admin/set_cash' => 'admin#set_cash'
   post 'admin/set_cash_proc/:id' => 'admin#set_cash_proc', as: 'set_cash'
-  get 'admin/curriculum' => 'admin#curriculum'
+  get 'admin/curriculum(/:course_id)' => 'admin#curriculum', as: 'admin_curriculum'
+  get 'admin/curriculum_destroy(/:course_id)' => 'admin#destroy', as: 'admin_curriculum_destroy'
+  get 'admin/curriculum_hide(/:course_id)' => 'admin#hide', as: 'admin_curriculum_hide'
   post 'admin/create_course' => 'admin#create_course'
+  post 'admin/update(/:course_id)' => 'admin#update'
   get 'admin/lesson_history' => 'admin#lesson_history'
 
 	get 'apply_for_teacher' => 'teachers#apply', as: 'apply_for_teacher'

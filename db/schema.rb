@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512104253) do
+ActiveRecord::Schema.define(version: 20160512130459) do
 
   create_table "available_times", force: :cascade do |t|
     t.integer  "user_id"
@@ -50,10 +50,12 @@ ActiveRecord::Schema.define(version: 20160512104253) do
   add_index "coin_histories", ["user_id"], name: "index_coin_histories_on_user_id"
 
   create_table "courses", force: :cascade do |t|
-    t.string "lang"
-    t.string "rank"
-    t.string "subject"
-    t.text   "content"
+    t.string  "lang"
+    t.string  "rank"
+    t.string  "subject"
+    t.text    "content"
+    t.boolean "inactive", default: false
+    t.boolean "hide",     default: false
   end
 
   create_table "evaluations", force: :cascade do |t|

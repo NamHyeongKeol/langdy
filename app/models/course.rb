@@ -46,4 +46,8 @@ class Course < ActiveRecord::Base
       return wa == "true"
     end
   end
+
+  def self.default_scope
+    where inactive: false
+  end
 end

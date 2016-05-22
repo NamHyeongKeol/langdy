@@ -9,26 +9,47 @@
     
     <div class="col-md-5">
       <div class="panel panel-default">
-        <div class="panel-body">
-          <legend>커리큘럼 추가</legend>
-          <%= form_for @course, url: '/admin/create_course' do |f| %>
-            구분: 
-            <%= f.select :lang, ['Korean', 'English', 'Chinese'] %>
-            <%= f.select :rank, ['초급', '중급', '고급']%><br>
-            제목: <%= f.text_area :subject, cols: "57", rows: "1"%><br>
-            내용: <%= f.text_area :content, cols: "57", rows: "20" %>
-            <br>
-            <%= f.submit '작성'%>
-          <% end %>
-        </div>
+        <% if !@modifing_course.nil? %>
+          <div class="panel-body">
+            <legend>커리큘럼 수정</legend>
+            <%= form_for @course, url: ('/admin/update/%d' % @modifing_course.id) do |f| %>
+              구분: 
+              <%= f.select :lang, ['Korean', 'English', 'Chinese'], selected: @modifing_course.lang %>
+              <%= f.select :rank, ['초급', '중급', '고급'], selected: @modifing_course.rank %><br>
+              제목: <%= f.text_area :subject, cols: "57", rows: "1", value: @modifing_course.subject %><br>
+              내용: <%= f.text_area :content, cols: "57", rows: "20", value: @modifing_course.content %>
+              <br>
+              <%= f.submit '작성' %>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="panel-body">
+            <legend>커리큘럼 추가</legend>
+            <%= form_for @course, url: '/admin/create_course' do |f| %>
+              구분: 
+              <%= f.select :lang, ['Korean', 'English', 'Chinese'] %>
+              <%= f.select :rank, ['초급', '중급', '고급']%><br>
+              제목: <%= f.text_area :subject, cols: "57", rows: "1" %><br>
+              내용: <%= f.text_area :content, cols: "57", rows: "20" %>
+              <br>
+              <%= f.submit '작성' %>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
 
     <div class="col-md-5">
       <div class="panel panel-default">
         <div class="panel-body">
-        <legend>커리큘럼 숨김, 삭제</legend>
-
+        <legend>커리큘럼 숨김, 수정, 삭제</legend>
+          <% @courses_list.each do |c| %>
+            <p>
+              <a href="/admin/curriculum/<%= c.id %>"><%= c.lang + ' ' + c.rank + ' ' + c.subject %></a>
+              <a href="/admin/curriculum_hide/<%= c.id %>">숨김</a>
+              <a href="/admin/curriculum_destroy/<%= c.id %>">삭제</a>
+            </p>
+          <% end%>
 
         </div>
       </div>

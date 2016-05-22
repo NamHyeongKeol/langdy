@@ -54,6 +54,26 @@ class AdminController < ApplicationController
 
   def curriculum
     @course = Course.new
+    @modifing_course = nil
+    if !params[:course_id].nil?
+      @modifing_course = Course.find(params[:course_id])
+    end
+    @courses_list = Course.all.to_a
+  end
+
+  def update
+    Course.find(params[:course_id]).update(course_params)
+    redirect_to :back
+  end
+
+  def hide
+    Course.find(params[:course_id]).update(hide: true)
+    redirect_to admin_curriculum_path
+  end
+
+  def destroy
+    Course.find(params[:course_id]).update(inactive: true)
+    redirect_to admin_curriculum_path
   end
 
   def create_course
