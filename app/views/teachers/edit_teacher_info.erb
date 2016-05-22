@@ -44,21 +44,19 @@
         -->
         
         <div class="form-group">
-          <label for="leture_price" class="col-md-2 control-label"><%= t "edit_teaching.fee" %></label>
+          <label for="lecture_price" class="col-md-2 control-label"><%= t "edit_teaching.fee" %></label>
           <div class="col-md-4">
-            <select class="form-control" name="lecture_price">
-              <option value="0coin">0 <%= t "coin" %></option>
-              <option value="1coin">1 <%= t "coin" %></option>
-              <option value="2coins">2 <%= t "coin" %></option>
-              <option value="3coins">3 <%= t "coin" %></option>
-              <option value="4coins">4 <%= t "coin" %></option>
-              <option value="5coins">5 <%= t "coin" %></option>
-              <option value="6coins">6 <%= t "coin" %></option>
-              <option value="7coins">7 <%= t "coin" %></option>
-              <option value="8coins">8 <%= t "coin" %></option>
-              <option value="9coins">9 <%= t "coin" %></option>
-              <option value="10coins">10 <%= t "coin" %></option>
-            </select>
+            <%= f.select :lecture_price, options_for_select( [["0 " + (t "coin"), 0],
+                                                                ["1 " + (t "coin"), 1],
+                                                                ["2 " + (t "coin"), 2],
+                                                                ["3 " + (t "coin"), 3],
+                                                                ["4 " + (t "coin"), 4],
+                                                                ["5 " + (t "coin"), 5],
+                                                                ["6 " + (t "coin"), 6],
+                                                                ["7 " + (t "coin"), 7],
+                                                                ["8 " + (t "coin"), 8],
+                                                                ["9 " + (t "coin"), 9],
+                                                                ["10 " + (t "coin"), 10]] ), {}, { :class => "form-control" } %>
           </div>
           <div class="col-md-6" style="padding-top:7px">
             <%= t "edit_teaching.fee_describe" %>
