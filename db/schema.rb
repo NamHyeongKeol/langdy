@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510123442) do
+ActiveRecord::Schema.define(version: 20160512104253) do
 
   create_table "available_times", force: :cascade do |t|
     t.integer  "user_id"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20160510123442) do
   create_table "memos", force: :cascade do |t|
     t.text     "content"
     t.integer  "user_id"
-    t.integer  "lesson_id"
+    t.integer  "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -155,18 +155,18 @@ ActiveRecord::Schema.define(version: 20160510123442) do
     t.string   "profile_pic"
     t.string   "gender"
     t.string   "skype_id"
-    t.string   "lang_to_learn_1"
-    t.string   "lang_to_learn_2"
-    t.string   "lang_to_learn_3"
-    t.string   "rank_to_learn_1"
-    t.string   "rank_to_learn_2"
-    t.string   "rank_to_learn_3"
-    t.string   "lang_to_teach_1"
-    t.string   "lang_to_teach_2"
-    t.string   "lang_to_teach_3"
-    t.string   "rank_to_teach_1"
-    t.string   "rank_to_teach_2"
-    t.string   "rank_to_teach_3"
+    t.string   "lang_to_learn_1",        default: ""
+    t.string   "lang_to_learn_2",        default: ""
+    t.string   "lang_to_learn_3",        default: ""
+    t.string   "rank_to_learn_1",        default: ""
+    t.string   "rank_to_learn_2",        default: ""
+    t.string   "rank_to_learn_3",        default: ""
+    t.string   "lang_to_teach_1",        default: ""
+    t.string   "lang_to_teach_2",        default: ""
+    t.string   "lang_to_teach_3",        default: ""
+    t.string   "rank_to_teach_1",        default: ""
+    t.string   "rank_to_teach_2",        default: ""
+    t.string   "rank_to_teach_3",        default: ""
     t.string   "lang_to_learn"
     t.string   "native_lang"
     t.boolean  "inactive",               default: false

@@ -21,7 +21,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <div id="curri_text"></div>
+            <div id="curri_text" style="padding: 20px"></div>
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@
   $(document).ready(function(){
     loadLessons(false);
     $('#curri_btn').click(function(){
-      lesson_id = showSelectLesson();
+      lesson_id = showSelectCourse();
     });
     $('#memo_save_btn').click(function(){
       saveMemo(lesson_id, $('#memo_text').val());
@@ -99,5 +99,5 @@
 </script>
 
 <script tpye="text/javascript">
-  loadCourses();
+  loadCourses(2);
 </script>

@@ -11,9 +11,20 @@ class LectureRoomController < ApplicationController
   def give_lesson
   end
 
+  def get_selected_course
+    course = Course.find(params[:id].to_i)
+    memo = course.memos.where(user: current_user).take
+    
+    render json: {course: course, memo: if memo then memo.content else '' end }
+    # render json: {course: course, memo: if memo then memo.content else '' end, teacher_name: lesson.teacher.name }
+  end
+  
   def get_selected_lesson
-    lesson = Lesson.find(params[:id].to_i)
-    memo = lesson.memos.where(user: current_user).take
+    lesson = Lesson.find_by course_id: params[:id].to_i
+    
+    course = Course.find(params[:id].to_i)
+    memo = course.memos.where(user: current_user).take
+    
     render json: {course: lesson.course, memo: if memo then memo.content else '' end, teacher_name: lesson.teacher.name }
   end
 

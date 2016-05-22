@@ -8,7 +8,7 @@ class AdminController < ApplicationController
 		@teachers = User.where('is_teacher = ?', true)
 		@teacher_request = TeacherInfo.where('is_approved = ?', false)
 	end
-
+				
 	def cash
 		@transaction_requests = CashTransaction.all
 	end

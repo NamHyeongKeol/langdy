@@ -55,7 +55,8 @@ Rails.application.routes.draw do
   get 'give_lesson' => 'lecture_room#give_lesson', as: 'give_lesson'
   get 'lecture_room/get_lesson' => 'lecture_room#get_lesson'
   get 'lecture_room/save_memo' => 'lecture_room#save_memo'
-  get 'get_selected_lesson/:id' => 'lecture_room#get_selected_lesson'
+  get 'get_selected_course/:id' => 'lecture_room#get_selected_course'
+  get 'get_selected_lesson/:id' => 'lecture_room#get_selected_lesson' # '강의 듣기'에서만 사용
   get 'eval_lesson/:id' => 'lecture_room#eval_lesson'
 
   post 'confirm_lesson' => 'home#confirm_lesson'
