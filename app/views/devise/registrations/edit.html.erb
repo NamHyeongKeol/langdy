@@ -54,7 +54,7 @@
 				<!-- 사용자가 자신의 언어 nil로 바꾸려면 선택해주세요 선택해야 한다는 가이드 문구 필요함
 				-->
             <div class="col-md-9 col-md-offset-3 text-center" style="height:30px"><%= t "edit_personal.delete_info" %></div>
-              
+
             <div class="form-group" id="lang_to_teach_1">
               <%= f.label :lang_to_teach_1, ( t "edit_personal.language_to_teach" ), class: "col-md-3 control-label" %>
               <div class="col-md-3">
@@ -65,7 +65,7 @@
                 <%= f.select :rank_to_teach_1, options_for_select([[( t "edit_personal.select" ), ''], [( t "edit_personal.level3" ), '중상급'], [( t "edit_personal.level4" ), '고급'], [( t "edit_personal.level5" ), '모국어']], selected: current_user.rank_to_teach_1), {}, { :class => 'form-control' } %>
               </div>
             </div>
-    
+
             <div class="form-group" id="lang_to_teach_2" style="display: none;">
               <div class="col-md-3">&nbsp;</div>
               <div class="col-md-3">
@@ -79,7 +79,7 @@
                 <button type="button" class="btn btn-primary" onclick="removeItem(this, 'teach')">&times;</button>
               </div>
             </div>
-    
+
             <div class="form-group" id="lang_to_teach_3" style="display: none;">
               <div class="col-md-3">&nbsp;</div>
               <div class="col-md-3">
@@ -93,12 +93,12 @@
                 <button type="button" class="btn btn-primary" onclick="removeItem(this, 'teach')">&times;</button>
               </div>
             </div>
-    
+
             <div class="row" id="add_lang_to_teach">
               <a class="col-md-2 col-md-offset-3" style="height: 30px; cursor: pointer;"><%= t "edit_personal.add_language" %></a>
               <div class="col-md-7"></div>
             </div>
-    
+
             <div class="form-group" id="lang_to_learn_1">
               <%= f.label :lang_to_learn_1, ( t "edit_personal.language_to_learn" ), class: "col-md-3 control-label" %>
               <div class="col-md-3">
@@ -109,7 +109,7 @@
                 <%= f.select :rank_to_learn_1, options_for_select([[( t "edit_personal.select" ), ''], [( t "edit_personal.level1" ), '초급'], [( t "edit_personal.level2" ), '중하급'], [( t "edit_personal.level3" ), '중상급'], [( t "edit_personal.level4" ), '고급']], selected: current_user.rank_to_learn_1), {}, { :class => 'form-control' } %>
               </div>
             </div>
-    
+
             <div class="form-group" id="lang_to_learn_2" style="display: none;">
               <div class="col-md-3">&nbsp;</div>
               <div class="col-md-3">
@@ -123,7 +123,7 @@
                 <button type="button" class="btn btn-primary" onclick="removeItem(this, 'learn')">&times;</button>
               </div>
             </div>
-    
+
             <div class="form-group" id="lang_to_learn_3" style="display: none;">
               <div class="col-md-3">&nbsp;</div>
               <div class="col-md-3">
@@ -137,14 +137,14 @@
                 <button type="button" class="btn btn-primary" onclick="removeItem(this, 'learn')">&times;</button>
               </div>
             </div>
-    
+
             <div class="row" id="add_lang_to_learn">
               <a class="col-md-2 col-md-offset-3" style="height: 30px; cursor: pointer;"><%= t "edit_personal.add_language" %></a>
               <div class="col-md-7"></div>
             </div>
-                
+
             <div class="col-md-9 col-md-offset-3 text-center" style="height:30px"><%= t "edit_personal.password_info" %></div>
-            
+
             <!--div class="form-group">
               <label for="currentPassword" class="col-md-3 control-label"><%#= t "edit_personal.current_password" %></label>
               <div class="col-md-9">

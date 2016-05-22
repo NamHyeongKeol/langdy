@@ -66,15 +66,15 @@
               <div class="col-md-3">
                 <div class="col-md-12">
                   <h5 class="text-center"><%= t "teacher.info.the_number_of_lessons" %></h5>
-                  <h4 class="text-center"><b><%= @teacher.teacher_info.lecture_number %><%= t "teacher.info.times" %></b></h4>
+                  <h4 class="text-center"><b><%= @teacher.teacher_info.lecture_number or 0 %><%= t "teacher.info.times" %></b></h4>
                 </div>
                 <div class="col-md-12">
                   <h5 class="text-center"><%= t "teacher.info.rating" %></h5>
-                  <h4 class="text-center"><b><%= @teacher.teacher_info.rating %><%= t "teacher.info.score" %></b></h4>
+                  <h4 class="text-center"><b><%= @teacher.teacher_info.rating or 0 %><%= t "teacher.info.score" %></b></h4>
                 </div>
                 <div class="col-md-12">
                   <h5 class="text-center"><%= t "teacher.info.fee" %></h5>
-                  <h4 class="text-center"><b><%= @teacher.teacher_info.lecture_price %><%= t "coin" %></b></h4>
+                  <h4 class="text-center"><b><%= @teacher.teacher_info.lecture_price or 0 %><%= t "coin" %></b></h4>
                 </div>
               </div>  
             </div>
@@ -416,7 +416,7 @@
 </script>
 
 <script tpye="text/javascript">
-  loadCourses();
+  loadCourses(0);
 </script>
 
 <script>
