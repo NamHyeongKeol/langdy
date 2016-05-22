@@ -62,7 +62,7 @@
               </div>
               <%= f.label :rank_to_teach_1, ( t "edit_personal.level" ), class: "col-md-1 control-label" %>
               <div class="col-md-5">
-                <%= f.select :rank_to_teach_1, options_for_select([[( t "edit_personal.level" ), ''], [( t "edit_personal.level3" ), '중상급'], [( t "edit_personal.level4" ), '고급'], [( t "edit_personal.level5" ), '모국어']], selected: current_user.rank_to_teach_1), {}, { :class => 'form-control' } %>
+                <%= f.select :rank_to_teach_1, options_for_select([[( t "edit_personal.select" ), ''], [( t "edit_personal.level3" ), '중상급'], [( t "edit_personal.level4" ), '고급'], [( t "edit_personal.level5" ), '모국어']], selected: current_user.rank_to_teach_1), {}, { :class => 'form-control' } %>
               </div>
             </div>
     
