@@ -7,9 +7,10 @@ class CashController < ApplicationController
 
 	def submit_purchase
 		t = CashTransaction.new
-		t.sender = User.first #admin
+		t.sender = User.where(email: "chogi93@gmail.com").first || User.where(email: "grey_pastor@naver.com").first #admin
 		t.receiver = current_user
-		t.amount = params[:transaction][:amount]
+		t.amount = params[:transaction][:how_many]
+		#t.amoun^t = params[:transaction][:how_many]
 		t.save
 
     # coin 거래 프로세스 바꿔야함

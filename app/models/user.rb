@@ -18,7 +18,9 @@ class User < ActiveRecord::Base
   has_many :available_times
 
   has_many :memos
-  has_many :coin_history
+  has_many :coin_histories
+  has_many :send_cash_transactions, class_name: :CashTransaction, foreign_key: :sender_id
+  has_many :receive_cash_transactions, class_name: :CashTransaction, foreign_key: :receiver_id
 
   validate :rank_should_not_be_nil
 
