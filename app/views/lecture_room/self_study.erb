@@ -49,7 +49,7 @@
   $(document).ready(function(){
     loadLessons(true);
     $('#curri_btn').click(function(){
-      lesson_id = showSelectLesson();
+      lesson_id = showSelectCourse();
     });
     $('#memo_save_btn').click(function(){
       saveMemo(lesson_id, $('#memo_text').val());
@@ -58,5 +58,5 @@
 </script>
 
 <script tpye="text/javascript">
-  loadCourses();
+  loadCourses(1);
 </script>

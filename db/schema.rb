@@ -96,7 +96,7 @@ ActiveRecord::Schema.define(version: 20160512130459) do
   create_table "memos", force: :cascade do |t|
     t.text     "content"
     t.integer  "user_id"
-    t.integer  "lesson_id"
+    t.integer  "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
