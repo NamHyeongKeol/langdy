@@ -92,6 +92,9 @@
               <% @lesson_applying.reverse_each do |item| %>
                 <div class="row" id="lesson_applying<%= item.id %>">
                   <div class=lectureinfo>  
+                  <% if item.confirmed %>
+                    <h4><b>확정됨</b></h4>
+                  <% end %>
                     <h4><%= item.teacher.name %><%= t "my_page.lesson.requiring_message" %></h4>
                     <h5><%= t "my_page.lesson.time" %> : <%= item.get_period.html_safe %><h5>
                     <h5><%= t "my_page.lesson.curriculum" %> : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
