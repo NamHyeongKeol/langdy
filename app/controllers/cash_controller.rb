@@ -6,21 +6,24 @@ class CashController < ApplicationController
 	end
 
 	def submit_purchase
-		t = CashTransaction.new
-		t.sender = User.first #admin
-		t.receiver = current_user
-		t.amount = params[:transaction][:amount]
-		t.save
+    h = CoinHistory.new
+    h.user = current_user
+    h.is_buycoin = true
+    h.amount = params[:how_many]
+    h.start_time = Time.now
+    h.how_to_pay = params[:how_to_pay]
+    h.save
 
-    # coin 거래 프로세스 바꿔야함
-#    h = CoinHistory.new
-#    h.user = current_user
-#    h.is_buycoin = true
-#    h.buycoin_complete = false
-#    h.is_exchange = false
-#    h.exchange_complete = false
-#    h.amount = t.amount
-#    h.save
+    b = Buycoin.new
+    # b.coin_history = h # 될까?
+    # 정확히는 
+    b.coin_history = CoinHistory.where(user_id: h.user_id).order('id asc').last
+    # 해야 하지 않나?
+    b.amount = h.amount
+    b.how_to_pay = h.how_to_pay
+    b.account_holder = params[:account_holder] # 예금주
+    b.account_number = params[:account_number] # 계좌번호
+    b.save
 
 		redirect_to :dashboard
 	end

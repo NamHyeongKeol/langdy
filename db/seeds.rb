@@ -24,10 +24,10 @@ t = TeacherInfo.create!([{user_id: 5, major: "cs", school_grad: "snu", introduct
 t = TeacherInfo.create!([{user_id: 6, major: "cs", school_grad: "snu", introduction: "qwerqwer", location: "seoul", is_approved: true, created_at: "2016-04-11 10:19:33", updated_at: "2016-04-11 11:01:31", gender: "Male", lecture_price: 1, lecture_number: 10, rating: 5, student_number: 50, skype_id: "qwerqwer"}])
 
 # 형걸이용 코인내역
-CoinHistory.create!([{id: 1, user_id: 1, is_buycoin: true, buycoin_complete: false, is_exchange: false, exchange_comlete: false, amount: 5, time: "2016-04-23 18:57:00", created_at: "2016-04-23 09:58:16", updated_at: "2016-04-23 09:58:16"}])
-CoinHistory.create!([{ id: 2, user_id: 1, is_buycoin: true, buycoin_complete: false, is_exchange: false, exchange_comlete: false, amount: 5, time: "2016-04-23 10:02:53", created_at: "2016-04-23 09:58:51", updated_at: "2016-04-23 10:02:53"}])
-CoinHistory.create!([{ id: 3, user_id: 3, is_buycoin: true, buycoin_complete: false, is_exchange: false, exchange_comlete: false, amount: 5, time: "2016-04-23 10:02:57", created_at: "2016-04-23 09:59:54", updated_at: "2016-04-23 10:03:06"}])
-CoinHistory.create!([{ id: 4, user_id: 4, is_buycoin: true, buycoin_complete: true, is_exchange: false, exchange_comlete: false, amount: 5, time: "2016-04-23 10:01:03", created_at: "2016-04-23 10:01:03", updated_at: "2016-04-23 10:03:19"}])
+# CoinHistory.create!([{id: 1, user_id: 1, is_buycoin: true, buycoin_complete: false, is_exchange: false, exchange_complete: false, amount: 5, time: "2016-04-23 18:57:00", created_at: "2016-04-23 09:58:16", updated_at: "2016-04-23 09:58:16"}])
+# CoinHistory.create!([{ id: 2, user_id: 1, is_buycoin: true, buycoin_complete: false, is_exchange: false, exchange_complete: false, amount: 5, time: "2016-04-23 10:02:53", created_at: "2016-04-23 09:58:51", updated_at: "2016-04-23 10:02:53"}])
+# CoinHistory.create!([{ id: 3, user_id: 3, is_buycoin: true, buycoin_complete: false, is_exchange: false, exchange_complete: false, amount: 5, time: "2016-04-23 10:02:57", created_at: "2016-04-23 09:59:54", updated_at: "2016-04-23 10:03:06"}])
+# CoinHistory.create!([{ id: 4, user_id: 4, is_buycoin: true, buycoin_complete: true, is_exchange: false, exchange_complete: false, amount: 5, time: "2016-04-23 10:01:03", created_at: "2016-04-23 10:01:03", updated_at: "2016-04-23 10:03:19"}])
 
 course = Course.create!([{lang: 'Korean', rank: '고급', subject: 'Ch74. 출퇴근 시간 자율 제도, 친환경 마크', content: '
 <!DOCTYPE html>

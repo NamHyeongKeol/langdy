@@ -9,8 +9,19 @@ class AdminController < ApplicationController
 		@teacher_request = TeacherInfo.where('is_approved = ?', false)
 	end
 				
-	def cash
-		@transaction_requests = CashTransaction.all
+	def buycoin
+		@coin_histories = CoinHistory.all.order('id desc')
+    @buycoin_histories = CoinHistory.where(is_buycoin: true)
+	end
+
+	def transaction
+		@coin_histories = CoinHistory.all.order('id desc')
+    @transaction_histories = CoinHistory.where(is_transaction: true)
+	end
+
+	def exchange
+		@coin_histories = CoinHistory.all.order('id desc')
+    @exchange_histories = CoinHistory.where(is_exchange: true)
 	end
 
 	def feedback

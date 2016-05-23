@@ -22,3 +22,4 @@
 
 db/migrate/_20160522045947_change_column_in_memo.rb
 tags
+Lang_Dy.pem

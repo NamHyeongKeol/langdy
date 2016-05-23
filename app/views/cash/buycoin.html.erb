@@ -21,7 +21,7 @@
           <label for="input_current_coin" class="col-md-2 control-label"><%= t "coinpage.buy_page.current_coin" %></label>
           <div class="col-md-10">
             <div class="form-control">
-            <%= current_user.cash %><%= t "coin" %>
+              <%= current_user.cash %><%= t "coin" %>
             </div>
           </div>
         </div>
@@ -29,7 +29,7 @@
         <div class="form-group">
           <label for="input_howmany_coins" class="col-md-2 control-label"><%= t "coinpage.buy_page.buying_coin" %></label>
           <div class="col-md-10">
-            <select class="form-control" name="user[howmany_coins]" id="user_howmany_coins">
+            <select class="form-control" name="how_many" id="user_howmany_coins">
               <option value="5coins">5 <%= t "coin" %></option>
               <option value="10coins">10 <%= t "coin" %></option>
               <option value="15coins">15 <%= t "coin" %></option>
@@ -57,7 +57,7 @@
         <div class="form-group">
           <label for="input_howtopay_coins" class="col-md-2 control-label"><%= t "coinpage.buy_page.deposit_method" %></label>
           <div class="col-md-10">
-            <select class="form-control" name="user[howtopay_coins]" id="user_howtopay_coins">
+            <select class="form-control" name="how_to_pay" id="user_howtopay_coins">
               <option value="bank_transfer"><%= t "coinpage.buy_page.account_transfer" %></option>
               <option value="alipay"><%= t "coinpage.buy_page.alipay" %></option>
             </select>
@@ -78,14 +78,14 @@
         <div class="form-group">
           <label for="input_buyer_information" class="col-md-2 control-label"><%= t "coinpage.buy_page.name/id" %></label>
           <div class="col-md-10">
-            <input class="form-control" placeholder=<%= t "coinpage.buy_page.name/id_describe" %> autofocus="autofocus" type="text" name="user[buyer_information]" id="user_buyerinformation" />
+            <input class="form-control" placeholder=<%= t "coinpage.buy_page.name/id_describe" %> autofocus="autofocus" type="text" name="account_holder" id="user_buyerinformation" />
           </div>
         </div>
 
         <div class="form-group">
           <label for="input_buyer_account" class="col-md-2 control-label"><%= t "coinpage.buy_page.account_number" %></label>
           <div class="col-md-10">
-            <input class="form-control" placeholder=<%= t "coinpage.buy_page.account_number_describe" %> autofocus="autofocus" type="text" name="user[buyer_account]" id="user_buyeraccount" />
+            <input class="form-control" placeholder=<%= t "coinpage.buy_page.account_number_describe" %> autofocus="autofocus" type="text" name="account_number" id="user_buyeraccount" />
           </div>
         </div>
 

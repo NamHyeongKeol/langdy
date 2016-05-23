@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="list-group">
+        <%= render partial: '/admin/menu_list' %>
+      </div>
+    </div>
+
+    <div class="col-md-10">
+      <!-- Teacher requests -->
+      <div class="col-md-12">
+        <h2> Transaction List </h2>
+        <table class="table table-striped table-hover ">
+          <thead>
+            <tr>
+              <th class="col-md-2">Completion</th>
+              <th class="col-md-2">Receiver</th>
+              <th class="col-md-2">Sender</th>
+              <th class="col-md-2">Amount</th>
+              <th class="col-md-2">Withdrawal Date</th>
+              <th class="col-md-2">Deposit Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @transaction_histories.each do |h| %>
+              <tr>
+                <td><%= h.is_complete %></td>
+                <td><%= h.receiver_id %></td>
+                <td><%= h.sender_id %></td>
+                <td><%= h.amount %></td>
+                <td><%= h.start_time %></td>
+                <td><%= h.end_time %></td>
+                  <%# if h.is_permitted %>
+                  <%# else %>
+                    <%# link_to permit_purchase_path(h.id), {:class => "btn btn-default"} do %>
+                      <%# <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> %>
+                    <%# end %>
+                  <%# end %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <!-- Teacher requests -->
+
+    </div>
+
+  </div>
+</div>
+
