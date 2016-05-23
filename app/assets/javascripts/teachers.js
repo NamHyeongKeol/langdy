@@ -131,6 +131,8 @@ function confirm_lesson(confirm, lesson_id){
       lesson_id: lesson_id
     },
     success: function(data){
+      location.reload();
+      /*
       if (confirm) {
         $('#confirm_span'+lesson_id.toString()).empty();
         $('#confirm_span'+lesson_id.toString()).append('확정됨');
@@ -138,7 +140,7 @@ function confirm_lesson(confirm, lesson_id){
       else {
         $('#confirm_span'+lesson_id.toString()).empty();
         $('#confirm_span'+lesson_id.toString()).append('거절됨');
-      }
+      } */
     },
     error: function(){
       alert('Error occured!');

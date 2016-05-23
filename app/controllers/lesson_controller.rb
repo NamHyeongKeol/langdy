@@ -36,6 +36,17 @@ class LessonController < ApplicationController
 
 		render plain: 'OK'
 	end
+	
+	def cancelLesson
+		lesson = Lesson.find(params[:lesson_id])
+		lesson.is_canceled = true
+		
+		if lesson.save
+			render plain: 'OK' and return
+		end
+		
+		render plain: 'ERROR' and return
+	end
 
 	# Lesson JSON용 이벤트 클래스
 	class Event
@@ -49,7 +60,7 @@ class LessonController < ApplicationController
 
 	def getLessons
 		# 우선 선생님, 학생 모두의 레슨을 받아옴 (수정 가능성 있음)
-		lessons = Lesson.where("teacher_id = #{params[:user_id]} OR student_id = #{params[:user_id]} AND start_at >= #{params[:start]} AND end_at <= #{params[:end]}").all
+		lessons = Lesson.where("teacher_id = #{params[:user_id]} OR student_id = #{params[:user_id]} AND start_at >= #{params[:start]} AND end_at <= #{params[:end]}").where("is_canceled != ?", true).all
 
 		lessons_array = []
 		lessons.each do |item|

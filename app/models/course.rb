@@ -17,7 +17,7 @@ class Course < ActiveRecord::Base
   def getTag(user, is_student)
     if is_student == "1"
 
-      lesson = Lesson.where(course: self, student: user, confirmed: true).last
+      lesson = Lesson.where(course: self, student: user, confirmed: true).where('is_canceled != ?', true).last
       if lesson
 
         if lesson.end_at >= DateTime.now
@@ -31,7 +31,7 @@ class Course < ActiveRecord::Base
       end
 
     else # 선생님인 경우
-      lesson = Lesson.where(course: self, teacher: user, confirmed: true).last
+      lesson = Lesson.where(course: self, teacher: user, confirmed: true).where('is_canceled != ?', true).last
       if lesson
         if lesson.end_at >= DateTime.now
           return ["강의 예정"]
