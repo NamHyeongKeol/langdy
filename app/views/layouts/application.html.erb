@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Langdy</title>
+    <title>LangDy</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-
+    <link rel="shortcut icon" type="image/png" href="/assets/favicon.ico" style/>
+    
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/simplex/bootstrap.min.css" rel="stylesheet" integrity="sha256-rgHoMgF45/9e2kvxfvR0KarwQNw5CRqgxbrthGpeUuc= sha512-CGGV53FSdrXrjyGCNk04p+xuna3CbE33n773A0EEmqtcN8W3NaFsR0vSQcbll5dpSS90d3i2Zh3jFX/j46hzJA==" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </head>
@@ -15,7 +16,7 @@
       <div class="container">
         <div class="row">
           <div class="navbar-header col-md-3">
-            <a href="<%= url_for(:home) %>" class="navbar-brand"><img src="/images/logo1.png" height="20px" width="80px"></img></a>
+            <a href="<%= url_for(:home) %>" class="navbar-brand" style="padding:0px"><img src="/assets/logo1.png" height="40" width="100" ></img></a>
           </div>
           <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav col-md-5">
