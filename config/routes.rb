@@ -49,6 +49,7 @@ Rails.application.routes.draw do
 	# Lesson
 	post 'get_lessons' => 'lesson#getLessons', as: 'get_lessons'
 	post 'submit_lesson' => 'lesson#submitLesson', as: 'submit_lesson'
+  post 'cancel_lesson' => 'lesson#cancelLesson', as: 'cancel_lesson'
 
 	# Course
 	get 'get_courses/:lang' => 'course#getCourses', as: 'get_courses'

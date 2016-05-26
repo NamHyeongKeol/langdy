@@ -92,11 +92,22 @@
               <% @lesson_applying.reverse_each do |item| %>
                 <div class="row" id="lesson_applying<%= item.id %>">
                   <div class=lectureinfo>  
+                  <% if item.confirmed %>
+                    <h4><b>확정됨</b></h4>
+                  <% end %>
                     <h4><%= item.teacher.name %><%= t "my_page.lesson.requiring_message" %></h4>
                     <h5><%= t "my_page.lesson.time" %> : <%= item.get_period.html_safe %><h5>
                     <h5><%= t "my_page.lesson.curriculum" %> : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
                     <h5><%= t "my_page.lesson.fee" %> : <%= item.get_price.html_safe %> <%= t "coin" %></h5>
                     <h5><%= t "my_page.lesson.skype_id" %> : <%= item.teacher.skype_id %></h5>
+                    
+                    <% if !item.is_canceled %>
+                      <% if item.end_at >= DateTime.now %>
+                        <button type="button" class="btn btn-primary" onclick="cancelLesson(<%= item.id %>, this)">취소</button>
+                      <% end %>
+                    <% else %>
+                      <button type="button" class="btn btn-default disabled" onclick="cancelLesson(<%= item.id %>, this)">취소됨</button>
+                    <% end %>
                   </div> 
                 </div>
               <% end %>
@@ -190,4 +201,24 @@
       confirm_lesson($(this).data('confirmed'), $(this).parent().data('lesson_id'));
     });
   });
+  
+  function cancelLesson(lesson_id, object) {
+    $.ajax({
+      type: "POST",
+      url: '<%= url_for(:cancel_lesson) %>',
+      data: { lesson_id: lesson_id },
+      success: function(data) {
+        if (data == 'OK') {
+          disableCancelButton(object);
+        }
+      }
+    });
+  }
+  
+  function disableCancelButton(object) {
+    $(object).text('취소됨');
+    $(object).addClass('disabled');
+    $(object).removeClass('btn-primary');
+    $(object).addClass('btn-default');
+  }
 </script>

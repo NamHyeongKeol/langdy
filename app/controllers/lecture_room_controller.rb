@@ -30,9 +30,9 @@ class LectureRoomController < ApplicationController
 
   def get_lesson
     if params[:is_student] == 'true'
-      lessons = current_user.lesson_to_study.where(confirmed: true)
+      lessons = current_user.lesson_to_study.where(confirmed: true, is_canceled: false)
     else
-      lessons = current_user.lesson_to_teach.where(confirmed: true)
+      lessons = current_user.lesson_to_teach.where(confirmed: true, is_canceled: false)
     end
 
     data = []

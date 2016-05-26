@@ -23,7 +23,10 @@ class Lesson < ActiveRecord::Base
   def get_confirm_student
     result = ""
     if self.confirmed
-      result = I18n.t("my_page.timetable.confirmed") #확정됨
+      result = ' <button type="button" class="btn btn-primary" onclick="cancelLesson(' + self.id.to_s + ', this)">수락 취소</button>'
+      if self.end_at <= DateTime.now
+        result = ""
+      end
     else
       result = I18n.t("my_page.timetable.unconfirmed") #미확정
     end
@@ -32,11 +35,20 @@ class Lesson < ActiveRecord::Base
 
   def get_confirm_teacher
     result = ""
-    if self.confirmed
-      result = I18n.t("my_page.timetable.confirmed") #확정됨
+    
+    if self.is_canceled
+      result = ' <button type="button" class="btn btn-default disabled" onclick="cancelLesson(' + self.id.to_s + ', this)">취소됨</button>'
     else
-      result = result + ' <button data-confirmed="true" class="confirm_btn btn btn-info">' + I18n.t("my_page.lesson.required_accept") + '</button> <button data-confirmed="false" class="confirm_btn btn btn-primary">' + I18n.t("my_page.lesson.required_reject") + '</button>' #수락, 거절
+      if self.confirmed
+        result = ' <button type="button" class="btn btn-primary" onclick="cancelLesson(' + self.id.to_s + ', this)">수락 취소</button>'
+        if self.end_at <= DateTime.now
+          result = ""
+        end
+      else
+        result = result + ' <button data-confirmed="true" class="confirm_btn btn btn-info">' + I18n.t("my_page.lesson.required_accept") + '</button> <button data-confirmed="false" class="confirm_btn btn btn-primary">' + I18n.t("my_page.lesson.required_reject") + '</button>' #수락, 거절
+      end
     end
+    
     return result
   end
 
