@@ -24,7 +24,7 @@ class Lesson < ActiveRecord::Base
     result = ""
     if self.confirmed
       result = ' <button type="button" class="btn btn-primary" onclick="cancelLesson(' + self.id.to_s + ', this)">수락 취소</button>'
-      if self.end_at >= DateTime.now
+      if self.end_at <= DateTime.now
         result = ""
       end
     else
@@ -41,7 +41,7 @@ class Lesson < ActiveRecord::Base
     else
       if self.confirmed
         result = ' <button type="button" class="btn btn-primary" onclick="cancelLesson(' + self.id.to_s + ', this)">수락 취소</button>'
-        if self.end_at >= DateTime.now
+        if self.end_at <= DateTime.now
           result = ""
         end
       else
