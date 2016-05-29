@@ -6,9 +6,9 @@ class CoinHistory < ActiveRecord::Base
 
   def type
     if self.is_buycoin
-      return "코인 구매"
+      return "상품권 구매"
     elsif self.is_exchange
-      return "코인 환전"
+      return "상품권 환전"
     else
       return "강의료 전송"
     end
@@ -16,9 +16,9 @@ class CoinHistory < ActiveRecord::Base
 
   def is_complete
     case self.type
-    when "코인 구매"
+    when "상품권 구매"
       return self.buycoin_complete
-    when "코인 환전"
+    when "상품권 환전"
       return self.exchange_complete
     when "강의료 전송"
       return self.transaction_complete

@@ -1,7 +1,7 @@
 class CreateCashTransactions < ActiveRecord::Migration
 	def change
 		create_table :cash_transactions do |t|
-      # cash transaction은 수강시 학생에서 선생에게 넘어가는 코인 흐름의 데이터다
+      # cash transaction은 수강시 학생에서 선생에게 넘어가는 상품권 흐름의 데이터다
 
       t.references :sender
 			t.references :receiver
