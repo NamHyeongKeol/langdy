@@ -214,7 +214,7 @@ ch:
     exchange_message3: ""
     button_to_mypage: "去我的主页"
     bottom_message1: "一定会成为会话达人的，"
-    bottom_message1: "加油！练得是您加强的后盾"
+    bottom_message2: "加油！练得是您加强的后盾"
   coinpage:
     mainpage:
       buy_button_title: "购买听课卷"
