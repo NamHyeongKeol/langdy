@@ -28,7 +28,37 @@ class AdminController < ApplicationController
     render plain: 'ERROR' and return
   end
 
+	def exchange
+		@coin_histories = CoinHistory.all.order('id desc')
+    @exchange_histories = CoinHistory.where(is_exchange: true)
+	end
+
   def cancelBuycoin
+    h = CoinHistory.find(params[:history_id])
+    h.set_complete
+
+    if h.save
+      render plain: 'OK' and return
+    end
+
+    render plain: 'ERROR' and return
+  end
+
+  def exchangeCoin
+    h = CoinHistory.find(params[:history_id])
+    h.user.cash -= h.amount
+    h.user.save
+    h.end_time = Time.now.to_formatted_s(:db)
+    h.set_complete
+
+    if h.save
+      render plain: 'OK' and return
+    end
+
+    render plain: 'ERROR' and return
+  end
+
+  def cancelExchangeCoin
     h = CoinHistory.find(params[:history_id])
     h.set_complete
 
@@ -42,11 +72,6 @@ class AdminController < ApplicationController
 	def transaction
 		@coin_histories = CoinHistory.all.order('id desc')
     @transaction_histories = CoinHistory.where(is_transaction: true)
-	end
-
-	def exchange
-		@coin_histories = CoinHistory.all.order('id desc')
-    @exchange_histories = CoinHistory.where(is_exchange: true)
 	end
 
 	def feedback

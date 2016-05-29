@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post 'charge_coin' => 'admin#chargeCoin', as: 'admin_charge_coin'
   post 'cancel_buycoin' => 'admin#cancelBuycoin', as: 'admin_cancel_buycoin'
 	get 'admin/exchange' => 'admin#exchange', as: 'admin_exchange'
+	post 'exchange_coin' => 'admin#exchangeCoin', as: 'admin_exchange_coin'
+	post 'cancel_exchange_coin' => 'admin#cancelExchangeCoin', as: 'admin_cancel_exchange_coin'
 	get 'admin/transaction' => 'admin#transaction', as: 'admin_transaction'
 	get 'admin/feedback' => 'admin#feedback', as: 'admin_feedback'
   get 'admin/set_cash' => 'admin#set_cash'
@@ -42,6 +44,7 @@ Rails.application.routes.draw do
 
 	post 'submit_purchase' => 'cash#submit_purchase', as: 'submit_purchase'
 	get 'permit_purchase/:id' => 'cash#permit_purchase', as: 'permit_purchase'
+	post 'submit_exchange' => 'cash#submit_exchange', as: 'submit_exchange'
 
 	post 'feedback' => 'home#feedback', as: 'feedback'
 
