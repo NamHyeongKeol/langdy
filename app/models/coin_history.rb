@@ -24,4 +24,15 @@ class CoinHistory < ActiveRecord::Base
       return self.transaction_complete
     end
   end
+
+  def set_complete
+    case self.type
+    when "상품권 구매"
+      self.buycoin_complete = true
+    when "상품권 환전"
+      self.exchange_complete = true
+    when "강의료 전송"
+      self.transaction_complete = true
+    end
+  end
 end

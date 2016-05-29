@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 	get 'admin' => 'admin#index', as: 'admin'
 	get 'admin/teacher' => 'admin#teacher', as: 'admin_teacher'
 	get 'admin/buycoin' => 'admin#buycoin', as: 'admin_buycoin'
+  post 'charge_coin' => 'admin#chargeCoin', as: 'admin_charge_coin'
+  post 'cancel_buycoin' => 'admin#cancelBuycoin', as: 'admin_cancel_buycoin'
 	get 'admin/exchange' => 'admin#exchange', as: 'admin_exchange'
 	get 'admin/transaction' => 'admin#transaction', as: 'admin_transaction'
 	get 'admin/feedback' => 'admin#feedback', as: 'admin_feedback'

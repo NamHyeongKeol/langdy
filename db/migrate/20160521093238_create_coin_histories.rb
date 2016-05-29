@@ -14,7 +14,7 @@ class CreateCoinHistories < ActiveRecord::Migration
       t.datetime :start_time # 상품권 거래 발생 시각
       # is_transaction 인 경우 학생의 돈이 빠져나간 시각 = 선생이 ajax로 승인한 시각
       # is_buycoin 이나 is_exchange 인 경우 유저가 신청한 시각
-      t.datetime :end_time # 상품권 거래 완료 시각
+      t.datetime :end_time # 상품권 거래 완료 시각, 만약 승인되지 않으면 nil로 유지, default 값도 nil
       # is_transaction 인 경우 선생에게 상품권이 입금된 시각
       # is_buycoin 이나 is_exchange 인 경우 운영진이 완료한 시각
       t.timestamps null: false
