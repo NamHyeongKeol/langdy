@@ -73,8 +73,8 @@ ko:
     lesson:
       requiring: "내가 신청한 강의"
       required: "나에게 신청된 강의"
-      requiring_message: "님에게 강의를 신청했습니다."
-      required_message: "님이 강의를 신청했습니다."
+      requiring_message: "신청 대상"
+      required_message: "신청자"
       required_accept: "수락"
       required_reject: "거절"
       time: "강의시간"
@@ -83,6 +83,9 @@ ko:
       skype_id: "스카이프 아이디"
       accepted: "수락함"
       rejected: "거절함"
+      cancel: "취소"
+      canceled: "취소됨"
+      acception_cancel: "수락 취소"
   edit_personal:
     title: "개인 프로필"
     photo: "프로필 사진"

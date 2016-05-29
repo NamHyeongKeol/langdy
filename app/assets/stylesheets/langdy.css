@@ -34,9 +34,9 @@ Theme Designer Version: 2016.05.24.0943
 	bottom: 0px;
 	
 	margin: 0px;
-	/*이벤트 셀 배경 색깔 지정 */
-	background-color: #faefed;
-	/*이벤트 셀 배경 색깔 지정 */
+	/*확정된 강의 시간표 셀 배경 색깔 지정 */
+	background-color: #ffffff;
+	/*확정된 강의 시간표 셀 배경 색깔 지정 */
 	
 	
 	padding: 2px;
@@ -197,7 +197,7 @@ Theme Designer Version: 2016.05.24.0943
 	border-right: 1px solid #eeeeee;
 	border-bottom: 1px solid #eeeeee;
 	/*전체 셀 배경 색깔 지정 */
-	background: #f9f9f9;
+	background: #ffffff;
 	/*전체 셀 배경 색깔 지정 */
 }
 
@@ -214,7 +214,7 @@ Theme Designer Version: 2016.05.24.0943
 	filter: alpha(opacity=90);
 	
 	color: #ffffff;
-	background: #ffa216;
+	background: #ffffff;
 	
 }
 
@@ -234,7 +234,7 @@ Theme Designer Version: 2016.05.24.0943
 	left: 0px;
 	bottom: 0px;
 	width: 4px;
-	background-color: #ffff;
+	background-color: #ffffff;
 }
 
 .langdy_event_bar_inner  

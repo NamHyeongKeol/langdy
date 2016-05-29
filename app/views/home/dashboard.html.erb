@@ -92,22 +92,26 @@
               <% @lesson_applying.reverse_each do |item| %>
                 <div class="row" id="lesson_applying<%= item.id %>">
                   <div class=lectureinfo>  
+                  
+                  <h5>
+                  <%= t "my_page.lesson.requiring_message" %> : <%= item.teacher.name %>
                   <% if item.confirmed %>
-                    <h4><b>확정됨</b></h4>
+                    <button type="button" class="btn btn-sm btn-primary disabled"><%= t "my_page.timetable.confirmed" %></button>
                   <% end %>
-                    <h4><%= item.teacher.name %><%= t "my_page.lesson.requiring_message" %></h4>
+                  
+                  <% if !item.is_canceled %>
+                      <% if item.end_at >= DateTime.now %>
+                        <button type="button" class="btn btn-sm btn-default" onclick="cancelLesson(<%= item.id %>, this)"><%= t "my_page.lesson.cancel" %></button>
+                      <% end %>
+                  <% else %>
+                    <button type="button" class="btn btn-sm btn-default disabled" onclick="cancelLesson(<%= item.id %>, this)"><%= t "my_page.lesson.canceled" %></button>
+                  <% end %>
+                  </h5>
+                  
                     <h5><%= t "my_page.lesson.time" %> : <%= item.get_period.html_safe %><h5>
                     <h5><%= t "my_page.lesson.curriculum" %> : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
                     <!--<h5><%#= t "my_page.lesson.fee" %> : <#%= item.get_price.html_safe %> <#%= t "coin" %></h5>-->
                     <h5><%= t "my_page.lesson.skype_id" %> : <%= item.teacher.skype_id %></h5>
-                    
-                    <% if !item.is_canceled %>
-                      <% if item.end_at >= DateTime.now %>
-                        <button type="button" class="btn btn-primary" onclick="cancelLesson(<%= item.id %>, this)">취소</button>
-                      <% end %>
-                    <% else %>
-                      <button type="button" class="btn btn-default disabled" onclick="cancelLesson(<%= item.id %>, this)">취소됨</button>
-                    <% end %>
                   </div> 
                 </div>
               <% end %>
@@ -127,7 +131,7 @@
               <% @lesson_applied.reverse_each do |item| %>
                 <div class="row" id="lesson_applied<%= item.id %>">
                   <div class=lectureinfo>
-                    <h4><%= item.student.name %><%= t "my_page.lesson.required_message" %><span data-lesson_id="<%= item.id.to_s %>" id="confirm_span<%= item.id.to_s %>"><%= item.get_confirm_teacher.html_safe %></span></h4>
+                    <h5><%= t "my_page.lesson.required_message" %> : <%= item.student.name %><span data-lesson_id="<%= item.id.to_s %>" id="confirm_span<%= item.id.to_s %>"><%= item.get_confirm_teacher.html_safe %></span></h5>
                     <h5><%= t "my_page.lesson.time" %> : <%= item.get_period.html_safe %><h5>
                     <h5><%= t "my_page.lesson.curriculum" %> : <%= item.course.lang %> <%= item.course.rank %> <%= item.course.subject %><h5>
                     <!--<h5><%#= t "my_page.lesson.fee" %> : <%#= item.get_price.html_safe %><%#= t "coin" %></h5>-->
@@ -158,7 +162,7 @@
   show_availables_on_calendar(dp,my_avail);
   dp.viewType = "Week";
   dp.eventMoveHandling = "Disabled";
-
+  dp.cssClassPrefix = "langdy";
   dp.init();
 
   loadEvents();
@@ -216,7 +220,7 @@
   }
   
   function disableCancelButton(object) {
-    $(object).text('취소됨');
+    $(object).text(<%= t "my_page.lesson.canceled" %>);
     $(object).addClass('disabled');
     $(object).removeClass('btn-primary');
     $(object).addClass('btn-default');
