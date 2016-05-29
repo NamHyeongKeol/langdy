@@ -70,7 +70,7 @@ class LectureRoomController < ApplicationController
       Evaluation.create(lesson: lesson, rate: params[:rate].to_f, comment: params[:comment])
     end
 
-    # 이미 지불된 수업은 상품권을 교환하지 않음
+    # 이미 지불된 수업은 수강권을 교환하지 않음
     if lesson.state != 'paid'
       teacher = lesson.teacher
       teacher.update(cash: teacher.cash + teacher.teacher_info.lecture_price)
