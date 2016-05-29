@@ -13,12 +13,14 @@
         <table class="table table-striped table-hover ">
           <thead>
             <tr>
-              <th class="col-md-2">Completion</th>
-              <th class="col-md-2">How To Pay</th>
-              <th class="col-md-2">Account</th>
+              <th class="col-md-1">Completion</th>
+              <th class="col-md-1">How To Pay</th>
+              <th class="col-md-1">Account Holder</th>
               <th class="col-md-2">Account Number</th>
-              <th class="col-md-2">Amount</th>
-              <th class="col-md-2">Date</th>
+              <th class="col-md-1">Amount</th>
+              <th class="col-md-2">Start Date</th>
+              <th class="col-md-2">End Date</th>
+              <th class="col-md-2">Dispose</th>
             </tr>
           </thead>
           <tbody>
@@ -30,6 +32,9 @@
                 <td><%= h.buycoin.account_number %></td>
                 <td><%= h.amount %></td>
                 <td><%= h.start_time %></td>
+                <td><%= h.end_time || "아직 완료되지 않았습니다." %></td>
+                <td><button type="button" class="btn btn-primary" onclick="cancelLesson(<%= item.id %>, this)">취소</button></td>
+                <td></td>
                   <%# if h.is_permitted %>
                   <%# else %>
                     <%# link_to permit_purchase_path(h.id), {:class => "btn btn-default"} do %>
