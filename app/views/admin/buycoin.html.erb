@@ -70,7 +70,7 @@
   function chargeCoin(h_id, object) {
     $.ajax({
       type: "POST",
-      url: '<%= url_for(:admin_cancel_buycoin) %>',
+      url: '<%= url_for(:admin_charge_coin) %>',
       data: { history_id: h_id },
       success: function(data) {
         if (data == 'OK') {
@@ -88,7 +88,7 @@
   function cancelBuycoin(h_id, object) {
     $.ajax({
       type: "POST",
-      url: '<%= url_for(:admin_charge_coin) %>',
+      url: '<%= url_for(:admin_cancel_buycoin) %>',
       data: { history_id: h_id },
       success: function(data) {
         if (data == 'OK') {
