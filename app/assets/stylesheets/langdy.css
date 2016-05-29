@@ -2,15 +2,15 @@
 /* 
 
 DayPilot Calendar Theme 
-http://themes.daypilot.org/calendar/theme/5kploo
+http://themes.daypilot.org/calendar/theme/kcmerf
 
-Theme Designer Version: 2015.12.01.0938
+Theme Designer Version: 2016.05.24.0943
 
 */
 
 .langdy_main 
 {
-	border: 1px solid #aaaaaa;
+	border: 1px solid #c0c0c0;
 }
 
 .langdy_main, .langdy_main td 
@@ -20,11 +20,7 @@ Theme Designer Version: 2015.12.01.0938
 }
 
 .langdy_event { 
-	color: #363636;
-	
-	-moz-border-radius: 1px;
-	-webkit-border-radius: 1px;
-	border-radius: 1px;
+	color: #333333;
 	
 }
 
@@ -39,21 +35,22 @@ Theme Designer Version: 2015.12.01.0938
 	
 	margin: 0px;
 	/*이벤트 셀 배경 색깔 지정 */
-	background-color: #E86555;
+	background-color: #faefed;
 	/*이벤트 셀 배경 색깔 지정 */
-	
-	-moz-border-radius: 1px;
-	-webkit-border-radius: 1px;
-	border-radius: 1px;
 	
 	
 	padding: 2px;
 	
 	
+	padding-left: 6px;
+	
 	
 	border: 1px solid #cccccc;
 	
-	text-align:center;
+	
+	
+	
+	
 }
 
 .langdy_alldayevent { 
@@ -71,7 +68,7 @@ Theme Designer Version: 2015.12.01.0938
 	
 	margin: 0px;
 
-	color: #666666;
+	color: #333333;
 	background-color: #ffffff;
 	
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#fafafa));  
@@ -103,19 +100,11 @@ Theme Designer Version: 2015.12.01.0938
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
-	border-right: 1px solid #aaaaaa;
-	border-bottom: 1px solid  #aaaaaa;
+	border-right: 1px solid #c0c0c0;
+	border-bottom: 1px solid  #c0c0c0;
 
-	color: #666666;
-	background: #eeeeee;
-	
-	background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#e9e9e9));
-	background: -webkit-linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	background: -moz-linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	background: -ms-linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	background: -o-linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	background: linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#f3f3f3", endColorStr="#e9e9e9");
+	color: #333333;
+	background: #f3f3f3;
 	
 
 }
@@ -129,19 +118,11 @@ Theme Designer Version: 2015.12.01.0938
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
-	border-right: 1px solid #aaaaaa;
-	border-bottom: 1px solid #aaaaaa;
+	border-right: 1px solid #c0c0c0;
+	border-bottom: 1px solid #c0c0c0;
 	
-	color: #666666;
-	background: #eeeeee;
-	
-	background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#e9e9e9));
-	background: -webkit-linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	background: -moz-linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	background: -ms-linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	background: -o-linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	background: linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#f3f3f3", endColorStr="#e9e9e9");
+	color: #333333;
+	background: #f3f3f3;
 	
 }
 
@@ -155,19 +136,11 @@ Theme Designer Version: 2015.12.01.0938
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
-	border-right: 1px solid #aaaaaa;
-	border-bottom: 1px solid  #aaaaaa;
+	border-right: 1px solid #c0c0c0;
+	border-bottom: 1px solid  #c0c0c0;
 	
-	color: #666666;
-	background: #eeeeee;
-	
-	background: -webkit-gradient(linear, left top, right top, from(#f3f3f3), to(#e9e9e9));
-	background: -webkit-linear-gradient(left, #f3f3f3 0%, #e9e9e9);
-	background: -moz-linear-gradient(left, #f3f3f3 0%, #e9e9e9);
-	background: -ms-linear-gradient(left, #f3f3f3 0%, #e9e9e9);
-	background: -o-linear-gradient(left, #f3f3f3 0%, #e9e9e9);
-	background: linear-gradient(left, #f3f3f3 0%, #e9e9e9);
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#f3f3f3", endColorStr="#e9e9e9", GradientType=1);
+	color: #333333;
+	background: #f3f3f3;
 	
 }
 
@@ -186,19 +159,11 @@ Theme Designer Version: 2015.12.01.0938
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
-	border-right: 1px solid #aaaaaa;
-	border-bottom: 1px solid  #aaaaaa;
+	border-right: 1px solid #c0c0c0;
+	border-bottom: 1px solid  #c0c0c0;
 
-	color: #666666;
-	background: #eeeeee;
-	
-	background: -webkit-gradient(linear, left top, right top, from(#f3f3f3), to(#e9e9e9));
-	background: -webkit-linear-gradient(left, #f3f3f3 0%, #e9e9e9);
-	background: -moz-linear-gradient(left, #f3f3f3 0%, #e9e9e9);
-	background: -ms-linear-gradient(left, #f3f3f3 0%, #e9e9e9);
-	background: -o-linear-gradient(left, #f3f3f3 0%, #e9e9e9);
-	background: linear-gradient(left, #f3f3f3 0%, #e9e9e9);
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#f3f3f3", endColorStr="#e9e9e9", GradientType=1);
+	color: #333333;
+	background: #f3f3f3;
 	
 }
 
@@ -209,19 +174,11 @@ Theme Designer Version: 2015.12.01.0938
 	left: 0px;
 	bottom: 0px;
 	right: 0px;
-	border-right: 1px solid #aaaaaa;
-	border-bottom: 1px solid  #aaaaaa;
+	border-right: 1px solid #c0c0c0;
+	border-bottom: 1px solid  #c0c0c0;
 
-	color: #666666;
-	background: #eeeeee;
-	
-	background: -webkit-gradient(linear, left top, left bottom, from(#f3f3f3), to(#e9e9e9));
-	background: -webkit-linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	background: -moz-linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	background: -ms-linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	background: -o-linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	background: linear-gradient(top, #f3f3f3 0%, #e9e9e9);
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#f3f3f3", endColorStr="#e9e9e9");
+	color: #333333;
+	background: #f3f3f3;
 	
 
 }
@@ -240,7 +197,7 @@ Theme Designer Version: 2015.12.01.0938
 	border-right: 1px solid #eeeeee;
 	border-bottom: 1px solid #eeeeee;
 	/*전체 셀 배경 색깔 지정 */
-	background: #ffffff;
+	background: #f9f9f9;
 	/*전체 셀 배경 색깔 지정 */
 }
 
@@ -268,12 +225,24 @@ Theme Designer Version: 2015.12.01.0938
 	filter: alpha(opacity=50);
 	height: 100%;
 	
-	-moz-border-radius: 1px;
-	-webkit-border-radius: 1px;
-	border-radius: 1px;
-	
 }
 
+
+.langdy_event_bar
+{
+	top: 0px;
+	left: 0px;
+	bottom: 0px;
+	width: 4px;
+	background-color: #ffff;
+}
+
+.langdy_event_bar_inner  
+{
+	position: absolute;
+	width: 4px;
+	background-color: #e72510;
+}
 
 
 

@@ -6,7 +6,7 @@ class CreateTeacherInfos < ActiveRecord::Migration
 			t.string :major
 			t.string :school_grad
 
-			t.text :introduction
+			t.text :introduction, default: nil
 
 			t.string :location
 

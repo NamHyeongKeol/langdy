@@ -72,10 +72,12 @@
                   <h5 class="text-center"><%= t "teacher.info.rating" %></h5>
                   <h4 class="text-center"><b><%= @teacher.teacher_info.rating or 0 %><%= t "teacher.info.score" %></b></h4>
                 </div>
+                <!--
                 <div class="col-md-12">
-                  <h5 class="text-center"><%= t "teacher.info.fee" %></h5>
-                  <h4 class="text-center"><b><%= @teacher.teacher_info.lecture_price or 0 %><%= t "coin" %></b></h4>
+                  <h5 class="text-center"><%#= t "teacher.info.fee" %></h5>
+                  <h4 class="text-center"><b><%#= @teacher.teacher_info.lecture_price or 0 %><%#= t "coin" %></b></h4>
                 </div>
+                -->
               </div>  
             </div>
             
@@ -212,7 +214,6 @@
       <div class="col-md-3">
         <div id="lessonSelect" class="panel panel-default">
           <form class="panel-body">
-            <div class="panel-body">
               <div id="alert-teacher" class="alert alert-danger" role="alert" style="display: none;"><b></b></div>
               
                 <!--<%#= @teacher.teacher_info.lecture_price %> coins / 1 hour-->
@@ -280,7 +281,7 @@
                       <div class="modal-body">
                         <div class="well">
                           <p><b><%= t "teacher_request.teacher" %> : <%= @teacher.name %></b></p>
-                          <p><b><%= t "teacher_request.fee" %> : <%= @teacher.teacher_info.lecture_price %><%= t "coin" %></b></p>
+                          <!--<p><b><#%= t "teacher_request.fee" %> : <#%= @teacher.teacher_info.lecture_price %><%#= t "coin" %></b></p>-->
                           <p><b><%= t "teacher_request.time" %> : <span class="selectTimeInput"></span></b></p>
                           <p><b><%= t "teacher_request.curriculum" %> : <span class="courseSubject"></span></b></p>
                         </div>
@@ -306,49 +307,55 @@
                 </div>
               </div>
               
+              
               <!-- Section - Confirm Free Lecture -->
+<!--              
               <div class="input-group">
                 <button type="button" class="btn btn-success col-md-12" data-toggle="modal" data-target="#applyFreeModal">
-                  <%= t "teacher_request.exchange.title" %>
+                  <%#= t "teacher_request.exchange.title" %>
                 </button>
+-->  
                 
                 <!-- Modal For Apply Free Lecture -->
+<!--
                 <div class="modal fade" id="applyFreeModal" tabindex="-1" role="dialog" aria-labelledby="applyFreeLabel" aria-hidden="true">
                   <div class="modal-dialog">
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="applyFreeLabel"><%= t "teacher_request.exchange.title" %></h4>
+                        <h4 class="modal-title" id="applyFreeLabel"><%#= t "teacher_request.exchange.title" %></h4>
                       </div>
                       <div class="modal-body">
                         <div class="well">
-                          <p><%= t "teacher_request.teacher" %> : <%= @teacher.name %></p>
-                          <p><%= t "teacher_request.fee" %> : <%= @teacher.teacher_info.lecture_price %><%= t "coin" %></p>
-                          <p><%= t "teacher_request.time" %> : <span class="selectTimeInput"></span></p>
-                          <p><%= t "teacher_request.curriculum" %> : <span class="courseSubject"></span></p>
+                          <p><%#= t "teacher_request.teacher" %> : <%#= @teacher.name %></p>
+-->                          
+                          <!--<p><%#= t "teacher_request.fee" %> : <%#= @teacher.teacher_info.lecture_price %><%#= t "coin" %></p>-->
+<!--
+                          <p><%#= t "teacher_request.time" %> : <span class="selectTimeInput"></span></p>
+                          <p><%#= t "teacher_request.curriculum" %> : <span class="courseSubject"></span></p>
                         </div>
                         <div class="well">
-                          <%= t "teacher_request.exchange.check_title" %>
-                          <p><input type="checkbox" required><%= t "teacher_request.exchange.check_describe1" %></p>
-                          <p><input type="checkbox" required><%= t "teacher_request.exchange.check_describe2" %></p>
-                          <p><input type="checkbox" required><%= t "teacher_request.exchange.check_describe3" %></p>
-                          <p><input type="checkbox" required><%= t "teacher_request.exchange.check_describe4" %></p>
-                          <p><input type="checkbox" required><%= t "teacher_request.exchange.check_describe5" %></p>
+                          <%#= t "teacher_request.exchange.check_title" %>
+                          <p><input type="checkbox" required><%#= t "teacher_request.exchange.check_describe1" %></p>
+                          <p><input type="checkbox" required><%#= t "teacher_request.exchange.check_describe2" %></p>
+                          <p><input type="checkbox" required><%#= t "teacher_request.exchange.check_describe3" %></p>
+                          <p><input type="checkbox" required><%#= t "teacher_request.exchange.check_describe4" %></p>
+                          <p><input type="checkbox" required><%#= t "teacher_request.exchange.check_describe5" %></p>
                           
                           <p><input type="checkbox" class="check-all"> <b>전체 동의</b></p>
                         </div>
                       </div>
                       <div class="modal-footer">
-                        <button id="free_lesson_submit_btn" type="button" class="btn btn-primary"><%= t "teacher_request.finish" %></button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t "teacher_request.cancel" %></button>
+                        <button id="free_lesson_submit_btn" type="button" class="btn btn-primary"><%#= t "teacher_request.finish" %></button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal"><%#= t "teacher_request.cancel" %></button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+-->              
+              <!--<%#= link_to "무료 매칭 신청", select_time_path(@teacher), class: "btn btn-success col-md-12" %>-->
               
-              <!--<%= link_to "무료 매칭 신청", select_time_path(@teacher), class: "btn btn-success col-md-12" %>-->
-            </div>
           </form>
         </div>
 
