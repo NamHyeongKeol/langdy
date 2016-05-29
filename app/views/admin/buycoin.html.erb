@@ -33,7 +33,7 @@
                 <td><%= h.amount %></td>
                 <td><%= h.start_time %></td>
                 <td><%= h.end_time || "아직 완료되지 않았습니다." %></td>
-                <td><button type="button" class="btn btn-primary" onclick="cancelLesson(<%= item.id %>, this)">취소</button></td>
+                <td><button type="button" class="btn btn-primary" onclick="cancelLesson(<%= h.id %>, this)">취소</button></td>
                 <td></td>
                   <%# if h.is_permitted %>
                   <%# else %>
