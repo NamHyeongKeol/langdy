@@ -21,25 +21,25 @@ class Course < ActiveRecord::Base
       if lesson
 
         if lesson.end_at >= DateTime.now
-          return ["수강 예정"]
+          return ["수강 예정"] #(t "teacher.curriculum.s_scheduled")
         else
-          return ["수강 완료"]
+          return ["수강 완료"] #(t "teacher.curriculum.s_finished")
         end
 
       else
-        return ["미수강"]
+        return ["미수강"] #(t "teacher.curriculum.s_unregistered")
       end
 
     else # 선생님인 경우
       lesson = Lesson.where(course: self, teacher: user, confirmed: true).where('is_canceled != ?', true).last
       if lesson
         if lesson.end_at >= DateTime.now
-          return ["강의 예정"]
+          return ["강의 예정"] #(t "teacher.curriculum.t_scheduled")
         else
-          return ["강의 완료"]
+          return ["강의 완료"] #(t "teacher.curriculum.t_finished")
         end
       else
-        return ["미신청"]
+        return ["미신청"] #(t "teacher.curriculum.t_unregistered")
       end    
       
     end
@@ -47,9 +47,9 @@ class Course < ActiveRecord::Base
 
   def getSelectable(tag,mi,ye,wa) # parameters mi: 미수강 | 미신청, ye: 수강 예정 | 강의 예정, wa: 수강 완료 | 강의 완료
     case tag
-    when "미수강", "미신청"
+    when "미수강", "미신청" #(t "teacher.curriculum.s_unregistered"), (t "teacher.curriculum.t_unregistered")
       return mi == "true"
-    when "수강 예정", "강의 예정"
+    when "수강 예정", "강의 예정" #(t "teacher.curriculum.s_scheduled"), (t "teacher.curriculum.t_scheduled")
       return ye == "true"
     else
       return wa == "true"
