@@ -43,10 +43,11 @@
         </div>  
         -->
         
+        <!--
         <div class="form-group">
           <label for="lecture_price" class="col-md-2 control-label"><%= t "edit_teaching.fee" %></label>
           <div class="col-md-4">
-            <%= f.select :lecture_price, options_for_select( [["0 " + (t "coin"), 0],
+            <%# f.select :lecture_price, options_for_select( [["0 " + (t "coin"), 0],
                                                                 ["1 " + (t "coin"), 1],
                                                                 ["2 " + (t "coin"), 2],
                                                                 ["3 " + (t "coin"), 3],
@@ -59,9 +60,10 @@
                                                                 ["10 " + (t "coin"), 10]], @teacher_info.lecture_price ), {}, { :class => "form-control" } %>
           </div>
           <div class="col-md-6" style="padding-top:7px">
-            <%= t "edit_teaching.fee_describe" %>
+            <%# t "edit_teaching.fee_describe" %>
           </div>  
         </div>
+        -->
         <div class="col-md-12" style="height:10px"></div>
         
         <div class="form-group">
