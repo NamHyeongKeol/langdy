@@ -10,6 +10,11 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
+ 
+# Ignore the default SQLite database.
+/db/*.sql
+/db/*.dmp
+/db/sqlite3-to-mysql/
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -23,3 +28,6 @@
 db/migrate/_20160522045947_change_column_in_memo.rb
 tags
 Lang_Dy.pem
+config/backup_database.yml
+config/database.yml.sqlite3
+t-2.compute.internal>
