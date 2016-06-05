@@ -36,11 +36,11 @@ class LessonController < ApplicationController
 
 		render plain: 'OK'
 	end
-	
+
 	def cancelLesson
 		lesson = Lesson.find(params[:lesson_id])
 		lesson.is_canceled = true
-		
+
 		if lesson.save
 			render plain: 'OK' and return
 		end

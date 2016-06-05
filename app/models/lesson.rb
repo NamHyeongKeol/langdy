@@ -23,7 +23,7 @@ class Lesson < ActiveRecord::Base
   def get_confirm_student
     result = ""
     if self.confirmed
-      result = ' <button type="button" class="btn btn-primary" onclick="cancelLesson(' + self.id.to_s + ', this)">수락 취소</button>'
+      result = ' <button type="button" class="btn btn-sm btn-primary" onclick="cancelLesson(' + self.id.to_s + ', this)">' + I18n.t("my_page.lesson.acception_cancel") + '</button>'
       if self.end_at <= DateTime.now
         result = ""
       end
@@ -37,15 +37,15 @@ class Lesson < ActiveRecord::Base
     result = ""
     
     if self.is_canceled
-      result = ' <button type="button" class="btn btn-default disabled" onclick="cancelLesson(' + self.id.to_s + ', this)">취소됨</button>'
+      result = ' <button type="button" class="btn btn-sm btn-default disabled" onclick="cancelLesson(' + self.id.to_s + ', this)">' + I18n.t("my_page.lesson.canceled") + '</button>'
     else
       if self.confirmed
-        result = ' <button type="button" class="btn btn-primary" onclick="cancelLesson(' + self.id.to_s + ', this)">수락 취소</button>'
+        result = ' <button type="button" class="btn btn-sm btn-primary" onclick="cancelLesson(' + self.id.to_s + ', this)">' + I18n.t("my_page.lesson.acception_cancel") + '</button>'
         if self.end_at <= DateTime.now
           result = ""
         end
       else
-        result = result + ' <button data-confirmed="true" class="confirm_btn btn btn-info">' + I18n.t("my_page.lesson.required_accept") + '</button> <button data-confirmed="false" class="confirm_btn btn btn-primary">' + I18n.t("my_page.lesson.required_reject") + '</button>' #수락, 거절
+        result = result + ' <button data-confirmed="true" class="confirm_btn btn btn-sm btn-primary">' + I18n.t("my_page.lesson.required_accept") + '</button> <button data-confirmed="false" class="confirm_btn btn btn-sm btn-default">' + I18n.t("my_page.lesson.required_reject") + '</button>' #수락, 거절
       end
     end
     
@@ -80,7 +80,7 @@ class Lesson < ActiveRecord::Base
     if self.confirmed
       result = result + " | " + I18n.t("my_page.timetable.confirmed") #확정됨
     else
-      result = result + ' <button data-confirmed="true" class="confirm_btn btn btn-info">' + I18n.t("my_page.lesson.required_accept") + '</button> <button data-confirmed="false" class="confirm_btn btn btn-primary">' + I18n.t("my_page.lesson.required_accept") + '</button>' #수락, 거절
+      result = result + ' <button data-confirmed="true" class="confirm_btn btn btn-sm btn-primary">' + I18n.t("my_page.lesson.required_accept") + '</button> <button data-confirmed="false" class="confirm_btn btn btn-sm btn-default">' + I18n.t("my_page.lesson.required_accept") + '</button>' #수락, 거절
     end
     result = result + '</span>'
     return result.html_safe
