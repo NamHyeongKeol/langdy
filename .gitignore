@@ -16,6 +16,11 @@
 /db/*.dmp
 /db/sqlite3-to-mysql/
 
+# Ignore config/database.yml and backup_database.yml
+/config/database.yml
+/config/backup_database.yml
+/config/database.yml.sqlite3
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
@@ -28,6 +33,4 @@
 db/migrate/_20160522045947_change_column_in_memo.rb
 tags
 Lang_Dy.pem
-config/backup_database.yml
-config/database.yml.sqlite3
 t-2.compute.internal>
