@@ -60,13 +60,13 @@ function passSelectCourse() {
  */
 function submitLessonValidation() {
   if (!eventStatic) {
-    $('#alert-teacher b').text('강의 시간을 선택해 주세요.');
+    $('#alert-teacher b').text('강의 시간을 선택해주세요.'); 
     $('#alert-teacher').show();
     return false;
   }
   
   if ($("#courseId").val() == "") {
-    $('#alert-teacher b').text('커리큘럼을 선택해 주세요.');
+    $('#alert-teacher b').text('커리큘럼을 선택해주세요.');
     $('#alert-teacher').show();
     return false;
   }
