@@ -346,9 +346,10 @@ ch:
           attributes:
             password:
               blank: "请输入密码"
-              too_short: "请输入密码八字以上"
+              too_short: "请输入密码八字以上（翻译确认必要）"
             password_confirmation:
-              confirmation: "두 비밀번호가 일치하지 않습니다"
+              confirmation: "两个密码不一致（翻译确认必要）"
             email:
-              taken: "이미 사용 중인 이메일입니다"
-              invalid: "올바른 이메일 주소를 입력해주세요"
+              blank: "请输入电邮"
+              taken: "是已使用的电邮（翻译确认必要）"
+              invalid: "请输入准确的电邮（翻译确认必要）"

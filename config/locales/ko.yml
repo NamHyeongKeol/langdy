@@ -350,5 +350,6 @@ ko:
             password_confirmation:
               confirmation: "두 비밀번호가 일치하지 않습니다"
             email:
+              blank: "이메일을 입력해주세요"
               taken: "이미 사용 중인 이메일입니다"
-              invalid: "올바른 이메일 주소를 입력해주세요"
+              invalid: "올바른 이메일을 입력해주세요"
