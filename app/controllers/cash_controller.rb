@@ -69,7 +69,7 @@ class CashController < ApplicationController
   end
 
 	def coinhistory
-		@coin_histories = current_user.coin_history.to_a
+		@coin_histories = current_user.coin_histories
 	end
 	
 end
