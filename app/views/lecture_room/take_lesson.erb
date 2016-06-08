@@ -95,13 +95,13 @@
       <div id="rate_body" class="modal-body">
         <h3 id="teacher_name"></h3>
         <% for i in 1..5 do %>
-          <input type="radio" name="rating" value="<%= i %>"> <%= i %>점
+          <input type="radio" name="rating" value="<%= i %>"> <%= i %><%= t "classroom.rate.score_describe"%>
         <% end %>
         <br>
         <br>
         <div class="form-group">
           <label for="comment"><%= t "classroom.rate.review_title"%></label>
-          <input type="text" class="form-control" id="comment" name="comment" placeholder="평가를 남겨주세요">
+          <input type="text" class="form-control" id="comment" name="comment" placeholder="<%= t "classroom.rate.review_describe"%>">
         </div>
       </div>
       <div class="modal-footer">

@@ -206,6 +206,9 @@ ko:
       check_describe4: "상대방 승인 후에는 기준 시점인 강의 시간 24시간 이전까지만 취소가 가능합니다."
       check_describe5: ""
     agree_all : "전체 동의"
+    request_time : "강의 시간을 선택해주세요"
+    request_curriculum : "강의 컨텐츠를 선택해주세요"
+    request_agree : "강의 신청 규정에 동의해주세요"
     teacher  : "선생님"
     fee  : "강의료"
     time  : "강의 시간"
@@ -330,7 +333,23 @@ ko:
       modal_title: "강의 종료"
       modal_describe: "강의는 잘 들으셨나요? 선생님에게 줄 점수와 평가를 입력해 주시면 감사하겠습니다."
       score_title: "점수 주기"
-      score_describe: ""
+      score_describe: "점"
       review_title: "후기 남기기"
-      review_describe: ""
+      review_describe: "선생님에 대한 평가를 남겨주세요"
+      cancel: "취소"
+      finish: "확인"
     skype_guide  : "랭디 페이지를 왼쪽에, 스카이프를 오른쪽에 두고 학습하시면 됩니다."
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "비밀번호를 입력해주세요"
+              too_short: "비밀번호를 8글자 이상 입력해주세요"
+            password_confirmation:
+              confirmation: "두 비밀번호가 일치하지 않습니다"
+            email:
+              blank: "이메일을 입력해주세요"
+              taken: "이미 사용 중인 이메일입니다"
+              invalid: "올바른 이메일을 입력해주세요"

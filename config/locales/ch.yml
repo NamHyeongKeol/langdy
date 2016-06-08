@@ -170,7 +170,7 @@ ch:
       title: "选择上课时间"
       describe: "尽可能选择老师方便的时间，否则的话，申请容易被拒绝"
       cancel: "取消"
-      select: "中级"
+      select: "选择"
     curriculum:
       title: "选择上课内容"
       level1: "初级"
@@ -206,6 +206,9 @@ ch:
       check_describe4: "在对方确认后，只能取消离上课时间24小时之前的课程"
       check_describe5: ""
     agree_all : "全体同意"
+    request_time : "请选择学习时间"
+    request_curriculum : "请选择学习内容"
+    request_agree : "请同意申请听课规定"
     teacher: "老师"
     fee: "课时费"
     time: "上课时间"
@@ -330,7 +333,23 @@ ch:
       modal_title: "下课"
       modal_describe: "课上的怎么样呢？请为老师打分、写评语"
       score_title: "打分"
-      score_describe: ""
+      score_describe: "分"
       review_title: "课后感想"
-      review_describe: ""
+      review_describe: "请留下对老师的评价"
+      cancel: "取消"
+      finish: "确认"
     skype_guide: "把练得主页放到桌面左边，skype放到桌面右边即可"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              blank: "请输入密码"
+              too_short: "请输入密码八字以上（翻译确认必要）"
+            password_confirmation:
+              confirmation: "两个密码不一致（翻译确认必要）"
+            email:
+              blank: "请输入电邮"
+              taken: "是已使用的电邮（翻译确认必要）"
+              invalid: "请输入准确的电邮（翻译确认必要）"

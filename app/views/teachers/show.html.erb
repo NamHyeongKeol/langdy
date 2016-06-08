@@ -433,14 +433,14 @@
       if (validateCheckbox(false)) {
         submitLesson(<%= @teacher.id %>, <%= @teacher.teacher_info.lecture_price %>, false);
       } else {
-        alert("강의 신청 규정에 동의해 주세요.");
+        alert("<%= t "teacher_request.request_agree" %>");
       }
     });
     $('#free_lesson_submit_btn').click(function(){
       if (validateCheckbox(true)) {
         submitLesson(<%= @teacher.id %>, <%= @teacher.teacher_info.lecture_price %>, true);
       } else {
-        alert("강의 신청 규정에 동의해 주세요.");
+        alert("<%= t "teacher_request.request_agree" %>");
       }
     });
     $('.check-all').click(function() {
